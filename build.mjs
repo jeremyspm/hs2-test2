@@ -103,11 +103,21 @@ for (const z of bank.quizzes) {
       questions.push({ ...base, type: 'cloze', blanks: q.key.blanks, pts: Math.max(base.pts, q.key.blanks.length) });
       kept++; return;
     }
-    /* options family */
-    const opts = [...new Set((q.answers || []).map(a => a.text).filter(Boolean))];
-    const key = q.key.correct || [];
-    if (!opts.length || !key.length || !key.every(k => opts.includes(k))) {
+    /* options family. Some of her MCQs store options as bare letters (a/b/c/d)
+       with the real text only in each answer's title attribute — enrich from the
+       title, keys re-derived through the SAME rule so they can never diverge. */
+    const cleanTitle = t => (t || '').replace(/\.?\s*This was the correct answer\.?$/i, '').trim();
+    const enrich = a => { const t = (a.text || '').trim(), ti = cleanTitle(a.titleAttr);
+      return (t.length < 3 && ti.length >= 3) ? ti : t; };
+    const ans = (q.answers || []).filter(a => (a.text || '').trim() || cleanTitle(a.titleAttr));
+    const opts = [...new Set(ans.map(enrich).filter(Boolean))];
+    const key = [...new Set(ans.filter(a => a.correctClass || a.weight === '100').map(enrich))];
+    const lettered = opts.every(o => o.length < 3) && /\b[a-d]\.\s/.test(stem);
+    if (!opts.length || opts.length < 2 || !key.length || !key.every(k => opts.includes(k))) {
       held.push({ quiz: qname, why: 'key text not among options', q: stem.slice(0, 80) }); return;
+    }
+    if (opts.some(o => o.length < 3) && !lettered && !imgs.length) {
+      held.push({ quiz: qname, why: 'letter-only options with no lettered stem or image', q: stem.slice(0, 80) }); return;
     }
     const type = q.type === 'true_false_question' ? 'tf'
       : q.type === 'multiple_answers_question' ? 'multi' : 'mcq';
