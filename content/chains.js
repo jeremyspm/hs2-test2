@@ -97,6 +97,62 @@ export const CHAINS = [
       { t: 'Blood glucose rises — negative feedback both ways' },
     ],
   },
+  /* The four below are named OUTRIGHT in her "Diagrams & Processes in Test 2"
+     post (discussion 413313) as sequential processes Test 2 may examine. */
+  {
+    id: 'csf', sys: 'ns', name: 'Cerebrospinal fluid — production to reabsorption',
+    src: 'Her Test-2 focus post · 2026 NS2 deck (protection of the CNS)',
+    beads: [
+      { t: 'Choroid plexuses in the ventricles produce CSF' },
+      { v: 'it flows through the' },
+      { t: 'Lateral ventricles → third ventricle → cerebral aqueduct → fourth ventricle' },
+      { v: 'then out into the' },
+      { t: 'Subarachnoid space, bathing brain and spinal cord' },
+      { v: 'and is finally reabsorbed into venous blood through the' },
+      { t: 'Arachnoid villi (granulations) into the dural sinuses' },
+    ],
+  },
+  {
+    id: 'endochondral', sys: 'ms', name: 'Endochondral ossification (long bones)',
+    src: 'Her Test-2 focus post · 2026 MS1 deck',
+    beads: [
+      { t: 'Hyaline cartilage template of the future bone' },
+      { v: 'a bone collar forms and the centre calcifies, then' },
+      { t: 'Blood vessels invade — the primary ossification centre' },
+      { v: 'osteoblasts replace cartilage with bone toward the ends, and after birth' },
+      { t: 'Secondary ossification centres form in the epiphyses' },
+      { v: 'leaving cartilage only at the' },
+      { t: 'Epiphyseal (growth) plates and articular surfaces' },
+      { v: 'growth ends when the plates close — the' },
+      { t: 'Epiphyseal line' },
+    ],
+  },
+  {
+    id: 'intramembranous', sys: 'ms', name: 'Intramembranous ossification (flat bones)',
+    src: 'Her Test-2 focus post · 2026 MS1 deck (skull, clavicle, sternum)',
+    beads: [
+      { t: 'A sheet of mesenchymal (fibrous) tissue — no cartilage template' },
+      { v: 'cells cluster and differentiate into' },
+      { t: 'Osteoblasts at an ossification centre' },
+      { v: 'which secrete osteoid that calcifies into' },
+      { t: 'Trabeculae of spongy bone' },
+      { v: 'compact bone plates form at the surfaces, giving the' },
+      { t: 'Flat bones — skull, clavicle, sternum' },
+    ],
+  },
+  {
+    id: 'hpa-axis', sys: 'endo', name: 'Hypothalamus → pituitary → adrenal cortex',
+    src: 'Her Test-2 focus post · Endocrine 1–2 decks (stress cascade)',
+    beads: [
+      { t: 'Stress — the hypothalamus releases CRH' },
+      { v: 'which tells the' },
+      { t: 'Anterior pituitary to release ACTH' },
+      { v: 'which stimulates the' },
+      { t: 'Adrenal CORTEX to release cortisol' },
+      { v: 'raising blood glucose and suppressing inflammation — and high cortisol' },
+      { t: 'Feeds back to SUPPRESS CRH and ACTH (negative feedback)' },
+    ],
+  },
   {
     id: 'thyroid-axis', sys: 'endo', name: 'Hypothalamus → pituitary → thyroid',
     src: 'Endocrine 1 deck (control of hormone secretion · feedback cycles)',

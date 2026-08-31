@@ -55,8 +55,11 @@ export function loadPassages() {
     }
   }
   for (const f of fs.readdirSync(fileDir)) {
-    if (!/^2026 (MS|NS|Endocrine)/i.test(f)) continue;
-    const deck = f.replace(/\.pptx\.txt$/, '').replace(/^2026 /, '');
+    /* the 2026 teaching decks plus her Mod 2 revision decks (2023/2019 vintage,
+       reused for 2026 — named honestly, no invented year) */
+    if (!/^(2026 (MS|NS|Endocrine)|Mod 2 Revision)/i.test(f)) continue;
+    const base = f.replace(/\.pptx\.txt$/, '');
+    const deck = base.replace(/^2026 /, '');
     const text = fs.readFileSync(path.join(fileDir, f), 'utf8');
     for (const m of text.split(/--- slide (\d+) ---/).slice(1).reduce((a, v, i, arr) => (i % 2 === 0 && a.push([v, arr[i + 1] || '']), a), [])) {
       const [n, body] = m;
@@ -66,8 +69,8 @@ export function loadPassages() {
       if ((clean.match(/\b(Describe|Explain|Identify|Differentiate)\b/g) || []).length >= 2) continue;
       if ((clean.match(/\?/g) || []).length >= 3) continue;
       if (/(links to an external site|chapter \d+|check your understanding|patton box)/i.test(clean)) continue;
-      const slug = ('2026 ' + deck).replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '');
-      passages.push({ t: clean.replace(/https?:\/\/\S+/g, ' ').slice(0, 420), src: `2026 ${deck} deck · slide ${n}`, page: false, slug, n: +n });
+      const slug = base.replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      passages.push({ t: clean.replace(/https?:\/\/\S+/g, ' ').slice(0, 420), src: `${base} deck · slide ${n}`, page: false, slug, n: +n });
     }
   }
   for (const p of passages) p.terms = terms(p.t);
