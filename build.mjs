@@ -131,13 +131,31 @@ for (const z of bank.quizzes) {
 /* ── the explain layer: video + verbatim passage per question ──────── */
 const videos = loadVideos(path.join(HERE, 'content'));
 const passages = loadPassages();
-let nVid = 0, nRef = 0;
+const SLIDESRC = path.join(CAP, 'slides');
+let nVid = 0, nRef = 0, nSlide = 0;
+const usedSlides = new Set();
 for (const q of questions) {
   const v = matchVideo(q, videos); if (v) { q.vid = v; nVid++; }
-  const r = matchPassage(q, passages); if (r) { q.ref = r; nRef++; }
+  const r = matchPassage(q, passages);
+  if (r) {
+    if (r.slug) {
+      const png = path.join(SLIDESRC, r.slug, `slide-${r.n}.png`);
+      if (fs.existsSync(png)) {
+        const name = `${r.slug}-${r.n}.jpg`;
+        usedSlides.add(JSON.stringify([png, name]));
+        q.ref = { src: r.src, slide: name }; nSlide++;
+      } /* no rendered slide -> no ref: never point at a picture we can't show */
+    } else q.ref = { t: r.t, src: r.src };
+    if (q.ref) nRef++;
+  }
 }
 console.log(`explain layer: ${nVid}/${questions.length} questions matched a video (${Math.round(100 * nVid / questions.length)}%), ` +
-  `${nRef} matched a slide/page passage (${Math.round(100 * nRef / questions.length)}%) — from ${videos.length} videos, ${passages.length} passages`);
+  `${nRef} matched her material (${nSlide} as real slide images) — from ${videos.length} videos, ${passages.length} passages`);
+/* compress + ship only the referenced slides */
+const SLIDEOUT = path.join(HERE, 'img', 'slides');
+fs.mkdirSync(SLIDEOUT, { recursive: true });
+fs.writeFileSync(path.join(HERE, 'slides-todo.json'),
+  JSON.stringify([...usedSlides].map(s => JSON.parse(s)), null, 1));
 
 /* ── gates ─────────────────────────────────────────────────────────── */
 const fails = [];

@@ -77,6 +77,13 @@ textarea{min-height:120px}
 .mk .marks{font-size:.8rem;color:var(--muted-fg)}
 .steps label{display:flex;gap:8px;align-items:flex-start;margin:6px 0;cursor:pointer}
 .refq{font-size:.85rem;color:var(--muted-fg);margin:8px 0 2px;padding:8px 10px;background:var(--muted);border-radius:8px}
+.refq.slide{padding:6px}
+.slideimg{max-width:100%;background:#fff;border-radius:6px;display:block;margin:0 0 4px}
+.keyrows{margin:6px 0}
+.krow{font-size:.85rem;padding:3px 0;border-bottom:1px dashed var(--border)}
+.krow b{color:var(--ok);font-weight:600}
+.krow.kok{opacity:.55}
+.kyou{color:var(--danger);font-size:.78rem}
 .refsrc{font-size:.74rem;color:var(--muted-fg);opacity:.8}
 .vidrow{font-size:.86rem;margin:6px 0}
 .vidrow a{font-weight:600}
@@ -383,8 +390,8 @@ function mark(){
       const cls=r.got>=r.tot?'right':'wrong';
       return `<div class="mk ${cls}"><b>${esc(q.q).slice(0,300)}</b>
         <div class="marks">${(+r.got.toFixed(1))}/${r.tot} mk · ${esc(DATA.quizzes.find(z=>z.id===q.quiz)?.name||q.quiz)}</div>
-        ${r.you?`<div class="you">You: ${esc(r.you)}</div>`:`<div class="you">${r.detail||''}</div>`}
-        ${r.got<r.tot?`<div class="keyline">Key: ${esc(keyText(q))}</div>${explainHTML(q)}`:''}</div>`}).join('')}
+        ${q.type==='mcq'||q.type==='tf'||q.type==='multi'?(r.you?`<div class="you">You: ${esc(r.you)}</div>`:`<div class="you">${r.detail||''}</div>`):''}
+        ${r.got<r.tot?`${keyHTML(q,SIT.ans[q.id])}${explainHTML(q)}`:''}</div>`}).join('')}
     ${weakSpotsHTML(rows)}
     <button class="btn primary wide" id="doneB">Save score & finish</button></div>`;
   const upd=()=>{
@@ -405,7 +412,8 @@ function mark(){
    Only on wrong answers, never during a sitting. */
 function explainHTML(q){
   let h='';
-  if(q.ref)h+=`<div class="refq">📖 <i>“${esc(q.ref.t)}”</i><span class="refsrc"> — ${esc(q.ref.src)}</span></div>`;
+  if(q.ref&&q.ref.slide)h+=`<div class="refq slide"><a href="img/slides/${q.ref.slide}" target="_blank" rel="noopener"><img class="slideimg" src="img/slides/${q.ref.slide}" alt="her slide" loading="lazy"></a><span class="refsrc">📖 ${esc(q.ref.src)} — tap to open full size</span></div>`;
+  else if(q.ref)h+=`<div class="refq">📖 <i>“${esc(q.ref.t)}”</i><span class="refsrc"> — ${esc(q.ref.src)}</span></div>`;
   if(q.vid)h+=`<div class="vidrow">▶ <a href="https://www.youtube.com/watch?v=${q.vid.id}" target="_blank" rel="noopener">${esc(q.vid.t)}</a> <span class="refsrc">Dr Matt &amp; Dr Mike · ${esc(q.vid.d)}</span></div>`;
   h+=`<button class="btn ghost askai" data-ask="${q.id}">🤖 Copy for AI</button>`;
   return h;
@@ -423,6 +431,18 @@ function weakSpotsHTML(rows){
     Watch these before your next sitting:
     ${[...vids.values()].slice(0,4).map(v=>`<div class="vidrow">▶ <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener">${esc(v.t)}</a> <span class="refsrc">${esc(v.d)}</span></div>`).join('')}
     <div class="refsrc">Video matching is automatic from titles — a hypothesis, not a promise. Where a video and Hannetjie disagree, she wins.</div></div>`;
+}
+/* readable key rendering: matching and cloze get one ROW per part, wrong parts
+   annotated with what you picked — never a run-on paragraph */
+function keyHTML(q,a){
+  if(q.type==='match')return `<div class="keyrows">${q.pairs.map((p,i)=>{
+    const yours=(a&&a.pick||{})[i];const wrong=yours&&yours!==p.right;
+    return `<div class="krow ${yours===p.right?'kok':''}">${esc(p.left)} <b>→ ${esc(p.right)}</b>${wrong?` <span class="kyou">you: ${esc(yours)}</span>`:yours?'':' <span class="kyou">unanswered</span>'}</div>`}).join('')}</div>`;
+  if(q.type==='cloze')return `<div class="keyrows">${q.blanks.map((b,i)=>{
+    const yours=(a&&a.pick||{})[i];const nrm=s=>String(s||'').toLowerCase().replace(/\s+/g,' ').trim();
+    const right=yours&&b.options.some(o=>nrm(o)===nrm(yours));
+    return `<div class="krow ${right?'kok':''}">${esc(b.label.replace(/:$/,''))} <b>→ ${esc(b.correct)}</b>${yours&&!right?` <span class="kyou">you: ${esc(yours)}</span>`:''}</div>`}).join('')}</div>`;
+  return `<div class="keyline">Key: ${esc(keyText(q))}</div>`;
 }
 function keyText(q){
   if(q.type==='match')return q.pairs.map(p=>`${p.left} → ${p.right}`).join(' · ');

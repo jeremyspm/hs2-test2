@@ -49,7 +49,7 @@ export function loadPassages() {
         /* question blocks, reading lists and link cruft ask/point rather than teach */
         const cruft = /(links to an external site|chapter \d+|check your understanding|scroll through|patton (and|&) thibodeau|\bquiz\b|questions? can you)/i;
         if (joined.length > 40 && (joined.match(/\?/g) || []).length < 3 && !/\[image:/i.test(joined) && !cruft.test(joined))
-          passages.push({ t: joined.slice(0, 420), src, page: true });
+          passages.push({ t: joined.replace(/https?:\/\/\S+/g, ' ').slice(0, 420), src, page: true });
         buf = [];
       }
     }
@@ -66,7 +66,8 @@ export function loadPassages() {
       if ((clean.match(/\b(Describe|Explain|Identify|Differentiate)\b/g) || []).length >= 2) continue;
       if ((clean.match(/\?/g) || []).length >= 3) continue;
       if (/(links to an external site|chapter \d+|check your understanding|patton box)/i.test(clean)) continue;
-      passages.push({ t: clean.slice(0, 420), src: `2026 ${deck} deck, slide ${n}`, page: false });
+      const slug = ('2026 ' + deck).replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      passages.push({ t: clean.replace(/https?:\/\/\S+/g, ' ').slice(0, 420), src: `2026 ${deck} deck · slide ${n}`, page: false, slug, n: +n });
     }
   }
   for (const p of passages) p.terms = terms(p.t);
@@ -123,7 +124,9 @@ export function matchPassage(q, passages) {
     const { s, hits } = score(p.terms, keyT, stemT);
     if (hits < 3) continue;                       // a quote must really be about it
     const rank = s * (p.page ? 1.15 : 1);         // clean prose beats slide fragments
-    if (!best || rank > best.rank) best = { rank, t: p.t, src: p.src };
+    if (!best || rank > best.rank) best = p.page
+      ? { rank, t: p.t, src: p.src }
+      : { rank, src: p.src, slug: p.slug, n: p.n };  // deck ref -> show the SLIDE, not its text scraping
   }
-  return best && { t: best.t, src: best.src };
+  return best && (best.t ? { t: best.t, src: best.src } : { src: best.src, slug: best.slug, n: best.n });
 }
