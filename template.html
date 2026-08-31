@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HS2 · Paper Sim — Module 2</title>
+<style>
+/* ── estate tokens (house.css contract, dark default) ─────────────── */
+:root{
+  --bg:hsl(225 33% 5%); --fg:hsl(225 31% 95%); --card:hsl(224 44% 10%);
+  --primary:hsl(218 91% 64%); --onprimary:hsl(225 33% 5%);
+  --muted:hsl(220 38% 13%); --muted-fg:hsl(218 19% 67%);
+  --accent:hsl(219 40% 18%); --danger:hsl(0 84% 60%); --ok:hsl(158 64% 42%);
+  --warn:hsl(38 92% 55%); --border:hsl(222 27% 19%); --radius:.625rem;
+  --dur:200ms; --ease:cubic-bezier(.4,0,.2,1);
+}
+:root[data-theme=light]{
+  --bg:hsl(214 47% 97%); --fg:hsl(222 47% 11%); --card:hsl(0 0% 100%);
+  --onprimary:#fff; --muted:hsl(215 40% 93%); --muted-fg:hsl(220 12% 40%);
+  --accent:hsl(216 45% 91%); --border:hsl(215 33% 89%); --warn:hsl(38 92% 40%);
+}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--fg);
+  font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  -webkit-text-size-adjust:100%}
+header{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:10px;padding:10px 14px}
+header h1{font-size:1rem;margin:0;flex:1;font-weight:700}
+header .d{color:var(--muted-fg);font-size:.8rem;white-space:nowrap}
+main{max-width:720px;margin:0 auto;padding:14px 14px 90px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:14px;margin:0 0 12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;
+  border:1px solid var(--border);background:var(--muted);color:var(--fg);
+  border-radius:var(--radius);padding:10px 14px;font:inherit;font-weight:600;
+  transition:background var(--dur) var(--ease)}
+.btn.primary{background:var(--primary);border-color:var(--primary);color:var(--onprimary)}
+.btn.ghost{background:transparent}
+.btn.wide{width:100%;margin-top:8px}
+.btn:disabled{opacity:.45;cursor:default}
+.door h2{margin:.1rem 0 .3rem;font-size:1.02rem}
+.door p{margin:.2rem 0 .6rem;color:var(--muted-fg);font-size:.88rem}
+.qlist{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.qrow{display:flex;align-items:center;gap:8px;border:1px solid var(--border);
+  border-radius:var(--radius);padding:8px 10px;background:var(--muted)}
+.qrow b{flex:1;font-size:.86rem;font-weight:600}
+.qrow .m{color:var(--muted-fg);font-size:.76rem;white-space:nowrap}
+.sysrow{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 2px}
+.tag{font-size:.72rem;padding:2px 8px;border-radius:99px;background:var(--accent);color:var(--muted-fg)}
+.tag.ms{color:hsl(28 90% 62%)}.tag.ns{color:hsl(268 80% 74%)}.tag.endo{color:hsl(158 64% 52%)}
+.tag.mixed{color:var(--muted-fg)}
+/* sitting */
+.qhead{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.qhead .n{font-weight:700}
+.qhead .timer{margin-left:auto;font-variant-numeric:tabular-nums;color:var(--muted-fg)}
+.qhead .timer.low{color:var(--danger);font-weight:700}
+.stem{white-space:pre-wrap;margin-bottom:10px}
+.stem img,.qimg{max-width:100%;border-radius:8px;background:#fff;display:block;margin:8px 0}
+.opt{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--border);
+  border-radius:var(--radius);padding:10px;margin:6px 0;cursor:pointer;background:var(--muted)}
+.opt input{margin-top:3px;flex:none}
+.opt.sel{border-color:var(--primary);background:var(--accent)}
+.blankrow{display:flex;flex-direction:column;gap:4px;margin:8px 0}
+.blankrow label{font-size:.82rem;color:var(--muted-fg)}
+select,input[type=text],textarea{font:inherit;color:var(--fg);background:var(--muted);
+  border:1px solid var(--border);border-radius:8px;padding:9px;width:100%}
+textarea{min-height:120px}
+.pips{display:flex;gap:3px;flex-wrap:wrap;margin:10px 0 2px}
+.pip{width:14px;height:6px;border-radius:3px;background:var(--muted);border:1px solid var(--border)}
+.pip.done{background:var(--primary);border-color:var(--primary)}
+.pip.cur{outline:2px solid var(--primary);outline-offset:1px}
+/* marking */
+.mk{border-left:4px solid var(--border);padding-left:10px;margin:14px 0}
+.mk.right{border-color:var(--ok)}.mk.wrong{border-color:var(--danger)}
+.mk .you{color:var(--muted-fg);font-size:.9rem}
+.mk .keyline{color:var(--ok);font-weight:600}
+.mk .marks{font-size:.8rem;color:var(--muted-fg)}
+.steps label{display:flex;gap:8px;align-items:flex-start;margin:6px 0;cursor:pointer}
+.score-hero{font-size:2.2rem;font-weight:800;text-align:center;margin:.3rem 0 0}
+.score-sub{text-align:center;color:var(--muted-fg);margin:0 0 10px}
+/* chart */
+.spark{width:100%;height:84px;display:block}
+.hist{font-size:.82rem;color:var(--muted-fg)}
+.hist td{padding:2px 8px 2px 0}
+/* chain warmup */
+.chain{display:flex;flex-direction:column;gap:2px;margin:8px 0}
+.bead{background:var(--accent);border:1px solid var(--border);border-radius:8px;padding:7px 10px;font-size:.9rem}
+.bead.blank{border-style:dashed;color:var(--warn);text-align:center}
+.verb{color:var(--muted-fg);font-size:.78rem;padding:0 12px}
+.note{border:1px solid var(--border);border-left:4px solid var(--warn);border-radius:8px;
+  padding:8px 10px;font-size:.84rem;color:var(--muted-fg);margin:10px 0}
+.src{font-size:.75rem;color:var(--muted-fg);margin-top:6px}
+dialog{background:var(--card);color:var(--fg);border:1px solid var(--border);
+  border-radius:var(--radius);max-width:640px;width:calc(100% - 32px);padding:18px}
+dialog::backdrop{background:rgb(0 0 0 / .6)}
+h3{margin:14px 0 4px;font-size:.95rem}
+.footbar{position:fixed;bottom:0;left:0;right:0;background:var(--bg);
+  border-top:1px solid var(--border);padding:10px 14px;display:none;gap:8px;z-index:5}
+.footbar.on{display:flex}
+.footbar .btn{flex:1}
+a{color:var(--primary)}
+</style>
+</head>
+<body>
+<header>
+  <h1>HS2 · Paper Sim</h1>
+  <span class="d" id="countdown"></span>
+  <button class="btn ghost" id="themeBtn" title="theme">◐</button>
+  <button class="btn ghost" id="helpBtn" title="what is this?">?</button>
+</header>
+<main id="view"></main>
+<div class="footbar" id="footbar"></div>
+<dialog id="help"></dialog>
+
+<script>
+const DATA = /*@BANK@*/;
+/* ── state ─────────────────────────────────────────────────────────── */
+const LS = k => { try { return JSON.parse(localStorage.getItem('hs2t2.'+k)) } catch(e){ return null } };
+const SV = (k,v) => { try { localStorage.setItem('hs2t2.'+k, JSON.stringify(v)) } catch(e){} };
+let S = {
+  scores: LS('scores')||[],   // {t, mode, got, tot, label}
+  miss:   LS('miss')  ||{},   // qid -> wrong count
+  seen:   LS('seen')  ||{},   // qid -> sittings
+};
+const TESTDAY = new Date('2026-09-21T12:00:00+12:00');
+const daysLeft = () => Math.max(0, Math.ceil((TESTDAY - Date.now())/864e5));
+const $ = s => document.querySelector(s);
+const esc = s => String(s??'').replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const shuffle = a => { a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]} return a };
+const SYS = {ms:'Musculoskeletal', ns:'Nervous system', endo:'Endocrine', mixed:'Mixed'};
+
+/* ── dealing ───────────────────────────────────────────────────────── */
+const CLOSED = DATA.questions.filter(q=>!q.saq);
+function pickN(pool, n, excl){
+  const fresh = pool.filter(q=>!excl.has(q.id));
+  /* Least-seen first: rank = times dealt, so nothing repeats an (n+1)th time
+     until the whole pool has been dealt n times. Misses jump the queue (-2),
+     Math.random() only breaks ties among equally-seen questions. */
+  const rank = q => (S.miss[q.id]?-2:0) + (S.seen[q.id]||0) + Math.random();
+  return fresh.sort((a,b)=>rank(a)-rank(b)).slice(0,n);
+}
+function dealStratified(n){
+  const out=[], excl=new Set();
+  /* shares are DERIVED from the bank — her revealed question distribution —
+     never typed. Announced emphasis does not get a vote. */
+  const share = {};
+  for(const q of CLOSED) share[q.sys]=(share[q.sys]||0)+1/CLOSED.length;
+  for(const sys of ['ms','ns','endo','mixed']){
+    const want=Math.max(1,Math.round(n*share[sys]));
+    for(const q of pickN(CLOSED.filter(x=>x.sys===sys), want, excl)){ out.push(q); excl.add(q.id); }
+  }
+  while(out.length<n){
+    const q=pickN(CLOSED, 1, excl)[0]; if(!q)break; out.push(q); excl.add(q.id);
+  }
+  return shuffle(out).slice(0,n);
+}
+function dealMini(){ return dealStratified(12) }
+function dealFull(){
+  const closed = dealStratified(40);
+  const c7 = DATA.case7.questions[(S.scores.filter(s=>s.mode==='full').length) % DATA.case7.questions.length];
+  const essays = DATA.questions.filter(q=>q.saq);
+  const other = essays.length? essays[Math.random()*essays.length|0] : null;
+  const saqs=[mkCaseQ(c7)]; if(other) saqs.push(other);
+  return closed.concat(saqs);
+}
+function mkCaseQ(cq){
+  return { id:'c7-'+cq.q.slice(0,24).replace(/\W/g,''), quiz:'case7', sys:'ms', type:'essay',
+    pts:cq.marks, q:cq.q, imgs:[], saq:{steps:cq.steps, src:'Case study 7 — model answer is the tool’s'},
+    scenario: DATA.case7.scenario };
+}
+function dealMisses(){
+  let ids = Object.keys(S.miss).filter(id=>S.miss[id]>=2);
+  if(ids.length<4) ids = Object.keys(S.miss);
+  const pool = CLOSED.filter(q=>ids.includes(q.id));
+  return shuffle(pool).slice(0,12);
+}
+
+/* ── home ──────────────────────────────────────────────────────────── */
+function home(){
+  $('#footbar').classList.remove('on');
+  const last = S.scores[S.scores.length-1];
+  document.getElementById('view').innerHTML = `
+  ${sparkCard()}
+  <div class="card door">
+    <h2>🎯 Deal me a paper</h2>
+    <p>Don’t decide — sit what the tool deals from her whole question bank.</p>
+    <button class="btn primary wide" data-go="mini">Sit a mini · 12 questions, ~15 min</button>
+    <button class="btn wide" data-go="full">Sit the full paper · 42 Q incl. written, 65 min</button>
+    <button class="btn wide" data-go="miss" ${Object.keys(S.miss).length? '':'disabled'}>Redo my misses${Object.keys(S.miss).length?` · ${Object.keys(S.miss).length} in the pile`:''}</button>
+  </div>
+  <div class="card door">
+    <h2>🗂 Pick my rep</h2>
+    <p>Her quizzes, unlocked — sit any of them as often as you like. No attempt limits, marked instantly.</p>
+    <div class="sysrow">
+      <button class="btn ghost" data-sys="ms">All MS</button>
+      <button class="btn ghost" data-sys="ns">All NS</button>
+      <button class="btn ghost" data-sys="endo">All Endo</button>
+    </div>
+    <div class="qlist">${DATA.quizzes.map(z=>`
+      <div class="qrow"><span class="tag ${z.sys}">${z.sys}</span><b>${esc(z.name)}</b>
+      <span class="m">${z.n} Q</span><button class="btn ghost" data-quiz="${z.id}">Sit</button></div>`).join('')}
+    </div>
+  </div>`;
+  document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>start(b.dataset.go));
+  document.querySelectorAll('[data-quiz]').forEach(b=>b.onclick=()=>start('quiz:'+b.dataset.quiz));
+  document.querySelectorAll('[data-sys]').forEach(b=>b.onclick=()=>start('sys:'+b.dataset.sys));
+}
+function sparkCard(){
+  if(!S.scores.length) return `<div class="card"><b>No sittings yet.</b>
+    <p class="hist" style="margin:.4rem 0 0">Your first paper is the baseline — the whole game is the climb from there. ${daysLeft()} days to go.</p></div>`;
+  const pts=S.scores.slice(-30).map(s=>s.got/s.tot);
+  const W=600,H=70,P=6;
+  const x=i=>P+i*(W-2*P)/Math.max(1,pts.length-1), y=v=>H-P-v*(H-2*P);
+  const path=pts.map((v,i)=>(i?'L':'M')+x(i).toFixed(1)+' '+y(v).toFixed(1)).join(' ');
+  const last=S.scores[S.scores.length-1], pct=Math.round(100*last.got/last.tot);
+  const best=Math.max(...S.scores.map(s=>s.got/s.tot));
+  return `<div class="card">
+    <div style="display:flex;align-items:baseline;gap:10px">
+      <b style="font-size:1.3rem">${last.got}/${last.tot}</b>
+      <span class="hist">${pct}% · ${esc(last.label)}</span>
+      <span class="hist" style="margin-left:auto">best ${Math.round(best*100)}% · ${S.scores.length} sat</span>
+    </div>
+    <svg class="spark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="score history">
+      <line x1="${P}" y1="${y(.5)}" x2="${W-P}" y2="${y(.5)}" stroke="var(--border)" stroke-dasharray="4 4"/>
+      <path d="${path}" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="${x(pts.length-1)}" cy="${y(pts[pts.length-1])}" r="4" fill="var(--primary)"/>
+    </svg>
+    <div class="hist">dashed line = 50%. <button class="btn ghost" id="shareBtn" style="padding:2px 10px;font-size:.78rem">Copy score line</button></div>
+  </div>`;
+}
+
+/* ── sitting ───────────────────────────────────────────────────────── */
+let SIT=null;
+function start(mode){
+  let deck,label,timed=false;
+  if(mode==='mini'){deck=dealMini();label='mini'}
+  else if(mode==='full'){deck=dealFull();label='full paper';timed=true}
+  else if(mode==='miss'){deck=dealMisses();label='redo misses'}
+  else if(mode.startsWith('quiz:')){const z=DATA.quizzes.find(x=>x.id===mode.slice(5));
+    deck=DATA.questions.filter(q=>q.quiz===z.id);label=z.name}
+  else if(mode.startsWith('sys:')){const s=mode.slice(4);
+    deck=shuffle(CLOSED.filter(q=>q.sys===s)).slice(0,12);label='all '+s}
+  if(!deck||!deck.length){alert('Nothing to deal here yet.');return}
+  SIT={deck,label,mode,i:0,ans:{},t0:Date.now(),timed,end:timed?Date.now()+65*60*1000:null};
+  if(mode==='mini'&&DATA.chains.length){warmup();return}
+  renderQ();
+}
+function warmup(){
+  const ch=DATA.chains[Math.random()*DATA.chains.length|0];
+  const beads=ch.beads.filter(b=>b.t);
+  const bi=1+Math.random()*(beads.length-1)|0;
+  const answer=beads[bi].t;
+  const others=shuffle(DATA.chains.filter(c=>c!==ch).flatMap(c=>c.beads.filter(b=>b.t).map(b=>b.t))).slice(0,3);
+  const opts=shuffle([answer,...others]);
+  $('#view').innerHTML=`<div class="card">
+    <b>30-second warm-up · ${esc(ch.name)}</b>
+    <div class="chain">${ch.beads.map(b=> b.t
+      ? `<div class="bead ${b.t===answer?'blank':''}">${b.t===answer?'?':esc(b.t)}</div>`
+      : `<div class="verb">${esc(b.v)} ↓</div>`).join('')}</div>
+    ${opts.map(o=>`<label class="opt"><input type="radio" name="wu"><span>${esc(o)}</span></label>`).join('')}
+    <div class="src">${esc(ch.src)} — a scaffold built from her decks, not her material.</div>
+    <button class="btn primary wide" id="wuGo">Check → start the paper</button>
+    <button class="btn ghost wide" id="wuSkip">Skip warm-up</button></div>`;
+  document.querySelectorAll('.opt').forEach(o=>o.onclick=()=>{document.querySelectorAll('.opt').forEach(x=>x.classList.remove('sel'));o.classList.add('sel');o.querySelector('input').checked=true});
+  $('#wuGo').onclick=()=>{const sel=document.querySelector('.opt.sel span');
+    if(sel){sel.closest('.opt').style.borderColor = sel.textContent===answer?'var(--ok)':'var(--danger)';
+      setTimeout(renderQ, sel.textContent===answer?450:1400);
+      if(sel.textContent!==answer){const right=[...document.querySelectorAll('.opt span')].find(s=>s.textContent===answer);right.closest('.opt').style.borderColor='var(--ok)';}
+    } else renderQ()};
+  $('#wuSkip').onclick=renderQ;
+}
+let timerIv=null;
+function renderQ(){
+  clearInterval(timerIv);
+  const q=SIT.deck[SIT.i];
+  const fb=$('#footbar');fb.classList.add('on');
+  fb.innerHTML=`<button class="btn" id="prevB" ${SIT.i? '':'disabled'}>← Back</button>
+    <button class="btn primary" id="nextB">${SIT.i===SIT.deck.length-1?'Finish & mark':'Next →'}</button>`;
+  $('#prevB').onclick=()=>{saveAns();SIT.i--;renderQ()};
+  setTimeout(()=>{const x=$('#exitB');if(x)x.onclick=()=>{if(confirm('Abandon this paper? Nothing is saved.')){clearInterval(timerIv);home();window.scrollTo(0,0)}}},0);
+  $('#nextB').onclick=()=>{saveAns();SIT.i===SIT.deck.length-1?mark():(SIT.i++,renderQ())};
+  const imgs=(q.imgs||[]).map(f=>`<img class="qimg" src="img/${f}" alt="question figure" loading="lazy">`).join('');
+  let body='';
+  const a=SIT.ans[q.id];
+  if(q.type==='mcq'||q.type==='tf'||q.type==='multi'){
+    const multi=q.type==='multi';
+    body=q.opts.map((o,i)=>`<label class="opt ${a&&a.sel&&a.sel.includes(i)?'sel':''}">
+      <input type="${multi?'checkbox':'radio'}" name="q" value="${i}" ${a&&a.sel&&a.sel.includes(i)?'checked':''}>
+      <span>${esc(o)}</span></label>`).join('');
+    if(multi)body=`<div class="note">Select every answer that applies.</div>`+body;
+  } else if(q.type==='match'){
+    const bank=shuffleStable(q.id,q.pairs.map(p=>p.right));
+    body=q.pairs.map((p,i)=>`<div class="blankrow"><label>${esc(p.left)}</label>
+      <select data-i="${i}"><option value="">— choose —</option>
+      ${bank.map(r=>`<option ${a&&a.pick&&a.pick[i]===r?'selected':''}>${esc(r)}</option>`).join('')}</select></div>`).join('');
+  } else if(q.type==='cloze'){
+    body=q.blanks.map((b,i)=> b.options.length>1
+      ? `<div class="blankrow"><label>${esc(b.label)}</label><select data-i="${i}">
+          <option value="">— choose —</option>
+          ${shuffleStable(q.id+i,b.options).map(o=>`<option ${a&&a.pick&&a.pick[i]===o?'selected':''}>${esc(o)}</option>`).join('')}</select></div>`
+      : `<div class="blankrow"><label>${esc(b.label)} (type it)</label>
+          <input type="text" data-i="${i}" value="${a&&a.pick?esc(a.pick[i]||''):''}"></div>`).join('');
+  } else if(q.type==='essay'){
+    body=`${q.scenario?`<div class="note">${esc(q.scenario)}</div>`:''}
+      <div class="note">Written question · ${q.pts} marks — write ${q.pts} numbered points, one causal step each. You mark yourself against the model at the end.</div>
+      <textarea data-essay placeholder="1. …&#10;2. …">${a&&a.text?esc(a.text):''}</textarea>`;
+  }
+  $('#view').innerHTML=`<div class="card">
+    <div class="qhead"><span class="n">Q${SIT.i+1}/${SIT.deck.length}</span>
+      <span class="tag ${q.sys}">${q.sys}</span><span class="tag">${q.pts} mk</span>
+      <span class="timer" id="timer"></span>
+      <button class="btn ghost" id="exitB" title="abandon paper" style="padding:2px 10px">✕</button></div>
+    <div class="stem">${esc(q.q)}</div>${imgs}${body}
+    <div class="pips">${SIT.deck.map((_,i)=>`<span class="pip ${SIT.ans[SIT.deck[i].id]?'done':''} ${i===SIT.i?'cur':''}"></span>`).join('')}</div>
+  </div>`;
+  document.querySelectorAll('.opt').forEach(o=>o.onclick=e=>{
+    const inp=o.querySelector('input');
+    if(inp.type==='radio'){document.querySelectorAll('.opt').forEach(x=>{x.classList.remove('sel');x.querySelector('input').checked=false});inp.checked=true;o.classList.add('sel')}
+    else{if(e.target.tagName!=='INPUT')inp.checked=!inp.checked;o.classList.toggle('sel',inp.checked)}
+  });
+  if(SIT.timed){const t=$('#timer');const tick=()=>{const s=Math.max(0,(SIT.end-Date.now())/1000|0);
+    t.textContent=`${s/60|0}:${String(s%60).padStart(2,'0')}`;t.classList.toggle('low',s<300);
+    if(s<=0){clearInterval(timerIv);saveAns();mark()}};tick();timerIv=setInterval(tick,1000)}
+}
+function shuffleStable(seed,arr){
+  let h=0;for(const c of String(seed))h=(h*31+c.charCodeAt(0))>>>0;
+  return arr.map((v,i)=>({v,k:(h=(h*1103515245+12345)>>>0)})).sort((a,b)=>a.k-b.k).map(x=>x.v);
+}
+function saveAns(){
+  const q=SIT.deck[SIT.i];
+  if(q.type==='essay'){const t=document.querySelector('[data-essay]');if(t&&t.value.trim())SIT.ans[q.id]={text:t.value};return}
+  if(q.type==='match'||q.type==='cloze'){
+    const pick={};let any=false;
+    document.querySelectorAll('[data-i]').forEach(el=>{if(el.value){pick[el.dataset.i]=el.value;any=true}});
+    if(any)SIT.ans[q.id]={pick};return}
+  const sel=[...document.querySelectorAll('.opt input:checked')].map(i=>+i.value);
+  if(sel.length)SIT.ans[q.id]={sel};
+}
+/* ── marking ───────────────────────────────────────────────────────── */
+function markQ(q,a){
+  if(q.type==='essay')return null; // self-marked
+  if(!a)return{got:0,tot:q.pts,detail:'no answer'};
+  if(q.type==='mcq'||q.type==='tf'||q.type==='multi'){
+    const chosen=(a.sel||[]).map(i=>q.opts[i]);
+    const right=chosen.length===q.key.length&&q.key.every(k=>chosen.includes(k));
+    return{got:right?q.pts:0,tot:q.pts,you:chosen.join(' · ')}}
+  if(q.type==='match'){
+    let got=0;q.pairs.forEach((p,i)=>{if((a.pick||{})[i]===p.right)got++});
+    return{got:got*q.pts/q.pairs.length,tot:q.pts,you:q.pairs.map((p,i)=>(a.pick||{})[i]||'—').join(' · ')}}
+  if(q.type==='cloze'){
+    let got=0;const nrm=s=>String(s||'').toLowerCase().replace(/\s+/g,' ').trim();
+    q.blanks.forEach((b,i)=>{const v=nrm((a.pick||{})[i]);if(v&&b.options.some(o=>nrm(o)===v))got++});
+    return{got:got*q.pts/q.blanks.length,tot:q.pts,you:q.blanks.map((b,i)=>(a.pick||{})[i]||'—').join(' · ')}}
+}
+function mark(){
+  clearInterval(timerIv);$('#footbar').classList.remove('on');
+  let got=0,tot=0;const rows=[];
+  for(const q of SIT.deck){
+    const r=markQ(q,SIT.ans[q.id]);
+    S.seen[q.id]=(S.seen[q.id]||0)+1;
+    if(r){got+=r.got;tot+=r.tot;
+      if(r.got<r.tot)S.miss[q.id]=(S.miss[q.id]||0)+1;
+      else if(S.miss[q.id])delete S.miss[q.id];
+      rows.push({q,r})}
+    else rows.push({q,r:null,saq:true});
+  }
+  SIT.auto={got,tot};
+  const saqs=rows.filter(x=>x.saq);
+  $('#view').innerHTML=`<div class="card">
+    <div class="score-hero" id="hero"></div><div class="score-sub" id="heroSub"></div>
+    ${saqs.length?`<div class="note">Tick each model step your written answer actually hit — the score updates as you go. Model answers are the tool’s, not Hannetjie’s.</div>`:''}
+    ${rows.map(({q,r,saq},i)=>{
+      if(saq){const a=SIT.ans[q.id];
+        return `<div class="mk" id="mk${i}"><b>${esc(q.q)}</b>
+        ${a&&a.text?`<div class="you">You wrote:<br>${esc(a.text).replace(/\n/g,'<br>')}</div>`:'<div class="you">— no answer written —</div>'}
+        <div class="steps">${q.saq.steps.map((s,si)=>`<label><input type="checkbox" data-saq="${i}" data-pt="${q.pts/q.saq.steps.length}"> <span>${esc(s)}</span></label>`).join('')}</div>
+        <div class="src">${esc(q.saq.src)}</div></div>`}
+      const cls=r.got>=r.tot?'right':'wrong';
+      return `<div class="mk ${cls}"><b>${esc(q.q).slice(0,300)}</b>
+        <div class="marks">${(+r.got.toFixed(1))}/${r.tot} mk · ${esc(DATA.quizzes.find(z=>z.id===q.quiz)?.name||q.quiz)}</div>
+        ${r.you?`<div class="you">You: ${esc(r.you)}</div>`:`<div class="you">${r.detail||''}</div>`}
+        ${r.got<r.tot?`<div class="keyline">Key: ${esc(keyText(q))}</div>`:''}</div>`}).join('')}
+    <button class="btn primary wide" id="doneB">Save score & finish</button></div>`;
+  const upd=()=>{
+    let s=0;document.querySelectorAll('[data-saq]:checked').forEach(c=>s+=+c.dataset.pt);
+    const saqTot=saqs.reduce((n,{q})=>n+q.pts,0);
+    const g=got+s,t=tot+saqTot;
+    $('#hero').textContent=`${+g.toFixed(1)} / ${t}`;
+    $('#heroSub').textContent=`${Math.round(100*g/t)}% · ${SIT.label} · ${Math.round((Date.now()-SIT.t0)/60000)} min`;
+    SIT.final={got:+g.toFixed(1),tot:t}};
+  document.querySelectorAll('[data-saq]').forEach(c=>c.onchange=upd);upd();
+  $('#doneB').onclick=()=>{
+    S.scores.push({t:Date.now(),mode:SIT.mode,label:SIT.label,got:SIT.final.got,tot:SIT.final.tot});
+    SV('scores',S.scores);SV('miss',S.miss);SV('seen',S.seen);home();window.scrollTo(0,0)};
+  SV('miss',S.miss);SV('seen',S.seen);
+  window.scrollTo(0,0);
+}
+function keyText(q){
+  if(q.type==='match')return q.pairs.map(p=>`${p.left} → ${p.right}`).join(' · ');
+  if(q.type==='cloze')return q.blanks.map(b=>b.options[0]).join(' · ');
+  return (q.key||[]).join(' · ');
+}
+/* ── chrome ────────────────────────────────────────────────────────── */
+$('#countdown').textContent=`${daysLeft()}d to Test 2`;
+$('#themeBtn').onclick=()=>{const r=document.documentElement;
+  const to=r.dataset.theme==='light'?'':'light';
+  to?r.dataset.theme='light':delete r.dataset.theme;SV('theme',to)};
+if(LS('theme')==='light')document.documentElement.dataset.theme='light';
+$('#helpBtn').onclick=()=>{$('#help').innerHTML=`
+  <h2 style="margin-top:0">What is this?</h2>
+  <p>Every practice quiz Hannetjie posted for Module 2 (MS · NS · Endocrine), unlocked: sit them as
+  often as you like, marked instantly — or let the tool deal you mixed papers from the whole bank.
+  Test 2 is <b>21 Sept · 42 questions · 22% written · 65 min</b>, covering weeks 5–8 plus the
+  car-accident case study.</p>
+  <h3>Where the questions come from</h3>
+  <p>${DATA.stats.n} questions captured from ${DATA.quizzes.length} of her own Canvas quizzes, answer keys
+  extracted from the graded pages — nothing invented. Written questions have <b>model answers written by
+  this tool</b> (Canvas publishes none); they follow her one-mark-per-step marking style and each names
+  its source deck. Warm-up chains are scaffolds built from her decks, not her material.</p>
+  <h3>What’s held out</h3>
+  <p>${DATA.held.length} questions are excluded (image or format did not survive capture) — listed in the
+  repo. Two quizzes are still locked on Canvas (Module Review B, Formative 2) and join when they open.</p>
+  <h3>Your data</h3>
+  <p>Scores and misses live in this browser only. Nothing is sent anywhere. Clearing site data wipes them.</p>
+  <h3>For whoever maintains this</h3>
+  <p>Built by <code>build.mjs</code> from <code>hs2-anki/m2/questions.json</code> (parsed Canvas captures).
+  Rebuild: <code>node build.mjs</code>. Bank built ${DATA.built}. Multi-answer questions mark all-or-nothing;
+  matching and dropdowns mark per part.</p>
+  <button class="btn primary wide" onclick="this.closest('dialog').close()">Close</button>`;
+  $('#help').showModal()};
+document.addEventListener('click',e=>{if(e.target.id==='shareBtn'){
+  const l=S.scores[S.scores.length-1];
+  const line=`HS2 Paper Sim — ${l.got}/${l.tot} (${Math.round(100*l.got/l.tot)}%) · ${l.label} · ${daysLeft()}d to Test 2`;
+  navigator.clipboard&&navigator.clipboard.writeText(line);
+  e.target.textContent='Copied ✓';setTimeout(()=>e.target.textContent='Copy score line',1500)}});
+home();
+</script>
+</body>
+</html>
