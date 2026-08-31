@@ -10,4 +10,4 @@ re-sittable, plus dealt mock papers with a score history. Test 2: 21 Sept 2026, 
 - Stems/options/keys are hers, verbatim. Model answers for written questions are the tool's.
 - `held.json` — every excluded question with its reason. Locked on Canvas, not yet captured:
   Module Review B (access code), Formative 2.
-- Rebuild: `node build.mjs`. Serve: any static server; state is per-browser localStorage.
+- Rebuild: `node build.mjs` then `python compress-slides.py` (ships only the slides questions reference). Serve: any static server; state is per-browser localStorage.
