@@ -463,9 +463,14 @@ document.addEventListener('click',e=>{
     const a=SIT.ans[q.id];
     const you=a?(a.text||((a.sel||[]).map(i=>q.opts[i]).join(', ')||Object.values(a.pick||{}).join(', '))):'(no answer)';
     const prompt=`I'm a first-year nursing student studying for an anatomy & physiology test. I got this practice question wrong and want to understand the concept, not just the answer.\n\nQuestion: ${q.q}\n`+(q.opts?`Options: ${q.opts.join(' | ')}\n`:'')+`Correct answer: ${keyText(q)}\nMy answer: ${you}\n\nExplain why the correct answer is right, step by step, and what misconception my answer suggests.`;
-    navigator.clipboard&&navigator.clipboard.writeText(prompt);
-    e.target.textContent='Copied ✓ paste into any AI chat';
-    setTimeout(()=>e.target.textContent='🤖 Copy for AI',2500);return}
+    const btn=e.target, done=ok=>{btn.textContent=ok?'Copied ✓ paste into any AI chat':'Copy blocked — long-press the text to copy';
+      setTimeout(()=>btn.textContent='🤖 Copy for AI',3000)};
+    (navigator.clipboard?navigator.clipboard.writeText(prompt):Promise.reject())
+      .then(()=>done(true))
+      .catch(()=>{const ta=document.createElement('textarea');ta.value=prompt;ta.style.position='fixed';ta.style.opacity='0';
+        document.body.appendChild(ta);ta.select();let ok=false;try{ok=document.execCommand('copy')}catch(_){}
+        ta.remove();done(ok)});
+    return}
   if(e.target.id==='shareBtn'){
   const l=S.scores[S.scores.length-1];
   const line=`HS2 Paper Sim — ${l.got}/${l.tot} (${Math.round(100*l.got/l.tot)}%) · ${l.label} · ${daysLeft()}d to Test 2`;
