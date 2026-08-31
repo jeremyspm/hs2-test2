@@ -65,6 +65,7 @@ export function loadPassages() {
       /* objective-list and question slides ASK, they don't TEACH — never quote them */
       if ((clean.match(/\b(Describe|Explain|Identify|Differentiate)\b/g) || []).length >= 2) continue;
       if ((clean.match(/\?/g) || []).length >= 3) continue;
+      if (/(links to an external site|chapter \d+|check your understanding|patton box)/i.test(clean)) continue;
       passages.push({ t: clean.slice(0, 420), src: `2026 ${deck} deck, slide ${n}`, page: false });
     }
   }
