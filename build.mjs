@@ -139,7 +139,12 @@ for (const q of questions) {
   const v = matchVideo(q, videos); if (v) { q.vid = v; nVid++; }
   const r = matchPassage(q, passages);
   if (r) {
-    if (r.slug) {
+    /* A question that carries its OWN image is its own authority — a retrieved
+       slide with a different letter/label scheme beside it contradicts the
+       figure the student just answered on (the label-the-glands bug). Such
+       questions get text quotes only, never a second figure. */
+    if (r.slug && q.imgs.length) { /* drop the slide ref */ }
+    else if (r.slug) {
       const png = path.join(SLIDESRC, r.slug, `slide-${r.n}.png`);
       if (fs.existsSync(png)) {
         const name = `${r.slug}-${r.n}.jpg`;
