@@ -146,7 +146,7 @@ function dealStratified(n){
   const share = {};
   for(const q of CLOSED) share[q.sys]=(share[q.sys]||0)+1/CLOSED.length;
   for(const sys of ['ms','ns','endo','mixed']){
-    const want=Math.max(1,Math.round(n*share[sys]));
+    const want=Math.round(n*(share[sys]||0));
     for(const q of pickN(CLOSED.filter(x=>x.sys===sys), want, excl)){ out.push(q); excl.add(q.id); }
   }
   while(out.length<n){
