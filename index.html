@@ -194,10 +194,10 @@ function home(){
   document.getElementById('view').innerHTML = `
   ${sparkCard()}
   <div class="card door">
-    <h2>🎯 Deal me a paper</h2>
-    <p>Don’t decide — sit what the tool deals from her whole question bank.</p>
-    <button class="btn primary wide" data-go="mini">Sit a mini · 12 questions, ~15 min</button>
-    <button class="btn wide" data-go="full">Sit the full paper · 42 Q incl. written, 65 min</button>
+    <h2>🎯 Deal me a mock test</h2>
+    <p>Practice only — dealt from her whole question bank. This is NOT the real test; Test 2 happens on Canvas, 21 Sept.</p>
+    <button class="btn primary wide" data-go="mini">Sit a mini mock test · 12 questions, ~15 min</button>
+    <button class="btn wide" data-go="full">Sit the full mock test · 42 Q incl. written, 65 min</button>
     <button class="btn wide" data-go="miss" ${Object.keys(S.miss).length? '':'disabled'}>Redo my misses${Object.keys(S.miss).length?` · ${Object.keys(S.miss).length} in the pile`:''}</button>
   </div>
   <div class="card door">
@@ -219,7 +219,7 @@ function home(){
 }
 function sparkCard(){
   if(!S.scores.length) return `<div class="card"><b>No sittings yet.</b>
-    <p class="hist" style="margin:.4rem 0 0">Your first paper is the baseline — the whole game is the climb from there. ${daysLeft()} days to go.</p></div>`;
+    <p class="hist" style="margin:.4rem 0 0">Your first mock test is the baseline — the whole game is the climb from there. ${daysLeft()} days to go.</p></div>`;
   const pts=S.scores.slice(-30).map(s=>s.got/s.tot);
   const W=600,H=70,P=6;
   const x=i=>P+i*(W-2*P)/Math.max(1,pts.length-1), y=v=>H-P-v*(H-2*P);
@@ -245,8 +245,8 @@ function sparkCard(){
 let SIT=null;
 function start(mode){
   let deck,label,timed=false;
-  if(mode==='mini'){deck=dealMini();label='mini'}
-  else if(mode==='full'){deck=dealFull();label='full paper';timed=true}
+  if(mode==='mini'){deck=dealMini();label='mini mock'}
+  else if(mode==='full'){deck=dealFull();label='full mock';timed=true}
   else if(mode==='miss'){deck=dealMisses();label='redo misses'}
   else if(mode.startsWith('quiz:')){const z=DATA.quizzes.find(x=>x.id===mode.slice(5));
     deck=DATA.questions.filter(q=>q.quiz===z.id);label=z.name}
@@ -271,7 +271,7 @@ function warmup(){
       : `<div class="verb">${esc(b.v)} ↓</div>`).join('')}</div>
     ${opts.map(o=>`<label class="opt"><input type="radio" name="wu"><span>${esc(o)}</span></label>`).join('')}
     <div class="src">${esc(ch.src)} — a scaffold built from her decks, not her material.</div>
-    <button class="btn primary wide" id="wuGo">Check → start the paper</button>
+    <button class="btn primary wide" id="wuGo">Check → start the mock test</button>
     <button class="btn ghost wide" id="wuSkip">Skip warm-up</button></div>`;
   document.querySelectorAll('.opt').forEach(o=>o.onclick=()=>{document.querySelectorAll('.opt').forEach(x=>x.classList.remove('sel'));o.classList.add('sel');o.querySelector('input').checked=true});
   $('#wuGo').onclick=()=>{const sel=document.querySelector('.opt.sel span');
@@ -289,7 +289,7 @@ function renderQ(){
   fb.innerHTML=`<button class="btn" id="prevB" ${SIT.i? '':'disabled'}>← Back</button>
     <button class="btn primary" id="nextB">${SIT.i===SIT.deck.length-1?'Finish & mark':'Next →'}</button>`;
   $('#prevB').onclick=()=>{saveAns();SIT.i--;renderQ()};
-  setTimeout(()=>{const x=$('#exitB');if(x)x.onclick=()=>{if(confirm('Abandon this paper? Nothing is saved.')){clearInterval(timerIv);home();window.scrollTo(0,0)}}},0);
+  setTimeout(()=>{const x=$('#exitB');if(x)x.onclick=()=>{if(confirm('Abandon this mock test? Nothing is saved.')){clearInterval(timerIv);home();window.scrollTo(0,0)}}},0);
   $('#nextB').onclick=()=>{saveAns();SIT.i===SIT.deck.length-1?mark():(SIT.i++,renderQ())};
   const imgs=(q.imgs||[]).map(f=>`<img class="qimg" src="img/${f}" alt="question figure" loading="lazy">`).join('');
   let body='';
@@ -321,7 +321,7 @@ function renderQ(){
     <div class="qhead"><span class="n">Q${SIT.i+1}/${SIT.deck.length}</span>
       <span class="tag ${q.sys}">${q.sys}</span><span class="tag">${q.pts} mk</span>
       <span class="timer" id="timer"></span>
-      <button class="btn ghost" id="exitB" title="abandon paper" style="padding:2px 10px">✕</button></div>
+      <button class="btn ghost" id="exitB" title="abandon mock test" style="padding:2px 10px">✕</button></div>
     <div class="stem">${esc(q.q)}</div>${imgs}${body}
     <div class="pips">${SIT.deck.map((_,i)=>`<span class="pip ${SIT.ans[SIT.deck[i].id]?'done':''} ${i===SIT.i?'cur':''}"></span>`).join('')}</div>
   </div>`;
@@ -427,7 +427,7 @@ function weakSpotsHTML(rows){
   const bySys={};for(const q of missed)bySys[q.sys]=(bySys[q.sys]||0)+1;
   const worst=Object.entries(bySys).sort((a,b)=>b[1]-a[1])[0];
   return `<div class="note" style="border-left-color:var(--primary)">
-    <b>Weak spots this paper</b> — ${missed.length} missed, most in ${SYS[worst[0]]||worst[0]}.
+    <b>Weak spots this mock test</b> — ${missed.length} missed, most in ${SYS[worst[0]]||worst[0]}.
     Watch these before your next sitting:
     ${[...vids.values()].slice(0,4).map(v=>`<div class="vidrow">▶ <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener">${esc(v.t)}</a> <span class="refsrc">${esc(v.d)}</span></div>`).join('')}
     <div class="refsrc">Video matching is automatic from titles — a hypothesis, not a promise. Where a video and Hannetjie disagree, she wins.</div></div>`;
@@ -458,7 +458,7 @@ if(LS('theme')==='light')document.documentElement.dataset.theme='light';
 $('#helpBtn').onclick=()=>{$('#help').innerHTML=`
   <h2 style="margin-top:0">What is this?</h2>
   <p>Every practice quiz Hannetjie posted for Module 2 (MS · NS · Endocrine), unlocked: sit them as
-  often as you like, marked instantly — or let the tool deal you mixed papers from the whole bank.
+  often as you like, marked instantly — or let the tool deal you mixed mock tests from the whole bank.
   Test 2 is <b>21 Sept · 42 questions · 22% written · 65 min</b>, covering weeks 5–8 plus the
   car-accident case study.</p>
   <h3>Where the questions come from</h3>
