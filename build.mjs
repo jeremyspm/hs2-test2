@@ -10,6 +10,7 @@ import { fileURLToPath } from 'node:url';
 import { CHAINS } from './content/chains.js';
 import { CASE7 } from './content/case7.js';
 import { SAQ_ANSWERS, norm } from './content/saq-answers.js';
+import { loadVideos, loadPassages, matchVideo, matchPassage } from './content/explain.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const M2 = 'C:/Users/USER/Desktop/github/hs2-anki/m2';
@@ -126,6 +127,17 @@ for (const z of bank.quizzes) {
   });
   if (kept) quizzes.push({ id: fid, name: qname, sys: qsys, n: kept });
 }
+
+/* ── the explain layer: video + verbatim passage per question ──────── */
+const videos = loadVideos(path.join(HERE, 'content'));
+const passages = loadPassages();
+let nVid = 0, nRef = 0;
+for (const q of questions) {
+  const v = matchVideo(q, videos); if (v) { q.vid = v; nVid++; }
+  const r = matchPassage(q, passages); if (r) { q.ref = r; nRef++; }
+}
+console.log(`explain layer: ${nVid}/${questions.length} questions matched a video (${Math.round(100 * nVid / questions.length)}%), ` +
+  `${nRef} matched a slide/page passage (${Math.round(100 * nRef / questions.length)}%) — from ${videos.length} videos, ${passages.length} passages`);
 
 /* ── gates ─────────────────────────────────────────────────────────── */
 const fails = [];

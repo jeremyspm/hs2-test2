@@ -76,6 +76,11 @@ textarea{min-height:120px}
 .mk .keyline{color:var(--ok);font-weight:600}
 .mk .marks{font-size:.8rem;color:var(--muted-fg)}
 .steps label{display:flex;gap:8px;align-items:flex-start;margin:6px 0;cursor:pointer}
+.refq{font-size:.85rem;color:var(--muted-fg);margin:8px 0 2px;padding:8px 10px;background:var(--muted);border-radius:8px}
+.refsrc{font-size:.74rem;color:var(--muted-fg);opacity:.8}
+.vidrow{font-size:.86rem;margin:6px 0}
+.vidrow a{font-weight:600}
+.askai{padding:3px 10px;font-size:.76rem;margin-top:6px}
 .score-hero{font-size:2.2rem;font-weight:800;text-align:center;margin:.3rem 0 0}
 .score-sub{text-align:center;color:var(--muted-fg);margin:0 0 10px}
 /* chart */
@@ -379,7 +384,8 @@ function mark(){
       return `<div class="mk ${cls}"><b>${esc(q.q).slice(0,300)}</b>
         <div class="marks">${(+r.got.toFixed(1))}/${r.tot} mk · ${esc(DATA.quizzes.find(z=>z.id===q.quiz)?.name||q.quiz)}</div>
         ${r.you?`<div class="you">You: ${esc(r.you)}</div>`:`<div class="you">${r.detail||''}</div>`}
-        ${r.got<r.tot?`<div class="keyline">Key: ${esc(keyText(q))}</div>`:''}</div>`}).join('')}
+        ${r.got<r.tot?`<div class="keyline">Key: ${esc(keyText(q))}</div>${explainHTML(q)}`:''}</div>`}).join('')}
+    ${weakSpotsHTML(rows)}
     <button class="btn primary wide" id="doneB">Save score & finish</button></div>`;
   const upd=()=>{
     let s=0;document.querySelectorAll('[data-saq]:checked').forEach(c=>s+=+c.dataset.pt);
@@ -394,6 +400,29 @@ function mark(){
     SV('scores',S.scores);SV('miss',S.miss);SV('seen',S.seen);home();window.scrollTo(0,0)};
   SV('miss',S.miss);SV('seen',S.seen);
   window.scrollTo(0,0);
+}
+/* the explain row: her material first, then the right-sized video, then Ask AI.
+   Only on wrong answers, never during a sitting. */
+function explainHTML(q){
+  let h='';
+  if(q.ref)h+=`<div class="refq">📖 <i>“${esc(q.ref.t)}”</i><span class="refsrc"> — ${esc(q.ref.src)}</span></div>`;
+  if(q.vid)h+=`<div class="vidrow">▶ <a href="https://www.youtube.com/watch?v=${q.vid.id}" target="_blank" rel="noopener">${esc(q.vid.t)}</a> <span class="refsrc">Dr Matt &amp; Dr Mike · ${esc(q.vid.d)}</span></div>`;
+  h+=`<button class="btn ghost askai" data-ask="${q.id}">🤖 Copy for AI</button>`;
+  return h;
+}
+function weakSpotsHTML(rows){
+  const missed=rows.filter(x=>!x.saq&&x.r&&x.r.got<x.r.tot).map(x=>x.q);
+  if(missed.length<3)return '';
+  const vids=new Map();
+  for(const q of missed) if(q.vid&&!vids.has(q.vid.id)) vids.set(q.vid.id,q.vid);
+  if(!vids.size)return '';
+  const bySys={};for(const q of missed)bySys[q.sys]=(bySys[q.sys]||0)+1;
+  const worst=Object.entries(bySys).sort((a,b)=>b[1]-a[1])[0];
+  return `<div class="note" style="border-left-color:var(--primary)">
+    <b>Weak spots this paper</b> — ${missed.length} missed, most in ${SYS[worst[0]]||worst[0]}.
+    Watch these before your next sitting:
+    ${[...vids.values()].slice(0,4).map(v=>`<div class="vidrow">▶ <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener">${esc(v.t)}</a> <span class="refsrc">${esc(v.d)}</span></div>`).join('')}
+    <div class="refsrc">Video matching is automatic from titles — a hypothesis, not a promise. Where a video and Hannetjie disagree, she wins.</div></div>`;
 }
 function keyText(q){
   if(q.type==='match')return q.pairs.map(p=>`${p.left} → ${p.right}`).join(' · ');
@@ -428,7 +457,16 @@ $('#helpBtn').onclick=()=>{$('#help').innerHTML=`
   matching and dropdowns mark per part.</p>
   <button class="btn primary wide" onclick="this.closest('dialog').close()">Close</button>`;
   $('#help').showModal()};
-document.addEventListener('click',e=>{if(e.target.id==='shareBtn'){
+document.addEventListener('click',e=>{
+  if(e.target.dataset&&e.target.dataset.ask){
+    const q=SIT.deck.find(x=>x.id===e.target.dataset.ask);
+    const a=SIT.ans[q.id];
+    const you=a?(a.text||((a.sel||[]).map(i=>q.opts[i]).join(', ')||Object.values(a.pick||{}).join(', '))):'(no answer)';
+    const prompt=`I'm a first-year nursing student studying for an anatomy & physiology test. I got this practice question wrong and want to understand the concept, not just the answer.\n\nQuestion: ${q.q}\n`+(q.opts?`Options: ${q.opts.join(' | ')}\n`:'')+`Correct answer: ${keyText(q)}\nMy answer: ${you}\n\nExplain why the correct answer is right, step by step, and what misconception my answer suggests.`;
+    navigator.clipboard&&navigator.clipboard.writeText(prompt);
+    e.target.textContent='Copied ✓ paste into any AI chat';
+    setTimeout(()=>e.target.textContent='🤖 Copy for AI',2500);return}
+  if(e.target.id==='shareBtn'){
   const l=S.scores[S.scores.length-1];
   const line=`HS2 Paper Sim — ${l.got}/${l.tot} (${Math.round(100*l.got/l.tot)}%) · ${l.label} · ${daysLeft()}d to Test 2`;
   navigator.clipboard&&navigator.clipboard.writeText(line);
