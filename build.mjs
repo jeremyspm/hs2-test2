@@ -72,10 +72,14 @@ for (const z of bank.quizzes) {
   z.questions.forEach((q, idx) => {
     if (q.type === 'text_only_question' || q.type === 'unknown') return;
     const stemRaw = q.q || '';
-    const stem = stripImgRefs(stemRaw);
+    let stem = stripImgRefs(stemRaw);
+    /* Some of her matching questions have NO stem in Canvas itself — the content
+       is entirely in the pairs. A synthesised stem keeps them dealable; it is
+       labelled generic on purpose, never invented content. */
+    if (!stem && q.key && q.key.kind === 'pairs' && q.key.pairs.length >= 2)
+      stem = 'Match each item with its correct partner.';
     if (!stem) { held.push({ quiz: qname, why: 'empty stem' }); return; }
-    const ids = ((imgBind[path.basename(z.file)] || {})[idx] || []);
-    const imgs = ids.map(i => manifest[i]).filter(Boolean);
+    const imgs = ((imgBind[path.basename(z.file)] || {})[idx] || []);
     const needsImg = /\[\[IMG/.test(stemRaw) || /\b(image|diagram|picture|micrograph|labell?ed|figure) (above|below|shown)\b/i.test(stem);
     if (needsImg && !imgs.length) { held.push({ quiz: qname, why: 'image did not survive capture', q: stem.slice(0, 80) }); return; }
     const sys = qsys === 'mixed' ? routeSys(stem + ' ' + (q.answers || []).map(a => a.text).join(' ')) : qsys;
