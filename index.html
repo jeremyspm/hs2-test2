@@ -37,6 +37,7 @@ main{max-width:720px;margin:0 auto;padding:14px 14px 90px}
 .btn.primary{background:var(--primary);border-color:var(--primary);color:var(--onprimary)}
 .btn.ghost{background:transparent}
 .btn.wide{width:100%;margin-top:8px}
+a.btn{text-decoration:none}
 .btn:disabled{opacity:.45;cursor:default}
 .door h2{margin:.1rem 0 .3rem;font-size:1.02rem}
 .door p{margin:.2rem 0 .6rem;color:var(--muted-fg);font-size:.88rem}
@@ -117,6 +118,7 @@ a{color:var(--primary)}
 <header>
   <h1>HS2 · Paper Sim</h1>
   <span class="d" id="countdown"></span>
+  <a class="btn ghost" href="https://jeremyspm.github.io/hs2-videos.html" target="_blank" rel="noopener" title="Every Dr Matt &amp; Dr Mike video, by topic">▶</a>
   <button class="btn ghost" id="themeBtn" title="theme">◐</button>
   <button class="btn ghost" id="helpBtn" title="what is this?">?</button>
 </header>
@@ -205,6 +207,11 @@ function home(){
         <div class="refsrc" style="margin-top:6px">Source: her discussion post, captured 31 Aug — she may add more; check the board.</div>
       </div>
     </details>
+  </div>
+  <div class="card door" style="border-left:4px solid var(--primary)">
+    <h2>📺 Watch first — the whole video shelf</h2>
+    <p>All 148 Dr Matt &amp; Dr Mike videos behind this paper, in 20 topics. In <i>here</i> a video only shows up once you have already got something wrong — and 100 of them match no question at all, so no amount of sitting will ever surface them. That page is the only way to see the set before you attempt anything.</p>
+    <a class="btn wide" href="https://jeremyspm.github.io/hs2-videos.html" target="_blank" rel="noopener">Open the Module 2 video playlist ↗</a>
   </div>
   <div class="card door">
     <h2>🎯 Deal me a mock test</h2>
@@ -443,7 +450,8 @@ function weakSpotsHTML(rows){
     <b>Weak spots this mock test</b> — ${missed.length} missed, most in ${SYS[worst[0]]||worst[0]}.
     Watch these before your next sitting:
     ${[...vids.values()].slice(0,4).map(v=>`<div class="vidrow">▶ <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener">${esc(v.t)}</a> <span class="refsrc">${esc(v.d)}</span></div>`).join('')}
-    <div class="refsrc">Video matching is automatic from titles — a hypothesis, not a promise. Where a video and Hannetjie disagree, she wins.</div></div>`;
+    <div class="refsrc">Video matching is automatic from titles — a hypothesis, not a promise. Where a video and Hannetjie disagree, she wins.
+    <a href="https://jeremyspm.github.io/hs2-videos.html" target="_blank" rel="noopener">All 148 by topic ↗</a></div></div>`;
 }
 /* readable key rendering: matching and cloze get one ROW per part, wrong parts
    annotated with what you picked — never a run-on paragraph */
