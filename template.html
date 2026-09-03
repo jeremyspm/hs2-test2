@@ -57,6 +57,24 @@ a.btn{text-decoration:none}
 .qhead .timer.low{color:var(--danger);font-weight:700}
 .stem{white-space:pre-wrap;margin-bottom:10px}
 .stem img,.qimg{max-width:100%;border-radius:8px;background:#fff;display:block;margin:8px 0}
+/* structured stem: her paragraphs, lists and table rows survive; a Canvas layout
+   table becomes stacked cells at phone width and side-by-side from 560px */
+.stem.rich{white-space:normal;line-height:1.5}
+.stem.rich p{margin:.4em 0}
+.stem.rich ul,.stem.rich ol{margin:.3em 0;padding-left:1.35em}
+.stem.rich li{margin:.15em 0}
+.stem.rich li>p{margin:.1em 0}
+.stem.rich div{margin:.15em 0}
+.stem.rich .tbl{display:flex;flex-direction:column;gap:8px;margin:10px 0}
+.stem.rich .tr{display:flex;flex-wrap:wrap;gap:8px 14px;border:1px solid var(--border);border-radius:8px;padding:8px 10px;background:var(--muted)}
+.stem.rich .td{flex:1 1 220px;min-width:0}
+.stem.rich .td>p:first-child{margin-top:0}
+.stem.rich .td img{margin:0 0 4px;max-height:280px;width:auto}
+.stem.rich img{max-height:520px;width:auto}
+.inl{display:inline-block;width:auto;max-width:100%;padding:5px 8px;margin:2px 0;vertical-align:baseline;
+  font-size:.95em;border:1px solid var(--primary);background:var(--card);color:var(--fg);border-radius:6px}
+input.inl{min-width:7ch}
+.inl:focus{outline:2px solid var(--primary);outline-offset:1px}
 .opt{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--border);
   border-radius:var(--radius);padding:10px;margin:6px 0;cursor:pointer;background:var(--muted)}
 .opt input{margin-top:3px;flex:none}
@@ -311,27 +329,39 @@ function renderQ(){
   $('#prevB').onclick=()=>{saveAns();SIT.i--;renderQ()};
   setTimeout(()=>{const x=$('#exitB');if(x)x.onclick=()=>{if(confirm('Abandon this mock test? Nothing is saved.')){clearInterval(timerIv);home();window.scrollTo(0,0)}}},0);
   $('#nextB').onclick=()=>{saveAns();SIT.i===SIT.deck.length-1?mark():(SIT.i++,renderQ())};
-  const imgs=(q.imgs||[]).map(f=>`<img class="qimg" src="img/${f}" alt="question figure" loading="lazy">`).join('');
-  let body='';
   const a=SIT.ans[q.id];
+  const imgTag=f=>`<img class="qimg" src="img/${f}" alt="question figure" loading="lazy">`;
+  /* the blank widget, inline where Canvas put it: her dropdown stays a dropdown
+     (choices shuffled per sitting), her typed blank stays typed */
+  const widget=(b,i)=> q.bk==='dd'
+    ? `<select class="inl" data-i="${i}" aria-label="blank ${i+1}"><option value="">— choose —</option>${shuffleStable(q.id+i,b.options).map(o=>`<option ${a&&a.pick&&a.pick[i]===o?'selected':''}>${esc(o)}</option>`).join('')}</select>`
+    : `<input type="text" class="inl" data-i="${i}" style="width:${Math.min(26,Math.max(7,Math.max(...b.options.map(o=>o.length))+3))}ch" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="type…" aria-label="blank ${i+1}" value="${a&&a.pick?esc(a.pick[i]||''):''}">`;
+  /* structured stem: her paragraphs, lists and table rows, with [[IMG:…]] and
+     [[BLANK:k]] markers resolved in place. Images the stem did not place still show
+     below it, so no figure is ever lost. */
+  const placed=new Set();
+  let stemHTML=q.qh
+    ? q.qh.replace(/\[\[IMG:([^\]]+)\]\]/g,(m,f)=>{placed.add(f);return imgTag(f)})
+          .replace(/\[\[BLANK:(\d+)\]\]/g,(m,k)=>q.type==='cloze'&&q.blanks[+k]?widget(q.blanks[+k],+k):'____')
+    : esc(q.q);
+  const imgs=(q.imgs||[]).filter(f=>!placed.has(f)).map(imgTag).join('');
+  const inlineBlanks=q.type==='cloze'&&q.qh&&/\[\[BLANK:\d+\]\]/.test(q.qh);
+  let body='';
   if(q.type==='mcq'||q.type==='tf'||q.type==='multi'){
     const multi=q.type==='multi';
     body=q.opts.map((o,i)=>`<label class="opt ${a&&a.sel&&a.sel.includes(i)?'sel':''}">
       <input type="${multi?'checkbox':'radio'}" name="q" value="${i}" ${a&&a.sel&&a.sel.includes(i)?'checked':''}>
-      <span>${esc(o)}</span></label>`).join('');
-    if(multi)body=`<div class="note">Select every answer that applies.</div>`+body;
+      <span>${esc(optLabel(q,o))}</span></label>`).join('');
+    if(multi)body=`<div class="note">Tick every answer that applies — it may be just one.</div>`+body;
   } else if(q.type==='match'){
-    const bank=shuffleStable(q.id,q.pairs.map(p=>p.right));
+    const bank=shuffleStable(q.id,[...new Set(q.pairs.map(p=>p.right))]); // a right-hand item used twice is still ONE option
     body=q.pairs.map((p,i)=>`<div class="blankrow"><label>${esc(p.left)}</label>
       <select data-i="${i}"><option value="">— choose —</option>
       ${bank.map(r=>`<option ${a&&a.pick&&a.pick[i]===r?'selected':''}>${esc(r)}</option>`).join('')}</select></div>`).join('');
   } else if(q.type==='cloze'){
-    body=q.blanks.map((b,i)=> b.options.length>1
-      ? `<div class="blankrow"><label>${esc(b.label)}</label><select data-i="${i}">
-          <option value="">— choose —</option>
-          ${shuffleStable(q.id+i,b.options).map(o=>`<option ${a&&a.pick&&a.pick[i]===o?'selected':''}>${esc(o)}</option>`).join('')}</select></div>`
-      : `<div class="blankrow"><label>${esc(b.label)} (type it)</label>
-          <input type="text" data-i="${i}" value="${a&&a.pick?esc(a.pick[i]||''):''}"></div>`).join('');
+    body=inlineBlanks
+      ? `<div class="note">${q.bk==='dd'?'Pick from each dropdown in the text.':'Type into each blank in the text — spelling counts, capitals don’t.'}</div>`
+      : q.blanks.map((b,i)=>`<div class="blankrow"><label>${esc(blankLabel(b,i))}${q.bk==='dd'?'':' (type it)'}</label>${widget(b,i)}</div>`).join('');
   } else if(q.type==='essay'){
     body=`${q.scenario?`<div class="note">${esc(q.scenario)}</div>`:''}
       <div class="note">Written question · ${q.pts} marks — write ${q.pts} numbered points, one causal step each. You mark yourself against the model at the end.</div>
@@ -342,7 +372,7 @@ function renderQ(){
       <span class="tag ${q.sys}">${q.sys}</span><span class="tag">${q.pts} mk</span>
       <span class="timer" id="timer"></span>
       <button class="btn ghost" id="exitB" title="abandon mock test" style="padding:2px 10px">✕</button></div>
-    <div class="stem">${esc(q.q)}</div>${imgs}${body}
+    ${inlineBlanks?body:''}<div class="stem${q.qh?' rich':''}">${stemHTML}</div>${imgs}${inlineBlanks?'':body}
     <div class="pips">${SIT.deck.map((_,i)=>`<span class="pip ${SIT.ans[SIT.deck[i].id]?'done':''} ${i===SIT.i?'cur':''}"></span>`).join('')}</div>
   </div>`;
   document.querySelectorAll('.opt').forEach(o=>o.onclick=e=>{
@@ -375,15 +405,24 @@ function markQ(q,a){
   if(q.type==='mcq'||q.type==='tf'||q.type==='multi'){
     const chosen=(a.sel||[]).map(i=>q.opts[i]);
     const right=chosen.length===q.key.length&&q.key.every(k=>chosen.includes(k));
-    return{got:right?q.pts:0,tot:q.pts,you:chosen.join(' · ')}}
+    return{got:right?q.pts:0,tot:q.pts,you:chosen.map(o=>optLabel(q,o)).join(' · ')}}
   if(q.type==='match'){
     let got=0;q.pairs.forEach((p,i)=>{if((a.pick||{})[i]===p.right)got++});
     return{got:got*q.pts/q.pairs.length,tot:q.pts,you:q.pairs.map((p,i)=>(a.pick||{})[i]||'—').join(' · ')}}
   if(q.type==='cloze'){
-    let got=0;const nrm=s=>String(s||'').toLowerCase().replace(/\s+/g,' ').trim();
-    q.blanks.forEach((b,i)=>{const v=nrm((a.pick||{})[i]);if(v&&b.options.some(o=>nrm(o)===v))got++});
+    let got=0;
+    q.blanks.forEach((b,i)=>{if(blankOK(q,b,(a.pick||{})[i]))got++});
     return{got:got*q.pts/q.blanks.length,tot:q.pts,you:q.blanks.map((b,i)=>(a.pick||{})[i]||'—').join(' · ')}}
 }
+/* dropdown: only her marked option is right. Typed: every accepted spelling is. */
+function blankOK(q,b,v){
+  /* phones type curly quotes; a trailing full stop is not a wrong answer */
+  const nrm=s=>String(s||'').toLowerCase().replace(/[’‘`´]/g,"'").replace(/[“”]/g,'"').replace(/\s+/g,' ').trim().replace(/[.]+$/,'');
+  const x=nrm(v);if(!x)return false;
+  const also=(b.also||[]).some(o=>nrm(o)===x);
+  return q.bk==='dd' ? (x===nrm(b.correct)||also) : (b.options.some(o=>nrm(o)===x)||also);
+}
+function blankLabel(b,i){return b.ctx?`${b.ctx} ___`:(b.label&&!/^Answer \d+:?$/.test(b.label)?b.label.replace(/:$/,''):`Blank ${i+1}`)}
 function mark(){
   clearInterval(timerIv);$('#footbar').classList.remove('on');
   let got=0,tot=0;const rows=[];
@@ -403,12 +442,12 @@ function mark(){
     ${saqs.length?`<div class="note">Tick each model step your written answer actually hit — the score updates as you go. Model answers are the tool’s, not Hannetjie’s.</div>`:''}
     ${rows.map(({q,r,saq},i)=>{
       if(saq){const a=SIT.ans[q.id];
-        return `<div class="mk" id="mk${i}"><b>${esc(q.q)}</b>
+        return `<div class="mk" id="mk${i}"><b>${esc(flatStem(q))}</b>
         ${a&&a.text?`<div class="you">You wrote:<br>${esc(a.text).replace(/\n/g,'<br>')}</div>`:'<div class="you">— no answer written —</div>'}
         <div class="steps">${q.saq.steps.map((s,si)=>`<label><input type="checkbox" data-saq="${i}" data-pt="${q.pts/q.saq.steps.length}"> <span>${esc(s)}</span></label>`).join('')}</div>
         <div class="src">${esc(q.saq.src)}</div></div>`}
       const cls=r.got>=r.tot?'right':'wrong';
-      return `<div class="mk ${cls}"><b>${esc(q.q).slice(0,300)}</b>
+      return `<div class="mk ${cls}"><b>${esc(flatStem(q)).slice(0,300)}</b>
         <div class="marks">${(+r.got.toFixed(1))}/${r.tot} mk · ${esc(DATA.quizzes.find(z=>z.id===q.quiz)?.name||q.quiz)}</div>
         ${q.type==='mcq'||q.type==='tf'||q.type==='multi'?(r.you?`<div class="you">You: ${esc(r.you)}</div>`:`<div class="you">${r.detail||''}</div>`):''}
         ${r.got<r.tot?`${keyHTML(q,SIT.ans[q.id])}${explainHTML(q)}`:''}</div>`}).join('')}
@@ -460,16 +499,21 @@ function keyHTML(q,a){
     const yours=(a&&a.pick||{})[i];const wrong=yours&&yours!==p.right;
     return `<div class="krow ${yours===p.right?'kok':''}">${esc(p.left)} <b>→ ${esc(p.right)}</b>${wrong?` <span class="kyou">you: ${esc(yours)}</span>`:yours?'':' <span class="kyou">unanswered</span>'}</div>`}).join('')}</div>`;
   if(q.type==='cloze')return `<div class="keyrows">${q.blanks.map((b,i)=>{
-    const yours=(a&&a.pick||{})[i];const nrm=s=>String(s||'').toLowerCase().replace(/\s+/g,' ').trim();
-    const right=yours&&b.options.some(o=>nrm(o)===nrm(yours));
-    return `<div class="krow ${right?'kok':''}">${esc(b.label.replace(/:$/,''))} <b>→ ${esc(b.correct)}</b>${yours&&!right?` <span class="kyou">you: ${esc(yours)}</span>`:''}</div>`}).join('')}</div>`;
+    const yours=(a&&a.pick||{})[i];
+    const right=blankOK(q,b,yours);
+    const alt=q.bk==='fib'&&b.options.length>1?` <span class="refsrc">(also accepted: ${esc(b.options.filter(o=>o!==b.correct).join(', '))})</span>`:'';
+    return `<div class="krow ${right?'kok':''}">${esc(blankLabel(b,i))} <b>→ ${esc(b.correct)}</b>${alt}${yours&&!right?` <span class="kyou">you: ${esc(yours)}</span>`:yours?'':' <span class="kyou">unanswered</span>'}</div>`}).join('')}</div>`;
   return `<div class="keyline">Key: ${esc(keyText(q))}</div>`;
 }
 function keyText(q){
   if(q.type==='match')return q.pairs.map(p=>`${p.left} → ${p.right}`).join(' · ');
-  if(q.type==='cloze')return q.blanks.map(b=>b.options[0]).join(' · ');
-  return (q.key||[]).join(' · ');
+  if(q.type==='cloze')return q.blanks.map(b=>b.correct).join(' · ');
+  return (q.key||[]).map(o=>optLabel(q,o)).join(' · ');
 }
+/* bare-letter options carry their text from the stem's lettered list (build-time) */
+function optLabel(q,o){return q.ol&&q.ol[o]?`${o}. ${q.ol[o]}`:o}
+/* the flat stem carries Canvas's literal "[ Select ]" where each dropdown sat */
+const flatStem=q=>q.qt||String(q.q||'').replace(/\[ Select \]/g,'____');
 /* ── chrome ────────────────────────────────────────────────────────── */
 $('#countdown').textContent=`${daysLeft()}d to Test 2`;
 $('#themeBtn').onclick=()=>{const r=document.documentElement;
@@ -503,7 +547,7 @@ document.addEventListener('click',e=>{
     const q=SIT.deck.find(x=>x.id===e.target.dataset.ask);
     const a=SIT.ans[q.id];
     const you=a?(a.text||((a.sel||[]).map(i=>q.opts[i]).join(', ')||Object.values(a.pick||{}).join(', '))):'(no answer)';
-    const prompt=`I'm a first-year nursing student studying for an anatomy & physiology test. I got this practice question wrong and want to understand the concept, not just the answer.\n\nQuestion: ${q.q}\n`+(q.opts?`Options: ${q.opts.join(' | ')}\n`:'')+`Correct answer: ${keyText(q)}\nMy answer: ${you}\n\nExplain why the correct answer is right, step by step, and what misconception my answer suggests.`;
+    const prompt=`I'm a first-year nursing student studying for an anatomy & physiology test. I got this practice question wrong and want to understand the concept, not just the answer.\n\nQuestion: ${flatStem(q)}\n`+(q.opts?`Options: ${q.opts.join(' | ')}\n`:'')+`Correct answer: ${keyText(q)}\nMy answer: ${you}\n\nExplain why the correct answer is right, step by step, and what misconception my answer suggests.`;
     const btn=e.target, done=ok=>{btn.textContent=ok?'Copied ✓ paste into any AI chat':'Copy blocked — long-press the text to copy';
       setTimeout(()=>btn.textContent='🤖 Copy for AI',3000)};
     (navigator.clipboard?navigator.clipboard.writeText(prompt):Promise.reject())

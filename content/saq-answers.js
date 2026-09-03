@@ -11,9 +11,11 @@ export const SAQ_ANSWERS = [
   // ── 211018 · Blood Sugar Regulation (the endocrine SAQ set) ──
   {
     k: 'the pancreas has both endocrine and exocrine functions',
+    /* the stem states the exocrine/endocrine split itself and asks only to NAME the
+       hypoglycaemic and the hyperglycaemic hormone — one mark each */
     steps: [
-      'Exocrine: acinar cells make pancreatic juice (digestive enzymes + bicarbonate), delivered by DUCT to the duodenum.',
-      'Endocrine: the islets of Langerhans secrete hormones directly into the BLOOD — beta cells → insulin, alpha cells → glucagon.',
+      'Hypoglycaemic hormone (LOWERS blood glucose) = insulin, from the beta cells of the islets of Langerhans.',
+      'Hyperglycaemic hormone (RAISES blood glucose) = glucagon, from the alpha cells of the islets.',
     ],
     src: 'Endocrine 2 deck',
   },
@@ -152,8 +154,9 @@ export const SAQ_ANSWERS = [
       '"-itis" = inflammation; "arthr-" = joint.',
       'Arthritis = inflammation of a joint (pain, swelling, stiffness).',
       'Common in the elderly: osteoarthritis — wear-and-tear erosion of articular cartilage until bone rubs on bone.',
-      'Rheumatoid arthritis differs: an autoimmune attack on the synovial membrane, often symmetrical, any age.',
-      'Gout: urate crystals deposit in the joint (classically the big toe) causing acute inflammation.',
+      /* her questions 4 and 5 ask about mobility and about pain/swelling — not RA or gout */
+      'Mobility: cartilage loss, bone-on-bone grinding and bone spurs make the joint stiff and painful to move, so the range of motion shrinks.',
+      'Pain and swelling: the inflamed synovial membrane releases more fluid and inflammatory mediators into the joint (swelling, warmth) and irritates pain receptors; exposed bone has no cartilage to cushion it.',
     ],
     src: 'MS1 deck / 2024 joints case answers',
   },
@@ -166,6 +169,9 @@ export const SAQ_ANSWERS = [
       'Antagonist — opposes it and relaxes/lengthens, e.g. triceps brachii during that flexion.',
       'Synergist — assists the agonist and steadies the movement, e.g. brachialis.',
       'Fixator — holds the origin bone still, e.g. scapular muscles stabilising the shoulder.',
+      /* her part 2 (max 2): origin and insertion */
+      'Origin — the muscle’s attachment on the bone that stays still (usually proximal).',
+      'Insertion — the attachment on the bone that MOVES (usually distal); contraction pulls the insertion toward the origin.',
     ],
     src: 'her own embedded answer (½ mark per fact) · MS2 deck',
   },

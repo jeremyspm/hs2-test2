@@ -7,7 +7,18 @@ re-sittable, plus dealt mock papers with a score history. Test 2: 21 Sept 2026, 
   captures; parser lives in `hs2-test1/audit/parse-quizzes.mjs`, run with `HS2_EXPORT`/`HS2_OUT`),
   `images.json` (per-question image binding from `bind-images.mjs`) and `content/` (authored:
   chains, case-7 pack, SAQ model answers — gated both directions).
+- `stem-html.mjs` — reads the SAME captures a second way and gives every question a
+  structured stem (`qh`): her paragraphs, lists and table rows kept, each image and each
+  blank as a `[[IMG:…]]` / `[[BLANK:k]]` marker at its true position (fill-in blanks are
+  matched to their answer groups through Canvas's md5 blank-id hashing, dropdowns by order).
+  The build fails if any blank-type question does not carry every blank inline exactly once.
+  Her external links and embedded videos survive as plain links; Canvas file links and
+  page furniture are dropped. The flat parser stem (`q`) stays the id and search text.
 - Stems/options/keys are hers, verbatim. Model answers for written questions are the tool's.
+  `content/overrides.js` holds the few extra ACCEPTED answers (e.g. "3rd" for "third");
+  her key remains the displayed answer, and a stale override fails the build.
+- Grading: her dropdowns mark only her keyed option right; her typed blanks accept any
+  of her listed spellings (case-insensitive, curly apostrophes normalised).
 - `held.json` — every excluded question with its reason. Locked on Canvas, not yet captured:
   Module Review B (access code), Formative 2.
 - `index.html` is exactly `template.html` with `/*@BANK@*/` replaced by the bank JSON —

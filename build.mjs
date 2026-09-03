@@ -11,6 +11,8 @@ import { CHAINS } from './content/chains.js';
 import { CASE7 } from './content/case7.js';
 import { SAQ_ANSWERS, norm } from './content/saq-answers.js';
 import { loadVideos, loadPassages, matchVideo, matchPassage } from './content/explain.mjs';
+import { structuredStems, plainText } from './stem-html.mjs';
+import { OVERRIDES } from './content/overrides.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const M2 = 'C:/Users/USER/Desktop/github/hs2-anki/m2';
@@ -19,6 +21,10 @@ const CAP = 'C:/Users/USER/Desktop/github/_inbox/HS2 Module 2 Capture';
 const bank = JSON.parse(fs.readFileSync(path.join(M2, 'questions.json'), 'utf8'));
 const imgBind = JSON.parse(fs.readFileSync(path.join(HERE, 'images.json'), 'utf8'));
 const manifest = JSON.parse(fs.readFileSync(path.join(CAP, 'images/manifest.json'), 'utf8'));
+const extManifest = JSON.parse(fs.readFileSync(path.join(CAP, 'images/ext-manifest.json'), 'utf8'));
+/* the same captures, read a second way: structure kept, blanks and images in place.
+   `q` (flat, hers verbatim) stays the id + search text; `qh` is what the student sees. */
+const STEMS = structuredStems(CAP, manifest, extManifest);
 
 /* quiz id -> name + system (titles in the capture are the noscript banner, so
    names are declared here, matching Canvas titles) */
@@ -66,6 +72,8 @@ const stripImgRefs = (s) => s
 
 const questions = [], held = [], quizzes = [];
 const saqUsed = new Set();
+const structFails = []; let nInline = 0;
+const overridesUsed = new Set();
 
 for (const z of bank.quizzes) {
   const fid = (z.file.match(/HS2CAP-(\d+)/) || [])[1];
@@ -86,6 +94,28 @@ for (const z of bank.quizzes) {
     if (needsImg && !imgs.length) { held.push({ quiz: qname, why: 'image did not survive capture', q: stem.slice(0, 80) }); return; }
     const sys = qsys === 'mixed' ? routeSys(stem + ' ' + (q.answers || []).map(a => a.text).join(' ')) : qsys;
     const base = { id: qid(fid, stem, q.key), quiz: fid, sys, pts: +q.points || 1, q: stem, imgs };
+    /* structured stem: only images this question actually ships may be placed inline;
+       blank markers are validated per type below, so a stem can never show a blank
+       the key does not have, or hide one it does. */
+    const st = (STEMS[path.basename(z.file)] || {})[idx];
+    if (st && st.html) {
+      base.qh = st.html.replace(/\[\[IMG:([^\]]+)\]\]/g, (m, f) => imgs.includes(f) ? m : '');
+      if (!/<(?:p|ul|ol|div)\b/.test(base.qh)) base.qh = '<p>' + base.qh + '</p>';
+    } else base.qh = '<p>' + stem.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])) + '</p>'; // synthesised stem
+    /* one-line text of the SAME stem for titles and the Ask-AI prompt — the flat
+       capture split words at inline tags ("a nta gonist") and carries "[ Select ]" */
+    base.qt = plainText(base.qh);
+    const blankMarkers = (h) => [...(h || '').matchAll(/\[\[BLANK:(\d+|\?)\]\]/g)].map(m => m[1]);
+    const placeBlanks = (n) => {
+      const ks = blankMarkers(base.qh);
+      const ok = base.qh && ks.length === n && !ks.includes('?') && new Set(ks).size === n && ks.every(k => +k < n);
+      if (!ok) { structFails.push(`${qname} #${idx + 1}: ${n} blanks in key, markers [${ks.join(',')}] in stem — "${stem.slice(0, 60)}"`); base.qh = (base.qh || '').replace(/\[\[BLANK:[^\]]*\]\]/g, '____'); return null; }
+      nInline++;
+      return st.ctx;
+    };
+    if (base.qh && q.type !== 'multiple_dropdowns_question' && q.type !== 'fill_in_multiple_blanks_question' && blankMarkers(base.qh).length) {
+      structFails.push(`${qname} #${idx + 1}: blank markers in a ${q.type}`); base.qh = base.qh.replace(/\[\[BLANK:[^\]]*\]\]/g, '____');
+    }
 
     if (q.type === 'essay_question') {
       const hit = SAQ_ANSWERS.find(a => norm(stem).startsWith(a.k) || norm(stem).includes(a.k));
@@ -102,7 +132,22 @@ for (const z of bank.quizzes) {
     }
     if (q.key.kind === 'blanks') {
       if (q.key.blanks.some(b => !b.options.length || !b.correct)) { held.push({ quiz: qname, why: 'blank with no options/correct', q: stem.slice(0, 80) }); return; }
-      questions.push({ ...base, type: 'cloze', blanks: q.key.blanks, pts: Math.max(base.pts, q.key.blanks.length) });
+      /* bk: how the blank is answered — 'dd' = her dropdown (options are choices, ONE
+         is right), 'fib' = typed (options are the accepted spellings, ALL are right).
+         The two must grade differently; the old single path marked any dropdown
+         choice correct. */
+      const bk = q.type === 'multiple_dropdowns_question' ? 'dd' : 'fib';
+      const ctx = placeBlanks(q.key.blanks.length);
+      const blanks = q.key.blanks.map((b, k) => ({ ...b, ctx: ctx ? (ctx[k] || '') : '' }));
+      /* extra accepted answers, declared in content/overrides.js and matched here by
+         id + blank + her correct answer — a stale override fails the build below */
+      for (const o of OVERRIDES.filter(o => o.id === base.id)) {
+        const b = blanks[o.blank];
+        if (!b || b.correct !== o.correct) continue;
+        b.also = [...new Set([...(b.also || []), ...o.also])];
+        overridesUsed.add(o);
+      }
+      questions.push({ ...base, type: 'cloze', bk, blanks, pts: Math.max(base.pts, q.key.blanks.length) });
       kept++; return;
     }
     /* options family. Some of her MCQs store options as bare letters (a/b/c/d)
@@ -112,7 +157,11 @@ for (const z of bank.quizzes) {
     const enrich = a => { const t = (a.text || '').trim(), ti = cleanTitle(a.titleAttr);
       return (t.length < 3 && ti.length >= 3) ? ti : t; };
     const ans = (q.answers || []).filter(a => (a.text || '').trim() || cleanTitle(a.titleAttr));
-    const opts = [...new Set(ans.map(enrich).filter(Boolean))];
+    let opts = [...new Set(ans.map(enrich).filter(Boolean))];
+    /* "All/None of the above" only means what it says when it IS below the others —
+       the capture holds them in Canvas's per-attempt shuffle order. Display order only. */
+    const above = o => /^(?:all|none|both) of (?:the above|these)/i.test(o);
+    opts = [...opts.filter(o => !above(o)), ...opts.filter(above)];
     const key = [...new Set(ans.filter(a => a.correctClass || a.weight === '100').map(enrich))];
     const lettered = opts.every(o => o.length < 3) && /\b[a-d]\.\s/.test(stem);
     if (!opts.length || opts.length < 2 || !key.length || !key.every(k => opts.includes(k))) {
@@ -123,7 +172,16 @@ for (const z of bank.quizzes) {
     }
     const type = q.type === 'true_false_question' ? 'tf'
       : q.type === 'multiple_answers_question' ? 'multi' : 'mcq';
-    questions.push({ ...base, type, opts, key });
+    /* bare-letter options (a/b/c/d) get their text from the stem's own lettered list,
+       so the card reads "b. Fibula" instead of "b" — display only; the key stays hers.
+       Only when every option letter is found exactly once in the stem. */
+    let ol = null;
+    if (lettered) {
+      const found = {};
+      for (const m of stem.matchAll(/(?:^|\s)([a-d])\.\s*(.+?)(?=\s+[a-d]\.\s*\S|$)/g)) { if (found[m[1]]) { found.__dup = true; } found[m[1]] = m[2].trim(); }
+      if (!found.__dup && opts.every(o => found[o.toLowerCase()])) ol = Object.fromEntries(opts.map(o => [o, found[o.toLowerCase()]]));
+    }
+    questions.push({ ...base, type, opts, key, ...(ol ? { ol } : {}) });
     kept++;
   });
   if (kept) quizzes.push({ id: fid, name: qname, sys: qsys, n: kept });
@@ -175,7 +233,15 @@ for (let i = questions.length - 1; i >= 0; i--) {
 if (dropped) console.log('deduped', dropped, 'identical duplicate captures');
 for (const q of questions) for (const f of q.imgs) if (!fs.existsSync(path.join(CAP, 'images', f))) fails.push('missing image file ' + f);
 for (const c of CHAINS) if (c.beads.filter(b => b.t).length < 4) fails.push('chain too short: ' + c.id);
+/* every blank-type question must carry every one of its blanks inline, once, in the
+   stem the student sees — a blank the key has but the stem lacks is the exact bug this
+   layer exists to kill, so it fails the build rather than falling back quietly */
+for (const s of structFails) fails.push('stem structure: ' + s);
+for (const o of OVERRIDES) if (!overridesUsed.has(o)) fails.push(`override matched nothing: ${o.id} blank ${o.blank} "${o.correct}"`);
+for (const q of questions) if (!q.qh) fails.push('no structured stem for ' + q.id + ' "' + q.q.slice(0, 60) + '"');
+for (const q of questions) if (q.qh && /\[\[(?!IMG:|BLANK:\d+\]\])/.test(q.qh)) fails.push('stray marker in ' + q.id);
 if (fails.length) { console.error('BUILD FAILED:\n  ' + fails.join('\n  ')); process.exit(1); }
+console.log(`structured stems: ${questions.filter(q => q.qh).length}/${questions.length} · blanks placed inline in ${nInline} cloze questions`);
 
 /* ── emit ──────────────────────────────────────────────────────────── */
 const DATA = {
