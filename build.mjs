@@ -44,6 +44,10 @@ const QUIZ = {
   211125:['ms','Formative: Bone Growth'],211126:['endo','Endocrine 2 (MC)'],
   211129:['ns','Neuron, AP & Synapse'],211133:['ms','MS: Muscles'],
   213199:['ms','MS: Find the Errors'],
+  /* Sep-7 unlock captures (Module 2 MS/NS/Endo) */
+  211052:['ms','Muscles'],211078:['ms','Skeleton, Muscles & Energy'],
+  211042:['ns','The Brain & Stroke'],211112:['endo','Formative: Endocrine System'],
+  211063:['endo','Insulin, Glucagon & Blood Sugar'],211055:['endo','Endocrine System (SAQ)'],
 };
 
 /* deal-weight routing for mixed-quiz questions — coarse by design; used for
