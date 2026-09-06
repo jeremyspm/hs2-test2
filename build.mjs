@@ -13,6 +13,7 @@ import { SAQ_ANSWERS, norm } from './content/saq-answers.js';
 import { loadVideos, loadVideoMatches, loadPassages, matchVideo, matchPassage } from './content/explain.mjs';
 import { structuredStems, plainText } from './stem-html.mjs';
 import { OVERRIDES } from './content/overrides.js';
+import { AUTHORED_STEMS } from './content/authored-stems.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const M2 = 'C:/Users/USER/Desktop/github/hs2-anki/m2';
@@ -51,14 +52,20 @@ const QUIZ = {
 };
 
 /* Questions the pipeline cannot render truthfully, held on purpose rather than
-   shipped broken. Matched by quiz + normalised stem prefix. */
-const EXCLUDE = [
-  // 211112 #1: "Label the glands A= B= C= …" — a type-the-7-labels figure question
-  // whose stem is the diagram alone (question_text display:none), so there are no
-  // inline blanks to place; the cloze renderer would show 7 bare ____ with no image
-  // anchor. Held until it can be authored as an image-hotspot.
-  { quiz: '211112', k: 'label the glands', why: 'figure-labeling: 7 typed blanks with no inline positions in the captured stem' },
+   shipped broken. Matched by quiz + normalised stem prefix. (211112 #1 "Label the
+   glands" used to live here; it now has an authored image-stem in
+   content/authored-stems.js, so it ships.) */
+const EXCLUDE = [];
+
+/* Questions held as "image did not survive" whose only image is a dead or decorative
+   reference (a failed external image, an empty [[IMG]]) and which are fully answerable
+   from their own text or pairs. Shipped as text rather than held on a phantom figure.
+   Matched by quiz + normalised stem prefix; a stale entry fails the build. */
+const NO_IMAGE_OK = [
+  { quiz: '211042', k: 'what are the four tests' },    // T/F on the FAST principle; image was a dead "See the source image"
+  { quiz: '211103', k: 'brain parts mix and match' },  // matching; every pair is a self-contained description (norm() drops the colon)
 ];
+const noImgOkUsed = new Set();
 
 /* deal-weight routing for mixed-quiz questions — coarse by design; used for
    stratification only, never for a coverage claim. APPEND rules, never insert. */
@@ -88,6 +95,7 @@ const questions = [], held = [], quizzes = [];
 const saqUsed = new Set();
 const structFails = []; let nInline = 0;
 const overridesUsed = new Set();
+const authoredUsed = new Set();
 
 for (const z of bank.quizzes) {
   const fid = (z.file.match(/HS2CAP-(\d+)/) || [])[1];
@@ -106,14 +114,18 @@ for (const z of bank.quizzes) {
     const ex = EXCLUDE.find(e => e.quiz === fid && norm(stem).startsWith(e.k));
     if (ex) { held.push({ quiz: qname, why: ex.why, q: stem.slice(0, 80) }); return; }
     const imgs = ((imgBind[path.basename(z.file)] || {})[idx] || []);
-    const needsImg = /\[\[IMG/.test(stemRaw) || /\b(image|diagram|picture|micrograph|labell?ed|figure) (above|below|shown)\b/i.test(stem);
+    const okNoImg = NO_IMAGE_OK.find(e => e.quiz === fid && norm(stem).startsWith(e.k));
+    if (okNoImg) noImgOkUsed.add(okNoImg);
+    const needsImg = !okNoImg && (/\[\[IMG/.test(stemRaw) || /\b(image|diagram|picture|micrograph|labell?ed|figure) (above|below|shown)\b/i.test(stem));
     if (needsImg && !imgs.length) { held.push({ quiz: qname, why: 'image did not survive capture', q: stem.slice(0, 80) }); return; }
     const sys = qsys === 'mixed' ? routeSys(stem + ' ' + (q.answers || []).map(a => a.text).join(' ')) : qsys;
     const base = { id: qid(fid, stem, q.key), quiz: fid, sys, pts: +q.points || 1, q: stem, imgs };
     /* structured stem: only images this question actually ships may be placed inline;
        blank markers are validated per type below, so a stem can never show a blank
        the key does not have, or hide one it does. */
-    const st = (STEMS[path.basename(z.file)] || {})[idx];
+    const authoredSt = AUTHORED_STEMS.find(a => a.quiz === fid && norm(stem).startsWith(a.k));
+    if (authoredSt) authoredUsed.add(authoredSt);
+    const st = authoredSt ? authoredSt.st : (STEMS[path.basename(z.file)] || {})[idx];
     if (st && st.html) {
       base.qh = st.html.replace(/\[\[IMG:([^\]]+)\]\]/g, (m, f) => imgs.includes(f) ? m : '');
       if (!/<(?:p|ul|ol|div)\b/.test(base.qh)) base.qh = '<p>' + base.qh + '</p>';
@@ -258,6 +270,8 @@ for (const c of CHAINS) if (c.beads.filter(b => b.t).length < 4) fails.push('cha
    layer exists to kill, so it fails the build rather than falling back quietly */
 for (const s of structFails) fails.push('stem structure: ' + s);
 for (const o of OVERRIDES) if (!overridesUsed.has(o)) fails.push(`override matched nothing: ${o.id} blank ${o.blank} "${o.correct}"`);
+for (const a of AUTHORED_STEMS) if (!authoredUsed.has(a)) fails.push(`authored-stem matched NO question: ${a.quiz} "${a.k}"`);
+for (const e of NO_IMAGE_OK) if (!noImgOkUsed.has(e)) fails.push(`no-image-ok matched NO question: ${e.quiz} "${e.k}"`);
 for (const q of questions) if (!q.qh) fails.push('no structured stem for ' + q.id + ' "' + q.q.slice(0, 60) + '"');
 for (const q of questions) if (q.qh && /\[\[(?!IMG:|BLANK:\d+\]\])/.test(q.qh)) fails.push('stray marker in ' + q.id);
 if (fails.length) { console.error('BUILD FAILED:\n  ' + fails.join('\n  ')); process.exit(1); }
