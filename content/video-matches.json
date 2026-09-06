@@ -1,9 +1,9 @@
 {
  "built": "2026-09-06",
- "method": "For every question in the bank, its key + stem terms were BM25-scored against 90-second windows of each video's own YouTube caption track (153/153 videos, pulled 2026-09-06). The top candidates were judged from the caption text by a model reading it (31 batches by Claude Opus-class review agents, the remaining batches read inline by Claude in the same session); a candidate counts only if the caption text states the tested fact. Every accepted match carries a verbatim caption quote that was then located mechanically in the track (all exact); `at` is that position minus 3 s. A targeted second look struck 4 matches. Five videos were added from the channel after the first pass (bone healing, osteoporosis, aerobic ATP, glycolysis, scapula movers) and judged the same way. Captions are not shipped. Questions absent from `matches` have no video whose captions teach them.",
+ "method": "For every question in the bank, its key + stem terms were BM25-scored against 90-second windows of each video's own YouTube caption track (153/153 videos, pulled 2026-09-06). The top candidates were judged from the caption text by a model reading it (31 batches by Claude Opus-class review agents, the remaining batches read inline by Claude in the same session); a candidate counts only if the caption text states the tested fact. Every accepted match carries a verbatim caption quote that was then located mechanically in the track (all exact); `at` is that position minus 3 s. A targeted second look struck 4 matches. Five videos were added from the channel after the first pass (bone healing, osteoporosis, aerobic ATP, glycolysis, scapula movers) and judged the same way. Captions are not shipped. Questions absent from `matches` have no video whose captions teach them. | 2026-09-07: added the 7 newly-unlocked Module 2 quizzes (Flash-judged, verbatim-quote gated).",
  "stats": {
-  "questions_with_video": 206,
-  "matches": 319,
+  "questions_with_video": 224,
+  "matches": 341,
   "videos_used": 86
  },
  "matches": {
@@ -2012,6 +2012,152 @@
     "id": "r-sDGEswYQY",
     "at": 462,
     "quote": "caused by destruction of beta cells this is more to do with insulin"
+   }
+  ],
+  "q03279f1c08": [
+   {
+    "id": "vLCg_kyuyw4",
+    "at": 1021,
+    "quote": "insulin drops blood glucose levels when they're high drops blood glucose glucagon increases blood glucose levels"
+   }
+  ],
+  "q29bbd9e32c": [
+   {
+    "id": "5Hq4eoqsVbk",
+    "at": 103,
+    "quote": "glucose floating in the bloodstream is the stimulus to tell the pancreas to release insulin"
+   },
+   {
+    "id": "ksomgJMqxgI",
+    "at": 94,
+    "quote": "the main stimulus for insulin release is glucose."
+   }
+  ],
+  "q3040e1698e": [
+   {
+    "id": "QJVqTf_rNtk",
+    "at": 46,
+    "quote": "The bicep brachii itself is a flexor of the arm"
+   },
+   {
+    "id": "XBNm4-BHoXo",
+    "at": 74,
+    "quote": "What you're going to find is it has two heads that's why it's called the biceps brachii"
+   }
+  ],
+  "q3d30e957fe": [
+   {
+    "id": "r-sDGEswYQY",
+    "at": 461,
+    "quote": "This one is caused by destruction of beta cells this is more to do with insulin"
+   }
+  ],
+  "q465c732aa4": [
+   {
+    "id": "QBLqs-2ryZ0",
+    "at": 39,
+    "quote": "first division we can talk about being the central nervous system I'm just going to run it up here as CNS the second division we can call the peripheral nervous system"
+   },
+   {
+    "id": "GFrHKUi0tnI",
+    "at": 29,
+    "quote": "subdivide it into what we call the central nervous system and what we call the peripheral nervous system"
+   }
+  ],
+  "q5610ecabea": [
+   {
+    "id": "JO_N1apvidE",
+    "at": 126,
+    "quote": "view of a synovial joint so one they're freely movable"
+   }
+  ],
+  "q68cf376da9": [
+   {
+    "id": "-hTWA2SKYbM",
+    "at": 353,
+    "quote": "sugar is a big molecule it will be pulled will pull water out with it"
+   }
+  ],
+  "q7c41ceb2d6": [
+   {
+    "id": "ksomgJMqxgI",
+    "at": 63,
+    "quote": "Insulin lowers blood glucose levels, glucagon raises them, and the pancreas,"
+   },
+   {
+    "id": "vLCg_kyuyw4",
+    "at": 1021,
+    "quote": "insulin drops blood glucose levels when they're high drops blood glucose glucagon increases"
+   }
+  ],
+  "q86d113fc6c": [
+   {
+    "id": "ECAZ8hjeASI",
+    "at": 58,
+    "quote": "results in either a deficiency in the amount of insulin secreted or a response, a sensitivity"
+   }
+  ],
+  "q91977f97aa": [
+   {
+    "id": "-hTWA2SKYbM",
+    "at": 96,
+    "quote": "muscles can store the excessive glucose in glycogen and muscle and fat cells can store the excessive glucose as fat"
+   }
+  ],
+  "qb8b9646603": [
+   {
+    "id": "5OA9AcaBcUo",
+    "at": 63,
+    "quote": "All those bones in black are the axial skeleton it's basically going to be the skull"
+   }
+  ],
+  "qbc017cecde": [
+   {
+    "id": "ksomgJMqxgI",
+    "at": 808,
+    "quote": "secrete two important substances: cortisol and adrenaline. Both of them are hormones. Cortisol increases blood glucose levels"
+   }
+  ],
+  "qc1de8dd0e7": [
+   {
+    "id": "r-sDGEswYQY",
+    "at": 2189,
+    "quote": "exercising so it's contracting actively it doesn't need insulin anymore so it becomes independent"
+   }
+  ],
+  "qd234aec186": [
+   {
+    "id": "5OA9AcaBcUo",
+    "at": 220,
+    "quote": "The skull is an example of a flat bone"
+   }
+  ],
+  "qe703d323c7": [
+   {
+    "id": "vLCg_kyuyw4",
+    "at": 1042,
+    "quote": "glucagon's released and it releases stored glucose into the bloodstream and then the cells can"
+   }
+  ],
+  "qeb189dd885": [
+   {
+    "id": "5Hq4eoqsVbk",
+    "at": 103,
+    "quote": "this glucose floating in the bloodstream is the stimulus to tell the pancreas to release insulin"
+   }
+  ],
+  "qef4906beda": [
+   {
+    "id": "-hTWA2SKYbM",
+    "at": 96,
+    "quote": "muscles can store the excessive glucose in glycogen and muscle and fat cells can store the excessive glucose as fat"
+   }
+  ],
+  "qef99da94d3": [
+   {
+    "id": "QBLqs-2ryZ0",
+    "at": 51,
+    "quote": "now the central nervous system is made up of the brain like I [01:00] said earlier brain brainstem and spinal cord"
    }
   ]
  }
