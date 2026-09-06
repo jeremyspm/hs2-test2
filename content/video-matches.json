@@ -1,9 +1,9 @@
 {
  "built": "2026-09-06",
- "method": "For every question in the bank, its key + stem terms were BM25-scored against 90-second windows of each video's own YouTube caption track (153/153 videos, pulled 2026-09-06). The top candidates were judged from the caption text by a model reading it (31 batches by Claude Opus-class review agents, the remaining batches read inline by Claude in the same session); a candidate counts only if the caption text states the tested fact. Every accepted match carries a verbatim caption quote that was then located mechanically in the track (all exact); `at` is that position minus 3 s. A targeted second look struck 4 matches. Five videos were added from the channel after the first pass (bone healing, osteoporosis, aerobic ATP, glycolysis, scapula movers) and judged the same way. Captions are not shipped. Questions absent from `matches` have no video whose captions teach them. | 2026-09-07: added the 7 newly-unlocked Module 2 quizzes (Flash-judged, verbatim-quote gated).",
+ "method": "For every question in the bank, its key + stem terms were BM25-scored against 90-second windows of each video's own YouTube caption track (153/153 videos, pulled 2026-09-06). The top candidates were judged from the caption text by a model reading it (31 batches by Claude Opus-class review agents, the remaining batches read inline by Claude in the same session); a candidate counts only if the caption text states the tested fact. Every accepted match carries a verbatim caption quote that was then located mechanically in the track (all exact); `at` is that position minus 3 s. A targeted second look struck 4 matches. Five videos were added from the channel after the first pass (bone healing, osteoporosis, aerobic ATP, glycolysis, scapula movers) and judged the same way. Captions are not shipped. Questions absent from `matches` have no video whose captions teach them. | 2026-09-07: added the 7 newly-unlocked Module 2 quizzes (Flash-judged, verbatim-quote gated). | rescue pass (top-8 candidates over unmatched, Flash-judged, quote-gated + refuted).",
  "stats": {
-  "questions_with_video": 224,
-  "matches": 341,
+  "questions_with_video": 229,
+  "matches": 346,
   "videos_used": 86
  },
  "matches": {
@@ -2090,13 +2090,6 @@
     "quote": "insulin drops blood glucose levels when they're high drops blood glucose glucagon increases"
    }
   ],
-  "q86d113fc6c": [
-   {
-    "id": "ECAZ8hjeASI",
-    "at": 58,
-    "quote": "results in either a deficiency in the amount of insulin secreted or a response, a sensitivity"
-   }
-  ],
   "q91977f97aa": [
    {
     "id": "-hTWA2SKYbM",
@@ -2132,13 +2125,6 @@
     "quote": "The skull is an example of a flat bone"
    }
   ],
-  "qe703d323c7": [
-   {
-    "id": "vLCg_kyuyw4",
-    "at": 1042,
-    "quote": "glucagon's released and it releases stored glucose into the bloodstream and then the cells can"
-   }
-  ],
   "qeb189dd885": [
    {
     "id": "5Hq4eoqsVbk",
@@ -2146,18 +2132,67 @@
     "quote": "this glucose floating in the bloodstream is the stimulus to tell the pancreas to release insulin"
    }
   ],
-  "qef4906beda": [
-   {
-    "id": "-hTWA2SKYbM",
-    "at": 96,
-    "quote": "muscles can store the excessive glucose in glycogen and muscle and fat cells can store the excessive glucose as fat"
-   }
-  ],
   "qef99da94d3": [
    {
     "id": "QBLqs-2ryZ0",
     "at": 51,
     "quote": "now the central nervous system is made up of the brain like I [01:00] said earlier brain brainstem and spinal cord"
+   }
+  ],
+  "q0e0d1b7db5": [
+   {
+    "id": "-hTWA2SKYbM",
+    "at": 101,
+    "quote": "and fat cells can store the excessive glucose as fat and the liver"
+   }
+  ],
+  "q0e1227a721": [
+   {
+    "id": "XEFumtI-pSk",
+    "at": 633,
+    "quote": "give blood to all your muscles because you might need to fight or run away"
+   }
+  ],
+  "q2af66434f6": [
+   {
+    "id": "GFrHKUi0tnI",
+    "at": 1088,
+    "quote": "parasympathetic it's not called the thoracolumba it's called the cranio sacral"
+   }
+  ],
+  "q419f24422c": [
+   {
+    "id": "r-sDGEswYQY",
+    "at": 784,
+    "quote": "sugar into your cells in a way that they are starving"
+   }
+  ],
+  "q563cbe1fb6": [
+   {
+    "id": "-6MFCy_dFew",
+    "at": 118,
+    "quote": "certain tissues of our body which are insulin independent like our brain"
+   }
+  ],
+  "q67907bb92d": [
+   {
+    "id": "uhYTgob4ESg",
+    "at": 20,
+    "quote": "sometimes they're fully in mobile or sometimes they're partly mobile"
+   }
+  ],
+  "q797c96032d": [
+   {
+    "id": "fNkGwZ8FRRk",
+    "at": 344,
+    "quote": "the hyoid bone is that what looks like that free-floating bone"
+   }
+  ],
+  "q86d113fc6c": [
+   {
+    "id": "r-sDGEswYQY",
+    "at": 462,
+    "quote": "caused by destruction of beta cells this is more to do with insulin"
    }
   ]
  }
