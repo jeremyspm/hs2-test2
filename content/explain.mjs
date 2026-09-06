@@ -97,25 +97,43 @@ function score(cand, keyT, stemT) {
   }
   return { s, hits, big };
 }
-/* pathology videos only fit pathology questions */
-const CLINICAL = /(syndrome|injury|disease|dysreflexia|sclerosis|parkinson|tumou?r|seizure|stroke|dementia|withdrawal|dependence|pain|icp|palsy)/i;
+/* The video per question is a LOOKUP into content/video-matches.json, not a
+   title match. Until 2026-09-06 this function scored each video's TITLE against
+   the question's key + stem terms; it attached 163 videos and roughly a third
+   were wrong ("serratus ANTERIOR" bought the Anterior Pituitary video, every
+   bone-growth question got the pituitary too). video-matches.json is built
+   outside this repo from the videos' own caption tracks: every question's terms
+   BM25-scored against 90-second caption windows, the top candidates judged by a
+   model reading the caption text, every accepted match's quote located verbatim
+   in the captions (that position is `at`), then a second, adversarial pass
+   trying to refute each survivor. The captions themselves are not shipped.
+   A question with no entry gets no video — absence is the information, and no
+   video beats a wrong video. */
+const secs = (d) => { const p = String(d).split(':').map(Number); return p.length === 3 ? p[0] * 3600 + p[1] * 60 + p[2] : (p[0] || 0) * 60 + (p[1] || 0); };
 
-export function matchVideo(q, videos) {
-  const keyT = terms((q.key || []).concat(q.pairs ? q.pairs.map(p => p.left + ' ' + p.right) : [],
-    q.blanks ? q.blanks.map(b => b.correct) : [], q.saq ? q.saq.steps : []).join(' '));
-  const stemT = terms(q.q);
-  let best = null;
-  const noKey = keyT.size === 0;                  // letter-keyed MCQs give no concept signal
-  for (const v of videos) {
-    if (v.m > 45) continue;                       // lectures never attach to a question
-    let { s, hits, big } = score(v.terms, keyT, stemT);
-    if (CLINICAL.test(v.t) && !CLINICAL.test(q.q)) s -= 3;  // pathology video, content question
-    const bar = noKey ? (hits >= 3) : (hits >= 2 || (hits === 1 && big));
-    if (!bar || s < 2) continue;
-    const rank = s - (v.m > 25 ? 2 : 0) - v.m / 60; // shorter sufficient video wins
-    if (!best || rank > best.rank) best = { rank, id: v.id, t: v.t.slice(0, 70), d: v.d };
+export function loadVideoMatches(dir, videos) {
+  const j = JSON.parse(fs.readFileSync(path.join(dir, 'video-matches.json'), 'utf8'));
+  const byId = new Map(videos.map(v => [v.id, v]));
+  const fail = [];
+  for (const [qid, list] of Object.entries(j.matches || {})) {
+    if (!Array.isArray(list) || !list.length) { fail.push(`${qid}: empty match list`); continue; }
+    for (const m of list) {
+      const v = byId.get(m.id);
+      if (!v) { fail.push(`${qid}: video ${m.id} is not in dmdm-all.json`); continue; }
+      if (!Number.isInteger(m.at) || m.at < 0 || m.at >= secs(v.d)) fail.push(`${qid}: ${m.id} at=${m.at}s is outside a ${v.d} video`);
+      if (!m.quote || String(m.quote).split(/\s+/).length < 4) fail.push(`${qid}: ${m.id} has no provenance quote`);
+    }
   }
-  return best && { id: best.id, t: best.t, d: best.d };
+  if (fail.length) throw new Error('video-matches.json does not agree with the video list:\n  ' + fail.join('\n  '));
+  return j.matches;
+}
+
+export function matchVideo(q, videos, matches) {
+  const list = matches[q.id];
+  if (!list) return null;
+  const byId = new Map(videos.map(v => [v.id, v]));
+  const shape = (m) => { const v = byId.get(m.id); return { id: v.id, t: v.t.slice(0, 70), d: v.d, at: m.at }; };
+  return { ...shape(list[0]), ...(list[1] ? { alt: shape(list[1]) } : {}) };
 }
 
 export function matchPassage(q, passages) {

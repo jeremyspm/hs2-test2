@@ -25,9 +25,20 @@ re-sittable, plus dealt mock papers with a score history. Test 2: 21 Sept 2026, 
   nothing else. So a **chrome-only** change (header, home screen, styles) can be made in
   `template.html` and re-spliced onto the bank already in `index.html`, without her Canvas
   archive on hand. Anything that touches a QUESTION still needs the real `node build.mjs`.
-- Videos: this page only shows one after a wrong answer, and 100 of the 148 in
-  `content/dmdm-all.json` match no question at all. The whole shelf, by topic, is at
-  <https://jeremyspm.github.io/hs2-videos.html> — generated from this repo's own data by
-  `hs2-videos.build.mjs` in `jeremyspm.github.io`. The ▶ in the header and the "Watch
-  first" door on the home screen point there.
+- Videos: `content/video-matches.json` is the ONLY source of the video shown after a
+  wrong answer. It was built 2026-09-06 from the videos' own YouTube caption tracks, not
+  their titles: every question's key + stem terms BM25-scored against 90-second caption
+  windows of all 148 videos, the top candidates judged from the caption text, every
+  accepted match carrying a verbatim caption quote that was then located mechanically in
+  the track (its position is `at`, so the link opens where the point is taught), then a
+  second look that struck four. Result: 203 of 407 questions have a caption-verified
+  video (up to two each), 84 of the 148 videos are reachable. The title matcher it
+  replaced attached 163 videos and only 22 of those survived the caption check —
+  "serratus ANTERIOR" had bought the Anterior Pituitary video. Questions with no entry
+  get no video on purpose: no video beats a wrong video. A stale entry (a question id
+  the bank no longer has, a video id the list lacks, an `at` past the video's end) fails
+  the build. The captions are not shipped. The whole shelf, by topic, is at
+  <https://jeremyspm.github.io/hs2-videos.html> — generated from this repo's built
+  `index.html` by `hs2-videos.build.mjs` in `jeremyspm.github.io`. The ▶ in the header
+  and the "Watch first" door on the home screen point there.
 - Rebuild: `node build.mjs` then `python compress-slides.py` (ships only the slides questions reference). Serve: any static server; state is per-browser localStorage.

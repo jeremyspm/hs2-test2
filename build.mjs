@@ -10,7 +10,7 @@ import { fileURLToPath } from 'node:url';
 import { CHAINS } from './content/chains.js';
 import { CASE7 } from './content/case7.js';
 import { SAQ_ANSWERS, norm } from './content/saq-answers.js';
-import { loadVideos, loadPassages, matchVideo, matchPassage } from './content/explain.mjs';
+import { loadVideos, loadVideoMatches, loadPassages, matchVideo, matchPassage } from './content/explain.mjs';
 import { structuredStems, plainText } from './stem-html.mjs';
 import { OVERRIDES } from './content/overrides.js';
 
@@ -189,12 +189,13 @@ for (const z of bank.quizzes) {
 
 /* ── the explain layer: video + verbatim passage per question ──────── */
 const videos = loadVideos(path.join(HERE, 'content'));
+const vmatches = loadVideoMatches(path.join(HERE, 'content'), videos);
 const passages = loadPassages();
 const SLIDESRC = path.join(CAP, 'slides');
 let nVid = 0, nRef = 0, nSlide = 0;
-const usedSlides = new Set();
+const usedSlides = new Set(), vmUsed = new Set();
 for (const q of questions) {
-  const v = matchVideo(q, videos); if (v) { q.vid = v; nVid++; }
+  const v = matchVideo(q, videos, vmatches); if (v) { q.vid = v; nVid++; vmUsed.add(q.id); }
   const r = matchPassage(q, passages);
   if (r) {
     /* A question that carries its OWN image is its own authority — a retrieved
@@ -224,6 +225,9 @@ fs.writeFileSync(path.join(HERE, 'slides-todo.json'),
 /* ── gates ─────────────────────────────────────────────────────────── */
 const fails = [];
 for (const a of SAQ_ANSWERS) if (!saqUsed.has(a.k)) fails.push('saq-answers entry matched NO essay: "' + a.k + '"');
+/* a verified video match whose question id no longer exists is stale evidence,
+   not a harmless extra — same rule as an override that matched nothing */
+for (const qid of Object.keys(vmatches)) if (!vmUsed.has(qid)) fails.push('video-matches entry matched NO question: ' + qid);
 /* identical content captured twice (review quizzes repeat questions) — keep one */
 const dup = new Set(); let dropped = 0;
 for (let i = questions.length - 1; i >= 0; i--) {
@@ -244,9 +248,14 @@ if (fails.length) { console.error('BUILD FAILED:\n  ' + fails.join('\n  ')); pro
 console.log(`structured stems: ${questions.filter(q => q.qh).length}/${questions.length} · blanks placed inline in ${nInline} cloze questions`);
 
 /* ── emit ──────────────────────────────────────────────────────────── */
+/* video reach is a stat, not a sentence: the template reads these so the home
+   screen can never quote a count the bank has moved past */
+const reached = new Set();
+for (const q of questions) if (q.vid) { reached.add(q.vid.id); if (q.vid.alt) reached.add(q.vid.alt.id); }
 const DATA = {
   built: new Date().toISOString().slice(0, 10),
-  stats: { n: questions.length, held: held.length },
+  stats: { n: questions.length, held: held.length, videos: videos.length, videosReached: reached.size,
+    withVideo: questions.filter(q => q.vid).length },
   quizzes: quizzes.sort((a, b) => a.sys.localeCompare(b.sys) || a.name.localeCompare(b.name)),
   questions, chains: CHAINS, case7: CASE7, held,
 };

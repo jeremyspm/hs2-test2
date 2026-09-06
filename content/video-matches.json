@@ -1,0 +1,1987 @@
+{
+ "built": "2026-09-06",
+ "method": "For every question in the bank, its key + stem terms were BM25-scored against 90-second windows of each video's own YouTube caption track (148/148 videos, pulled 2026-09-06). The top candidates were judged from the caption text by a model reading it (31 batches by Claude Opus-class review agents, the remaining 20 batches read inline by Claude in the same session); a candidate counts only if the caption text states the tested fact. Every accepted match carries a verbatim caption quote that was then located mechanically in the track (362/362 exact); `at` is that position minus 3 s. A targeted second look struck 4 matches. Captions are not shipped. Questions absent from `matches` have no video whose captions teach them.",
+ "stats": {
+  "questions_with_video": 203,
+  "matches": 314,
+  "videos_used": 84
+ },
+ "matches": {
+  "q01cce4aab9": [
+   {
+    "id": "Qh6A1neljbI",
+    "at": 227,
+    "quote": "a collection of these neuron cell bodies they make up the gray matter"
+   },
+   {
+    "id": "MXARAn1avCk",
+    "at": 301,
+    "quote": "this is where cell bodies in the spinal cord are housed"
+   }
+  ],
+  "q031e69ad1f": [
+   {
+    "id": "Qh6A1neljbI",
+    "at": 66,
+    "quote": "the first layer is the layer that's most adherent to the brain itself"
+   },
+   {
+    "id": "voDZl9Y0RUc",
+    "at": 98,
+    "quote": "the pia mater the soft tissue that's most adherent to the brain"
+   }
+  ],
+  "q06cd899f6e": [
+   {
+    "id": "vLCg_kyuyw4",
+    "at": 629,
+    "quote": "it's not milk ejection which is let down through breastfeeding that's oxytocin"
+   },
+   {
+    "id": "2JNrEnUWX4s",
+    "at": 1592,
+    "quote": "stimulates milk production not ejection because that's oxytocin"
+   }
+  ],
+  "q07163a54c9": [
+   {
+    "id": "QBLqs-2ryZ0",
+    "at": 283,
+    "quote": "most of this somatic motor division is skeletal muscle"
+   }
+  ],
+  "q0a8ea8c746": [
+   {
+    "id": "91Gzi3-xxzY",
+    "at": 776,
+    "quote": "it causes the glucose Transporters to go on the outside of the cell"
+   }
+  ],
+  "q0fd7dfd9b5": [
+   {
+    "id": "23X5bX2yobw",
+    "at": 50,
+    "quote": "plays a role in elbow flexion the tricep brachii plays a role in elbow extension"
+   }
+  ],
+  "q10019a7f8d": [
+   {
+    "id": "iTwyLAYuvtI",
+    "at": 225,
+    "quote": "for the peripheral nervous system is that of the Schwann cells"
+   },
+   {
+    "id": "yT9Ad01oUgc",
+    "at": 680,
+    "quote": "first type are the Schwann cells"
+   }
+  ],
+  "q10433f9b56": [
+   {
+    "id": "Uz4ZrvFY6b4",
+    "at": 871,
+    "quote": "oxygen to produce heaps of ATP if we need more ATP"
+   }
+  ],
+  "q1070a6cf66": [
+   {
+    "id": "IDCUi9eZDOQ",
+    "at": 9,
+    "quote": "the central nervous system that's our brain and spinal cord"
+   },
+   {
+    "id": "XEFumtI-pSk",
+    "at": 18,
+    "quote": "brain brain stem and spinal cord because we know that this is the central nervous system"
+   }
+  ],
+  "q114f69803b": [
+   {
+    "id": "91Gzi3-xxzY",
+    "at": 673,
+    "quote": "generally the steroids will change gene expression or the way that the DNA is expressed"
+   },
+   {
+    "id": "T5ScIqPnqf8",
+    "at": 1166,
+    "quote": "glucocorticoid receptor can decrease the gene expression of certain immune products"
+   }
+  ],
+  "q11d7321c99": [
+   {
+    "id": "tUQB2Xgp9w4",
+    "at": 1700,
+    "quote": "there is those oligodendrocytes will come out and myelinate these"
+   }
+  ],
+  "q122b6e99b3": [
+   {
+    "id": "RuH4fgkf2Bw",
+    "at": 154,
+    "quote": "impinging on that median nerve and it can result in carpal tunnel"
+   },
+   {
+    "id": "AWkAc5coHCg",
+    "at": 431,
+    "quote": "it's also going to cause parasthesia which means numbness pins and needles"
+   }
+  ],
+  "q14ce60238a": [
+   {
+    "id": "uhYTgob4ESg",
+    "at": 591,
+    "quote": "you've got some like or vertebrae thoracic vertebrae lumbar vertebrae sacral and coccygeal"
+   }
+  ],
+  "q1675974221": [
+   {
+    "id": "fhiJo1QYGtA",
+    "at": 237,
+    "quote": "this stimulates these vesicles that contain your transmitters to fuse with the membrane"
+   },
+   {
+    "id": "iuPeJG6fQbU",
+    "at": 450,
+    "quote": "it triggers voltage-gated calcium channels to open up"
+   }
+  ],
+  "q1678121481": [
+   {
+    "id": "iTwyLAYuvtI",
+    "at": 169,
+    "quote": "the ependymal cells now these cells line the rooves of our ventricles"
+   },
+   {
+    "id": "yT9Ad01oUgc",
+    "at": 593,
+    "quote": "you're gonna have these cell types called ependymal cells"
+   }
+  ],
+  "q17390f2578": [
+   {
+    "id": "EuS3kZ-ZBQU",
+    "at": 17,
+    "quote": "I've divided the bones up into the carpals which are basically"
+   },
+   {
+    "id": "AWkAc5coHCg",
+    "at": 158,
+    "quote": "at the back here these structures here are the carpal bones"
+   }
+  ],
+  "q1933b8d02c": [
+   {
+    "id": "EVJoWfYuKD0",
+    "at": 74,
+    "quote": "the action potential is sped up by these myelin"
+   },
+   {
+    "id": "AWkAc5coHCg",
+    "at": 958,
+    "quote": "remember myelin speeds up the signal if you lose it that will widen"
+   }
+  ],
+  "q19579fac0f": [
+   {
+    "id": "EVJoWfYuKD0",
+    "at": 78,
+    "quote": "so it can almost like jump between the myelin gaps"
+   }
+  ],
+  "q1c6c0fd53e": [
+   {
+    "id": "AWkAc5coHCg",
+    "at": 703,
+    "quote": "in here you're going to have endoneurium more connective tissue wrapped up in myelin"
+   }
+  ],
+  "q1c764301c1": [
+   {
+    "id": "fhiJo1QYGtA",
+    "at": 232,
+    "quote": "enough sodium goes in that it stimulates voltage-gated calcium channels calcium comes in"
+   },
+   {
+    "id": "iuPeJG6fQbU",
+    "at": 445,
+    "quote": "an action potential travels down the axon until it hits the synaptic terminal"
+   }
+  ],
+  "q1ca39d40c8": [
+   {
+    "id": "qeMH_qH6Jgs",
+    "at": 422,
+    "quote": "pineal gland does it releases melatonin which is a derivative of serotonin"
+   }
+  ],
+  "q1dce99a439": [
+   {
+    "id": "GFrHKUi0tnI",
+    "at": 1637,
+    "quote": "the vagus nerve actually does pretty much all the others"
+   }
+  ],
+  "q1e91fda6f7": [
+   {
+    "id": "JO_N1apvidE",
+    "at": 385,
+    "quote": "pivot joint and the example of it here is the first and second cervical vertebrae"
+   },
+   {
+    "id": "uhYTgob4ESg",
+    "at": 643,
+    "quote": "which means that c2 cervical vertebrae - is a good example of a pivot joint"
+   }
+  ],
+  "q21a6f5a4ab": [
+   {
+    "id": "dPK0HuGRJ78",
+    "at": 149,
+    "quote": "this potassium wants to diffuse from inside out"
+   },
+   {
+    "id": "iuPeJG6fQbU",
+    "at": 409,
+    "quote": "that potassium will want to go down its concentration gradient and go outside"
+   }
+  ],
+  "q224113e27f": [
+   {
+    "id": "Qh6A1neljbI",
+    "at": 122,
+    "quote": "on top of the arachnoid mater we've got a very tough layer"
+   },
+   {
+    "id": "voDZl9Y0RUc",
+    "at": 100,
+    "quote": "most adherent to the brain then the arachnoid mater then the dura mater"
+   }
+  ],
+  "q2284351643": [
+   {
+    "id": "JYQL7JEsF_4",
+    "at": 77,
+    "quote": "a stimulus to trigger your parathyroid glands which are the receptors"
+   },
+   {
+    "id": "BsXMjOK5IR8",
+    "at": 437,
+    "quote": "low calcium will trigger the parathyroid glands to release something called PTH"
+   }
+  ],
+  "q230842c2b9": [
+   {
+    "id": "uxCw4qovZXE",
+    "at": 388,
+    "quote": "levels are low well its job is to increase the blood calcium"
+   },
+   {
+    "id": "vLCg_kyuyw4",
+    "at": 935,
+    "quote": "so if our calcium too low parathyroid releases parathyroid hormone calcium jumps up"
+   }
+  ],
+  "q246e2ddd0d": [
+   {
+    "id": "wq0MTSBxncA",
+    "at": 124,
+    "quote": "there's a space in between that we call the synaptic cleft"
+   },
+   {
+    "id": "a5TPdA3eRhU",
+    "at": 114,
+    "quote": "sitting in this cleft this little space between the presynaptic"
+   }
+  ],
+  "q2482df2a39": [
+   {
+    "id": "-hTWA2SKYbM",
+    "at": 95,
+    "quote": "places like muscles can store the excessive glucose in glycogen"
+   },
+   {
+    "id": "ksomgJMqxgI",
+    "at": 3,
+    "quote": "insulin is the key that unlocks the doors of cells to let glucose"
+   }
+  ],
+  "q250c99589b": [
+   {
+    "id": "RuH4fgkf2Bw",
+    "at": 237,
+    "quote": "sciatic nerve innovating the ass the back of the thigh"
+   }
+  ],
+  "q278f8cad97": [
+   {
+    "id": "FDatRYxlgQI",
+    "at": 102,
+    "quote": "FSH and LH known as the gonadotropins the gonadotropins are going to act on the gonads"
+   },
+   {
+    "id": "vLCg_kyuyw4",
+    "at": 637,
+    "quote": "and then the gonadotropins the gonadotropins so tropon it's going to the gonad"
+   }
+  ],
+  "q28369e36a2": [
+   {
+    "id": "XEFumtI-pSk",
+    "at": 666,
+    "quote": "parasympathetic craniosacral the cranial nerves are 3 7 9 and 10"
+   }
+  ],
+  "q2a92fb95bc": [
+   {
+    "id": "Qh6A1neljbI",
+    "at": 227,
+    "quote": "collection of these neuron cell bodies they make up the gray matter"
+   }
+  ],
+  "q2bb9e1f8d4": [
+   {
+    "id": "ksomgJMqxgI",
+    "at": 94,
+    "quote": "the main stimulus for insulin release is glucose"
+   },
+   {
+    "id": "zJu6CsuFSpg",
+    "at": 1023,
+    "quote": "beta cells within the pancreas and it tells it to release insulin"
+   }
+  ],
+  "q2fe2c73399": [
+   {
+    "id": "wkowgnAaaMY",
+    "at": 5814,
+    "quote": "the hypothalamus which is the master regulator of the autonomic nervous system"
+   }
+  ],
+  "q3120e683c2": [
+   {
+    "id": "-Y2_JrSCQtc",
+    "at": 111,
+    "quote": "the cerebellum sits inferior to the cerebrum posterior to the brain stem"
+   },
+   {
+    "id": "xXk5BOAO7rc",
+    "at": 882,
+    "quote": "cerebellum which is sitting behind the brain"
+   }
+  ],
+  "q340631fdcf": [
+   {
+    "id": "xXk5BOAO7rc",
+    "at": 141,
+    "quote": "the longitudinal fissure separates out the left and right hemispheres of the brain"
+   }
+  ],
+  "q35505e1260": [
+   {
+    "id": "Qh6A1neljbI",
+    "at": 124,
+    "quote": "we've got a very tough layer called the jura mata"
+   }
+  ],
+  "q36be9c1fd8": [
+   {
+    "id": "o2HMWg6SFtE",
+    "at": 349,
+    "quote": "so the way that this primary motor cortex works if i just want to move the mouth"
+   },
+   {
+    "id": "1s_dyfl0Xgs",
+    "at": 324,
+    "quote": "the primary motor cortex is where we think up some sort of movement"
+   }
+  ],
+  "q377977dd8c": [
+   {
+    "id": "RuH4fgkf2Bw",
+    "at": 243,
+    "quote": "impingement of the sciatic nerve can get tingling numbness pain"
+   }
+  ],
+  "q3966e4f80f": [
+   {
+    "id": "2JNrEnUWX4s",
+    "at": 630,
+    "quote": "that cervical stretch stimulates the hypothalmus to release oxytocin"
+   },
+   {
+    "id": "fqz4WOwfz4Q",
+    "at": 149,
+    "quote": "an important hormone when it comes to uterine contractions and also milk letdown"
+   }
+  ],
+  "q39d85a9707": [
+   {
+    "id": "K575jeJzyuw",
+    "at": 645,
+    "quote": "we have things called microglia. And these microglia are like macrophages of the brain"
+   }
+  ],
+  "q3eff1aa29d": [
+   {
+    "id": "ksomgJMqxgI",
+    "at": 63,
+    "quote": "Insulin lowers blood glucose levels, glucagon raises them"
+   },
+   {
+    "id": "vLCg_kyuyw4",
+    "at": 1026,
+    "quote": "drops blood glucose glucagon increases blood glucose levels"
+   }
+  ],
+  "q417e9d2327": [
+   {
+    "id": "czS7-JF1kOE",
+    "at": 70,
+    "quote": "the hypothalamus will make two very important hormones transport it down these neurons"
+   },
+   {
+    "id": "vLCg_kyuyw4",
+    "at": 830,
+    "quote": "the hypothalamus produces these two hormones and sends them down"
+   }
+  ],
+  "q41a70d328c": [
+   {
+    "id": "5OA9AcaBcUo",
+    "at": 330,
+    "quote": "sesamoid bones include that of the patella or kneecap"
+   }
+  ],
+  "q44124a61c5": [
+   {
+    "id": "fNkGwZ8FRRk",
+    "at": 94,
+    "quote": "the most medial portion of the clavicle so this is going to be where it articulates"
+   }
+  ],
+  "q452370f2b9": [
+   {
+    "id": "qeMH_qH6Jgs",
+    "at": 433,
+    "quote": "sleep/wake cycles plays an important role in circadian rhythm"
+   }
+  ],
+  "q467ea923ca": [
+   {
+    "id": "vLCg_kyuyw4",
+    "at": 1042,
+    "quote": "glucagon's released and it releases stored glucose into the bloodstream"
+   }
+  ],
+  "q4702bda882": [
+   {
+    "id": "GqkMzds77f8",
+    "at": 148,
+    "quote": "these signals go down and they innervate the diaphragm so c3 c4 c5 keeps you alive"
+   },
+   {
+    "id": "ZEi-LcsLCvY",
+    "at": 43,
+    "quote": "stimulates the diaphragm to contract and pull down is called the phrenic nerve"
+   }
+  ],
+  "q4859dabebf": [
+   {
+    "id": "-hTWA2SKYbM",
+    "at": 96,
+    "quote": "muscles can store the excessive glucose in glycogen"
+   }
+  ],
+  "q49ac7b21e8": [
+   {
+    "id": "tJHndCJq7TY",
+    "at": 59,
+    "quote": "the ventral is where motor output comes out so any type of movement"
+   },
+   {
+    "id": "oFvhpMfS2M0",
+    "at": 197,
+    "quote": "to the ventral grey horn and come out and innovate the trunk to move"
+   }
+  ],
+  "q4ceeaf5caa": [
+   {
+    "id": "fqz4WOwfz4Q",
+    "at": 165,
+    "quote": "ADH is released when we need to hold on to water"
+   },
+   {
+    "id": "czS7-JF1kOE",
+    "at": 84,
+    "quote": "antidiuretic hormone stops us from peeing so it allows for us to hold onto water"
+   }
+  ],
+  "q4d8ac0487c": [
+   {
+    "id": "jpnNc03cqU0",
+    "at": 171,
+    "quote": "shaped like a spindle or an eye with a single nucleus located in the middle"
+   }
+  ],
+  "q4ea47219ca": [
+   {
+    "id": "WNEUejpz3A4",
+    "at": 51,
+    "quote": "the dip down is called a sulcus and it again plural it's sulci"
+   },
+   {
+    "id": "tkf7jJih8PI",
+    "at": 129,
+    "quote": "the bumps down a sulci or a sulcus for singular"
+   }
+  ],
+  "q50a3662f9f": [
+   {
+    "id": "yT9Ad01oUgc",
+    "at": 688,
+    "quote": "oligodendrocytes create the myelin in the central nervous system Schwann cells create the myelin"
+   },
+   {
+    "id": "iTwyLAYuvtI",
+    "at": 233,
+    "quote": "Schwann cells are the oligodendrocyte equivalent within the peripheral"
+   }
+  ],
+  "q510831f1fc": [
+   {
+    "id": "iTwyLAYuvtI",
+    "at": 169,
+    "quote": "the ependymal cells now these cells line the rooves of our ventricles"
+   },
+   {
+    "id": "yT9Ad01oUgc",
+    "at": 593,
+    "quote": "you're gonna have these cell types called ependymal cells"
+   }
+  ],
+  "q553b6cc5a8": [
+   {
+    "id": "Qh6A1neljbI",
+    "at": 122,
+    "quote": "on top of the arachnoid mater we've got a very tough layer"
+   },
+   {
+    "id": "voDZl9Y0RUc",
+    "at": 100,
+    "quote": "most adherent to the brain then the arachnoid mater then the dura mater"
+   }
+  ],
+  "q5656676fc0": [
+   {
+    "id": "0FID5qRGXGg",
+    "at": 267,
+    "quote": "do this through what we call the autonomic nervous system"
+   },
+   {
+    "id": "wkowgnAaaMY",
+    "at": 5895,
+    "quote": "this would be keeping your heart beating keeping your blood pressure at a certain level"
+   }
+  ],
+  "q56f70cc436": [
+   {
+    "id": "yT9Ad01oUgc",
+    "at": 280,
+    "quote": "this is where the signal finishes and then either needs to communicate with another neuron"
+   },
+   {
+    "id": "iuPeJG6fQbU",
+    "at": 161,
+    "quote": "we're now at the axon terminal or axon bulb or axon knob"
+   }
+  ],
+  "q57602a50d7": [
+   {
+    "id": "Qh6A1neljbI",
+    "at": 122,
+    "quote": "on top of the arachnoid mater we've got a very tough layer called the jura mata"
+   },
+   {
+    "id": "voDZl9Y0RUc",
+    "at": 100,
+    "quote": "most adherent to the brain then the arachnoid mater then the dura mater"
+   }
+  ],
+  "q58dad3f9ae": [
+   {
+    "id": "yT9Ad01oUgc",
+    "at": 280,
+    "quote": "this is where the signal finishes and then either needs to communicate with another neuron"
+   },
+   {
+    "id": "iuPeJG6fQbU",
+    "at": 161,
+    "quote": "we're now at the axon terminal or axon bulb or axon knob"
+   }
+  ],
+  "q59e81042d1": [
+   {
+    "id": "T5ScIqPnqf8",
+    "at": 1226,
+    "quote": "over time chronic stress you have chronic suppression of the immune system"
+   },
+   {
+    "id": "vLCg_kyuyw4",
+    "at": 496,
+    "quote": "cortisol also suppresses the immune system and cortisol also stimulates our fight"
+   }
+  ],
+  "q5c70b90940": [
+   {
+    "id": "0FID5qRGXGg",
+    "at": 267,
+    "quote": "do this through what we call the autonomic nervous system"
+   },
+   {
+    "id": "wkowgnAaaMY",
+    "at": 5895,
+    "quote": "this would be keeping your heart beating keeping your blood pressure at a certain level"
+   }
+  ],
+  "q5c97998026": [
+   {
+    "id": "ksomgJMqxgI",
+    "at": 817,
+    "quote": "Cortisol increases blood glucose levels because it signals the body to release stored glucose"
+   }
+  ],
+  "q5d8f8c1047": [
+   {
+    "id": "Qh6A1neljbI",
+    "at": 227,
+    "quote": "collection of these neuron cell bodies they make up the gray matter"
+   },
+   {
+    "id": "1_UY7goO2k0",
+    "at": 81,
+    "quote": "gray matter are the cell bodies in the areas of synapsing"
+   }
+  ],
+  "q5ed9ac9ab5": [
+   {
+    "id": "PPKlGlwxr5s",
+    "at": 160,
+    "quote": "the prime mover for this is going to be the serratus anterior"
+   }
+  ],
+  "q5fb6e985f6": [
+   {
+    "id": "iTwyLAYuvtI",
+    "at": 195,
+    "quote": "the cerebral spinal fluid is produced by the ependymal cells"
+   },
+   {
+    "id": "yT9Ad01oUgc",
+    "at": 604,
+    "quote": "ependymal cells produce the cerebral spinal fluid within the ventricles"
+   }
+  ],
+  "q609048f8ba": [
+   {
+    "id": "XEFumtI-pSk",
+    "at": 272,
+    "quote": "facial which is both so this is movement of the face"
+   },
+   {
+    "id": "1s_dyfl0Xgs",
+    "at": 1718,
+    "quote": "facial nerves allow you to be able to move your lips and your cheeks"
+   }
+  ],
+  "q6457ee6436": [
+   {
+    "id": "yT9Ad01oUgc",
+    "at": 568,
+    "quote": "find that there's four ventricles within the brain you're gonna have two lateral ventricles"
+   },
+   {
+    "id": "qeMH_qH6Jgs",
+    "at": 299,
+    "quote": "now there's four ventricles and I'm going to do a video"
+   }
+  ],
+  "q66647d222a": [
+   {
+    "id": "a5TPdA3eRhU",
+    "at": 271,
+    "quote": "when adrenaline is released and if they bind to these receptors they actually inhibit"
+   }
+  ],
+  "q66eb8234c9": [
+   {
+    "id": "RuH4fgkf2Bw",
+    "at": 205,
+    "quote": "important nerve is out of the femoral nerve that shoots out of this lumbar plexus"
+   }
+  ],
+  "q67bed01a7a": [
+   {
+    "id": "zJu6CsuFSpg",
+    "at": 78,
+    "quote": "now these chemical Messengers we call hormones if they are dropped into the bloodstream"
+   },
+   {
+    "id": "91Gzi3-xxzY",
+    "at": 178,
+    "quote": "it needs to have a hormone and a hormone is just a chemical messenger"
+   }
+  ],
+  "q68089bd7c5": [
+   {
+    "id": "RuH4fgkf2Bw",
+    "at": 45,
+    "quote": "the cervical area has 8 pairs of spinal nerves the thoracic has 12"
+   },
+   {
+    "id": "XEFumtI-pSk",
+    "at": 367,
+    "quote": "cervical has eight pairs thoracic has twelve pairs lumbar five pairs sacral five pairs"
+   }
+  ],
+  "q687956317e": [
+   {
+    "id": "fqz4WOwfz4Q",
+    "at": 239,
+    "quote": "producing these hormones releasing them into the hypophyseal portal system"
+   }
+  ],
+  "q6898329938": [
+   {
+    "id": "vLCg_kyuyw4",
+    "at": 678,
+    "quote": "follicle stimulating hormone stimulates follicle maturation what's that mean"
+   },
+   {
+    "id": "2JNrEnUWX4s",
+    "at": 1072,
+    "quote": "follicle stimulating hormone being released to help the development of of those follicle cells"
+   }
+  ],
+  "q694b050ed7": [
+   {
+    "id": "yT9Ad01oUgc",
+    "at": 688,
+    "quote": "oligodendrocytes create the myelin in the central nervous system"
+   },
+   {
+    "id": "iTwyLAYuvtI",
+    "at": 243,
+    "quote": "single oligodendrocyte can actually create layers or myelin sheaths around multiple neurons"
+   }
+  ],
+  "q6a57cf6edc": [
+   {
+    "id": "QJVqTf_rNtk",
+    "at": 61,
+    "quote": "because it's called the bicep that means it's got two heads"
+   },
+   {
+    "id": "XBNm4-BHoXo",
+    "at": 75,
+    "quote": "it has two heads that's why it's called the biceps brachii"
+   }
+  ],
+  "q6b2ae296d4": [
+   {
+    "id": "QBLqs-2ryZ0",
+    "at": 373,
+    "quote": "autonomic division can be broken up into the sympathetic division and the parasympathetic division"
+   },
+   {
+    "id": "K2kHnb1x7cE",
+    "at": 636,
+    "quote": "motor division of the nervous them is going to be the sympathetic parasympathetic divisions"
+   }
+  ],
+  "q6cdd756d7d": [
+   {
+    "id": "xXk5BOAO7rc",
+    "at": 415,
+    "quote": "the occipital lobe simply allows for us to be able to see"
+   },
+   {
+    "id": "WUQay1EEhgQ",
+    "at": 284,
+    "quote": "comes in to the occipital lobe but the parietal"
+   }
+  ],
+  "q6f0ade41d0": [
+   {
+    "id": "RuH4fgkf2Bw",
+    "at": 102,
+    "quote": "form the phrenic nerve and the phrenic nerve is the nerve that innervates the diaphragm"
+   },
+   {
+    "id": "GqkMzds77f8",
+    "at": 154,
+    "quote": "c3 c4 c5 keeps you alive that's what we say because they innervate the diaphragm"
+   }
+  ],
+  "q7387472ca1": [
+   {
+    "id": "xXk5BOAO7rc",
+    "at": 1051,
+    "quote": "it's really important when it comes to heart rate breathing"
+   }
+  ],
+  "q74018bd95b": [
+   {
+    "id": "Qh6A1neljbI",
+    "at": 68,
+    "quote": "most adherent to the brain itself and this layer is termed the pia mater"
+   },
+   {
+    "id": "voDZl9Y0RUc",
+    "at": 98,
+    "quote": "pia mater the soft tissue that's most adherent to the brain then the arachnoid mater"
+   }
+  ],
+  "q742ff3b771": [
+   {
+    "id": "-hTWA2SKYbM",
+    "at": 353,
+    "quote": "sugar is a big molecule it will be pulled will pull water out"
+   },
+   {
+    "id": "ECAZ8hjeASI",
+    "at": 351,
+    "quote": "no insulin, that means they can't get the glucose into the cells"
+   }
+  ],
+  "q746ad6984a": [
+   {
+    "id": "xXk5BOAO7rc",
+    "at": 173,
+    "quote": "now this is termed laterality where functions predominantly"
+   },
+   {
+    "id": "aDous4uAv6Y",
+    "at": 569,
+    "quote": "language is predominantly lateralized predominately located to the left hemisphere"
+   }
+  ],
+  "q76bcf38d1f": [
+   {
+    "id": "FDatRYxlgQI",
+    "at": 239,
+    "quote": "predominantly it stimulates muscles and bones to grow"
+   }
+  ],
+  "q796b7313e5": [
+   {
+    "id": "fNkGwZ8FRRk",
+    "at": 344,
+    "quote": "the hyoid bone is that what looks like that free-floating bone"
+   }
+  ],
+  "q799a6b9145": [
+   {
+    "id": "QJVqTf_rNtk",
+    "at": 61,
+    "quote": "because it's called the bicep that means it's got two heads"
+   },
+   {
+    "id": "XBNm4-BHoXo",
+    "at": 75,
+    "quote": "it has two heads that's why it's called the biceps brachii"
+   }
+  ],
+  "q7aff4623ce": [
+   {
+    "id": "91Gzi3-xxzY",
+    "at": 1082,
+    "quote": "this would be neural this would be a neural stimulus"
+   },
+   {
+    "id": "fqz4WOwfz4Q",
+    "at": 203,
+    "quote": "this is a neural stimulus for the release of hormones"
+   }
+  ],
+  "q7b112806fa": [
+   {
+    "id": "QBLqs-2ryZ0",
+    "at": 283,
+    "quote": "most of this somatic motor division is skeletal muscle but the other division is visceral"
+   }
+  ],
+  "q7b83c501d3": [
+   {
+    "id": "91Gzi3-xxzY",
+    "at": 709,
+    "quote": "therefore they need receptors on the outside of the cell an example"
+   },
+   {
+    "id": "zJu6CsuFSpg",
+    "at": 1820,
+    "quote": "so they must bind to what we call membrane receptors"
+   }
+  ],
+  "q7d1e2efc32": [
+   {
+    "id": "yT9Ad01oUgc",
+    "at": 650,
+    "quote": "the glir within the central nervous system oligodendrocytes"
+   }
+  ],
+  "q7d7c1efcfc": [
+   {
+    "id": "ksomgJMqxgI",
+    "at": 47,
+    "quote": "alpha cells that produce another hormone called glucagon"
+   }
+  ],
+  "q7e59bf2afc": [
+   {
+    "id": "K575jeJzyuw",
+    "at": 645,
+    "quote": "we have things called microglia. And these microglia are like macrophages of the brain"
+   }
+  ],
+  "q7f479d514b": [
+   {
+    "id": "FOxJIDCyaPY",
+    "at": 36,
+    "quote": "tells you it stimulates the cortex of the adrenal glands"
+   },
+   {
+    "id": "T5ScIqPnqf8",
+    "at": 601,
+    "quote": "cortico goes to the cortex of the adrenal gland tropic tells you that it's going to stimulate"
+   }
+  ],
+  "q80cee385aa": [
+   {
+    "id": "RuH4fgkf2Bw",
+    "at": 204,
+    "quote": "an important nerve is out of the femoral nerve that shoots out of this lumbar plexus"
+   }
+  ],
+  "q82d15e7cbb": [
+   {
+    "id": "XEFumtI-pSk",
+    "at": 51,
+    "quote": "the division of the peripheral nervous system that controls all involuntary things"
+   }
+  ],
+  "q84491c6b52": [
+   {
+    "id": "j9pwDAcb-U0",
+    "at": 77,
+    "quote": "cause the pupils to get bigger this is pupil dilation"
+   }
+  ],
+  "q85a7a0190f": [
+   {
+    "id": "yT9Ad01oUgc",
+    "at": 604,
+    "quote": "ependymal cells produce the cerebral spinal fluid within the ventricles"
+   },
+   {
+    "id": "wkowgnAaaMY",
+    "at": 2161,
+    "quote": "microglia real time immune cells ependymal cells which help produce cerebral spinal fluid"
+   }
+  ],
+  "q8877542ec0": [
+   {
+    "id": "qeMH_qH6Jgs",
+    "at": 422,
+    "quote": "the pineal gland does it releases melatonin which is a derivative of serotonin"
+   }
+  ],
+  "q888457ca50": [
+   {
+    "id": "FDatRYxlgQI",
+    "at": 186,
+    "quote": "aldosterone helps us reabsorb sodium into the body if we reabsorb sodium"
+   },
+   {
+    "id": "vLCg_kyuyw4",
+    "at": 511,
+    "quote": "aldosterone increases our reabsorption of salt what does that mean"
+   }
+  ],
+  "q89b2860a56": [
+   {
+    "id": "EVJoWfYuKD0",
+    "at": 78,
+    "quote": "so it can almost like jump between the myelin gaps"
+   }
+  ],
+  "q8ca5a4ebd7": [
+   {
+    "id": "fNkGwZ8FRRk",
+    "at": 135,
+    "quote": "the clavicle articulates with that manubrium Stern eye and it sits within a knotch"
+   }
+  ],
+  "q8d0c5c60cf": [
+   {
+    "id": "wq0MTSBxncA",
+    "at": 124,
+    "quote": "there's a space in between that we call the synaptic cleft"
+   },
+   {
+    "id": "a5TPdA3eRhU",
+    "at": 114,
+    "quote": "sitting in this cleft this little space between the presynaptic"
+   }
+  ],
+  "q8e16f95ddb": [
+   {
+    "id": "K2kHnb1x7cE",
+    "at": 683,
+    "quote": "acetylcholine stimulates smooth muscle to contract acetylcholine stimulates skeletal muscle to contract"
+   },
+   {
+    "id": "v5zVwOXPaZ0",
+    "at": 421,
+    "quote": "the parasympathetic side, when the neuron releases acetylcholine to bind to the muscarine receptor"
+   }
+  ],
+  "q91222ef2ea": [
+   {
+    "id": "91Gzi3-xxzY",
+    "at": 662,
+    "quote": "go through the membrane and bind to the receptor in the cytosol"
+   },
+   {
+    "id": "T5ScIqPnqf8",
+    "at": 903,
+    "quote": "cell membranes are lipid based they move straight in"
+   }
+  ],
+  "q9140b8b252": [
+   {
+    "id": "fhiJo1QYGtA",
+    "at": 268,
+    "quote": "the neurotransmitter it releases is acetylcholine okay so all muscles need acetylcholine"
+   },
+   {
+    "id": "7_LZFmfeCuk",
+    "at": 396,
+    "quote": "once it gets to the end it releases a neurotransmitter called acetylcholine"
+   }
+  ],
+  "q92726c24e9": [
+   {
+    "id": "WUQay1EEhgQ",
+    "at": 266,
+    "quote": "damage to where Nikki's area can result in issues with comprehending language"
+   }
+  ],
+  "q937936b2dc": [
+   {
+    "id": "Uz4ZrvFY6b4",
+    "at": 844,
+    "quote": "it donates that phosphate to an adp to basically turn it into ATP"
+   }
+  ],
+  "q94125fd128": [
+   {
+    "id": "uhYTgob4ESg",
+    "at": 166,
+    "quote": "that's articular cartilage which I've spoken to previously being of the subtype of hyaline cartilage"
+   },
+   {
+    "id": "JO_N1apvidE",
+    "at": 57,
+    "quote": "will have a synovial capsule also known as an articular capsule"
+   }
+  ],
+  "q9484fe62d3": [
+   {
+    "id": "FDatRYxlgQI",
+    "at": 89,
+    "quote": "prolactin actually stimulates milk production okay so remember oxytocin"
+   },
+   {
+    "id": "vLCg_kyuyw4",
+    "at": 615,
+    "quote": "the hypothalamus that stimulates milk production increases milk production"
+   }
+  ],
+  "q948898f599": [
+   {
+    "id": "5OA9AcaBcUo",
+    "at": 11,
+    "quote": "the skeletal system is a collection of 206 bones at least in the adult"
+   }
+  ],
+  "q94f1c10304": [
+   {
+    "id": "uhYTgob4ESg",
+    "at": 822,
+    "quote": "a socket that's what you can find here at the glenohumeral joint"
+   },
+   {
+    "id": "tAJjXvumL7E",
+    "at": 235,
+    "quote": "ball on socket joints right so the hip and shoulder predominantly"
+   }
+  ],
+  "q97af41d24a": [
+   {
+    "id": "ahD_1vXIU1w",
+    "at": 0,
+    "quote": "the muscles that stabilize the glenohumeral joint that is the head"
+   }
+  ],
+  "q992b27c8aa": [
+   {
+    "id": "iTwyLAYuvtI",
+    "at": 140,
+    "quote": "oligodendrocytes are in the central nervous system so they're the rubber wrapping"
+   },
+   {
+    "id": "yT9Ad01oUgc",
+    "at": 688,
+    "quote": "oligodendrocytes create the myelin in the central nervous system"
+   }
+  ],
+  "q9a770abb95": [
+   {
+    "id": "xXk5BOAO7rc",
+    "at": 1051,
+    "quote": "it's really important when it comes to heart rate breathing"
+   }
+  ],
+  "q9daf3705a4": [
+   {
+    "id": "fhiJo1QYGtA",
+    "at": 226,
+    "quote": "what are the phases of synaptic transmission you have the action potential coming in"
+   },
+   {
+    "id": "iuPeJG6fQbU",
+    "at": 443,
+    "quote": "the steps are an action potential travels down the axon until it hits the synaptic terminal"
+   }
+  ],
+  "q9e52697203": [
+   {
+    "id": "QBLqs-2ryZ0",
+    "at": 373,
+    "quote": "autonomic division can be broken up into the sympathetic division and the parasympathetic division"
+   },
+   {
+    "id": "K2kHnb1x7cE",
+    "at": 636,
+    "quote": "motor division of the nervous them is going to be the sympathetic parasympathetic divisions"
+   }
+  ],
+  "q9f74b83665": [
+   {
+    "id": "Qh6A1neljbI",
+    "at": 227,
+    "quote": "a collection of these neuron cell bodies they make up the gray matter"
+   },
+   {
+    "id": "MXARAn1avCk",
+    "at": 301,
+    "quote": "this is where cell bodies in the spinal cord are housed"
+   }
+  ],
+  "qa0259d2544": [
+   {
+    "id": "kFvVOaEmfCo",
+    "at": 88,
+    "quote": "I've got the left scapula this is the medial border of the left scapula"
+   }
+  ],
+  "qa0aff0c2f2": [
+   {
+    "id": "23X5bX2yobw",
+    "at": 50,
+    "quote": "plays a role in elbow flexion the tricep brachii plays a role in elbow extension"
+   }
+  ],
+  "qa1e76096ab": [
+   {
+    "id": "RuH4fgkf2Bw",
+    "at": 237,
+    "quote": "sciatic nerve innovating the ass the back of the thigh and everything below the knee"
+   }
+  ],
+  "qa20f32ba7d": [
+   {
+    "id": "IDCUi9eZDOQ",
+    "at": 9,
+    "quote": "the central nervous system that's our brain and spinal cord"
+   },
+   {
+    "id": "XEFumtI-pSk",
+    "at": 18,
+    "quote": "brain brain stem and spinal cord because we know that this is the central nervous system"
+   }
+  ],
+  "qa2f25efdb5": [
+   {
+    "id": "GFrHKUi0tnI",
+    "at": 687,
+    "quote": "like those of the muscles blood vessels of the muscles they dilate"
+   },
+   {
+    "id": "v5zVwOXPaZ0",
+    "at": 553,
+    "quote": "the beta-1 will cause the heart rate to go up"
+   }
+  ],
+  "qa429370dd7": [
+   {
+    "id": "RuH4fgkf2Bw",
+    "at": 45,
+    "quote": "the cervical area has 8 pairs of spinal nerves the thoracic has 12"
+   },
+   {
+    "id": "XEFumtI-pSk",
+    "at": 367,
+    "quote": "cervical has eight pairs thoracic has twelve pairs lumbar five pairs"
+   }
+  ],
+  "qa4b98b05c0": [
+   {
+    "id": "wkowgnAaaMY",
+    "at": 1757,
+    "quote": "the big nerve that sits kind of in your bum behind your butt muscle"
+   }
+  ],
+  "qa542112e1f": [
+   {
+    "id": "91Gzi3-xxzY",
+    "at": 810,
+    "quote": "The receptors are either going to be in the cell for steroid-based ones"
+   }
+  ],
+  "qa5baeef4e0": [
+   {
+    "id": "wkowgnAaaMY",
+    "at": 1757,
+    "quote": "the big nerve that sits kind of in your bum behind your butt muscle"
+   }
+  ],
+  "qa65778f499": [
+   {
+    "id": "FDatRYxlgQI",
+    "at": 102,
+    "quote": "FSH and LH known as the gonadotropins the gonadotropins are going to act on the gonads"
+   },
+   {
+    "id": "YE-a7XiEYB4",
+    "at": 584,
+    "quote": "luteinizing hormone stimulated ovulation in the female reproductive system"
+   }
+  ],
+  "qa65aab16cd": [
+   {
+    "id": "JO_N1apvidE",
+    "at": 11,
+    "quote": "have a little bit of movement and there's synovial joints which are freely movable"
+   }
+  ],
+  "qac8eacc640": [
+   {
+    "id": "QBLqs-2ryZ0",
+    "at": 283,
+    "quote": "most of this somatic motor division is skeletal muscle"
+   }
+  ],
+  "qadd28f5032": [
+   {
+    "id": "ahD_1vXIU1w",
+    "at": 421,
+    "quote": "four muscles of the rotator cuff supraspinatus infraspinatus teres minor subscapularis"
+   }
+  ],
+  "qae7206c6ef": [
+   {
+    "id": "5Hq4eoqsVbk",
+    "at": 43,
+    "quote": "into the bloodstream this is the hormonal stimulation method"
+   },
+   {
+    "id": "zJu6CsuFSpg",
+    "at": 987,
+    "quote": "a hormone telling a gland to release another hormone this is a hormonal stimulus"
+   }
+  ],
+  "qaf17433e3f": [
+   {
+    "id": "FOxJIDCyaPY",
+    "at": 247,
+    "quote": "they also play a role in suppressing the immune system and suppressing inflammation"
+   },
+   {
+    "id": "T5ScIqPnqf8",
+    "at": 1169,
+    "quote": "decrease the gene expression of certain immune products so decrease inflammation"
+   }
+  ],
+  "qb07d11b39e": [
+   {
+    "id": "qeMH_qH6Jgs",
+    "at": 307,
+    "quote": "swelling that goes into that area there towards the cerebellum"
+   },
+   {
+    "id": "tUQB2Xgp9w4",
+    "at": 854,
+    "quote": "that's going to be the fourth ventricle there and so coming out"
+   }
+  ],
+  "qb19179683c": [
+   {
+    "id": "EqsNHbbJQJ4",
+    "at": 135,
+    "quote": "takes the signal that's come from the sensory neuron and sends it off"
+   }
+  ],
+  "qb2100455d8": [
+   {
+    "id": "v5zVwOXPaZ0",
+    "at": 191,
+    "quote": "that neurotransmitter that's coming out of the end postganglionic neuron is noradrenaline"
+   },
+   {
+    "id": "GFrHKUi0tnI",
+    "at": 1671,
+    "quote": "so the neurotransmitter is noradrenaline also known as nor epinephrine"
+   }
+  ],
+  "qb2b040684c": [
+   {
+    "id": "vLCg_kyuyw4",
+    "at": 928,
+    "quote": "so calcitonin decreases calcium parathyroid hormone increases blood calcium"
+   }
+  ],
+  "qb628f70ac8": [
+   {
+    "id": "MXARAn1avCk",
+    "at": 196,
+    "quote": "sensory information that's going to the brain is carried through the dorsal nerve root"
+   },
+   {
+    "id": "BG5g_Yfw0dc",
+    "at": 814,
+    "quote": "all sensory input goes with a dorsal nerve root all motor comes out the ventral"
+   }
+  ],
+  "qb6fe80adfe": [
+   {
+    "id": "wq0MTSBxncA",
+    "at": 96,
+    "quote": "sodium ions are simply jumping into neurons all the way down my arm"
+   },
+   {
+    "id": "iuPeJG6fQbU",
+    "at": 135,
+    "quote": "this sodium diffuses down its concentration gradient to go inside the neuron"
+   }
+  ],
+  "qb838406f8a": [
+   {
+    "id": "voDZl9Y0RUc",
+    "at": 1525,
+    "quote": "so it's going to be one of these two and in actual fact it's beta2"
+   }
+  ],
+  "qb8614dbe4e": [
+   {
+    "id": "RuH4fgkf2Bw",
+    "at": 243,
+    "quote": "impingement of the sciatic nerve can get tingling numbness pain"
+   }
+  ],
+  "qb8e25d8ed3": [
+   {
+    "id": "XBNm4-BHoXo",
+    "at": 167,
+    "quote": "regardless of hand position for a curl regardless of whether there's a resistive force"
+   }
+  ],
+  "qb93c334c94": [
+   {
+    "id": "yT9Ad01oUgc",
+    "at": 249,
+    "quote": "this is the area that starts to propagate and produce the action potential"
+   }
+  ],
+  "qba62195c17": [
+   {
+    "id": "fhiJo1QYGtA",
+    "at": 111,
+    "quote": "what calcium does when it enters the synaptic terminals the very ends of neurons"
+   },
+   {
+    "id": "iuPeJG6fQbU",
+    "at": 459,
+    "quote": "once inside the calcium tells these vesicles"
+   }
+  ],
+  "qbb137d5155": [
+   {
+    "id": "5Hq4eoqsVbk",
+    "at": 151,
+    "quote": "an example of this is the adrenal gland so we know that the sympathetic"
+   },
+   {
+    "id": "91Gzi3-xxzY",
+    "at": 988,
+    "quote": "nerval stimulation to the hormone area so if we have the Adrenal medulla"
+   }
+  ],
+  "qbbb06b7516": [
+   {
+    "id": "dGFp-ujVT10",
+    "at": 156,
+    "quote": "you have contraction of the muscle that withdraws away from the stimulus"
+   }
+  ],
+  "qbded6542cc": [
+   {
+    "id": "K575jeJzyuw",
+    "at": 247,
+    "quote": "so fats or anything that's lipid soluble, that's fine, it's also simple diffusion"
+   }
+  ],
+  "qc09a4f952b": [
+   {
+    "id": "7ZlHGljMWa0",
+    "at": 147,
+    "quote": "moved its way up hence ascending this descending pathway starts at the motor cortex"
+   },
+   {
+    "id": "1s_dyfl0Xgs",
+    "at": 58,
+    "quote": "so when we talk about this descending motor system"
+   }
+  ],
+  "qc3a2673541": [
+   {
+    "id": "-hTWA2SKYbM",
+    "at": 95,
+    "quote": "places like muscles can store the excessive glucose in glycogen"
+   }
+  ],
+  "qc429be0375": [
+   {
+    "id": "uhYTgob4ESg",
+    "at": 139,
+    "quote": "in this epiphysis there is a plate that when you're younger this plate was cartilaginous"
+   }
+  ],
+  "qc58a061a2e": [
+   {
+    "id": "23X5bX2yobw",
+    "at": 106,
+    "quote": "when it pulls on it or contracts it's going to extend the elbow"
+   },
+   {
+    "id": "K2kHnb1x7cE",
+    "at": 245,
+    "quote": "when it contracts it shortens and because it's attached from one bone to another bone"
+   }
+  ],
+  "qc6ce1e5437": [
+   {
+    "id": "5Hq4eoqsVbk",
+    "at": 120,
+    "quote": "so this is a humoral stimulation humoral stimulation is stimulated by"
+   },
+   {
+    "id": "zJu6CsuFSpg",
+    "at": 1034,
+    "quote": "nutrient and so we call this a humoral stimulus"
+   }
+  ],
+  "qc6d6e5f8c3": [
+   {
+    "id": "fcDfQZ4Z_uc",
+    "at": 738,
+    "quote": "it's to control tone balance posture coordination as well as planned movement"
+   },
+   {
+    "id": "dm6DO8Re_ec",
+    "at": 532,
+    "quote": "the cerebellum has a very important role in fine-tuning movement the coordination of movement"
+   }
+  ],
+  "qca2f0baf60": [
+   {
+    "id": "iTwyLAYuvtI",
+    "at": 195,
+    "quote": "the cerebral spinal fluid is produced by the ependymal cells"
+   },
+   {
+    "id": "yT9Ad01oUgc",
+    "at": 604,
+    "quote": "ependymal cells produce the cerebral spinal fluid within the ventricles"
+   }
+  ],
+  "qcb43dfb047": [
+   {
+    "id": "vLCg_kyuyw4",
+    "at": 925,
+    "quote": "it opposes the activity of calcitonin so calcitonin decreases calcium parathyroid hormone increases blood calcium"
+   }
+  ],
+  "qcbe7474e91": [
+   {
+    "id": "vLCg_kyuyw4",
+    "at": 521,
+    "quote": "aldosterone travels to our kidneys and tells our kidneys"
+   },
+   {
+    "id": "2JNrEnUWX4s",
+    "at": 1366,
+    "quote": "an important mineral called sodium and what it does is it increases sodium reabsorption"
+   }
+  ],
+  "qcc01122fb1": [
+   {
+    "id": "FOxJIDCyaPY",
+    "at": 247,
+    "quote": "they also play a role in suppressing the immune system and suppressing inflammation"
+   },
+   {
+    "id": "T5ScIqPnqf8",
+    "at": 1169,
+    "quote": "decrease the gene expression of certain immune products so decrease inflammation"
+   }
+  ],
+  "qcc0b37caf9": [
+   {
+    "id": "czS7-JF1kOE",
+    "at": 311,
+    "quote": "because it produces EPO which is erythropoietin"
+   },
+   {
+    "id": "vLCg_kyuyw4",
+    "at": 955,
+    "quote": "the kidneys also release some hormones renin for example and erythropoietin"
+   }
+  ],
+  "qcc942da369": [
+   {
+    "id": "-Y2_JrSCQtc",
+    "at": 111,
+    "quote": "the cerebellum sits inferior to the cerebrum posterior to the brain stem"
+   },
+   {
+    "id": "xXk5BOAO7rc",
+    "at": 882,
+    "quote": "cerebellum which is sitting behind the brain"
+   }
+  ],
+  "qcd59779017": [
+   {
+    "id": "AG7Ev2hJGFk",
+    "at": 363,
+    "quote": "no C scepter now no C scepter picks up pain"
+   },
+   {
+    "id": "hw-vHF1LrqY",
+    "at": 126,
+    "quote": "now these pain receptors are called nociceptors"
+   }
+  ],
+  "qce32baca1f": [
+   {
+    "id": "EqsNHbbJQJ4",
+    "at": 135,
+    "quote": "takes the signal that's come from the sensory neuron and sends it off"
+   }
+  ],
+  "qce60f2ab0e": [
+   {
+    "id": "-6MFCy_dFew",
+    "at": 17,
+    "quote": "these hormones are released most pronounced late in times of stress"
+   },
+   {
+    "id": "T5ScIqPnqf8",
+    "at": 1229,
+    "quote": "chronic suppression of the immune system makes your body susceptible to infection"
+   }
+  ],
+  "qd03345d348": [
+   {
+    "id": "5OA9AcaBcUo",
+    "at": 330,
+    "quote": "sesamoid bones include that of the patella or kneecap"
+   }
+  ],
+  "qd0d869d293": [
+   {
+    "id": "2JNrEnUWX4s",
+    "at": 610,
+    "quote": "and this helps for milk ejection so this oxytocin"
+   },
+   {
+    "id": "vLCg_kyuyw4",
+    "at": 629,
+    "quote": "now it's not milk ejection which is let down through breastfeeding that's oxytocin"
+   }
+  ],
+  "qd1037f0a69": [
+   {
+    "id": "RuH4fgkf2Bw",
+    "at": 102,
+    "quote": "form the phrenic nerve and the phrenic nerve is the nerve that innervates the diaphragm"
+   },
+   {
+    "id": "GqkMzds77f8",
+    "at": 154,
+    "quote": "c3 c4 c5 keeps you alive that's what we say because they innervate the diaphragm"
+   }
+  ],
+  "qd1d4102456": [
+   {
+    "id": "WUQay1EEhgQ",
+    "at": 249,
+    "quote": "when that sound makes sense to you it's because it's gone to the Association cortex"
+   }
+  ],
+  "qd301052cc1": [
+   {
+    "id": "qeMH_qH6Jgs",
+    "at": 422,
+    "quote": "the pineal gland does it releases melatonin which is a derivative of serotonin"
+   }
+  ],
+  "qd4c5312ec9": [
+   {
+    "id": "FOxJIDCyaPY",
+    "at": 53,
+    "quote": "tropic is a hormone that goes to a gland that tells that gland"
+   },
+   {
+    "id": "zJu6CsuFSpg",
+    "at": 1056,
+    "quote": "it generally has in its name the suffix Tropic"
+   }
+  ],
+  "qd68155cb94": [
+   {
+    "id": "vLCg_kyuyw4",
+    "at": 917,
+    "quote": "it releases parathyroid hormone and it opposes the activity of calcitonin so calcitonin decreases calcium"
+   }
+  ],
+  "qd71c4bf52f": [
+   {
+    "id": "OOIxbIVB6u4",
+    "at": 435,
+    "quote": "spinal cord injury at the neck the cervical region here"
+   }
+  ],
+  "qd9a9c94dff": [
+   {
+    "id": "vLCg_kyuyw4",
+    "at": 1042,
+    "quote": "glucagon's released and it releases stored glucose into the bloodstream"
+   }
+  ],
+  "qdbf40f06f8": [
+   {
+    "id": "o2HMWg6SFtE",
+    "at": 472,
+    "quote": "language production but this language production area actually has a name"
+   },
+   {
+    "id": "WNEUejpz3A4",
+    "at": 541,
+    "quote": "the ability to speak a language is located predominantly in the left hemisphere"
+   }
+  ],
+  "qdca76f0ef0": [
+   {
+    "id": "xXk5BOAO7rc",
+    "at": 207,
+    "quote": "the cerebral cortex is the seat of consciousness it is the substrate for consciousness"
+   },
+   {
+    "id": "1_UY7goO2k0",
+    "at": 276,
+    "quote": "when we become consciously aware of anything it's because it's gone to the cortex"
+   }
+  ],
+  "qdd5ad2b4e1": [
+   {
+    "id": "iTwyLAYuvtI",
+    "at": 140,
+    "quote": "oligodendrocytes are in the central nervous system so they're the rubber wrapping"
+   },
+   {
+    "id": "yT9Ad01oUgc",
+    "at": 688,
+    "quote": "oligodendrocytes create the myelin in the central nervous system"
+   }
+  ],
+  "qdd5ebfeedd": [
+   {
+    "id": "Qh6A1neljbI",
+    "at": 68,
+    "quote": "most adherent to the brain itself and this layer is termed the pia mater"
+   },
+   {
+    "id": "voDZl9Y0RUc",
+    "at": 98,
+    "quote": "the pia mater the soft tissue that's most adherent to the brain"
+   }
+  ],
+  "qe030edf7a0": [
+   {
+    "id": "JO_N1apvidE",
+    "at": 340,
+    "quote": "funnily enough because my elbow joint is a hinge joint"
+   }
+  ],
+  "qe152f767cd": [
+   {
+    "id": "1_UY7goO2k0",
+    "at": 597,
+    "quote": "wrinkled appearance it just increases the surface area of the brain"
+   }
+  ],
+  "qe1b2bc3cbf": [
+   {
+    "id": "qeMH_qH6Jgs",
+    "at": 422,
+    "quote": "the pineal gland does it releases melatonin which is a derivative of serotonin"
+   }
+  ],
+  "qe20f2c3cbc": [
+   {
+    "id": "PPKlGlwxr5s",
+    "at": 57,
+    "quote": "so the scapula needs to move around the rib cage"
+   }
+  ],
+  "qe2b32d0d55": [
+   {
+    "id": "qeMH_qH6Jgs",
+    "at": 214,
+    "quote": "sorts that sensory information and sends it to the appropriate part of the cerebral cortex"
+   },
+   {
+    "id": "94Qn01dz6vA",
+    "at": 219,
+    "quote": "the thalamus is the sorting center of the brain all sensory"
+   }
+  ],
+  "qe3cf882375": [
+   {
+    "id": "WNEUejpz3A4",
+    "at": 51,
+    "quote": "the dip down is called a sulcus and it again plural it's sulci"
+   },
+   {
+    "id": "tkf7jJih8PI",
+    "at": 129,
+    "quote": "the bumps down a sulci or a sulcus for singular"
+   }
+  ],
+  "qe4a0e00f93": [
+   {
+    "id": "yT9Ad01oUgc",
+    "at": 192,
+    "quote": "these are called dendrites and what dendrites do is they receive any incoming signals"
+   }
+  ],
+  "qe4cceaa680": [
+   {
+    "id": "23X5bX2yobw",
+    "at": 50,
+    "quote": "plays a role in elbow flexion the tricep brachii plays a role in elbow extension"
+   }
+  ],
+  "qe829a898e0": [
+   {
+    "id": "1_UY7goO2k0",
+    "at": 432,
+    "quote": "you're sending it through white matter tracks or fibers they're called commisural fibers"
+   }
+  ],
+  "qe8c33933fe": [
+   {
+    "id": "5Hq4eoqsVbk",
+    "at": 103,
+    "quote": "glucose floating in the bloodstream is the stimulus to tell the pancreas"
+   },
+   {
+    "id": "zJu6CsuFSpg",
+    "at": 1034,
+    "quote": "nutrient and so we call this a humoral stimulus"
+   }
+  ],
+  "qe9062d116d": [
+   {
+    "id": "91Gzi3-xxzY",
+    "at": 810,
+    "quote": "The receptors are either going to be in the cell for steroid-based ones"
+   }
+  ],
+  "qe93ab0a4b3": [
+   {
+    "id": "0WPaacgMqjw",
+    "at": 1750,
+    "quote": "when you're running super hard, super fast, you can't bring in enough oxygen"
+   }
+  ],
+  "qe97b7deab2": [
+   {
+    "id": "fhiJo1QYGtA",
+    "at": 142,
+    "quote": "they will cross or diffuse that synaptic cleft they will bind to their receptors"
+   },
+   {
+    "id": "iuPeJG6fQbU",
+    "at": 467,
+    "quote": "Releasing all the neurotransmitters inside, and they will diffuse across the synaptic cleft"
+   }
+  ],
+  "qe9bd114301": [
+   {
+    "id": "vLCg_kyuyw4",
+    "at": 365,
+    "quote": "they play an extremely important role in metabolism development and catecholamine release"
+   },
+   {
+    "id": "2JNrEnUWX4s",
+    "at": 1517,
+    "quote": "it helps regulate metabolism among other things but yes regulate metabolism"
+   }
+  ],
+  "qea93b90910": [
+   {
+    "id": "5OA9AcaBcUo",
+    "at": 300,
+    "quote": "and feet the tarsals and so i'll write carpals here"
+   }
+  ],
+  "qeaa08f0fa6": [
+   {
+    "id": "PPKlGlwxr5s",
+    "at": 160,
+    "quote": "the prime mover for this is going to be the serratus anterior"
+   }
+  ],
+  "qecf60b2c4f": [
+   {
+    "id": "JO_N1apvidE",
+    "at": 46,
+    "quote": "hyaline cartilage it's there because it reduces the friction"
+   },
+   {
+    "id": "uhYTgob4ESg",
+    "at": 170,
+    "quote": "being of the subtype of hyaline cartilage and it's this glassy smooth cartilage"
+   }
+  ],
+  "qefcd667bdb": [
+   {
+    "id": "JYQL7JEsF_4",
+    "at": 164,
+    "quote": "increase the activity of osteoclasts osteo means bone class"
+   },
+   {
+    "id": "uxCw4qovZXE",
+    "at": 470,
+    "quote": "parathyroid hormone will result in increased Osteo class activity"
+   }
+  ],
+  "qf12f170323": [
+   {
+    "id": "Chmwd4BD21Q",
+    "at": 237,
+    "quote": "it lines articulating surfaces of long bones so for example we're gonna have hyaline cartilage"
+   }
+  ],
+  "qf54719d492": [
+   {
+    "id": "RuH4fgkf2Bw",
+    "at": 154,
+    "quote": "impinging on that median nerve and it can result in carpal tunnel"
+   },
+   {
+    "id": "AWkAc5coHCg",
+    "at": 431,
+    "quote": "it's also going to cause parasthesia which means numbness pins and needles"
+   }
+  ],
+  "qf775693e7b": [
+   {
+    "id": "EuS3kZ-ZBQU",
+    "at": 189,
+    "quote": "when we look at the phalanges we've got a proximal intermediate and distal row"
+   },
+   {
+    "id": "uhYTgob4ESg",
+    "at": 480,
+    "quote": "and then your phalanges here so carpals metacarpals then you can have your proximal phalanx"
+   }
+  ],
+  "qf9f31fb20c": [
+   {
+    "id": "K575jeJzyuw",
+    "at": 247,
+    "quote": "so fats or anything that's lipid soluble, that's fine, it's also simple diffusion"
+   }
+  ],
+  "qfac4cd9cfa": [
+   {
+    "id": "j9pwDAcb-U0",
+    "at": 696,
+    "quote": "the optic nerve the visual cortex in the occipital lobe"
+   }
+  ],
+  "qfad296fdb0": [
+   {
+    "id": "fhiJo1QYGtA",
+    "at": 95,
+    "quote": "it stimulates a Celt of voltage-gated calcium channel"
+   },
+   {
+    "id": "iuPeJG6fQbU",
+    "at": 179,
+    "quote": "we now start to open voltage-gated calcium channels"
+   }
+  ],
+  "qfb71a64b94": [
+   {
+    "id": "Uz4ZrvFY6b4",
+    "at": 835,
+    "quote": "when we need to produce it immediately we use something called the Fausto creatine pathway"
+   }
+  ],
+  "qfe24e7f4b8": [
+   {
+    "id": "Uz4ZrvFY6b4",
+    "at": 81,
+    "quote": "this is called the endomysium that connective tissue around the muscle fiber"
+   }
+  ],
+  "qff306a7be6": [
+   {
+    "id": "fNkGwZ8FRRk",
+    "at": 10,
+    "quote": "the clavicle is this horizontal bone that you can see here"
+   }
+  ],
+  "qff87a8c5c9": [
+   {
+    "id": "r-sDGEswYQY",
+    "at": 462,
+    "quote": "caused by destruction of beta cells this is more to do with insulin"
+   }
+  ]
+ }
+}
