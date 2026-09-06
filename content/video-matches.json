@@ -1,10 +1,10 @@
 {
  "built": "2026-09-06",
- "method": "For every question in the bank, its key + stem terms were BM25-scored against 90-second windows of each video's own YouTube caption track (148/148 videos, pulled 2026-09-06). The top candidates were judged from the caption text by a model reading it (31 batches by Claude Opus-class review agents, the remaining 20 batches read inline by Claude in the same session); a candidate counts only if the caption text states the tested fact. Every accepted match carries a verbatim caption quote that was then located mechanically in the track (362/362 exact); `at` is that position minus 3 s. A targeted second look struck 4 matches. Captions are not shipped. Questions absent from `matches` have no video whose captions teach them.",
+ "method": "For every question in the bank, its key + stem terms were BM25-scored against 90-second windows of each video's own YouTube caption track (153/153 videos, pulled 2026-09-06). The top candidates were judged from the caption text by a model reading it (31 batches by Claude Opus-class review agents, the remaining batches read inline by Claude in the same session); a candidate counts only if the caption text states the tested fact. Every accepted match carries a verbatim caption quote that was then located mechanically in the track (all exact); `at` is that position minus 3 s. A targeted second look struck 4 matches. Five videos were added from the channel after the first pass (bone healing, osteoporosis, aerobic ATP, glycolysis, scapula movers) and judged the same way. Captions are not shipped. Questions absent from `matches` have no video whose captions teach them.",
  "stats": {
-  "questions_with_video": 203,
-  "matches": 314,
-  "videos_used": 84
+  "questions_with_video": 206,
+  "matches": 319,
+  "videos_used": 86
  },
  "matches": {
   "q01cce4aab9": [
@@ -77,6 +77,11 @@
    }
   ],
   "q10433f9b56": [
+   {
+    "id": "OWz8x2l5NEE",
+    "at": 1,
+    "quote": "turn one glucose molecule into 32 ATP molecules through the process of aerobic respiration"
+   },
    {
     "id": "Uz4ZrvFY6b4",
     "at": 871,
@@ -281,6 +286,13 @@
     "quote": "so if our calcium too low parathyroid releases parathyroid hormone calcium jumps up"
    }
   ],
+  "q2331ea7770": [
+   {
+    "id": "N391iuWbM0s",
+    "at": 15,
+    "quote": "known as the hematoma phase or the blood clot stage"
+   }
+  ],
   "q246e2ddd0d": [
    {
     "id": "wq0MTSBxncA",
@@ -457,6 +469,13 @@
     "id": "fNkGwZ8FRRk",
     "at": 94,
     "quote": "the most medial portion of the clavicle so this is going to be where it articulates"
+   }
+  ],
+  "q451e9d2f0a": [
+   {
+    "id": "N391iuWbM0s",
+    "at": 58,
+    "quote": "in the second stage which is known as the soft callus stage"
    }
   ],
   "q452370f2b9": [
@@ -1081,6 +1100,11 @@
     "id": "Uz4ZrvFY6b4",
     "at": 844,
     "quote": "it donates that phosphate to an adp to basically turn it into ATP"
+   },
+   {
+    "id": "OWz8x2l5NEE",
+    "at": 1,
+    "quote": "turn one glucose molecule into 32 ATP molecules through the process of aerobic respiration"
    }
   ],
   "q94125fd128": [
@@ -1742,6 +1766,13 @@
     "id": "JO_N1apvidE",
     "at": 340,
     "quote": "funnily enough because my elbow joint is a hinge joint"
+   }
+  ],
+  "qe13ca09a78": [
+   {
+    "id": "N391iuWbM0s",
+    "at": 58,
+    "quote": "in the second stage which is known as the soft callus stage"
    }
   ],
   "qe152f767cd": [

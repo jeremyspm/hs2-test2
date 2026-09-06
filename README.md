@@ -28,11 +28,14 @@ re-sittable, plus dealt mock papers with a score history. Test 2: 21 Sept 2026, 
 - Videos: `content/video-matches.json` is the ONLY source of the video shown after a
   wrong answer. It was built 2026-09-06 from the videos' own YouTube caption tracks, not
   their titles: every question's key + stem terms BM25-scored against 90-second caption
-  windows of all 148 videos, the top candidates judged from the caption text, every
+  windows of all 153 videos, the top candidates judged from the caption text, every
   accepted match carrying a verbatim caption quote that was then located mechanically in
   the track (its position is `at`, so the link opens where the point is taught), then a
-  second look that struck four. Result: 203 of 407 questions have a caption-verified
-  video (up to two each), 84 of the 148 videos are reachable. The title matcher it
+  second look that struck four. Result: 206 of 407 questions have a caption-verified
+  video (up to two each), 86 of the 153 videos are reachable. Five of the 153 were added
+  the same day after grepping the whole channel for the gap topics (bone healing,
+  osteoporosis, aerobic ATP, glycolysis, scapula movers); bone healing and aerobic ATP
+  earned matches, the other three are orientation only. The title matcher it
   replaced attached 163 videos and only 22 of those survived the caption check —
   "serratus ANTERIOR" had bought the Anterior Pituitary video. Questions with no entry
   get no video on purpose: no video beats a wrong video. A stale entry (a question id
