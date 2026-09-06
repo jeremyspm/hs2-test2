@@ -4,6 +4,7 @@
    domain is unrecoverable and its question stays held). */
 import fs from 'node:fs';
 import path from 'node:path';
+import { writeDataImg } from './stem-html.mjs';
 const CAP = 'C:/Users/USER/Desktop/github/_inbox/HS2 Module 2 Capture';
 const manifest = JSON.parse(fs.readFileSync(path.join(CAP, 'images/manifest.json'), 'utf8'));
 const ext = JSON.parse(fs.readFileSync(path.join(CAP, 'images/ext-manifest.json'), 'utf8'));
@@ -17,9 +18,12 @@ for (const f of fs.readdirSync(CAP).filter(x => /^HS2CAP-.*\.html$/.test(x))) {
   starts.forEach((s, i) => {
     const seg = html.slice(s, i + 1 < starts.length ? starts[i + 1] : html.length);
     const names = new Set();
-    for (const im of seg.matchAll(/<img[^>]*\ssrc="(https?:\/\/[^"]+)"/g)) {
+    for (const im of seg.matchAll(/<img[^>]*\ssrc="([^"]+)"/g)) {
       const u = im[1];
-      if (/canvas\.manukau/.test(u)) {
+      if (u.startsWith('data:image/')) {          // full-page save inlined the figure
+        const file = writeDataImg(u, path.join(CAP, 'images'));
+        if (file) names.add(file);
+      } else if (/canvas\.manukau/.test(u)) {
         const id = (u.match(/files\/(\d+)/) || [])[1];
         if (id && manifest[id]) names.add(manifest[id]);
       } else if (ext[u]) names.add(ext[u]);

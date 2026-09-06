@@ -46,6 +46,28 @@ const unesc = (s) => s
   .replace(/&amp;/g, '&');
 const esc = (s) => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
+/* Full-page-save captures inline images as data: URIs instead of the canvas file
+   URLs the manifest maps, so a figure that would download as HS2IMG-<id>.png arrives
+   as base64 bytes with no id. Give it a stable shipped name from the bytes themselves,
+   so resolveImg (below) and bind-images.mjs agree on the SAME file by construction. */
+export function dataImgFile(src) {
+  if (typeof src !== 'string' || !src.startsWith('data:image/')) return null;
+  const sha = crypto.createHash('sha1').update(src).digest('hex').slice(0, 16);
+  const mime = (src.match(/^data:image\/([\w.+-]+)/) || [])[1] || 'png';
+  const ext = mime === 'jpeg' ? 'jpg' : (mime.replace(/[^\w]/g, '') || 'png');
+  return `HS2DATA-${sha}.${ext}`;
+}
+export function writeDataImg(src, dir) {
+  const file = dataImgFile(src);
+  if (!file) return null;
+  const p = path.join(dir, file);
+  if (!fs.existsSync(p)) {
+    const b64 = src.slice(src.indexOf(',') + 1);
+    fs.writeFileSync(p, Buffer.from(b64, 'base64'));
+  }
+  return file;
+}
+
 /* Canvas names each fill-in blank's <input> question_<qid>_<md5>, where the md5 is
    AssessmentQuestion.variable_id(blank_id) = md5("dropdown,<blank_id>,instructure-key").
    Verified against the capture: blank "a" → 8d96cdbb58bd64d59e8ddb2b41b8b48e. */
@@ -306,6 +328,7 @@ export function plainText(html) {
 /* Walk every capture; returns { [file]: { [idx]: {html, ctx, imgs, unresolved, blanks, nSel, type, links} } } */
 export function structuredStems(CAP, manifest, ext) {
   const resolveImg = (src) => {
+    if (src && src.startsWith('data:image/')) return dataImgFile(src);
     if (/canvas\.manukau/.test(src)) { const id = (src.match(/files\/(\d+)/) || [])[1]; return (id && manifest[id]) || null; }
     return ext[src] || ext[src.replace(/&/g, '&amp;')] || null;
   };

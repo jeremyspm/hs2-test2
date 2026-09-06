@@ -50,6 +50,16 @@ const QUIZ = {
   211063:['endo','Insulin, Glucagon & Blood Sugar'],211055:['endo','Endocrine System (SAQ)'],
 };
 
+/* Questions the pipeline cannot render truthfully, held on purpose rather than
+   shipped broken. Matched by quiz + normalised stem prefix. */
+const EXCLUDE = [
+  // 211112 #1: "Label the glands A= B= C= …" — a type-the-7-labels figure question
+  // whose stem is the diagram alone (question_text display:none), so there are no
+  // inline blanks to place; the cloze renderer would show 7 bare ____ with no image
+  // anchor. Held until it can be authored as an image-hotspot.
+  { quiz: '211112', k: 'label the glands', why: 'figure-labeling: 7 typed blanks with no inline positions in the captured stem' },
+];
+
 /* deal-weight routing for mixed-quiz questions — coarse by design; used for
    stratification only, never for a coverage claim. APPEND rules, never insert. */
 const ROUTE = [
@@ -93,6 +103,8 @@ for (const z of bank.quizzes) {
     if (!stem && q.key && q.key.kind === 'pairs' && q.key.pairs.length >= 2)
       stem = 'Match each item with its correct partner.';
     if (!stem) { held.push({ quiz: qname, why: 'empty stem' }); return; }
+    const ex = EXCLUDE.find(e => e.quiz === fid && norm(stem).startsWith(e.k));
+    if (ex) { held.push({ quiz: qname, why: ex.why, q: stem.slice(0, 80) }); return; }
     const imgs = ((imgBind[path.basename(z.file)] || {})[idx] || []);
     const needsImg = /\[\[IMG/.test(stemRaw) || /\b(image|diagram|picture|micrograph|labell?ed|figure) (above|below|shown)\b/i.test(stem);
     if (needsImg && !imgs.length) { held.push({ quiz: qname, why: 'image did not survive capture', q: stem.slice(0, 80) }); return; }
