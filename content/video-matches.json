@@ -1,10 +1,10 @@
 {
  "built": "2026-09-06",
- "method": "For every question in the bank, its key + stem terms were BM25-scored against 90-second windows of each video's own YouTube caption track (153/153 videos, pulled 2026-09-06). The top candidates were judged from the caption text by a model reading it (31 batches by Claude Opus-class review agents, the remaining batches read inline by Claude in the same session); a candidate counts only if the caption text states the tested fact. Every accepted match carries a verbatim caption quote that was then located mechanically in the track (all exact); `at` is that position minus 3 s. A targeted second look struck 4 matches. Five videos were added from the channel after the first pass (bone healing, osteoporosis, aerobic ATP, glycolysis, scapula movers) and judged the same way. Captions are not shipped. Questions absent from `matches` have no video whose captions teach them. | 2026-09-07: added the 7 newly-unlocked Module 2 quizzes (Flash-judged, verbatim-quote gated). | rescue pass (top-8 candidates over unmatched, Flash-judged, quote-gated + refuted). | 2026-09-07 Ninja Nerd gap-fill (top-8 over the still-unmatched, Flash-judged, quote-gated + refuted).",
+ "method": "For every question in the bank, its key + stem terms were BM25-scored against 90-second windows of each video's own YouTube caption track (153/153 videos, pulled 2026-09-06). The top candidates were judged from the caption text by a model reading it (31 batches by Claude Opus-class review agents, the remaining batches read inline by Claude in the same session); a candidate counts only if the caption text states the tested fact. Every accepted match carries a verbatim caption quote that was then located mechanically in the track (all exact); `at` is that position minus 3 s. A targeted second look struck 4 matches. Five videos were added from the channel after the first pass (bone healing, osteoporosis, aerobic ATP, glycolysis, scapula movers) and judged the same way. Captions are not shipped. Questions absent from `matches` have no video whose captions teach them. | 2026-09-07: added the 7 newly-unlocked Module 2 quizzes (Flash-judged, verbatim-quote gated). | rescue pass (top-8 candidates over unmatched, Flash-judged, quote-gated + refuted). | 2026-09-07 Ninja Nerd gap-fill (top-8 over the still-unmatched, Flash-judged, quote-gated + refuted). | 2026-09-07 gap-fill from AnatomyZone/IHA/Armando (top-8 over the still-unmatched, Flash-judged, quote-gated + refuted, judged clip end).",
  "stats": {
-  "questions_with_video": 264,
-  "matches": 387,
-  "videos_used": 113
+  "questions_with_video": 306,
+  "matches": 431,
+  "videos_used": 141
  },
  "matches": {
   "q01cce4aab9": [
@@ -2468,6 +2468,354 @@
     "id": "uZ5Sm2NFuGM",
     "at": 1854,
     "quote": "The fulcrum is this fixed point right here. It's when the foot is pushing into the actual ground."
+   }
+  ],
+  "q00f7e37f9c": [
+   {
+    "id": "ClXsS7O8seg",
+    "at": 273,
+    "end": 377,
+    "quote": "upper motor neuron transmits information from the brain to the spinal cord or the brainstem"
+   }
+  ],
+  "q010b5cbe72": [
+   {
+    "id": "z3uzwyraNvY",
+    "at": 286,
+    "end": 342,
+    "quote": "facial expression muscles only have one attachment — one end of the muscle only attaches to the bone, and then the other end traverses more superficial and attaches into the dermis"
+   }
+  ],
+  "q1b15f40960": [
+   {
+    "id": "9ReQvhcQE84",
+    "at": 82,
+    "end": 100,
+    "quote": "pain that goes up into your neck into your jaw down your left arm"
+   }
+  ],
+  "q27e961b2ab": [
+   {
+    "id": "tRyp8EdRUiE",
+    "at": 361,
+    "end": 469,
+    "quote": "pineal gland or epithalamus and it secretes a hormone called melatonin"
+   }
+  ],
+  "q29981ca037": [
+   {
+    "id": "ippeYQleaQY",
+    "at": 815,
+    "end": 870,
+    "quote": "name Flexor Digitorum Superficialis, it just \"flexes your digits, and it's superficial\"."
+   }
+  ],
+  "q2f1f0909dc": [
+   {
+    "id": "FEEh7tCM5nQ",
+    "at": 617,
+    "end": 645,
+    "quote": "And exercise can help maintain healthy, compliant, stretchy arteries and also reduce your risk of plaque formation"
+   }
+  ],
+  "q3ba6c097ef": [
+   {
+    "id": "e6snLvE4Zl8",
+    "at": 56,
+    "end": 96,
+    "quote": "say posterior to this bone that we call the sternum."
+   }
+  ],
+  "q3fe7c52b96": [
+   {
+    "id": "fIoBoGSPkws",
+    "at": 560,
+    "end": 630,
+    "quote": "You've got the metacarpals and you've got the felanges"
+   }
+  ],
+  "q42f18d9e62": [
+   {
+    "id": "FEEh7tCM5nQ",
+    "at": 224,
+    "end": 260,
+    "quote": "explains some of the common stroke symptoms that you may have heard about such as weakness or paralysis on one side of the body"
+   }
+  ],
+  "q4583d9e480": [
+   {
+    "id": "bY0oQnflmog",
+    "at": 463,
+    "end": 512,
+    "quote": "the withdrawal reflex is a polysynaptic reflex that is initiated by"
+   }
+  ],
+  "q483f298ef3": [
+   {
+    "id": "fIoBoGSPkws",
+    "at": 217,
+    "end": 272,
+    "quote": "in the vertebral column you've got 24 articulating vertebrae which is these little bones"
+   }
+  ],
+  "q498fd58ee7": [
+   {
+    "id": "qgWuVYTm8yQ",
+    "at": 158,
+    "end": 196,
+    "quote": "this is called the medial epicondyle because it's on the medial side now there's a little groove running behind there and that's where the ulnar nerve runs"
+   }
+  ],
+  "q4b8751712e": [
+   {
+    "id": "oDhv9EJ9gf8",
+    "at": 14,
+    "end": 40,
+    "quote": "extrinsic back muscles the other superficial extrinsic back muscles are the trapezius"
+   }
+  ],
+  "q586d28cca7": [
+   {
+    "id": "eeQ6c5nu-ck",
+    "at": 592,
+    "end": 635,
+    "quote": "increased saliva secretion increased gastric acid secretion and increased pancreatic secretions"
+   }
+  ],
+  "q58ad4a948c": [
+   {
+    "id": "fIoBoGSPkws",
+    "at": 528,
+    "end": 574,
+    "quote": "And in the lower arm, you've got the radius and na."
+   }
+  ],
+  "q5ab46e47f9": [
+   {
+    "id": "uMhQW1F78aA",
+    "at": 191,
+    "end": 227,
+    "quote": "The maxilla forms the upper jaw the maxillary alveolus contains tooth sockets"
+   }
+  ],
+  "q62660b271a": [
+   {
+    "id": "PoA-Uq9w-7s",
+    "at": 239,
+    "end": 310,
+    "quote": "about the the rib cage you've got 12 ribs which articulate with the 12 thoracic"
+   }
+  ],
+  "q67469a4ef0": [
+   {
+    "id": "fIoBoGSPkws",
+    "at": 183,
+    "end": 210,
+    "quote": "the skull consists of the cranium, which is this."
+   }
+  ],
+  "q6c6677d093": [
+   {
+    "id": "_7nLOTkmv6c",
+    "at": 550,
+    "end": 600,
+    "quote": "skull protects the brain from Hard Knocks to the head and just below the skull are three"
+   }
+  ],
+  "q6f448f9f69": [
+   {
+    "id": "Fx1alu8UThQ",
+    "at": 12,
+    "end": 31,
+    "quote": "called the deltoid muscle because of its roughly triangular shape which resembles the Greek"
+   }
+  ],
+  "q6f621ee3bf": [
+   {
+    "id": "qDmjNtf5VsE",
+    "at": 147,
+    "end": 241,
+    "quote": "is produced and secreted by the paraphol follicular cells of the thyroid gland."
+   }
+  ],
+  "q732dd686d9": [
+   {
+    "id": "fIoBoGSPkws",
+    "at": 534,
+    "end": 574,
+    "quote": "the ulna is the bone which is medial in the anatomical position."
+   }
+  ],
+  "q7461116890": [
+   {
+    "id": "BjIab-huqgU",
+    "at": 122,
+    "end": 145,
+    "quote": "in the anatomical position the Palm is facing away from you so pronation would bring the Palm to face towards you"
+   }
+  ],
+  "q78c1851147": [
+   {
+    "id": "FEEh7tCM5nQ",
+    "at": 75,
+    "end": 90,
+    "quote": "Hemorrhagic strokes are less common, about 15% of cases"
+   }
+  ],
+  "q7a27e551cd": [
+   {
+    "id": "8Y4WZxDnEEM",
+    "at": 45,
+    "end": 127,
+    "quote": "fibula which is Latin for pin or clasp provides much more of a supportive role so it has a very insignificant role in weightbearing"
+   }
+  ],
+  "qa8c8ff223c": [
+   {
+    "id": "qDmjNtf5VsE",
+    "at": 521,
+    "end": 550,
+    "quote": "calcetonin in the bone will decrease osteoclastic activity"
+   }
+  ],
+  "qab4b3f2f0a": [
+   {
+    "id": "0dgpPPznxfQ",
+    "at": 982,
+    "end": 1007,
+    "quote": "epinephrine causes dilation of the airways and it will also constrict"
+   }
+  ],
+  "qb7047b41f8": [
+   {
+    "id": "ClXsS7O8seg",
+    "at": 459,
+    "end": 495,
+    "quote": "with lower motor neurons there is muscle atrophy because the actual neurons"
+   }
+  ],
+  "qbb31be4e7a": [
+   {
+    "id": "oi0cOvuhsa8",
+    "at": 15,
+    "end": 40,
+    "quote": "it's the longest, strongest, and heaviest bone in our body"
+   }
+  ],
+  "qc256866484": [
+   {
+    "id": "fIoBoGSPkws",
+    "at": 314,
+    "end": 350,
+    "quote": "and then you've got the body of the sternum here,"
+   }
+  ],
+  "qc8fdf0daf5": [
+   {
+    "id": "pnKaBMvVUs0",
+    "at": 241,
+    "end": 345,
+    "quote": "loss of articular cartilage and formation of bone spurs called osteophytes"
+   }
+  ],
+  "qcf49653099": [
+   {
+    "id": "pUZvynhxYb4",
+    "at": 96,
+    "end": 150,
+    "quote": "if you had way too much of this during the growth years someone could"
+   }
+  ],
+  "qd4574ff2f3": [
+   {
+    "id": "oDhv9EJ9gf8",
+    "at": 11,
+    "end": 45,
+    "quote": "muscle on the back and is one of the superficial extrinsic back muscles"
+   },
+   {
+    "id": "lfiorcWqc_U",
+    "at": 20,
+    "end": 75,
+    "quote": "just going to go from superficial to deep muscles and point out some of the main"
+   }
+  ],
+  "qd5745f4d8e": [
+   {
+    "id": "eeQ6c5nu-ck",
+    "at": 529,
+    "end": 620,
+    "quote": "sympathetic activation dilates the bronchioles to allow more oxygen into the body"
+   }
+  ],
+  "qdaa653ad8b": [
+   {
+    "id": "BsnKZDGSuw0",
+    "at": 624,
+    "end": 645,
+    "quote": "bone tissues are very much alive and as we mentioned are constantly"
+   },
+   {
+    "id": "v0_aqdzzhjk",
+    "at": 832,
+    "end": 880,
+    "quote": "Bone is alive, constantly being broken down by cells called osteoclasts,"
+   }
+  ],
+  "qdbb0778f39": [
+   {
+    "id": "RHJwCzzWqhE",
+    "at": 264,
+    "end": 331,
+    "quote": "so this is the largest muscle of the"
+   }
+  ],
+  "qe642a2633a": [
+   {
+    "id": "FEEh7tCM5nQ",
+    "at": 572,
+    "end": 650,
+    "quote": "High blood pressure is the number one risk factor for both stroke types"
+   }
+  ],
+  "qe6ae3d28eb": [
+   {
+    "id": "cqr7UcXX1Fo",
+    "at": 94,
+    "end": 140,
+    "quote": "responsible for elevating and depressing the scapula and it also can retract the scapula."
+   }
+  ],
+  "qea2d800771": [
+   {
+    "id": "oi0cOvuhsa8",
+    "at": 13,
+    "end": 67,
+    "quote": "means thigh bone and it's the longest, strongest, and heaviest bone in our body"
+   }
+  ],
+  "qf138fd3ff1": [
+   {
+    "id": "FEEh7tCM5nQ",
+    "at": 75,
+    "end": 100,
+    "quote": "Hemorrhagic strokes are less common, about 15% of cases, but they're often more severe."
+   }
+  ],
+  "qf7deeafa5c": [
+   {
+    "id": "fIoBoGSPkws",
+    "at": 534,
+    "end": 574,
+    "quote": "So the ulna is the bone which is medial in the anatomical position."
+   }
+  ],
+  "qfd1d55e70b": [
+   {
+    "id": "v0_aqdzzhjk",
+    "at": 278,
+    "end": 346,
+    "quote": "mitochondria use oxygen to produce ATP, the energy that powers muscle contractions."
    }
   ]
  }
