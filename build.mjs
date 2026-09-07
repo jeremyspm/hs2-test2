@@ -285,7 +285,7 @@ for (const q of questions) if (q.vid) { reached.add(q.vid.id); if (q.vid.alt) re
 const DATA = {
   built: new Date().toISOString().slice(0, 10),
   stats: { n: questions.length, held: held.length, videos: videos.length, videosReached: reached.size,
-    videosNN: videos.filter(v => v.ch === 'nn').length,
+    videosFill: videos.filter(v => v.ch).length,
     withVideo: questions.filter(q => q.vid).length },
   quizzes: quizzes.sort((a, b) => a.sys.localeCompare(b.sys) || a.name.localeCompare(b.name)),
   questions, chains: CHAINS, case7: CASE7, held,
