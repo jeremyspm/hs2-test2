@@ -1,9 +1,9 @@
 {
  "built": "2026-09-06",
- "method": "For every question in the bank, its key + stem terms were BM25-scored against 90-second windows of each video's own YouTube caption track (153/153 videos, pulled 2026-09-06). The top candidates were judged from the caption text by a model reading it (31 batches by Claude Opus-class review agents, the remaining batches read inline by Claude in the same session); a candidate counts only if the caption text states the tested fact. Every accepted match carries a verbatim caption quote that was then located mechanically in the track (all exact); `at` is that position minus 3 s. A targeted second look struck 4 matches. Five videos were added from the channel after the first pass (bone healing, osteoporosis, aerobic ATP, glycolysis, scapula movers) and judged the same way. Captions are not shipped. Questions absent from `matches` have no video whose captions teach them. | 2026-09-07: added the 7 newly-unlocked Module 2 quizzes (Flash-judged, verbatim-quote gated). | rescue pass (top-8 candidates over unmatched, Flash-judged, quote-gated + refuted). | 2026-09-07 Ninja Nerd gap-fill (top-8 over the still-unmatched, Flash-judged, quote-gated + refuted). | 2026-09-07 gap-fill from AnatomyZone/IHA/Armando (top-8 over the still-unmatched, Flash-judged, quote-gated + refuted, judged clip end).",
+ "method": "For every question in the bank, its key + stem terms were BM25-scored against 90-second windows of each video's own YouTube caption track (153/153 videos, pulled 2026-09-06). The top candidates were judged from the caption text by a model reading it (31 batches by Claude Opus-class review agents, the remaining batches read inline by Claude in the same session); a candidate counts only if the caption text states the tested fact. Every accepted match carries a verbatim caption quote that was then located mechanically in the track (all exact); `at` is that position minus 3 s. A targeted second look struck 4 matches. Five videos were added from the channel after the first pass (bone healing, osteoporosis, aerobic ATP, glycolysis, scapula movers) and judged the same way. Captions are not shipped. Questions absent from `matches` have no video whose captions teach them. | 2026-09-07: added the 7 newly-unlocked Module 2 quizzes (Flash-judged, verbatim-quote gated). | rescue pass (top-8 candidates over unmatched, Flash-judged, quote-gated + refuted). | 2026-09-07 Ninja Nerd gap-fill (top-8 over the still-unmatched, Flash-judged, quote-gated + refuted). | 2026-09-07 gap-fill from AnatomyZone/IHA/Armando (top-8 over the still-unmatched, Flash-judged, quote-gated + refuted, judged clip end). | 2026-09-07 relevance scrutiny: swapped primary↔alt on the three meninges-order questions (q224113e27f, q553b6cc5a8, q57602a50d7) and the glial-matching q85a7a0190f so the shipped quote states the tested fact; dropped qb838406f8a (albuterol/β2) whose lone match was a coincidental 'beta2' on a facial-pain video (no video beats a wrong one).",
  "stats": {
-  "questions_with_video": 306,
-  "matches": 431,
+  "questions_with_video": 305,
+  "matches": 430,
   "videos_used": 141
  },
  "matches": {
@@ -252,14 +252,14 @@
   ],
   "q224113e27f": [
    {
-    "id": "Qh6A1neljbI",
-    "at": 122,
-    "quote": "on top of the arachnoid mater we've got a very tough layer"
-   },
-   {
     "id": "voDZl9Y0RUc",
     "at": 100,
     "quote": "most adherent to the brain then the arachnoid mater then the dura mater"
+   },
+   {
+    "id": "Qh6A1neljbI",
+    "at": 122,
+    "quote": "on top of the arachnoid mater we've got a very tough layer"
    }
   ],
   "q2284351643": [
@@ -580,14 +580,14 @@
   ],
   "q553b6cc5a8": [
    {
-    "id": "Qh6A1neljbI",
-    "at": 122,
-    "quote": "on top of the arachnoid mater we've got a very tough layer"
-   },
-   {
     "id": "voDZl9Y0RUc",
     "at": 100,
     "quote": "most adherent to the brain then the arachnoid mater then the dura mater"
+   },
+   {
+    "id": "Qh6A1neljbI",
+    "at": 122,
+    "quote": "on top of the arachnoid mater we've got a very tough layer"
    }
   ],
   "q5656676fc0": [
@@ -616,14 +616,14 @@
   ],
   "q57602a50d7": [
    {
-    "id": "Qh6A1neljbI",
-    "at": 122,
-    "quote": "on top of the arachnoid mater we've got a very tough layer called the jura mata"
-   },
-   {
     "id": "voDZl9Y0RUc",
     "at": 100,
     "quote": "most adherent to the brain then the arachnoid mater then the dura mater"
+   },
+   {
+    "id": "Qh6A1neljbI",
+    "at": 122,
+    "quote": "on top of the arachnoid mater we've got a very tough layer called the jura mata"
    }
   ],
   "q58dad3f9ae": [
@@ -997,14 +997,14 @@
   ],
   "q85a7a0190f": [
    {
-    "id": "yT9Ad01oUgc",
-    "at": 604,
-    "quote": "ependymal cells produce the cerebral spinal fluid within the ventricles"
-   },
-   {
     "id": "wkowgnAaaMY",
     "at": 2161,
     "quote": "microglia real time immune cells ependymal cells which help produce cerebral spinal fluid"
+   },
+   {
+    "id": "yT9Ad01oUgc",
+    "at": 604,
+    "quote": "ependymal cells produce the cerebral spinal fluid within the ventricles"
    }
   ],
   "q8877542ec0": [
@@ -1407,13 +1407,6 @@
     "id": "iuPeJG6fQbU",
     "at": 135,
     "quote": "this sodium diffuses down its concentration gradient to go inside the neuron"
-   }
-  ],
-  "qb838406f8a": [
-   {
-    "id": "voDZl9Y0RUc",
-    "at": 1525,
-    "quote": "so it's going to be one of these two and in actual fact it's beta2"
    }
   ],
   "qb8614dbe4e": [
