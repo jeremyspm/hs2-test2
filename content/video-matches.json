@@ -1,10 +1,10 @@
 {
  "built": "2026-09-06",
- "method": "For every question in the bank, its key + stem terms were BM25-scored against 90-second windows of each video's own YouTube caption track (153/153 videos, pulled 2026-09-06). The top candidates were judged from the caption text by a model reading it (31 batches by Claude Opus-class review agents, the remaining batches read inline by Claude in the same session); a candidate counts only if the caption text states the tested fact. Every accepted match carries a verbatim caption quote that was then located mechanically in the track (all exact); `at` is that position minus 3 s. A targeted second look struck 4 matches. Five videos were added from the channel after the first pass (bone healing, osteoporosis, aerobic ATP, glycolysis, scapula movers) and judged the same way. Captions are not shipped. Questions absent from `matches` have no video whose captions teach them. | 2026-09-07: added the 7 newly-unlocked Module 2 quizzes (Flash-judged, verbatim-quote gated). | rescue pass (top-8 candidates over unmatched, Flash-judged, quote-gated + refuted).",
+ "method": "For every question in the bank, its key + stem terms were BM25-scored against 90-second windows of each video's own YouTube caption track (153/153 videos, pulled 2026-09-06). The top candidates were judged from the caption text by a model reading it (31 batches by Claude Opus-class review agents, the remaining batches read inline by Claude in the same session); a candidate counts only if the caption text states the tested fact. Every accepted match carries a verbatim caption quote that was then located mechanically in the track (all exact); `at` is that position minus 3 s. A targeted second look struck 4 matches. Five videos were added from the channel after the first pass (bone healing, osteoporosis, aerobic ATP, glycolysis, scapula movers) and judged the same way. Captions are not shipped. Questions absent from `matches` have no video whose captions teach them. | 2026-09-07: added the 7 newly-unlocked Module 2 quizzes (Flash-judged, verbatim-quote gated). | rescue pass (top-8 candidates over unmatched, Flash-judged, quote-gated + refuted). | 2026-09-07 Ninja Nerd gap-fill (top-8 over the still-unmatched, Flash-judged, quote-gated + refuted).",
  "stats": {
-  "questions_with_video": 229,
-  "matches": 346,
-  "videos_used": 86
+  "questions_with_video": 264,
+  "matches": 387,
+  "videos_used": 113
  },
  "matches": {
   "q01cce4aab9": [
@@ -2193,6 +2193,281 @@
     "id": "r-sDGEswYQY",
     "at": 462,
     "quote": "caused by destruction of beta cells this is more to do with insulin"
+   }
+  ],
+  "q11a0d0f64f": [
+   {
+    "id": "ZSvb4enXyGU",
+    "at": 120,
+    "quote": "looking at the anterior side of the femur and this is a head of"
+   }
+  ],
+  "q12666c15b0": [
+   {
+    "id": "13yGwDAvbQI",
+    "at": 568,
+    "quote": "alcohol actually has a inhibitory effect on ADH"
+   }
+  ],
+  "q1ae4d52179": [
+   {
+    "id": "EZmWx6LHxWs",
+    "at": 102,
+    "quote": "produce insulin we talked about it was a humoral stimuli"
+   }
+  ],
+  "q21c942f519": [
+   {
+    "id": "0H9sIyNmygQ",
+    "at": 343,
+    "quote": "the dura mater is actually made up of two layers"
+   },
+   {
+    "id": "FJ8kzFCuTss",
+    "at": 655,
+    "quote": "the dura mater is made actually made up of two layers"
+   }
+  ],
+  "q250fb5bf63": [
+   {
+    "id": "tdlmHi0n0Ss",
+    "at": 219,
+    "quote": "take a look at the whole pelvis. So if we look here, we have the two coxa bones"
+   }
+  ],
+  "q2775ddd2d1": [
+   {
+    "id": "uZ5Sm2NFuGM",
+    "at": 1386,
+    "quote": "is less than the resistance arm, which is the distance from where the load"
+   }
+  ],
+  "q2b40cd42e0": [
+   {
+    "id": "uZ5Sm2NFuGM",
+    "at": 1953,
+    "quote": "contracting the biceps, doing flexion, whenever you're doing uh chest flies, whenever you're doing front raises, side raises, knee extensions, I'm sorry, leg extensions, leg curls. All of those exercises involves class three levers."
+   }
+  ],
+  "q3a353b52f9": [
+   {
+    "id": "EZmWx6LHxWs",
+    "at": 410,
+    "quote": "glucon neo genesis that's one big thing what's the other thing it loves to do it loves to break down the glycogen"
+   }
+  ],
+  "q3a5cea04a3": [
+   {
+    "id": "uUb2pyzOWHg",
+    "at": 99,
+    "quote": "we're going to take a look at the fibula so what we're looking at here"
+   }
+  ],
+  "q45a4e3bcb8": [
+   {
+    "id": "ITlKlDnyKfU",
+    "at": 1890,
+    "quote": "entire GI tract if you're doing that you're constricting the blood flow to it so you can divert the blood away"
+   },
+   {
+    "id": "ZLW8V7bwW4U",
+    "at": 1196,
+    "quote": "blood flow going to thee g.i T our splanchnic circulation we don't really care about that so let's constrict those bad boys"
+   }
+  ],
+  "q5175b1d8bd": [
+   {
+    "id": "UKgbfxPTn_s",
+    "at": 1289,
+    "quote": "sheetlike connective tissue that's connecting muscle to Bone a tendon is a cord"
+   }
+  ],
+  "q5b703df4c6": [
+   {
+    "id": "q0WDD704P1M",
+    "at": 65,
+    "quote": "called the Sartorius muscles and longus muscle in the body"
+   }
+  ],
+  "q67cc18937f": [
+   {
+    "id": "f7Zig8eBCqY",
+    "at": 827,
+    "quote": "triceps Sur which is made up of the gastr nemus"
+   }
+  ],
+  "q68942d660c": [
+   {
+    "id": "tdlmHi0n0Ss",
+    "at": 6,
+    "quote": "give you the three different divisions of the coxa bone. So if we look here,"
+   }
+  ],
+  "q6de4c88701": [
+   {
+    "id": "UKgbfxPTn_s",
+    "at": 995,
+    "quote": "what this tendon is doing is it's connecting the muscle to the Bone"
+   }
+  ],
+  "q9753cb07e3": [
+   {
+    "id": "A7UMQh4LSGU",
+    "at": 122,
+    "quote": "Now we're looking at the posterior part of the humerus, this big, big divot"
+   }
+  ],
+  "q9d25809bfe": [
+   {
+    "id": "uUb2pyzOWHg",
+    "at": 15,
+    "quote": "tibia is the medial bone and then fibula is the lateral bone"
+   }
+  ],
+  "qa806cf426b": [
+   {
+    "id": "dNIq1V8Ph84",
+    "at": 182,
+    "quote": "are all your vertebral sternal ribs, meaning they're your true ribs okay."
+   }
+  ],
+  "qb1e9f0b70d": [
+   {
+    "id": "y64aXKCkHk4",
+    "at": 2061,
+    "quote": "calcetonin will do what? Decrease osteoclastic activity which as a result will increase osteoplastic activity."
+   }
+  ],
+  "qb9302304a4": [
+   {
+    "id": "_LKdNhF2WhI",
+    "at": 919,
+    "quote": "appositional which is increasing in width and you have interal which is increasing in length"
+   }
+  ],
+  "qbda77922aa": [
+   {
+    "id": "uUb2pyzOWHg",
+    "at": 7,
+    "quote": "this is our tibia here this bone and this is the fibula"
+   }
+  ],
+  "qbf38598f65": [
+   {
+    "id": "q0WDD704P1M",
+    "at": 740,
+    "quote": "it's underneath this guy it's right here this is called the soleus"
+   }
+  ],
+  "qc3b2a80b12": [
+   {
+    "id": "F_O0Rj3IWn8",
+    "at": 175,
+    "quote": "is actually going to draw the angle of the mouth upwards and backwards for smiling."
+   }
+  ],
+  "qc98fc4bab7": [
+   {
+    "id": "EZmWx6LHxWs",
+    "at": 451,
+    "quote": "what does glycogenesis do to the glucose levels it decreases the glucose levels"
+   }
+  ],
+  "qcae5c1b15d": [
+   {
+    "id": "qqb4S5Tv008",
+    "at": 105,
+    "quote": "what is white matter it is the myelinated axons"
+   },
+   {
+    "id": "6XtPzcXAqBc",
+    "at": 1381,
+    "quote": "because of the myelin sheaths this is referred to as our white matter"
+   }
+  ],
+  "qcf039de40e": [
+   {
+    "id": "WQjcaCblig8",
+    "at": 3397,
+    "quote": "this bone is the only bone in the body that doesn't articulate with any other bone in the body"
+   }
+  ],
+  "qd4ec053cdc": [
+   {
+    "id": "w2gI-IAokJg",
+    "at": 512,
+    "quote": "there's areas in the brain where the blood-brain barrier is broken"
+   }
+  ],
+  "qd6c6283a70": [
+   {
+    "id": "WQjcaCblig8",
+    "at": 3398,
+    "quote": "bone is the only bone in the body that doesn't articulate with any other bone"
+   }
+  ],
+  "qdbd5f6a832": [
+   {
+    "id": "L8SezbBHWJI",
+    "at": 1832,
+    "quote": "superior colliculus is involved with reflexive movements of the head from a visual stimulus"
+   },
+   {
+    "id": "-3Pj5sNqf-Y",
+    "at": 3929,
+    "quote": "helps with reflexive movements of the head and the eyes in response to a visual"
+   }
+  ],
+  "qdecb919e4e": [
+   {
+    "id": "QisaWVtTC4E",
+    "at": 569,
+    "quote": "this is the rectus abdominis so this is your six-pack muscles"
+   }
+  ],
+  "qe2f4fc10e2": [
+   {
+    "id": "uZ5Sm2NFuGM",
+    "at": 1812,
+    "quote": "what happens? It pulls the actual head back, extends the neck, which lifts the anterior part of the face back up. That's an example of a class one lever."
+   }
+  ],
+  "qe9bda79a8e": [
+   {
+    "id": "OtwONFkH6Us",
+    "at": 45,
+    "quote": "step to determine if that patient has meningitis a lumbar puncture"
+   }
+  ],
+  "qef4906beda": [
+   {
+    "id": "EZmWx6LHxWs",
+    "at": 228,
+    "quote": "promote what an increase glucose uptake via the glut 4"
+   },
+   {
+    "id": "w4jHtPUNg6E",
+    "at": 1698,
+    "quote": "stimulating this glut 4 transporter which is insulin dependent which helps to bring a lot"
+   }
+  ],
+  "qf6c99191f7": [
+   {
+    "id": "qqb4S5Tv008",
+    "at": 98,
+    "quote": "when we talk about white matter i want you to primarily remember that it is the myelinated axons"
+   },
+   {
+    "id": "6XtPzcXAqBc",
+    "at": 1381,
+    "quote": "because of the myelin sheaths this is referred to as our white matter"
+   }
+  ],
+  "qff61ae4c38": [
+   {
+    "id": "uZ5Sm2NFuGM",
+    "at": 1854,
+    "quote": "The fulcrum is this fixed point right here. It's when the foot is pushing into the actual ground."
    }
   ]
  }
