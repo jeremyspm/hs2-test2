@@ -44,4 +44,13 @@ re-sittable, plus dealt mock papers with a score history. Test 2: 21 Sept 2026, 
   <https://jeremyspm.github.io/hs2-videos.html> — generated from this repo's built
   `index.html` by `hs2-videos.build.mjs` in `jeremyspm.github.io`. The ▶ in the header
   and the "Watch first" door on the home screen point there.
+- **Learn mode** (home door “Learn as you go”, and the Learn button beside every quiz): the same
+  decks and the same marking, but per question — **Check** marks it in place and the answer, her
+  slide/passage and the matched video (the model steps, for written questions) open right under it.
+  Slide and video can be opened *before* answering; that is a peek, and a right answer after a peek
+  does not clear a miss. Check with nothing picked = “show me” = a miss. Learn sittings feed the
+  misses pile and the least-seen dealer, never the score chart.
+- `resplice.mjs` — re-splices `template.html` onto the bank already inside `index.html` (the
+  chrome-only path above, as a script), and fails if the bank is not one JSON value, the marker is
+  not exactly once, or the page script does not parse.
 - Rebuild: `node build.mjs` then `python compress-slides.py` (ships only the slides questions reference). Serve: any static server; state is per-browser localStorage.
