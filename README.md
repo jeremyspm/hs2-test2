@@ -44,11 +44,28 @@ re-sittable, plus dealt mock papers with a score history. Test 2: 21 Sept 2026, 
   <https://jeremyspm.github.io/hs2-videos.html> — generated from this repo's built
   `index.html` by `hs2-videos.build.mjs` in `jeremyspm.github.io`. The ▶ in the header
   and the "Watch first" door on the home screen point there.
+- References: `content/ref-matches.json` is the ONLY source of the slide / notes / Patton shown
+  with a question. Built 2026-09-09 by the estate's `scripts/text-refs/` the same way the videos
+  were: every unit of her slides, learning pages, Anatomy Mondays 5–9 (+ answer pages), the 2026
+  lab workbook and Patton 9e chapters 11–26 was BM25-shortlisted per question (two lanes, hers and
+  Patton's, so the book cannot crowd her out), a model judged from the unit's text whether it
+  STATES the keyed fact, every "yes" carried a 6–15 word quote re-found verbatim in the unit, and
+  an adversarial pass struck 20 + 13. Result: 278 of 471 questions carry a judged reference
+  (119 her slide images, 82 her prose, 175 Patton excerpts; 99 have Patton only), at most one per
+  lane per question, her material above Patton. The term-overlap matcher it replaced attached 347
+  passages, 102 of which shared no word with the keyed answer and 254 of which were decided by a
+  tie or a margin under 2. Patton ships as the sentence(s) around the quote, ≤70 words, with
+  chapter, PDF-derived printed page and (for captions) figure number — never the paragraph; the
+  copy on disk is the 9th ed. (2016), the course's ClinicalKey copy is the 2019 ed. A question
+  with no entry has nothing that states its answer outright in any of those sources. Build gates:
+  unknown kind, missing source, quote not inside its excerpt, excerpt >80 words, Patton ref
+  without page/chapter, or an entry for a question the bank no longer has — each fails the build.
+  Slides are still never shown beside a question that carries its own image; text is.
 - **Learn mode** (home door “Learn as you go”, and the Learn button beside every quiz): the same
   decks and the same marking, but per question — **Check** marks it in place and the answer, her
-  slide/passage and the matched video (the model steps, for written questions) open right under it.
-  Slide and video can be opened *before* answering; that is a peek, and a right answer after a peek
-  does not clear a miss. Check with nothing picked = “show me” = a miss. Learn sittings feed the
+  slide, her notes, the Patton passage and the matched video (the model steps, for written
+  questions) open right under it, each also a chip you can open *before* answering; that is a peek,
+  and a right answer after a peek does not clear a miss. Check with nothing picked = “show me” = a miss. Learn sittings feed the
   misses pile and the least-seen dealer, never the score chart.
 - `resplice.mjs` — re-splices `template.html` onto the bank already inside `index.html` (the
   chrome-only path above, as a script), and fails if the bank is not one JSON value, the marker is
