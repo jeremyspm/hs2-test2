@@ -448,11 +448,11 @@ function renderQ(){
       return `<span class="pip ${cls} ${i===SIT.i?'cur':''}"></span>`}).join('')}</div>
   </div>`;
   if(chk)paintChecked(q);
-  else document.querySelectorAll('.opt').forEach(o=>o.onclick=e=>{
-    const inp=o.querySelector('input');
-    if(inp.type==='radio'){document.querySelectorAll('.opt').forEach(x=>{x.classList.remove('sel');x.querySelector('input').checked=false});inp.checked=true;o.classList.add('sel')}
-    else{if(e.target.tagName!=='INPUT')inp.checked=!inp.checked;o.classList.toggle('sel',inp.checked)}
-  });
+  /* the label's own activation checks the box; we only mirror it on change. The old
+     handler also flipped it by hand, and the two flips cancelled: tapping the WORDS of a
+     "tick every answer that applies" option never ticked it (only the box itself did). */
+  else document.querySelectorAll('.opt').forEach(o=>{const inp=o.querySelector('input');
+    inp.onchange=()=>{if(inp.type==='radio')document.querySelectorAll('.opt').forEach(x=>x.classList.remove('sel'));o.classList.toggle('sel',inp.checked)}});
   if(SIT.timed){const t=$('#timer');const tick=()=>{const s=Math.max(0,(SIT.end-Date.now())/1000|0);
     t.textContent=`${s/60|0}:${String(s%60).padStart(2,'0')}`;t.classList.toggle('low',s<300);
     if(s<=0){clearInterval(timerIv);saveAns();mark()}};tick();timerIv=setInterval(tick,1000)}
