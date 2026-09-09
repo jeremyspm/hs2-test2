@@ -649,15 +649,15 @@ function mark(){
    the same row forward to the question itself. */
 /* the review is an accordion: each question collapses to a mark + one-line stem, and
    the answer / video / slide open ON DEMAND below the row — never all at once. */
-/* one reference, by kind: her slide is the rendered image; her prose and Patton are the
-   sentence(s) the judge quoted, verbatim, with the source named. Every reference in
-   the bank was judged to STATE the keyed fact and carries a quote re-found in the
-   source at build time — same standard as the videos. Where Patton and Hannetjie
-   disagree, she wins: her references sit above his. */
+/* one reference, by kind: her slide is the rendered image (or, for a deck never rendered,
+   the slide's own words); her prose and Patton are the sentence(s) the judge quoted,
+   verbatim, with the source named. Every reference in the bank was judged to STATE the
+   keyed fact and carries a quote re-found in the source at build time — same standard as
+   the videos. Where Patton and Hannetjie disagree, she wins: her references sit above his. */
 function refHTML(r){
-  if(r.k==='slide')return `<div class="refq slide"><a href="img/slides/${r.slide}" target="_blank" rel="noopener"><img class="slideimg" src="img/slides/${r.slide}" alt="her slide" loading="lazy"></a><span class="refsrc">📖 ${esc(r.src)} — tap to open full size</span></div>`;
+  if(r.k==='slide'&&r.slide)return `<div class="refq slide"><a href="img/slides/${r.slide}" target="_blank" rel="noopener"><img class="slideimg" src="img/slides/${r.slide}" alt="her slide" loading="lazy"></a><span class="refsrc">📖 ${esc(r.src)} — tap to open full size</span></div>`;
   if(r.k==='patton')return `<div class="refq patton">📕 <i>“${esc(r.t)}”</i><span class="refsrc"> — ${esc(r.src)}${r.fig?` · Figure ${esc(r.fig)}${r.assigned?' (a figure she set in her learning page)':''}`:''}</span></div>`;
-  return `<div class="refq">✍ <i>“${esc(r.t)}”</i><span class="refsrc"> — ${esc(r.src)}</span></div>`;
+  return `<div class="refq">${REF[r.k].ic} <i>“${esc(r.t)}”</i><span class="refsrc"> — ${esc(r.src)}</span></div>`;
 }
 function refsHTML(q){ return q.refs.length?q.refs.map(refHTML).join(''):''; }
 function refBtns(q,btn){ return q.refs.map(r=>btn(r.k,`${REF[r.k].ic} ${REF[r.k].lbl}`)).join(''); }
