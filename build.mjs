@@ -14,6 +14,7 @@ import { loadVideos, loadVideoMatches, loadRefMatches, matchVideo, matchRefs } f
 import { structuredStems, plainText } from './stem-html.mjs';
 import { OVERRIDES } from './content/overrides.js';
 import { AUTHORED_STEMS } from './content/authored-stems.js';
+import { FOCUS } from './content/focus.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const M2 = 'C:/Users/USER/Desktop/github/hs2-anki/m2';
@@ -294,7 +295,7 @@ const DATA = {
     withRef: nRef, withHer: questions.filter(q => q.refs && q.refs.some(r => r.k !== 'patton')).length,
     withPatton: nPat, pattonOnly: nPatOnly },
   quizzes: quizzes.sort((a, b) => a.sys.localeCompare(b.sys) || a.name.localeCompare(b.name)),
-  questions, chains: CHAINS, case7: CASE7, held,
+  questions, chains: CHAINS, case7: CASE7, focus: FOCUS, held,
 };
 const tpl = fs.readFileSync(path.join(HERE, 'template.html'), 'utf8');
 const marker = '/*@BANK@*/';

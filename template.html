@@ -50,6 +50,34 @@ a.btn{text-decoration:none}
 .qrow .m{color:var(--muted-fg);font-size:.76rem;white-space:nowrap}
 .qrow .acts{margin-left:auto;display:flex;gap:6px;align-items:center}
 .sysrow{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 2px}
+/* ── focus checklist ─────────────────────────────────────────────────── */
+.fhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px;margin:2px 0 8px}
+.fbar{height:6px;border-radius:99px;background:var(--accent);overflow:hidden;flex:1 1 140px;min-width:120px}
+.fbar i{display:block;height:100%;background:var(--ok);transition:width .25s}
+.ftier{font-weight:700;font-size:.82rem;margin:14px 0 6px;display:flex;align-items:center;gap:8px}
+.ftier b{font-weight:700}
+.ftier .fnum{font-weight:400;color:var(--muted-fg)}
+.frow{display:flex;gap:9px;align-items:flex-start;padding:8px 10px;margin-bottom:6px;
+  border:1px solid var(--border);border-radius:var(--radius);background:var(--muted);
+  border-left:3px solid var(--tc,var(--border))}
+.frow.on{opacity:.62}
+.frow.on .ft{text-decoration:line-through}
+.frow>input.fchk{flex:0 0 auto;width:18px;height:18px;margin-top:2px;accent-color:var(--ok);cursor:pointer}
+.fbody{flex:1 1 auto;min-width:0}
+.fbody>summary{cursor:pointer;list-style:none;display:block}
+.fbody>summary::-webkit-details-marker{display:none}
+.ft{font-weight:650;font-size:.92rem;display:block}
+.fmeta{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.fchip{font-size:.68rem;padding:1px 7px;border-radius:99px;background:var(--accent);color:var(--muted-fg);white-space:nowrap}
+.fchip.her{background:hsl(38 92% 55% / .18);color:var(--warn)}
+.fchip.tape{background:hsl(0 84% 60% / .16);color:var(--danger)}
+.fchip.saq{background:hsl(218 91% 64% / .16);color:var(--primary)}
+.fchip.sys{background:transparent;border:1px solid var(--border)}
+.fdet{font-size:.85rem;line-height:1.5;margin-top:8px;padding-top:8px;border-top:1px solid var(--border)}
+.fdet p{margin:0 0 7px}
+.fdet .fcap{color:var(--muted-fg)}
+.fwhy{font-size:.8rem;line-height:1.5;color:var(--muted-fg);margin:0 0 4px}
+@media(max-width:400px){ .ft{font-size:.88rem} .fdet{font-size:.82rem} }
 .tag{font-size:.72rem;padding:2px 8px;border-radius:99px;background:var(--accent);color:var(--muted-fg)}
 .tag.ms{color:hsl(28 90% 62%)}.tag.ns{color:hsl(268 80% 74%)}.tag.endo{color:hsl(158 64% 52%)}
 .tag.mixed{color:var(--muted-fg)}
@@ -200,6 +228,7 @@ let S = {
   scores: LS('scores')||[],   // {t, mode, got, tot, label}
   miss:   LS('miss')  ||{},   // qid -> wrong count
   seen:   LS('seen')  ||{},   // qid -> sittings
+  mastery:LS('mastery')||{}, // focus topic id -> 1 when he can do it
 };
 const TESTDAY = new Date('2026-09-21T12:00:00+12:00');
 const daysLeft = () => Math.max(0, Math.ceil((TESTDAY - Date.now())/864e5));
@@ -254,25 +283,98 @@ function dealMisses(){
   return shuffle(pool).slice(0,12);
 }
 
+/* ── focus checklist ───────────────────────────────────────────────────
+   Her focus post names topics in one or two words. DATA.focus says how far
+   each one goes and how heavily her own bank drills it, so a tick is a real
+   claim rather than a shrug. Ticks are per-browser (localStorage). */
+const FTIER = {
+  1:{n:'Do these first',    c:'var(--danger)', w:'Biggest blocks of marks in her bank, or she named them out loud.'},
+  2:{n:'Then these',        c:'var(--warn)',   w:'Real marks, but they will not decide the paper on their own.'},
+  3:{n:"Know it, don't camp", c:'var(--muted-fg)', w:'Thin in her bank. Read it once so it cannot blindside you, then leave it.'},
+};
+const FLAGN = {D:'her diagrams row', P:'her processes row', R:'her reasoning row', T:'her terminology row'};
+
+function focusStats(){
+  const F = DATA.focus, done = F.filter(f=>S.mastery[f.id]);
+  return { n:F.length, d:done.length,
+           pts:F.reduce((a,b)=>a+b.pts,0), dpts:done.reduce((a,b)=>a+b.pts,0) };
+}
+function focusHead(){
+  const st = focusStats(), pc = st.pts ? Math.round(st.dpts/st.pts*100) : 0;
+  return `<b>${st.d} of ${st.n} topics</b>
+    <span class="fbar"><i style="width:${pc}%"></i></span>
+    <span class="hist">${st.dpts} of ${st.pts} marks of her bank covered</span>`;
+}
+function focusCard(){
+  const rows = t => DATA.focus.filter(f=>f.tier===t).map(f=>{
+    const on = !!S.mastery[f.id], chips = [];
+    (f.flag||'').split(' ').filter(Boolean).forEach(x=>{
+      if(x==='tape') chips.push('<span class="fchip tape">🎤 she said it in class</span>');
+      else if(FLAGN[x]) chips.push(`<span class="fchip her">📌 ${FLAGN[x]}</span>`);
+    });
+    if(f.saq) chips.push(`<span class="fchip saq">✍️ ${f.saq} written / dropdown</span>`);
+    return `<div class="frow${on?' on':''}" style="--tc:${FTIER[f.tier].c}" data-fid="${f.id}">
+      <input type="checkbox" class="fchk" ${on?'checked':''} aria-label="I can do this: ${esc(f.t)}">
+      <details class="fbody"><summary>
+        <span class="ft">${esc(f.t)}</span>
+        <span class="fmeta"><span class="fchip sys">${SYS[f.sys]}</span><span class="fchip">${f.n} questions</span><span class="fchip">${f.pts} marks</span><span class="fchip">${f.qz} quizzes</span>${chips.join('')}</span>
+      </summary>
+      <div class="fdet">
+        <p><b>Done when you can:</b> ${esc(f.done)}</p>
+        <p><b>How she asks it:</b> ${esc(f.ask)}</p>
+        ${f.cap ? `<p class="fcap"><b>Where it ends:</b> ${esc(f.cap)}</p>` : ''}
+        <div class="refsrc">Focus Points doc: ${esc(f.crit)}</div>
+      </div></details></div>`;
+  }).join('');
+  const tier = t => `<div class="ftier" style="color:${FTIER[t].c}">${FTIER[t].n}
+      <span class="fnum">· ${DATA.focus.filter(f=>f.tier===t).length} topics</span></div>
+    <div class="fwhy">${FTIER[t].w}</div>${rows(t)}`;
+  return `<div class="card" style="border-left:4px solid var(--warn)">
+    <details>
+      <summary style="cursor:pointer;font-weight:700">🎯 What to learn, and how far · <span id="fsum">${focusStats().d}/${focusStats().n}</span></summary>
+      <div style="margin-top:10px">
+        <div class="fhead" id="fhead">${focusHead()}</div>
+        <p class="fwhy">Her <b>“Diagrams &amp; Processes in Test 2”</b> post names topics in one or two words —
+          it is an index, not the scope. Every topic below carries <b>the ceiling</b>: what you have to be able to
+          DO before ticking it, and where it stops. Open a row before you tick it.</p>
+        <details><summary class="hist" style="cursor:pointer">? Where the ranking comes from</summary>
+          <p class="fwhy" style="margin-top:6px">Every question in this tool's bank (471) was assigned a topic and
+          then read by hand. <b>Questions</b> and <b>marks</b> count unique items, with repeats across quizzes merged.
+          Ranking is her bank's marks — except where she flagged something herself, which overrides the count:
+          “Label the endocrine glands” is only 2 questions and sits in tier 1 because she said in the 10 Sept lecture
+          that it is in the test. <b>✍️</b> counts essays and dropdown questions — she said on tape the dropdowns
+          are the SAQs. This is derived from her materials, not from the marking schedule: it is the best available
+          read on her emphasis, not a leaked paper.</p>
+        </details>
+        ${tier(1)}${tier(2)}${tier(3)}
+        <div class="refsrc" style="margin-top:10px">Sources: her “Diagrams &amp; Processes in Test 2” post · the
+          <b>Continuous Tests and Exam Focus Points</b> criteria doc (Science 2 Detailed Content.docx) · her Endocrine 1
+          lecture, 10 Sept 2026 · this tool's own question bank. Ticks are saved in this browser only.</div>
+      </div>
+    </details>
+  </div>`;
+}
+function bindFocus(){
+  document.querySelectorAll('.frow').forEach(r=>{
+    const cb = r.querySelector('.fchk');
+    if(!cb) return;
+    cb.onchange = () => {
+      if(cb.checked) S.mastery[r.dataset.fid] = 1; else delete S.mastery[r.dataset.fid];
+      SV('mastery', S.mastery);
+      r.classList.toggle('on', cb.checked);
+      const h = $('#fhead'); if(h) h.innerHTML = focusHead();
+      const sm = $('#fsum'); if(sm){ const st=focusStats(); sm.textContent = st.d+'/'+st.n }
+    };
+  });
+}
+
 /* ── home ──────────────────────────────────────────────────────────── */
 function home(){
   $('#footbar').classList.remove('on');
   const last = S.scores[S.scores.length-1];
   document.getElementById('view').innerHTML = `
   ${sparkCard()}
-  <div class="card" style="border-left:4px solid var(--warn)">
-    <details>
-      <summary style="cursor:pointer;font-weight:700">📋 Her own Test 2 focus list — what she says the paper rewards</summary>
-      <div class="hist" style="margin-top:8px">
-        From her <b>“Diagrams &amp; Processes in Test 2”</b> post (built from where the class lost marks in Test 1):
-        <br><b>Diagrams to read:</b> synovial joint · muscle origin/insertion/belly · lever classes · skeleton bones · femur markings · neuron · synapse · brain parts · cerebrum functional areas + stroke symptoms · endocrine glands · diencephalon.
-        <br><b>Sequential processes:</b> endochondral &amp; intramembranous ossification · bone repair · synaptic transmission · CSF production→circulation→reabsorption · reflexes · calcium homeostasis · blood sugar · positive vs negative feedback. <i>Every one of these is a warm-up chain in this tool.</i>
-        <br><b>Multi-step reasoning:</b> antagonistic muscles · levers · CNS protection · somatic vs autonomic reflexes · upper vs lower motor neuron injury · spinal injury levels · cranial/spinal nerve injuries · the hypothalamus→pituitary→thyroid and →adrenal cascades · pancreas α/β cells · nervous vs hormonal vs humoral control.
-        <br><b>Terminology:</b> energy for muscle actions · femur bone markings · nerve plexuses.
-        <div class="refsrc" style="margin-top:6px">Source: her discussion post, captured 31 Aug — she may add more; check the board.</div>
-      </div>
-    </details>
-  </div>
+  ${focusCard()}
   <div class="card door" style="border-left:4px solid var(--ok)">
     <h2>📖 Learn as you go</h2>
     <p>Not a test. Every question marks itself the moment you press <b>Check</b>, and the answer, her slide and the matched video open right under it before you move on — you can open the slide or video <i>before</i> you answer, too. Press Check with nothing picked and it just shows you. Nothing here goes on the score chart; a wrong or skipped one still joins your misses pile. Start here when the quizzes feel like deep water.</p>
@@ -309,6 +411,7 @@ function home(){
       <span class="acts"><span class="m">${z.n} Q</span><button class="btn ghost learn" data-quiz="${z.id}" data-learn="1">Learn</button><button class="btn ghost" data-quiz="${z.id}">Sit</button></span></div>`).join('')}
     </div>
   </div>`;
+  bindFocus();
   document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>start(b.dataset.go,!!b.dataset.learn));
   document.querySelectorAll('[data-quiz]').forEach(b=>b.onclick=()=>start('quiz:'+b.dataset.quiz,!!b.dataset.learn));
   document.querySelectorAll('[data-sys]').forEach(b=>b.onclick=()=>start('sys:'+b.dataset.sys,!!b.dataset.learn));
