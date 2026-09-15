@@ -73,6 +73,8 @@ a.btn{text-decoration:none}
 .fchip.tape{background:hsl(0 84% 60% / .16);color:var(--danger)}
 .fchip.saq{background:hsl(218 91% 64% / .16);color:var(--primary)}
 .fchip.sys{background:transparent;border:1px solid var(--border)}
+.fchip.hl{background:hsl(158 64% 42% / .2);color:var(--ok);font-weight:650}
+.fchip.rev{background:hsl(158 64% 42% / .12);color:var(--ok)}
 .fdet{font-size:.85rem;line-height:1.5;margin-top:8px;padding-top:8px;border-top:1px solid var(--border)}
 .fdet p{margin:0 0 7px}
 .fdet .fcap{color:var(--muted-fg)}
@@ -288,6 +290,8 @@ function dealMisses(){
    each one goes and how heavily her own bank drills it, so a tick is a real
    claim rather than a shrug. Ticks are per-browser (localStorage). */
 const FTIER = {
+  0:{n:'She is pointing at these THIS WEEK', c:'var(--ok)',
+     w:'Named in her MODULE 2 HELPLINE worksheet (which ships an answers page) or in the Wed 16 / Thu 17 revision sessions. This is her pointing days before the test, not a question count — so it sits above the ranking, not inside it. It does not mean biggest: the volume topics below still carry the most marks.'},
   1:{n:'Do these first',    c:'var(--danger)', w:'Biggest blocks of marks in her bank, or she named them out loud.'},
   2:{n:'Then these',        c:'var(--warn)',   w:'Real marks, but they will not decide the paper on their own.'},
   3:{n:"Know it, don't camp", c:'var(--muted-fg)', w:'Thin in her bank. Read it once so it cannot blindside you, then leave it.'},
@@ -312,6 +316,8 @@ function focusCard(){
       if(x==='tape') chips.push('<span class="fchip tape">🎤 she said it in class</span>');
       else if(FLAGN[x]) chips.push(`<span class="fchip her">📌 ${FLAGN[x]}</span>`);
     });
+    if(f.hl)  chips.push('<span class="fchip hl">🆘 on her helpline</span>');
+    if(f.rev) chips.push(`<span class="fchip rev">🗓 revision ${esc(f.rev)}</span>`);
     if(f.saq) chips.push(`<span class="fchip saq">✍️ ${f.saq} written / dropdown</span>`);
     return `<div class="frow${on?' on':''}" style="--tc:${FTIER[f.tier].c}" data-fid="${f.id}">
       <input type="checkbox" class="fchk" ${on?'checked':''} aria-label="I can do this: ${esc(f.t)}">
@@ -322,6 +328,7 @@ function focusCard(){
       <div class="fdet">
         <p><b>Done when you can:</b> ${esc(f.done)}</p>
         <p><b>How she asks it:</b> ${esc(f.ask)}</p>
+        ${f.hl ? `<p><b>Her helpline section:</b> “${esc(f.hl)}” — the worksheet has an answers companion on Canvas.</p>` : ''}
         ${f.cap ? `<p class="fcap"><b>Where it ends:</b> ${esc(f.cap)}</p>` : ''}
         <div class="refsrc">Focus Points doc: ${esc(f.crit)}</div>
       </div></details></div>`;
@@ -343,10 +350,12 @@ function focusCard(){
           Ranking is her bank's marks — except where she flagged something herself, which overrides the count:
           “Label the endocrine glands” is only 2 questions and sits in tier 1 because she said in the 10 Sept lecture
           that it is in the test. <b>✍️</b> counts essays and dropdown questions — she said on tape the dropdowns
-          are the SAQs. This is derived from her materials, not from the marking schedule: it is the best available
+          are the SAQs. <b>Ranking by marks has a blind spot</b>, and it showed: “Fracture repair” is 3 questions
+          and would sit near the bottom, but it is a named section of her Module 2 Helpline. Anything she names in
+          the helpline or in this week's revision sessions is lifted into its own band at the top. This is derived from her materials, not from the marking schedule: it is the best available
           read on her emphasis, not a leaked paper.</p>
         </details>
-        ${tier(1)}${tier(2)}${tier(3)}
+        ${tier(0)}${tier(1)}${tier(2)}${tier(3)}
         <div class="refsrc" style="margin-top:10px">Sources: her “Diagrams &amp; Processes in Test 2” post · the
           <b>Continuous Tests and Exam Focus Points</b> criteria doc (Science 2 Detailed Content.docx) · her Endocrine 1
           lecture, 10 Sept 2026 · this tool's own question bank. Ticks are saved in this browser only.</div>

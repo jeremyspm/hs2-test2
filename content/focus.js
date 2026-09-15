@@ -18,6 +18,16 @@
  * the test. Density alone would have buried it. So `flag` carries her own signals and
  * a tape flag floors the tier at 1. Marks are the tiebreak, not the verdict.
  *
+ * THE FOURTH SIGNAL (added 16 Sep). The first build ranked on her bank's marks, her
+ * focus post and the lecture tape. It had no access to the MODULE 2 HELPLINE: LET US
+ * REFLECT worksheet (opened Tue 15 Sep, with an answers companion) or to the Wed 16 /
+ * Thu 17 revision sessions listed in her "WEEK 8: REVISION & TEST" announcement. Those
+ * name topics outright, days before the test — her pointing, not volume. "Bone repair"
+ * was tier 3 on density and is a named helpline section, which is what exposed the gap.
+ * Anything she names in either source is now tier 0, and carries `hl` / `rev` so the row
+ * says why. Tier 0 does NOT mean biggest: the density tiers below are unchanged, and
+ * "Naming bones on a diagram" is still the largest block of marks on the paper.
+ *
  * flag letters — her four focus-post rows:
  *   D diagrams to interpret   P sequential processes
  *   R multi-step reasoning    T terminology precision
@@ -29,6 +39,15 @@
  */
 export const FOCUS = [
 
+/* ══════════ TIER 0 — she is pointing at these THIS WEEK ══════════ */
+{ id:'case7-accident', sys:'mixed', tier:0, t:'The Car Accident case study (case 7)', crit:'Module 2 case', flag:'R',
+  n:0, all:0, pts:0, qz:0, saq:0,
+  hl:'Accident case study · bone fractures in the case study',
+  rev:'Wed 16',
+  done:'Work case 7 end to end: the fracture types and which one this patient has, the healing stages that follow, low Ca²⁺ → PTH/calcitonin → bone density → why this patient fractures, and the CNS-protection/slowed-breathing → CO₂ → bicarbonate buffer → pH chain carried over from Module 1.',
+  ask:'It is THE case study for Test 2 — the assessment overview names it outright as the one relevant unstarred case ("Car accident"). Her helpline gives it two sections of its own.',
+  cap:'Zero questions in the quiz bank because it lives on a discussion board, not a quiz — which is exactly why a bank-density ranking could never have surfaced it. The tool ships a case-7 pack; this row is the reminder to actually work it.' },
+
 /* ══════════ TIER 1 ══════════ */
 { id:'ms-skeleton', sys:'ms', tier:1, t:'Naming bones on a diagram', crit:'MS 18', flag:'D',
   n:38, all:47, pts:78, qz:8, saq:2,
@@ -36,14 +55,18 @@ export const FOCUS = [
   ask:'Overwhelmingly "Name this bone" / "What is the name of structure B?" off a figure — 14 of them are one labelled skeleton, A through O. Then scientific-vs-common name matching, and a few clinical one-liners (a dental abscess in the maxilla, whiplash vertebrae, the bone distal to the knee and proximal to the ankle).',
   cap:'This is recognition, not reasoning. There is no question anywhere in the bank asking you to explain a bone. It is the single biggest block of marks in MS and it is pure flashcard work — which makes it the cheapest marks on the paper.' },
 
-{ id:'endo-pancreas', sys:'endo', tier:1, t:'Blood sugar — insulin, glucagon, diabetes', crit:'Endo 6', flag:'D P R tape',
+{ id:'endo-pancreas', sys:'endo', tier:0, t:'Blood sugar — insulin, glucagon, diabetes', crit:'Endo 6', flag:'D P R tape',
   n:19, all:32, pts:56, qz:8, saq:21,
+  hl:'Sugar homeostasis · the effects of insulin · what raises and drops glucose',
+  rev:'Wed 16',
   done:'Write the full rising-glucose and falling-glucose loops as numbered steps: stimulus → which cell → which hormone → what it does to liver, muscle and fat → glucose returns to range → feedback shuts it off. Name the normal fasting range. List insulin\'s actions organ by organ. Give type 1 vs type 2 in one sentence. Explain polydipsia/polyphagia/polyuria mechanistically, not as a list.',
   ask:'The most written-answer-heavy topic in the entire bank — 18 essays and 3 dropdown passages. Also the cells (alpha vs beta), the stress hormones that raise glucose, and which cells are not insulin-dependent.',
   cap:'She said it on tape: "pancreas" earns nothing — name the CELLS. Alpha → glucagon, beta → insulin, and the acinar cells are the exocrine half. Also on tape: the glycogenesis / glycogenolysis / gluconeogenesis word set is an exam AND test question.' },
 
-{ id:'ns-csf', sys:'ns', tier:1, t:'CSF — production, circulation, reabsorption', crit:'NS 6', flag:'D P',
+{ id:'ns-csf', sys:'ns', tier:0, t:'CSF — production, circulation, reabsorption', crit:'NS 6', flag:'D P',
   n:12, all:14, pts:43, qz:8, saq:3,
+  hl:'Brain & spinal cord protection (CSF)',
+  rev:'Thu 17',
   done:'Trace CSF from the choroid plexus through all four ventricles, into the subarachnoid space, back through the arachnoid granulations into venous blood — in order, naming each space. Say which cells make it (ependymal), how much and what it does.',
   ask:'Ordering and labelling — the four ventricles, which one sits nearest the cerebellum, which neuroglia produce it, and a quoted passage with dropdowns.',
   cap:'One of the heaviest mark-per-question topics in NS (43 marks over 12 questions) and it is on her Sequential Processes row — a prime SAQ shape.' },
@@ -60,8 +83,10 @@ export const FOCUS = [
   ask:'The synovial-joint label diagram, three written questions (tendon vs ligament; how muscles, bones and joints produce movement; why the elbow/vertebrae/cranium are classed differently), and movement-naming dropdowns.',
   cap:'Touched by 10 separate quizzes — the most re-drilled MS topic there is.' },
 
-{ id:'ms-remodel', sys:'ms', tier:1, t:'Bone remodelling & calcium — PTH vs calcitonin', crit:'MS 4 · Endo 4', flag:'D P tape',
+{ id:'ms-remodel', sys:'ms', tier:0, t:'Bone remodelling & calcium — PTH vs calcitonin', crit:'MS 4 · Endo 4', flag:'D P tape',
   n:9, all:10, pts:36, qz:6, saq:5,
+  hl:'Blood calcium homeostasis',
+  rev:'Wed 16',
   done:'Run the calcium loop both directions: blood Ca²⁺ falls → parathyroid → PTH → osteoclasts resorb bone + kidney + gut → Ca²⁺ rises; Ca²⁺ rises → thyroid → calcitonin → osteoblasts → bone hardens. Say what each does to bone DENSITY, and what happens if the parathyroids are removed.',
   ask:'Five dropdown passages, several explicitly worded "(3 marks as descriptive question)" — that is an SAQ wearing a dropdown costume. Plus which two hormones oppose each other.',
   cap:'She named calcium control as an endocrine SAQ on tape. The MS side and the endocrine side are the same loop — learn it once, tick both.' },
@@ -78,14 +103,18 @@ export const FOCUS = [
   ask:'Seven MCQs of the "this is an example of ______ stimulation" shape, plus two written and a matching row.',
   cap:'She said this on tape, on the slide: "mark this slide if you have it as a possible short answer question." Her standing distractor is a fourth mechanism that does not exist — "Enzyme" / "Enzymatic". There are three.' },
 
-{ id:'ns-synapse', sys:'ns', tier:1, t:'Synaptic transmission', crit:'NS 9', flag:'D P',
+{ id:'ns-synapse', sys:'ns', tier:0, t:'Synaptic transmission', crit:'NS 9', flag:'D P',
   n:12, all:13, pts:32, qz:8, saq:1,
+  hl:'Nervous conduction · synaptic transmission · cell transport in the synapse',
+  rev:'Thu 17',
   done:'Give the sequence in order: action potential reaches the terminal → Ca²⁺ enters → vesicles fuse → neurotransmitter into the cleft → binds receptors on the postsynaptic membrane → ion channels open → new potential → transmitter cleared. Name the cleft. Name the transmitter at a neuromuscular junction, and at sympathetic vs parasympathetic endings.',
   ask:'One 4-mark written ("Explain the process of synaptic transmission"), an ordering exercise, and which-transmitter-where MCQs.',
   cap:'Criterion 9 is the only NS criterion that says "in detail" — she means it.' },
 
-{ id:'endo-adrenal', sys:'endo', tier:1, t:'Adrenal glands & the stress hormones', crit:'Endo 6', flag:'R',
+{ id:'endo-adrenal', sys:'endo', tier:0, t:'Adrenal glands & the stress hormones', crit:'Endo 6', flag:'R',
   n:18, all:20, pts:29, qz:7, saq:1,
+  hl:'Short-term stress responses (catecholamines)',
+  rev:'Wed 16',
   done:'Split cortex from medulla and name what each secretes: cortex → aldosterone (sodium/water), cortisol (glucose, anti-inflammatory), gonadocorticoids; medulla → adrenaline/noradrenaline under direct sympathetic drive. Say what cortisol does long-term, and run the hypothalamus → pituitary → adrenal cascade.',
   ask:'Hormone-to-effect MCQs, "which hormone is given as a drug to reduce inflammation", why long-term cortisol is a problem, why we get sick under stress.',
   cap:'Heads up — her options list every gland, so these questions can only be answered if you know the WHOLE roster, not just the adrenals. Learn the glands as one table.' },
@@ -109,14 +138,17 @@ export const FOCUS = [
   ask:'Matching the term to its meaning (twice), naming a circled structure, and spotting a foramen on the base of the skull.',
   cap:'Her focus post names "femur bone markings" twice — once under diagrams, once under terminology precision. That is deliberate.' },
 
-{ id:'ns-ans', sys:'ns', tier:2, t:'Autonomic nervous system', crit:'NS 13 · 18', flag:'R',
+{ id:'ns-ans', sys:'ns', tier:0, t:'Autonomic nervous system', crit:'NS 13 · 18', flag:'R',
   n:12, all:17, pts:23, qz:7, saq:1,
+  rev:'Thu 17',
   done:'Sort any body response into sympathetic or parasympathetic and say what it does to that organ — pupils, heart, bronchioles, gut, salivation, bladder. Name the two outflows by their spinal origin (thoracolumbar vs craniosacral). Explain how one transmitter can constrict in one place and dilate in another.',
   ask:'Scenario MCQs (a car backfires; the door slams and your heart races), a sympathetic/parasympathetic sorting dropdown, and origin matching.',
   cap:'She asks it as scenarios, not definitions — practise by predicting the body\'s response, not by reciting the two lists.' },
 
-{ id:'ms-ossification', sys:'ms', tier:2, t:'Ossification — endochondral & intramembranous', crit:'MS 10', flag:'P',
+{ id:'ms-ossification', sys:'ms', tier:0, t:'Ossification — endochondral & intramembranous', crit:'MS 10', flag:'P',
   n:11, all:12, pts:22, qz:7, saq:2,
+  hl:'Ossification — endochondral vs intramembranous, steps in order',
+  rev:'Wed 16',
   done:'Put the five endochondral steps in order — bone collar → cavitation of the hyaline cartilage → periosteal bud invades, spongy bone forms → medullary cavity + secondary centres in the epiphyses → epiphyses ossify, cartilage left only in the growth plates. Give the four intramembranous steps. Say which bones form which way (flat/skull → intramembranous, long → endochondral) and name the precursor tissue for each.',
   ask:'Four separate ordering questions using the same five steps, which-bone-forms-how MCQs, and the clavicle oddity.',
   cap:'HARD LIMIT: she has never once asked you to write ossification as prose — not in 471 questions. It is always ordering or recognition. In the criteria doc it appears only as a TERM to explain inside MS 10\'s vocabulary list. Learn the five steps in order; stop there.' },
@@ -127,26 +159,31 @@ export const FOCUS = [
   ask:'Repeated "the criterion used to name X is ___" MCQs, plus shape-to-muscle dropdowns.',
   cap:'This is a rule you apply, not a list you memorise — learn the six naming criteria and you can answer ones you have never seen.' },
 
-{ id:'ns-glia', sys:'ns', tier:2, t:'Neuroglia, myelin, grey vs white matter', crit:'NS 3', flag:'',
+{ id:'ns-glia', sys:'ns', tier:0, t:'Neuroglia, myelin, grey vs white matter', crit:'NS 3', flag:'',
   n:14, all:20, pts:20, qz:10, saq:2,
+  rev:'Thu 17',
   done:'Name the six glial cell types and what each does. Say which cell myelinates in the CNS (oligodendrocyte) versus the PNS (Schwann), which line the ventricles (ependymal), and state what actually makes grey matter grey and white matter white.',
   ask:'Which-cell-does-what MCQs, repeated across ten different quizzes — the most widely re-drilled NS topic in the bank.',
   cap:'Not on her focus post at all, which is exactly why it is worth flagging: her bank hammers it anyway.' },
 
-{ id:'ns-reflex', sys:'ns', tier:2, t:'Reflexes & the reflex arc', crit:'NS 14–15', flag:'P R',
+{ id:'ns-reflex', sys:'ns', tier:0, t:'Reflexes & the reflex arc', crit:'NS 14–15', flag:'P R',
   n:6, all:6, pts:18, qz:4, saq:3,
+  rev:'Thu 17',
   done:'Name the five components of a reflex arc in order — receptor, sensory neuron, integration centre, motor neuron, effector. Distinguish somatic from autonomic, and know the stretch and withdrawal reflexes with a real-life example of each. Say what kind of arc a nociceptor starts.',
   ask:'Scenario-led (touching a hot jug), then dropdowns naming the parts.',
   cap:'On two of her focus rows at once — processes AND multi-step reasoning. Small in count, structurally important.' },
 
-{ id:'endo-pituitary', sys:'endo', tier:2, t:'Pituitary hormones & their actions', crit:'Endo 8', flag:'R',
+{ id:'endo-pituitary', sys:'endo', tier:0, t:'Pituitary hormones & their actions', crit:'Endo 8', flag:'R',
   n:17, all:18, pts:16, qz:7, saq:1,
+  hl:'Growth hormone axis',
+  rev:'Wed 16',
   done:'Split anterior from posterior and name what each releases and does: anterior → GH, TSH, ACTH, FSH, LH, prolactin; posterior → ADH, oxytocin (made in the hypothalamus, stored here). Attach the disorders: gigantism/acromegaly (GH excess), and know which hormones drive lactation and egg ripening.',
   ask:'Hormone-by-hormone MCQs — "ADH", "Oxytocin:", "Prolactin:" — plus the tropic-hormone concept and the disorder pairings.',
   cap:'"Tropic hormone" is the idea she is really testing: a hormone whose target is another endocrine gland.' },
 
-{ id:'ns-lobes', sys:'ns', tier:2, t:'Cerebral lobes & functional areas', crit:'NS 5 · 10', flag:'D',
+{ id:'ns-lobes', sys:'ns', tier:0, t:'Cerebral lobes & functional areas', crit:'NS 5 · 10', flag:'D',
   n:7, all:7, pts:16, qz:4, saq:1,
+  rev:'Thu 17',
   done:'Name the four lobes and place them. Put the functional areas on a diagram — primary motor, somatosensory, visual, auditory, Broca\'s, Wernicke\'s — and for each say what is lost if it is damaged. Predict the deficit from the site of a blow to the head.',
   ask:'Labelled-diagram MCQs ("the area labelled G is called the…", "area B\'s function is to…") and a functional-area matching exercise.',
   cap:'Pair this with stroke — her focus row joins them explicitly, and the deficit half is where the marks are.' },
@@ -175,14 +212,18 @@ export const FOCUS = [
   ask:'Fastest-vs-most-energy MCQs, the sprinter/cyclist comparison, and True/False on aerobic respiration.',
   cap:'"Energy for muscle actions" is on her terminology-precision row — the exact words matter here.' },
 
-{ id:'ns-protection', sys:'ns', tier:2, t:'Protection of the CNS — meninges & BBB', crit:'NS 6', flag:'R',
+{ id:'ns-protection', sys:'ns', tier:0, t:'Protection of the CNS — meninges & BBB', crit:'NS 6', flag:'R',
   n:12, all:13, pts:10, qz:6, saq:0,
+  hl:'Brain & spinal cord protection',
+  rev:'Thu 17',
   done:'Name the four protective layers — bone, meninges, CSF, blood-brain barrier. Order the three meninges both directions (deep→superficial and the reverse — she asks it both ways). Say what the BBB excludes and what slips through (alcohol, some pathogens by Trojan horse), and why brain infections are hard to treat.',
   ask:'Ordering MCQs asked in both directions, which-meninx-is-double, and BBB True/False.',
   cap:'Watch the direction of the question — "closest to the brain" vs "deep to superficial" flip the answer and she uses both.' },
 
-{ id:'endo-calcium', sys:'endo', tier:2, t:'Calcium regulation (endocrine side)', crit:'Endo 4', flag:'D P tape',
+{ id:'endo-calcium', sys:'endo', tier:0, t:'Calcium regulation (endocrine side)', crit:'Endo 4', flag:'D P tape',
   n:7, all:10, pts:11, qz:5, saq:0,
+  hl:'Blood calcium homeostasis',
+  rev:'Wed 16',
   done:'Same loop as bone remodelling, from the gland side: which gland senses what, PTH raises blood calcium, calcitonin lowers it, and what removing the parathyroids does.',
   ask:'Which-two-hormones MCQs and matching rows.',
   cap:'She named calcium control as an endocrine SAQ on tape. If you have ticked the bone-remodelling row you have most of this already — it is the same mechanism from the other end.' },
@@ -230,8 +271,10 @@ export const FOCUS = [
   ask:'Site-picking from a lettered figure plus one written comparison.',
   cap:'Not on her focus post at all, but it appears in five separate quizzes and it is the clinical crossover she likes. Cheap to hold.' },
 
-{ id:'ms-repair', sys:'ms', tier:3, t:'Fracture repair', crit:'MS 10', flag:'P',
+{ id:'ms-repair', sys:'ms', tier:0, t:'Fracture repair', crit:'MS 10', flag:'P',
   n:3, all:3, pts:6, qz:2, saq:1,
+  hl:'Bone repair · bone fractures in the case study',
+  rev:'Wed 16',
   done:'Four stages in order: haematoma forms → fibrocartilaginous (soft) callus → bony callus → remodelling. Know the fracture types by name (simple, compound, spiral, greenstick, comminuted).',
   ask:'One ordering MCQ and a dropdown naming the first stage.',
   cap:'On her Sequential Processes row but only three questions in the bank — learn the four words in order and move on.' },
