@@ -76,6 +76,11 @@ a.btn{text-decoration:none}
 .fchip.hl{background:hsl(158 64% 42% / .2);color:var(--ok);font-weight:650}
 .fchip.rev{background:hsl(158 64% 42% / .12);color:var(--ok)}
 .fchip.kh{background:hsl(280 60% 60% / .16);color:hsl(280 70% 72%)}
+.hlans{margin-top:8px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg);overflow:hidden}
+.hlans>summary{cursor:pointer;padding:7px 10px;font-weight:650;font-size:.84rem;color:var(--ok);list-style:none}
+.hlans>summary::-webkit-details-marker{display:none}
+.hlans .hlbody{padding:0 10px 10px;font-size:.83rem;line-height:1.55;white-space:pre-wrap}
+.hlans .hlh{font-weight:700;margin:8px 0 4px;font-size:.8rem;letter-spacing:.02em}
 .fdet{font-size:.85rem;line-height:1.5;margin-top:8px;padding-top:8px;border-top:1px solid var(--border)}
 .fdet p{margin:0 0 7px}
 .fdet .fcap{color:var(--muted-fg)}
@@ -332,6 +337,7 @@ function focusCard(){
         <p><b>How she asks it:</b> ${esc(f.ask)}</p>
         ${f.hl ? `<p><b>Her helpline section:</b> “${esc(f.hl)}” — she posts <a href="${esc(f.hlUrl)}" target="_blank" rel="noopener">her own worked answers</a> for it.</p>` : ''}
         ${f.cap ? `<p class="fcap"><b>Where it ends:</b> ${esc(f.cap)}</p>` : ''}
+        ${herAnswer(f.id)}
         <div class="refsrc">Focus Points doc: ${esc(f.crit)}</div>
       </div></details></div>`;
   }).join('');
@@ -365,6 +371,17 @@ function focusCard(){
     </details>
   </div>`;
 }
+/* her own worked answer for this topic, verbatim from the helpline answers board.
+   Her CAPITALISED terms are the mark-earning words — left exactly as she wrote them. */
+function herAnswer(id){
+  const h = (DATA.helpline||{})[id];
+  if(!h) return '';
+  const body = h.parts.map(p=>`<div class="hlh">${esc(p.h)}</div>${esc(p.t)}`).join(String.fromCharCode(10));
+  return `<details class="hlans"><summary>✅ Her own worked answer — open it</summary>
+    <div class="hlbody">${body}
+<span class="refsrc">Verbatim from her MODULE 2 HELPLINE: LET US REFLECT (answers) board. The words she put in CAPITALS are the ones carrying the marks. <a href="${esc(h.url)}" target="_blank" rel="noopener">Open it on Canvas</a> for her figures.</span></div></details>`;
+}
+
 function bindFocus(){
   document.querySelectorAll('.frow').forEach(r=>{
     const cb = r.querySelector('.fchk');

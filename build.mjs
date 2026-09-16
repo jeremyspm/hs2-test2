@@ -15,6 +15,7 @@ import { structuredStems, plainText } from './stem-html.mjs';
 import { OVERRIDES } from './content/overrides.js';
 import { AUTHORED_STEMS } from './content/authored-stems.js';
 import { FOCUS } from './content/focus.js';
+import { HELPLINE } from './content/helpline.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const M2 = 'C:/Users/USER/Desktop/github/hs2-anki/m2';
@@ -295,13 +296,31 @@ const DATA = {
     withRef: nRef, withHer: questions.filter(q => q.refs && q.refs.some(r => r.k !== 'patton')).length,
     withPatton: nPat, pattonOnly: nPatOnly },
   quizzes: quizzes.sort((a, b) => a.sys.localeCompare(b.sys) || a.name.localeCompare(b.name)),
-  questions, chains: CHAINS, case7: CASE7, focus: FOCUS, held,
+  questions, chains: CHAINS, case7: CASE7, focus: FOCUS, helpline: HELPLINE, held,
 };
 const tpl = fs.readFileSync(path.join(HERE, 'template.html'), 'utf8');
 const marker = '/*@BANK@*/';
 if (tpl.split(marker).length !== 2) { console.error('BUILD FAILED: expected exactly one ' + marker); process.exit(1); }
 const out = tpl.replace(marker, JSON.stringify(DATA));
 fs.writeFileSync(path.join(HERE, 'index.html'), out);
+
+/* Parse-check the page's own inline script before it ships. A single bad escape
+   kills the whole app with nothing but a blank page and exit code 0 - this is the
+   cheapest possible guard against that. */
+{
+  const scripts = [...out.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g)].map(m => m[1]);
+  if (!scripts.length) { console.error('BUILD FAILED: no inline script found to verify'); process.exit(1); }
+  scripts.forEach((src, i) => {
+    try { new Function(src); }
+    catch (e) {
+      console.error(`BUILD FAILED: inline script #${i + 1} does not parse - ${e.message}`);
+      const line = (e.lineNumber || 0);
+      console.error(src.split('\n').slice(Math.max(0, line - 3), line + 2).join('\n'));
+      process.exit(1);
+    }
+  });
+  console.log(`script parse check: ${scripts.length} inline script(s) OK`);
+}
 
 /* images ship beside the page */
 const IMGDIR = path.join(HERE, 'img');
