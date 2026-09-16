@@ -75,6 +75,7 @@ a.btn{text-decoration:none}
 .fchip.sys{background:transparent;border:1px solid var(--border)}
 .fchip.hl{background:hsl(158 64% 42% / .2);color:var(--ok);font-weight:650}
 .fchip.rev{background:hsl(158 64% 42% / .12);color:var(--ok)}
+.fchip.kh{background:hsl(280 60% 60% / .16);color:hsl(280 70% 72%)}
 .fdet{font-size:.85rem;line-height:1.5;margin-top:8px;padding-top:8px;border-top:1px solid var(--border)}
 .fdet p{margin:0 0 7px}
 .fdet .fcap{color:var(--muted-fg)}
@@ -318,6 +319,7 @@ function focusCard(){
     });
     if(f.hl)  chips.push('<span class="fchip hl">🆘 on her helpline</span>');
     if(f.rev) chips.push(`<span class="fchip rev">🗓 revision ${esc(f.rev)}</span>`);
+    if(f.kh)  chips.push(`<span class="fchip kh">🎮 ${f.kh} in her Kahoots</span>`);
     if(f.saq) chips.push(`<span class="fchip saq">✍️ ${f.saq} written / dropdown</span>`);
     return `<div class="frow${on?' on':''}" style="--tc:${FTIER[f.tier].c}" data-fid="${f.id}">
       <input type="checkbox" class="fchk" ${on?'checked':''} aria-label="I can do this: ${esc(f.t)}">
@@ -328,7 +330,7 @@ function focusCard(){
       <div class="fdet">
         <p><b>Done when you can:</b> ${esc(f.done)}</p>
         <p><b>How she asks it:</b> ${esc(f.ask)}</p>
-        ${f.hl ? `<p><b>Her helpline section:</b> “${esc(f.hl)}” — the worksheet has an answers companion on Canvas.</p>` : ''}
+        ${f.hl ? `<p><b>Her helpline section:</b> “${esc(f.hl)}” — she posts <a href="${esc(f.hlUrl)}" target="_blank" rel="noopener">her own worked answers</a> for it.</p>` : ''}
         ${f.cap ? `<p class="fcap"><b>Where it ends:</b> ${esc(f.cap)}</p>` : ''}
         <div class="refsrc">Focus Points doc: ${esc(f.crit)}</div>
       </div></details></div>`;
