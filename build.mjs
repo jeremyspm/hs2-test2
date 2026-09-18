@@ -16,6 +16,7 @@ import { OVERRIDES } from './content/overrides.js';
 import { AUTHORED_STEMS } from './content/authored-stems.js';
 import { FOCUS } from './content/focus.js';
 import { HELPLINE } from './content/helpline.js';
+import { QTOPIC } from './content/qtopic.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const M2 = 'C:/Users/USER/Desktop/github/hs2-anki/m2';
@@ -256,8 +257,17 @@ fs.mkdirSync(SLIDEOUT, { recursive: true });
 fs.writeFileSync(path.join(HERE, 'slides-todo.json'),
   JSON.stringify([...usedSlides].map(s => JSON.parse(s)), null, 1));
 
+/* her worked helpline answer, under the question: q.hl = the focus topic whose section
+   teaches this question (content/qtopic.js, read by hand). Both directions gated: an id
+   that matches no live question is stale, a topic with no section would render nothing. */
+let nHl = 0; const hlUsed = new Set();
+for (const q of questions) if (QTOPIC[q.id]) { q.hl = QTOPIC[q.id]; nHl++; hlUsed.add(q.id); }
 /* ── gates ─────────────────────────────────────────────────────────── */
 const fails = [];
+for (const [qid, t] of Object.entries(QTOPIC)) {
+  if (!hlUsed.has(qid)) fails.push('qtopic entry matched NO question: ' + qid);
+  if (!HELPLINE[t]) fails.push(`qtopic topic has no helpline section: ${t} (${qid})`);
+}
 for (const a of SAQ_ANSWERS) if (!saqUsed.has(a.k)) fails.push('saq-answers entry matched NO essay: "' + a.k + '"');
 /* a verified video match whose question id no longer exists is stale evidence,
    not a harmless extra — same rule as an override that matched nothing */
@@ -282,6 +292,7 @@ for (const e of NO_IMAGE_OK) if (!noImgOkUsed.has(e)) fails.push(`no-image-ok ma
 for (const q of questions) if (!q.qh) fails.push('no structured stem for ' + q.id + ' "' + q.q.slice(0, 60) + '"');
 for (const q of questions) if (q.qh && /\[\[(?!IMG:|BLANK:\d+\]\])/.test(q.qh)) fails.push('stray marker in ' + q.id);
 if (fails.length) { console.error('BUILD FAILED:\n  ' + fails.join('\n  ')); process.exit(1); }
+console.log(`her worked helpline answer under ${nHl} questions`);
 console.log(`structured stems: ${questions.filter(q => q.qh).length}/${questions.length} · blanks placed inline in ${nInline} cloze questions`);
 
 /* ── emit ──────────────────────────────────────────────────────────── */
@@ -295,7 +306,7 @@ const DATA = {
     videosFill: videos.filter(v => v.ch).length,
     withVideo: questions.filter(q => q.vid).length,
     withRef: nRef, withHer: questions.filter(q => q.refs && q.refs.some(r => r.k === 'slide' || r.k === 'her')).length, withCourse: nCourse,
-    withPatton: nPat, pattonOnly: nPatOnly },
+    withPatton: nPat, pattonOnly: nPatOnly, withHl: nHl },
   quizzes: quizzes.sort((a, b) => a.sys.localeCompare(b.sys) || a.name.localeCompare(b.name)),
   questions, chains: CHAINS, case7: CASE7, focus: FOCUS, helpline: HELPLINE, held,
 };
