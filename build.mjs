@@ -17,6 +17,7 @@ import { AUTHORED_STEMS } from './content/authored-stems.js';
 import { FOCUS } from './content/focus.js';
 import { HELPLINE } from './content/helpline.js';
 import { QTOPIC } from './content/qtopic.js';
+import { QROW } from './content/qrow.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const M2 = 'C:/Users/USER/Desktop/github/hs2-anki/m2';
@@ -286,6 +287,30 @@ for (let i = questions.length - 1; i >= 0; i--) {
   else dup.add(questions[i].id);
 }
 if (dropped) console.log('deduped', dropped, 'identical duplicate captures');
+/* "Learn her N questions on this": each focus row named in content/qrow.js carries `qs`,
+   the ids it deals. Gated both ways like every other join; exact repeats (one question
+   captured in two quizzes) are dropped so the button's count is what he will actually sit,
+   and one-tap questions lead so a run starts in the shallow end and ends on the written ones. */
+const TYPE_RANK = { mcq: 0, tf: 0, multi: 1, match: 2, cloze: 3, essay: 4 };
+const byId = new Map(questions.map(q => [q.id, q]));
+const rowQs = {}; let nRowQ = 0;
+for (const [rid, ids] of Object.entries(QROW)) {
+  if (!FOCUS.some(f => f.id === rid)) { fails.push('qrow row is not a focus row: ' + rid); continue; }
+  const seenId = new Set(), seenSig = new Set(), keep = [];
+  for (const id of ids) {
+    const q = byId.get(id);
+    if (!q) { fails.push(`qrow entry matched NO question: ${id} (${rid})`); continue; }
+    if (seenId.has(id)) { fails.push(`qrow lists ${id} twice under ${rid}`); continue; }
+    seenId.add(id);
+    const sig = q.type + '|' + norm(q.q) + '|' + JSON.stringify(q.key || q.pairs || (q.blanks || []).map(b => b.correct));
+    if (seenSig.has(sig)) continue;
+    seenSig.add(sig); keep.push(q);
+  }
+  if (!keep.length) fails.push('qrow row deals nothing: ' + rid);
+  rowQs[rid] = keep.map((q, i) => [q, i]).sort((a, b) => (TYPE_RANK[a[0].type] ?? 5) - (TYPE_RANK[b[0].type] ?? 5) || a[1] - b[1]).map(x => x[0].id);
+  nRowQ += rowQs[rid].length;
+}
+const focusOut = FOCUS.map(f => rowQs[f.id] ? { ...f, qs: rowQs[f.id] } : f);
 for (const q of questions) for (const f of q.imgs) if (!fs.existsSync(path.join(CAP, 'images', f))) fails.push('missing image file ' + f);
 for (const c of CHAINS) if (c.beads.filter(b => b.t).length < 4) fails.push('chain too short: ' + c.id);
 /* every blank-type question must carry every one of its blanks inline, once, in the
@@ -299,6 +324,7 @@ for (const q of questions) if (!q.qh) fails.push('no structured stem for ' + q.i
 for (const q of questions) if (q.qh && /\[\[(?!IMG:|BLANK:\d+\]\])/.test(q.qh)) fails.push('stray marker in ' + q.id);
 if (fails.length) { console.error('BUILD FAILED:\n  ' + fails.join('\n  ')); process.exit(1); }
 console.log(`her worked helpline answer under ${nHl} questions`);
+console.log(`learn-by-row: ${Object.keys(rowQs).length} focus rows deal ${nRowQ} question slots — ` + Object.entries(rowQs).map(([r, a]) => r + ' ' + a.length).join(' · '));
 console.log(`structured stems: ${questions.filter(q => q.qh).length}/${questions.length} · blanks placed inline in ${nInline} cloze questions`);
 
 /* ── emit ──────────────────────────────────────────────────────────── */
@@ -314,7 +340,7 @@ const DATA = {
     withRef: nRef, withHer: questions.filter(q => q.refs && q.refs.some(r => r.k === 'slide' || r.k === 'her')).length, withCourse: nCourse,
     withPatton: nPat, pattonOnly: nPatOnly, partQ: nPartQ, partRefs: nPartRefs, withHl: nHl },
   quizzes: quizzes.sort((a, b) => a.sys.localeCompare(b.sys) || a.name.localeCompare(b.name)),
-  questions, chains: CHAINS, case7: CASE7, focus: FOCUS, helpline: HELPLINE, held,
+  questions, chains: CHAINS, case7: CASE7, focus: focusOut, helpline: HELPLINE, held,
 };
 const tpl = fs.readFileSync(path.join(HERE, 'template.html'), 'utf8');
 const marker = '/*@BANK@*/';
