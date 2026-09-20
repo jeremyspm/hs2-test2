@@ -136,6 +136,14 @@ function structure(qtextHtml, { type, resolveImg, blankIndexOf }) {
         if (name === skip.tag) { skip.depth += close ? -1 : 1; if (skip.depth <= 0) skip = null; }
         continue;
       }
+      /* A capture saved with hidden elements stripped keeps the stem's real <select> (older saves show it as
+         the text "[ Select ]"). The blank goes where the select sits: by its md5 name when the blank ids are
+         known, else by order — the same order rule the "[ Select ]" text path uses. Its options never reach the stem. */
+      if (name === 'select' && !close && /\bquestion_input\b/.test(attr(tok, 'class') || '')) {
+        const h = ((attr(tok, 'name') || '').match(/_([0-9a-f]{32})$/) || [])[1];
+        const k = h ? blankIndexOf(h) : -1;
+        spaceBefore(); push(`[[BLANK:${k >= 0 ? k : nSel}]]`); nSel++;
+      }
       if (DROP.has(name)) { if (!close && !/\/>$/.test(tok)) skip = { tag: name, depth: 1 }; continue; }
       if (name === 'iframe') {
         /* an embedded video becomes a plain link with its title — the embed itself
@@ -340,7 +348,9 @@ export function structuredStems(CAP, manifest, ext) {
       const cls = (q.match(/class=["']?([^"'>]*)/) || [])[1] || '';
       const type = (cls.match(/\b((?:multiple_dropdowns|fill_in_multiple_blanks|matching|multiple_choice|true_false|multiple_answers|essay|text_only|short_answer|numerical)_question)\b/) || [])[1] || 'unknown';
       /* blank ids per answer_group, in group order — the parser's key.blanks is in this order too */
-      const blanks = blocks(q, 'answer_group').map(g => (g.match(/<span[^>]*\bblank_id\b[^>]*>\s*([^<]+?)\s*<\/span>/i) || [])[1] || null);
+      const blanks = blocks(q, 'answer_group').map(g => (g.match(/<span[^>]*\bblank_id\b[^>]*>\s*([^<]+?)\s*<\/span>/i) || [])[1]
+        /* a save that strips hidden elements drops the blank_id span; every answer of the group still carries answer_for_<blank id> */
+        || (g.match(/\banswer_for_([^\s"'>]+)/) || [])[1] || null);
       const byHash = new Map(blanks.map((b, k) => [b == null ? null : variableId(b), k]));
       const qtextHtml = blocks(q, 'question_text')[0] ?? '';
       const r = structure(qtextHtml, { type, resolveImg, blankIndexOf: (h) => byHash.has(h) ? byHash.get(h) : -1 });

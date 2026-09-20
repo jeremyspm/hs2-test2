@@ -19,8 +19,14 @@ re-sittable, plus dealt mock papers with a score history. Test 2: 21 Sept 2026, 
   her key remains the displayed answer, and a stale override fails the build.
 - Grading: her dropdowns mark only her keyed option right; her typed blanks accept any
   of her listed spellings (case-insensitive, curly apostrophes normalised).
-- `held.json` — every excluded question with its reason. Locked on Canvas, not yet captured:
-  Module Review B (access code), Formative 2.
+- `held.json` — every excluded question with its reason. Never captured on purpose: Module Review B (a real invigilated test).
+  **21 Sep 2026:** Formative 2 (210998, 23 Q) and MODULE 2.2 PERIPHERAL NERVOUS SYSTEM (213444, 10 of 12 Q) added from his own graded pages —
+  the PNS topic was in no question before. Those pages were saved by a tool that strips hidden elements and minifies attributes, so
+  `stem-html.mjs` now (a) falls back to the `answer_for_<blank id>` class when the `blank_id` span is gone and (b) places a blank where a real
+  `<select>` sits in the stem; `build.mjs` gained `ORPHAN_BLANKS` (a key blank her stem never shows — her receptor table prints "Photo receptors"
+  as text) and the parser (`hs2-test1/audit/parse-quizzes.mjs`) now keeps a matching pair he answered CORRECTLY ("You selected X. This was the
+  correct answer.") — before, such pairs silently vanished. Held: her plexus match, whose own Canvas key contradicts itself (row "Sacral" keyed
+  to Phrenic), and her plexus drop-down table (figure lost; its second key reads "Cervical" for C5–T1).
 - `index.html` is exactly `template.html` with `/*@BANK@*/` replaced by the bank JSON —
   nothing else. So a **chrome-only** change (header, home screen, styles) can be made in
   `template.html` and re-spliced onto the bank already in `index.html`, without her Canvas

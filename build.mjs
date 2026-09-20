@@ -53,13 +53,19 @@ const QUIZ = {
   211052:['ms','Muscles'],211078:['ms','Skeleton, Muscles & Energy'],
   211042:['ns','The Brain & Stroke'],211112:['endo','Formative: Endocrine System'],
   211063:['endo','Insulin, Glucagon & Blood Sugar'],211055:['endo','Endocrine System (SAQ)'],
+  /* captured 21 Sep 2026 from his own graded attempts: Formative 2 had been locked, PNS was never saved */
+  210998:['mixed','Module 2 Formative 2 (35 mk)'],213444:['ns','Peripheral Nervous System'],
 };
 
 /* Questions the pipeline cannot render truthfully, held on purpose rather than
    shipped broken. Matched by quiz + normalised stem prefix. (211112 #1 "Label the
    glands" used to live here; it now has an authored image-stem in
    content/authored-stems.js, so it ships.) */
-const EXCLUDE = [];
+const EXCLUDE = [
+  /* her OWN Canvas key, read off his graded page: the row "Sacral" is keyed to Phrenic and "Brachi" to "Medial". Her other PNS
+     question keys the phrenic nerve to the CERVICAL plexus, so this one contradicts her — held rather than taught. */
+  { quiz: '213444', k: 'match the plexuses and the important nerves', why: 'her Canvas key contradicts itself (row "Sacral" keyed to Phrenic; elsewhere she keys phrenic to the cervical plexus)' },
+];
 
 /* Questions held as "image did not survive" whose only image is a dead or decorative
    reference (a failed external image, an empty [[IMG]]) and which are fully answerable
@@ -68,8 +74,26 @@ const EXCLUDE = [];
 const NO_IMAGE_OK = [
   { quiz: '211042', k: 'what are the four tests' },    // T/F on the FAST principle; image was a dead "See the source image"
   { quiz: '211103', k: 'brain parts mix and match' },  // matching; every pair is a self-contained description (norm() drops the colon)
+  /* 210998 / 213444 were saved by a tool that inlines only the images the page had finished loading; these figures did not
+     make it. Each question below is fully answerable from its own words (and the lever + meninges ones also ship WITH their
+     figure from the quizzes they were copied from). */
+  { quiz: '210998', k: 'gluteus minimus is a muscle named for its' },   // named for SIZE / POSITION — the figure was decoration
+  { quiz: '210998', k: 'a muscle with a kite shape' },                  // trapezius / deltoid, from the shapes named in the text
+  { quiz: '210998', k: 'standing on our toes by contracting the gastrocnemius' },
+  { quiz: '210998', k: 'a bone in the body that does not articulate' }, // hyoid; the image was a poster of it
+  { quiz: '210998', k: 'label the three meninges' },                    // "deepest", "middle most", "outer (closest to the skull)" carry it without the letters
+  { quiz: '213444', k: 'understand the process of the reflex arc' },    // essay: name the components in order
 ];
 const noImgOkUsed = new Set();
+
+/* A blank her KEY defines but her STEM never shows: in the PNS receptor table she printed "Photo receptors" as plain text
+   and left its dropdown out, so Canvas itself shows three dropdowns for a four-blank key. A blank the student cannot see
+   cannot be asked — it is dropped here, by name, and the rest renumbered. Explicit on purpose: the general rule stays
+   "every key blank must be inline", so a blank the READER lost still fails the build. A stale entry fails it too. */
+const ORPHAN_BLANKS = [
+  { quiz: '213444', k: 'receptor type stimulus detected', drop: ['Photo'] },
+];
+const orphanUsed = new Set();
 
 /* deal-weight routing for mixed-quiz questions — coarse by design; used for
    stratification only, never for a coverage claim. APPEND rules, never insert. */
@@ -169,8 +193,19 @@ for (const z of bank.quizzes) {
          The two must grade differently; the old single path marked any dropdown
          choice correct. */
       const bk = q.type === 'multiple_dropdowns_question' ? 'dd' : 'fib';
-      const ctx = placeBlanks(q.key.blanks.length);
-      const blanks = q.key.blanks.map((b, k) => ({ ...b, ctx: ctx ? (ctx[k] || '') : '' }));
+      let keyBlanks = q.key.blanks, keptIdx = null;
+      const orphan = ORPHAN_BLANKS.find(e => e.quiz === fid && norm(stem).startsWith(e.k));
+      if (orphan) {
+        const present = new Set(blankMarkers(base.qh));
+        keptIdx = keyBlanks.map((b, k) => k).filter(k => present.has(String(k)) || !orphan.drop.includes(keyBlanks[k].correct));
+        if (keptIdx.length < keyBlanks.length) orphanUsed.add(orphan);
+        const remap = new Map(keptIdx.map((k, n) => [String(k), n]));
+        base.qh = base.qh.replace(/\[\[BLANK:(\d+)\]\]/g, (m, k) => remap.has(k) ? `[[BLANK:${remap.get(k)}]]` : m);
+        keyBlanks = keptIdx.map(k => keyBlanks[k]);
+      }
+      const ctx0 = placeBlanks(keyBlanks.length);
+      const ctx = ctx0 && keptIdx ? Object.fromEntries(keptIdx.map((k, n) => [n, ctx0[k]])) : ctx0;
+      const blanks = keyBlanks.map((b, k) => ({ ...b, ctx: ctx ? (ctx[k] || '') : '' }));
       /* extra accepted answers, declared in content/overrides.js and matched here by
          id + blank + her correct answer — a stale override fails the build below */
       for (const o of OVERRIDES.filter(o => o.id === base.id)) {
@@ -179,7 +214,7 @@ for (const z of bank.quizzes) {
         b.also = [...new Set([...(b.also || []), ...o.also])];
         overridesUsed.add(o);
       }
-      questions.push({ ...base, type: 'cloze', bk, blanks, pts: Math.max(base.pts, q.key.blanks.length) });
+      questions.push({ ...base, type: 'cloze', bk, blanks, pts: Math.max(base.pts, blanks.length) });
       kept++; return;
     }
     /* options family. Some of her MCQs store options as bare letters (a/b/c/d)
@@ -319,6 +354,7 @@ for (const c of CHAINS) if (c.beads.filter(b => b.t).length < 4) fails.push('cha
 for (const s of structFails) fails.push('stem structure: ' + s);
 for (const o of OVERRIDES) if (!overridesUsed.has(o)) fails.push(`override matched nothing: ${o.id} blank ${o.blank} "${o.correct}"`);
 for (const a of AUTHORED_STEMS) if (!authoredUsed.has(a)) fails.push(`authored-stem matched NO question: ${a.quiz} "${a.k}"`);
+for (const e of ORPHAN_BLANKS) if (!orphanUsed.has(e)) fails.push(`orphan-blank rule dropped nothing: ${e.quiz} "${e.k}"`);
 for (const e of NO_IMAGE_OK) if (!noImgOkUsed.has(e)) fails.push(`no-image-ok matched NO question: ${e.quiz} "${e.k}"`);
 for (const q of questions) if (!q.qh) fails.push('no structured stem for ' + q.id + ' "' + q.q.slice(0, 60) + '"');
 for (const q of questions) if (q.qh && /\[\[(?!IMG:|BLANK:\d+\]\])/.test(q.qh)) fails.push('stray marker in ' + q.id);

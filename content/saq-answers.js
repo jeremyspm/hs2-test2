@@ -8,6 +8,33 @@
 export const norm = s => s.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 
 export const SAQ_ANSWERS = [
+  // ── 213444 · Peripheral Nervous System (captured 21 Sep 2026) ──
+  {
+    k: 'be able to name the cranial and spinal nerves',
+    /* the stem carries her own mnemonic (Some Say Marry Money But My Brother Says Big Brain Matters More) and her own
+       function list, in order — the answer is those two lists zipped, nothing added */
+    steps: [
+      'I Olfactory — Sensory (smell).  II Optic — Sensory (vision).',
+      'III Oculomotor — Motor (eye movement).  IV Trochlear — Motor (eye movement).',
+      'V Trigeminal — Both (facial sensation & chewing).  VI Abducens — Motor (eye movement).',
+      'VII Facial — Both (facial expression & taste).  VIII Vestibulocochlear — Sensory (hearing & balance).',
+      'IX Glossopharyngeal — Both (swallowing & taste).  X Vagus — Both (sensory/motor information to the visceral organs).',
+      'XI Accessory — Motor (head/shoulder movement).  XII Hypoglossal — Motor (tongue movements).  Spinal nerves: all mixed (her spinal-cord figure labels the spinal nerve "mixed").',
+    ],
+    src: 'her own mnemonic and function list in the question stem',
+  },
+  {
+    k: 'understand the process of the reflex arc',
+    steps: [
+      'Receptor — detects the stimulus (for pain, a nociceptor).',
+      'Sensory neuron — carries the impulse to the spinal cord.',
+      'Interneuron — inside the spinal cord; no conscious thought is involved.',
+      'Motor neuron — carries the impulse out.',
+      'Effector — responds: skeletal muscle in a somatic reflex, smooth or cardiac muscle in an autonomic reflex.',
+      'Examples: the stretch (knee-jerk) reflex from muscle spindles; the withdrawal reflex from nociceptors.',
+    ],
+    src: 'her PNS quiz — the T/F "A reflex arc consists of a receptor, a sensory neuron, a interneuron, a motor neuron and an effector" and her receptor table',
+  },
   // ── 211018 · Blood Sugar Regulation (the endocrine SAQ set) ──
   {
     k: 'the pancreas has both endocrine and exocrine functions',
