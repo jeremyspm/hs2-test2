@@ -4,13 +4,13 @@
    domain is unrecoverable and its question stays held). */
 import fs from 'node:fs';
 import path from 'node:path';
-import { writeDataImg } from './stem-html.mjs';
+import { writeDataImg, inlineSfImages } from './stem-html.mjs';
 const CAP = 'C:/Users/USER/Desktop/github/_inbox/HS2 Module 2 Capture';
 const manifest = JSON.parse(fs.readFileSync(path.join(CAP, 'images/manifest.json'), 'utf8'));
 const ext = JSON.parse(fs.readFileSync(path.join(CAP, 'images/ext-manifest.json'), 'utf8'));
 const out = {};
 for (const f of fs.readdirSync(CAP).filter(x => /^HS2CAP-.*\.html$/.test(x))) {
-  const html = fs.readFileSync(path.join(CAP, f), 'utf8');
+  const html = inlineSfImages(fs.readFileSync(path.join(CAP, f), 'utf8'));
   const re = /<div[^>]*class="[^"]*\bdisplay_question\b[^"]*"[^>]*>/g;
   const starts = []; let m;
   while ((m = re.exec(html))) starts.push(m.index);
@@ -18,8 +18,9 @@ for (const f of fs.readdirSync(CAP).filter(x => /^HS2CAP-.*\.html$/.test(x))) {
   starts.forEach((s, i) => {
     const seg = html.slice(s, i + 1 < starts.length ? starts[i + 1] : html.length);
     const names = new Set();
-    for (const im of seg.matchAll(/<img[^>]*\ssrc="([^"]+)"/g)) {
-      const u = im[1];
+    /* his single-file saves write src=data:… with NO quote marks; read all three spellings */
+    for (const im of seg.matchAll(/<img[^>]*?\ssrc\s*=\s*(?:"([^"]+)"|'([^']+)'|([^\s>]+))/g)) {
+      const u = im[1] ?? im[2] ?? im[3];
       if (u.startsWith('data:image/')) {          // full-page save inlined the figure
         const file = writeDataImg(u, path.join(CAP, 'images'));
         if (file) names.add(file);
