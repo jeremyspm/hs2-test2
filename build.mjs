@@ -217,7 +217,9 @@ for (const z of bank.quizzes) {
     /* options family. Some of her MCQs store options as bare letters (a/b/c/d)
        with the real text only in each answer's title attribute — enrich from the
        title, keys re-derived through the SAME rule so they can never diverge. */
-    const cleanTitle = t => (t || '').replace(/\.?\s*This was the correct answer\.?$/i, '').trim();
+    /* Canvas's title = the answer + "." + its marks ("You selected this answer.", "This was the correct answer."). Strip the marks
+       AND that dot: a wrong "23." beside a bare right "92" marked the answer by its shape (2 live in hs2-test2, 24 in hs2-test3). */
+    const cleanTitle = t => (t || '').replace(/(?:\.?\s*(?:This was the correct answer|You selected this answer)\.?)+\s*$/i, '').replace(/\.$/, '').trim();
     const enrich = a => { const t = (a.text || '').trim(), ti = cleanTitle(a.titleAttr);
       return (t.length < 3 && ti.length >= 3) ? ti : t; };
     const ans = (q.answers || []).filter(a => (a.text || '').trim() || cleanTitle(a.titleAttr));
@@ -358,6 +360,8 @@ for (const a of AUTHORED_STEMS) if (!authoredUsed.has(a)) fails.push(`authored-s
 for (const e of ORPHAN_BLANKS) if (!orphanUsed.has(e)) fails.push(`orphan-blank rule dropped nothing: ${e.quiz} "${e.k}"`);
 for (const e of NO_IMAGE_OK) if (!noImgOkUsed.has(e)) fails.push(`no-image-ok matched NO question: ${e.quiz} "${e.k}"`);
 fails.push(...noImgOkStale);
+/* an option must not carry Canvas's marks or the dot its title appends: either one tells the answer apart by its shape */
+for (const q of questions) for (const o of [...(q.opts || []), ...(q.key || [])]) if (typeof o === 'string' && (/you selected this answer|this was the correct answer/i.test(o) || /^[^\s.]{2}\.$/.test(o))) fails.push(`option carries a Canvas title mark: ${q.id} "${o}"`);
 for (const q of questions) if (!q.qh) fails.push('no structured stem for ' + q.id + ' "' + q.q.slice(0, 60) + '"');
 for (const q of questions) if (q.qh && /\[\[(?!IMG:|BLANK:\d+\]\])/.test(q.qh)) fails.push('stray marker in ' + q.id);
 if (fails.length) { console.error('BUILD FAILED:\n  ' + fails.join('\n  ')); process.exit(1); }
