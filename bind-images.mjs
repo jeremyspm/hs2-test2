@@ -4,13 +4,13 @@
    domain is unrecoverable and its question stays held). */
 import fs from 'node:fs';
 import path from 'node:path';
-import { writeDataImg, inlineSfImages } from './stem-html.mjs';
+import { writeDataImg, inlineSfImages, dropIframeDocs } from './stem-html.mjs';
 const CAP = 'C:/Users/USER/Desktop/github/_inbox/HS2 Module 2 Capture';
 const manifest = JSON.parse(fs.readFileSync(path.join(CAP, 'images/manifest.json'), 'utf8'));
 const ext = JSON.parse(fs.readFileSync(path.join(CAP, 'images/ext-manifest.json'), 'utf8'));
 const out = {};
 for (const f of fs.readdirSync(CAP).filter(x => /^HS2CAP-.*\.html$/.test(x))) {
-  const html = inlineSfImages(fs.readFileSync(path.join(CAP, f), 'utf8'));
+  const html = inlineSfImages(dropIframeDocs(fs.readFileSync(path.join(CAP, f), 'utf8')));
   const re = /<div[^>]*class="[^"]*\bdisplay_question\b[^"]*"[^>]*>/g;
   const starts = []; let m;
   while ((m = re.exec(html))) starts.push(m.index);
