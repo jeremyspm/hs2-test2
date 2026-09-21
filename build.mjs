@@ -65,6 +65,10 @@ const EXCLUDE = [
   /* her OWN Canvas key, read off his graded page: the row "Sacral" is keyed to Phrenic and "Brachi" to "Medial". Her other PNS
      question keys the phrenic nerve to the CERVICAL plexus, so this one contradicts her — held rather than taught. */
   { quiz: '213444', k: 'match the plexuses and the important nerves', why: 'her Canvas key contradicts itself (row "Sacral" keyed to Phrenic; elsewhere she keys phrenic to the cervical plexus)' },
+  /* her OWN Canvas key, read off his graded page (answer_for_B, correct_answer): the C5-T1 row is keyed "Cervical" although
+     "Brachial" is one of its options and her own table names the ulnar/median/radial nerves in that row. Was held for a missing
+     figure until 393dab6 found the figure, which released it with the wrong key and no note — held again, for the key. */
+  { quiz: '213444', k: 'spinal nerves plexuses origin nerves', why: 'her Canvas key marks C5-T1 as "Cervical" (C5-T1 is the brachial plexus, and "Brachial" is one of the options)' },
 ];
 
 /* Questions held as "image did not survive" whose only image is a dead or decorative
@@ -72,19 +76,11 @@ const EXCLUDE = [
    from their own text or pairs. Shipped as text rather than held on a phantom figure.
    Matched by quiz + normalised stem prefix; a stale entry fails the build. */
 const NO_IMAGE_OK = [
-  { quiz: '211042', k: 'what are the four tests' },    // T/F on the FAST principle; image was a dead "See the source image"
-  { quiz: '211103', k: 'brain parts mix and match' },  // matching; every pair is a self-contained description (norm() drops the colon)
-  /* 210998 / 213444 were saved by a tool that inlines only the images the page had finished loading; these figures did not
-     make it. Each question below is fully answerable from its own words (and the lever + meninges ones also ship WITH their
-     figure from the quizzes they were copied from). */
-  { quiz: '210998', k: 'gluteus minimus is a muscle named for its' },   // named for SIZE / POSITION — the figure was decoration
-  { quiz: '210998', k: 'a muscle with a kite shape' },                  // trapezius / deltoid, from the shapes named in the text
-  { quiz: '210998', k: 'standing on our toes by contracting the gastrocnemius' },
-  { quiz: '210998', k: 'a bone in the body that does not articulate' }, // hyoid; the image was a poster of it
-  { quiz: '210998', k: 'label the three meninges' },                    // "deepest", "middle most", "outer (closest to the skull)" carry it without the letters
-  { quiz: '213444', k: 'understand the process of the reflex arc' },    // essay: name the components in order
+  /* Empty since 21 Sep 2026: all eight former rows (211042 FAST, 211103 brain parts, five in 210998, the 213444 reflex arc)
+     were figures the reader could not see (unquoted src=data: and SingleFile --sf-img-N variables), and every one now ships
+     WITH her figure, each checked by eye against its question. A row whose question HAS its figure fails the build. */
 ];
-const noImgOkUsed = new Set();
+const noImgOkUsed = new Set(), noImgOkStale = [];
 
 /* A blank her KEY defines but her STEM never shows: in the PNS receptor table she printed "Photo receptors" as plain text
    and left its dropdown out, so Canvas itself shows three dropdowns for a four-blank key. A blank the student cannot see
@@ -144,6 +140,7 @@ for (const z of bank.quizzes) {
     const imgs = ((imgBind[path.basename(z.file)] || {})[idx] || []);
     const okNoImg = NO_IMAGE_OK.find(e => e.quiz === fid && norm(stem).startsWith(e.k));
     if (okNoImg) noImgOkUsed.add(okNoImg);
+    if (okNoImg && imgs.length) noImgOkStale.push(`no-image-ok row is stale, the question ships its figure: ${fid} "${okNoImg.k}"`);
     const needsImg = !okNoImg && (/\[\[IMG/.test(stemRaw) || /\b(image|diagram|picture|micrograph|labell?ed|figure) (above|below|shown)\b/i.test(stem));
     if (needsImg && !imgs.length) { held.push({ quiz: qname, why: 'image did not survive capture', q: stem.slice(0, 80) }); return; }
     const sys = qsys === 'mixed' ? routeSys(stem + ' ' + (q.answers || []).map(a => a.text).join(' ')) : qsys;
@@ -356,6 +353,7 @@ for (const o of OVERRIDES) if (!overridesUsed.has(o)) fails.push(`override match
 for (const a of AUTHORED_STEMS) if (!authoredUsed.has(a)) fails.push(`authored-stem matched NO question: ${a.quiz} "${a.k}"`);
 for (const e of ORPHAN_BLANKS) if (!orphanUsed.has(e)) fails.push(`orphan-blank rule dropped nothing: ${e.quiz} "${e.k}"`);
 for (const e of NO_IMAGE_OK) if (!noImgOkUsed.has(e)) fails.push(`no-image-ok matched NO question: ${e.quiz} "${e.k}"`);
+fails.push(...noImgOkStale);
 for (const q of questions) if (!q.qh) fails.push('no structured stem for ' + q.id + ' "' + q.q.slice(0, 60) + '"');
 for (const q of questions) if (q.qh && /\[\[(?!IMG:|BLANK:\d+\]\])/.test(q.qh)) fails.push('stray marker in ' + q.id);
 if (fails.length) { console.error('BUILD FAILED:\n  ' + fails.join('\n  ')); process.exit(1); }
