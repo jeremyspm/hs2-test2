@@ -1,0 +1,1174 @@
+[
+ {
+  "id": "intramembranous",
+  "sys": "ms",
+  "title": "Intramembranous ossification",
+  "marks": 5,
+  "ask": "Describe the steps of intramembranous ossification, starting with the mesenchymal cells that differentiate to become osteoblasts. (5 marks)",
+  "hook": "Stem cells train as builders, pour wet cement (osteoid), it sets (calcium), builders get bricked in (osteocytes), sponge fills inside, hard crust outside.",
+  "steps": [
+   "**Mesenchymal cells** in a **fibrous membrane** differentiate into **osteoprogenitor cells** (bone stem cells). No cartilage model. Makes flat bones: skull, clavicle.",
+   "Osteoprogenitor cells mature into **osteoblasts** (bone builders), which cluster to start an **ossification centre**.",
+   "Osteoblasts secrete **osteoid**, the soft, unmineralised organic bone matrix (collagen fibres).",
+   "**Calcium salts** deposit onto the osteoid, so the matrix hardens. This is **calcification**.",
+   "Osteoblasts get trapped in small spaces called **lacunae** and turn into **osteocytes**, which maintain the bone.",
+   "Bony spikes join up into **trabeculae** of **spongy bone**. **Red marrow** appears in the spaces.",
+   "A **periosteum** forms on the outside. Its osteoblasts lay down the outer layers of **compact bone** around the spongy bone."
+  ],
+  "order": true,
+  "mcq": [
+   {
+    "q": "Which is NOT part of intramembranous (flat-bone) ossification?",
+    "a": "A hyaline cartilage model",
+    "d": [
+     "An ossification centre",
+     "Osteocytes in lacunae",
+     "A periosteum on the outside"
+    ],
+    "why": "Flat bones form straight from mesenchymal cells in a fibrous membrane, with no cartilage model. A hyaline cartilage model is how endochondral (long-bone) ossification starts.",
+    "step": 0
+   },
+   {
+    "q": "In flat-bone formation, mesenchymal cells first differentiate into which cells?",
+    "a": "Osteoprogenitor cells",
+    "d": [
+     "Cartilage chondroblasts",
+     "Trapped osteocytes",
+     "Resorbing osteoclasts"
+    ],
+    "why": "Her helpline says mesenchymal cells become osteoprogenitor (bone stem) cells, which then mature into osteoblasts. Chondroblasts are the trap: they start the cartilage model in endochondral ossification.",
+    "step": 0
+   },
+   {
+    "q": "Which bone forms by intramembranous ossification even though it is shaped like a long bone?",
+    "a": "Clavicle",
+    "d": [
+     "Humerus",
+     "Fibula",
+     "Metacarpal"
+    ],
+    "why": "Her deck and helpline name the skull and the clavicle as the bones that form this way. The humerus, fibula and metacarpals are true long bones, which form from a cartilage model.",
+    "step": 0
+   },
+   {
+    "q": "Osteoprogenitor cells mature into bone builders. What do these builders cluster together to form?",
+    "a": "An ossification centre",
+    "d": [
+     "A compact bony collar",
+     "A fibrocartilage callus",
+     "An epiphyseal growth plate"
+    ],
+    "why": "Osteoblasts cluster into an ossification centre, the spot where bone starts. The bony collar belongs to long-bone formation and the callus belongs to fracture healing.",
+    "step": 1
+   },
+   {
+    "q": "Which cells secrete osteoid at the ossification centre of a developing skull bone?",
+    "a": "Osteoblasts",
+    "d": [
+     "Osteoclasts",
+     "Osteocytes",
+     "Chondroblasts"
+    ],
+    "why": "Osteoblasts are the bone builders that secrete osteoid. Osteocytes are tempting, but they are osteoblasts that are already trapped and only maintain bone.",
+    "step": 2
+   },
+   {
+    "q": "Osteoblasts have just secreted fresh osteoid. What happens to it next?",
+    "a": "Calcium salts calcify it",
+    "d": [
+     "Osteoclasts resorb it",
+     "Chondrocytes die inside it",
+     "Periosteum forms round it"
+    ],
+    "why": "Next, mineral calcium salts deposit onto the osteoid so it hardens (her step C). The periosteum is real but comes last (step F). Chondrocytes dying is cavitation, which is an endochondral step.",
+    "step": 3
+   },
+   {
+    "q": "As the matrix hardens, some osteoblasts get walled in. What are the tiny spaces that trap them called?",
+    "a": "Lacunae",
+    "d": [
+     "Canaliculi",
+     "Trabeculae",
+     "Fontanelles"
+    ],
+    "why": "Trapped osteoblasts sit in lacunae. Canaliculi are the tiny canals that link lacunae, and trabeculae are the struts of spongy bone.",
+    "step": 4
+   },
+   {
+    "q": "Once walled into lacunae, osteoblasts change into which cells that maintain the bone?",
+    "a": "Osteocytes",
+    "d": [
+     "Osteoclasts",
+     "Chondrocytes",
+     "Osteoprogenitors"
+    ],
+    "why": "Trapped osteoblasts become osteocytes, which monitor and maintain bone tissue. Osteoclasts are the bone breakers. Osteoblasts never turn into them.",
+    "step": 4
+   },
+   {
+    "q": "Small bony spikes in the developing flat bone merge together. What do they form?",
+    "a": "Trabeculae of spongy bone",
+    "d": [
+     "Osteons of compact bone",
+     "A hyaline cartilage template",
+     "A fibrocartilage callus"
+    ],
+    "why": "Her learning page says the bony spikes merge into trabeculae of spongy bone, and red marrow appears in it. Compact bone comes later, on the outside, from the periosteum.",
+    "step": 5
+   },
+   {
+    "q": "What forms on the outside of the new flat bone and lays down its outer compact layers?",
+    "a": "Periosteum",
+    "d": [
+     "Endosteum",
+     "Epiphyseal plate",
+     "Articular cartilage"
+    ],
+    "why": "The periosteum forms around the spongy bone, and its row of osteoblasts builds the outer compact bone. The endosteum lines the inner surface, so it is the easy mix-up.",
+    "step": 6
+   }
+  ],
+  "traps": [
+   "Slipping in cartilage steps (hyaline model, bony collar, cavitation). Those are endochondral. Flat bones form straight in a fibrous membrane.",
+   "Not naming the cells. Write mesenchymal cells, then osteoprogenitor cells, then osteoblasts, then osteocytes. 'Bone cells' earns nothing.",
+   "Mixing up the cells: osteoblasts secrete osteoid, osteocytes are trapped and maintain bone, osteoclasts break bone down."
+  ],
+  "src": "Helpline 'Let us reflect' ANSWERS (discussion 413338), OSSIFICATION table: the start (mesenchymal to osteoprogenitor) plus her key Initiation ED, Calcification C, Cellular transition AB, Outer remodelling F. LEARNING PAGE MS1, intramembranous paragraph (Patton Fig 11-13: trabeculae, periosteum, red marrow). 2026 MS1 deck slide 4 (skull and clavicle), slide 10, slides 16-17. POSSIBLE SAQ IN TEST 2 list.",
+  "same": [
+   [
+    4,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "endochondral",
+  "sys": "ms",
+  "title": "Endochondral ossification",
+  "marks": 5,
+  "ask": "Describe the steps of endochondral ossification, starting at the hyaline cartilage preform that gets a bony collar. (5 marks)",
+  "hook": "Model, Collar, Cavity, Centre, Ends, Plate = 'My Cat Can't Catch Every Pigeon'. Her key after the model: D-E-B-C-A.",
+  "steps": [
+   "**Mesenchymal cells** differentiate into **chondroblasts**, which build a **hyaline cartilage model** shaped like the future long bone.",
+   "A **bony collar**, a ring of compact calcified bone, forms around the midsection (**diaphysis**) of the cartilage model.",
+   "**Cavitation**: the collar cuts off blood flow, so the **chondrocytes die** and hollow spaces form in the middle of the diaphysis.",
+   "**Primary ossification centre**: **blood vessels** invade the cavities and bring **osteoblasts** that lay down **spongy bone**. The middle later hollows into the **medullary cavity**.",
+   "**Secondary ossification centres**: around **birth**, blood vessels and osteoblasts enter the **epiphyses** (bone ends) and replace cartilage with spongy bone.",
+   "**Epiphyseal (growth) plate**: a thin layer of **hyaline cartilage** stays between diaphysis and epiphysis, so the bone keeps growing **longer** until the plate fuses."
+  ],
+  "order": true,
+  "mcq": [
+   {
+    "q": "To build the cartilage model of a long bone, mesenchymal cells first differentiate into which cells?",
+    "a": "Chondroblasts",
+    "d": [
+     "Osteoblasts",
+     "Osteocytes",
+     "Osteoprogenitors"
+    ],
+    "why": "Her helpline says mesenchymal cells cluster and become chondroblasts, which make the hyaline cartilage model. Osteoprogenitors are the trap, because that is how flat bones (intramembranous) start.",
+    "step": 0
+   },
+   {
+    "q": "Which is NOT a step of endochondral (long-bone) ossification?",
+    "a": "Bone built in a fibrous membrane",
+    "d": [
+     "A bony collar round the shaft",
+     "Cavitation in the diaphysis",
+     "Secondary centres in the epiphyses"
+    ],
+    "why": "Long bones start from a hyaline cartilage model, not a fibrous membrane. Building bone in a membrane is intramembranous ossification (flat bones and the clavicle).",
+    "step": 0
+   },
+   {
+    "q": "The hyaline cartilage model is ready. What forms next around its midsection?",
+    "a": "A bony collar",
+    "d": [
+     "A medullary cavity",
+     "An epiphyseal plate",
+     "An ossification centre"
+    ],
+    "why": "Her key DEBCA starts with D: a ring of compact calcified bone (the bony collar) forms around the diaphysis. The ossification centre only forms after cavitation.",
+    "step": 1
+   },
+   {
+    "q": "Straight after the bony collar forms, what happens inside the cartilage model?",
+    "a": "Cavitation in the diaphysis",
+    "d": [
+     "Primary ossification centre",
+     "Secondary ossification centre",
+     "Epiphyseal plate formation"
+    ],
+    "why": "Her order is collar (D), then cavitation (E), when hollow spaces open in the middle of the shaft. The primary ossification centre comes after, when blood vessels invade those spaces.",
+    "step": 2
+   },
+   {
+    "q": "During cavitation, why do the chondrocytes in the middle of the model start to die?",
+    "a": "The collar cuts off blood flow",
+    "d": [
+     "Osteoclasts digest the cartilage",
+     "Blood vessels invade too early",
+     "The growth plate fuses shut"
+    ],
+    "why": "Her helpline says the bony collar cuts off blood flow to the chondrocytes, so they die and leave hollow spaces. Blood vessels only arrive afterwards, to form the primary ossification centre.",
+    "step": 2
+   },
+   {
+    "q": "Blood vessels invade the hollow spaces in the shaft. Which cells do they bring to lay down spongy bone?",
+    "a": "Osteoblasts",
+    "d": [
+     "Chondroblasts",
+     "Osteoclasts",
+     "Osteocytes"
+    ],
+    "why": "The vessels bring osteoblasts (bone builders), which deposit spongy bone over the cartilage remnants. Chondroblasts made the cartilage at the start and do not lay down bone.",
+    "step": 3
+   },
+   {
+    "q": "What is created when blood vessels first invade the cavities in the middle of the shaft?",
+    "a": "Primary ossification centre",
+    "d": [
+     "Secondary ossification centre",
+     "Epiphyseal growth plate",
+     "Compact bony collar"
+    ],
+    "why": "The first bone-forming centre is in the diaphysis and is called the primary ossification centre. Secondary centres form later, around birth, in the epiphyses.",
+    "step": 3
+   },
+   {
+    "q": "Around birth, blood vessels and osteoblasts enter the ends of the bone. What does this create?",
+    "a": "Secondary ossification centres",
+    "d": [
+     "Primary ossification centres",
+     "Hyaline cartilage growth plates",
+     "Medullary cavities"
+    ],
+    "why": "The centres that form in the bone ends around birth are the secondary ossification centres. The primary centre formed earlier, in the shaft.",
+    "step": 4
+   },
+   {
+    "q": "Where do the secondary ossification centres form?",
+    "a": "In the epiphyses",
+    "d": [
+     "In the diaphysis",
+     "In the periosteum",
+     "In the medullary cavity"
+    ],
+    "why": "Secondary centres form in the epiphyses (bone ends). The diaphysis (shaft) is where the primary centre forms, and swapping the two is the classic mistake.",
+    "step": 4
+   },
+   {
+    "q": "Julia (8) and Julie (65) both break a forearm. Why can Julia's bone still grow longer?",
+    "a": "Her epiphyseal plates are open",
+    "d": [
+     "Her bony collar is still soft",
+     "Her osteoclasts are more active",
+     "Her medullary cavity is larger"
+    ],
+    "why": "A child still has hyaline cartilage epiphyseal (growth) plates, which allow growth in length until they fuse (her helpline case study, Q8). More active osteoclasts would break bone down, not lengthen it.",
+    "step": 5
+   }
+  ],
+  "traps": [
+   "Starting with osteoblasts or a membrane. Long bones start from a hyaline cartilage model made by chondroblasts.",
+   "Getting the order wrong. Her key is collar, then cavitation, then primary centre, then secondary centres, then growth plate (DEBCA).",
+   "Putting the primary centre in the epiphyses. Primary is in the diaphysis (shaft). Secondary is in the epiphyses (ends), around birth."
+  ],
+  "src": "Helpline 'Let us reflect' ANSWERS (discussion 413338), OSSIFICATION table: the start (cartilage model from chondroblasts) plus her key DEBCA. LEARNING PAGE MS1, endochondral steps 1-5 (Patton Fig 11-6). 2026 MS1 deck slides 4, 10, 19, 21-22. Helpline ACCIDENT CASE STUDY Q8 (Julia's open plates). POSSIBLE SAQ IN TEST 2 list."
+ },
+ {
+  "id": "bone-healing",
+  "sys": "ms",
+  "title": "Bone healing (fracture repair)",
+  "marks": 6,
+  "ask": "Fully explain the steps of bone repair. (6 marks)",
+  "hook": "Align first, then 'Hot Soup, Hard Rolls': Haematoma, Soft callus, Hard callus, Remodelling. Picture: clot, soft bridge, hard bridge, sculpted back to shape.",
+  "steps": [
+   "Before healing starts: **align** (reduce) the bone ends and **immobilise** them with a cast, brace or surgical fixation. This shortens healing time.",
+   "Stage 1, **Haematoma / inflammation**: torn blood vessels bleed and form a **blood clot (haematoma)** at the break over the first few days.",
+   "**Macrophages, neutrophils and platelets** release inflammatory substances and clear debris. Stem cells are recruited and **osteoblasts and fibroblasts proliferate**.",
+   "Stage 2, **Soft (cartilage) callus**: **fibroblasts, chondroblasts and chondrocytes** replace the clot with **fibrous tissue and fibrocartilage**, a soft bridge within about **two weeks**.",
+   "**Angiogenesis**: **endothelial cells** form new blood vessels that bring oxygen and nutrients to the repair site.",
+   "Stage 3, **Hard (bony) callus**: the cartilage hardens into **woven bone** that bridges the gap. **Osteoblasts and osteocytes** make and mineralise it.",
+   "Stage 4, **Remodelling**: over **months to years**, **compact lamellar bone** replaces woven bone. **Osteoblasts and osteoclasts** restore the original shape and strength.",
+   "**Wolff's law**: bone remodels in response to **mechanical stress**, so the loads the bone carries shape the final repair."
+  ],
+  "order": true,
+  "mcq": [
+   {
+    "q": "Julie has a compound fracture of her lower leg. What must be done before the healing process begins?",
+    "a": "Alignment and immobilisation",
+    "d": [
+     "Early weight-bearing exercise",
+     "Removal of the haematoma",
+     "Calcium and vitamin D"
+    ],
+    "why": "Her helpline says to align the bone ends and immobilise them with a cast, brace or surgical fixation, which shortens healing time. Early weight-bearing before the bone is stable would disturb the forming callus.",
+    "step": 0
+   },
+   {
+    "q": "What is the FIRST stage of bone healing after a fracture?",
+    "a": "Haematoma formation",
+    "d": [
+     "Soft callus formation",
+     "Hard callus formation",
+     "Bone remodelling"
+    ],
+    "why": "In stage 1, torn vessels bleed and a blood clot (haematoma) forms at the break, which triggers inflammation. The soft callus is stage 2.",
+    "step": 1
+   },
+   {
+    "q": "In the first few days after a fracture, which cells clear debris and release inflammatory substances?",
+    "a": "Macrophages and neutrophils",
+    "d": [
+     "Osteoblasts and osteocytes",
+     "Chondroblasts and chondrocytes",
+     "Osteoblasts and osteoclasts"
+    ],
+    "why": "Her table names macrophages, neutrophils and platelets for the inflammation stage. Osteoblasts with osteoclasts is the remodelling pair, which works weeks to years later.",
+    "step": 2
+   },
+   {
+    "q": "In stage 2, the clot is replaced by a soft bridge. What is that bridge mainly made of?",
+    "a": "Fibrocartilage",
+    "d": [
+     "Woven bone",
+     "Compact lamellar bone",
+     "Spongy bone"
+    ],
+    "why": "Her helpline says fibrous tissue and fibrocartilage form the soft callus. Woven bone is the tempting answer, but it only appears in stage 3 (hard callus).",
+    "step": 3
+   },
+   {
+    "q": "Which cells build the soft callus?",
+    "a": "Fibroblasts and chondroblasts",
+    "d": [
+     "Macrophages and neutrophils",
+     "Osteoblasts and osteoclasts",
+     "Endothelial cells and platelets"
+    ],
+    "why": "Her table says fibroblasts, chondroblasts and chondrocytes form the soft matrix. Osteoblasts and osteoclasts are the remodelling pair.",
+    "step": 3
+   },
+   {
+    "q": "While the soft callus forms, new blood vessels grow into the repair site. Which cells build them?",
+    "a": "Endothelial cells",
+    "d": [
+     "Osteoprogenitor cells",
+     "Mature osteocytes",
+     "Activated platelets"
+    ],
+    "why": "Endothelial cells form the new vessels (angiogenesis) that bring oxygen and nutrients. Platelets help form the clot in stage 1, but they do not build vessels.",
+    "step": 4
+   },
+   {
+    "q": "The soft callus has bridged the fracture. What happens next?",
+    "a": "Cartilage becomes woven bone",
+    "d": [
+     "Woven bone becomes lamellar bone",
+     "A blood clot fills the gap",
+     "Osteoclasts dissolve the callus"
+    ],
+    "why": "In stage 3 (hard callus), the cartilage hardens into woven bone that is strong enough for basic support. Woven bone turning into lamellar bone happens in stage 4, remodelling.",
+    "step": 5
+   },
+   {
+    "q": "Which cells create and mineralise the hard bony callus?",
+    "a": "Osteoblasts and osteocytes",
+    "d": [
+     "Osteoblasts and osteoclasts",
+     "Fibroblasts and chondrocytes",
+     "Macrophages and neutrophils"
+    ],
+    "why": "Her table says osteoblasts and osteocytes make and mineralise the hard callus. Putting osteoclasts in their place gives the remodelling pair, which is the most common slip.",
+    "step": 5
+   },
+   {
+    "q": "Which statement about the remodelling stage is NOT true?",
+    "a": "It is finished within two weeks",
+    "d": [
+     "It takes months to years",
+     "Lamellar bone replaces woven bone",
+     "Osteoclasts help reshape the bone"
+    ],
+    "why": "Remodelling takes months to years. 'About two weeks' is the timing for the soft callus, which is why it sounds familiar.",
+    "step": 6
+   },
+   {
+    "q": "Wolff's law says bone remodels in response to what?",
+    "a": "Mechanical stress",
+    "d": [
+     "Blood calcium level",
+     "Parathyroid hormone",
+     "Inflammatory signals"
+    ],
+    "why": "Wolff's law says bone thickness and shape depend on the mechanical stress placed on it, which is why exercise builds bone density. PTH does change bone, but through calcium homeostasis, not Wolff's law.",
+    "step": 7
+   }
+  ],
+  "traps": [
+   "Listing only the four stage names. 'Fully explain' needs what happens, the cells involved and the timing for each stage.",
+   "Swapping the cell pairs. Soft callus is fibroblasts plus chondroblasts, hard callus is osteoblasts plus osteocytes, and remodelling is osteoblasts plus osteoclasts.",
+   "Calling woven bone the final bone. Remodelling replaces it with compact lamellar bone, shaped by mechanical stress (Wolff's law)."
+  ],
+  "src": "Practice SAQ Module 2 page ('Fully explain the steps of bone repair', 6 marks). Helpline 'Let us reflect' ANSWERS (discussion 413338), ACCIDENT CASE STUDY Q4-Q5 table (stages, cells, timing, Wolff's law, alignment and immobilisation). Module 2.1 overview page (1. Hemotoma, 2. Soft callus, 3. Hard callus, 4. Remodeling). LEARNING PAGE MS1, BONE REPAIR (Patton Fig 11-23). 2026 MS1 deck slides 20, 24, 27-31; deck question 8 on Wolff's law.",
+  "same": [
+   [
+    3,
+    4
+   ]
+  ]
+ },
+ {
+  "id": "hormone-solubility",
+  "sys": "endo",
+  "title": "Water- vs lipid-soluble hormone action",
+  "marks": 2,
+  "ask": "How does the action of water and lipid soluble hormones differ? (2 marks)",
+  "hook": "-IN hormones knock at the door (membrane receptor, cascade in cytoplasm). -ONE hormones walk in and rewrite the plans (cytoplasm, nucleus, genes).",
+  "steps": [
+   "**Water-soluble** hormones (peptides/proteins, names ending in **-IN**, e.g. **insulin**, adrenaline) cannot cross the **phospholipid bilayer** of the cell membrane.",
+   "So they bind to **receptors ON THE CELL MEMBRANE** of the target cell.",
+   "This triggers a **CASCADE OF REACTIONS in the cytoplasm** (via a second messenger such as cAMP). The effect is **fast** but short-lived.",
+   "**Lipid (fat)-soluble** hormones (**steroids**, names ending in **-ONE**, e.g. **aldosterone**, testosterone, cortisol) pass straight **through the cell membrane**.",
+   "They bind to **receptors IN THE CYTOPLASM** (inside the cell).",
+   "The hormone-receptor complex enters the **nucleus** and causes **GENE ACTIVATION**, so new proteins are made. The effect is **slower** but longer-lasting."
+  ],
+  "order": false,
+  "mcq": [
+   {
+    "q": "Which pair of hormones are BOTH water-soluble?",
+    "a": "Insulin and glucagon",
+    "d": [
+     "Aldosterone and cortisol",
+     "Testosterone and insulin",
+     "Cortisol and glucagon"
+    ],
+    "why": "Hormones ending in -IN (peptides/proteins) are water-soluble, so insulin and glucagon both are. Cortisol, aldosterone and testosterone are fat-soluble steroids, so any pair with one of them is wrong.",
+    "step": 0
+   },
+   {
+    "q": "Water-soluble hormones cannot cross the cell membrane. What is the membrane made of that keeps them out?",
+    "a": "A double layer of phospholipid",
+    "d": [
+     "A double layer of connective tissue",
+     "A double layer of myelin",
+     "A double layer of glycogen"
+    ],
+    "why": "The membrane is a phospholipid bilayer. Fat-soluble hormones slip through it, but water-soluble ones are kept out and need a membrane receptor. Myelin wraps axons; it is not the target cell's membrane.",
+    "step": 0
+   },
+   {
+    "q": "Where is the receptor for a water-soluble hormone such as glucagon?",
+    "a": "On the cell membrane",
+    "d": [
+     "Inside the cytoplasm",
+     "Inside the nucleus",
+     "Free in the bloodstream"
+    ],
+    "why": "Water-soluble hormones can't get in, so their receptors sit ON the cell membrane. Receptors inside the cytoplasm belong to fat-soluble steroid hormones.",
+    "step": 1
+   },
+   {
+    "q": "Adrenaline has just bound to its receptor on a liver cell. What happens next?",
+    "a": "A cascade of reactions in the cytoplasm",
+    "d": [
+     "Direct gene activation in the nucleus",
+     "Diffusion through the phospholipid bilayer",
+     "Binding to a second receptor in the nucleus"
+    ],
+    "why": "Water-soluble hormones like adrenaline stay outside the cell and set off a fast cascade in the cytoplasm. Direct gene activation is what steroids like aldosterone do.",
+    "step": 2
+   },
+   {
+    "q": "Which hormone can diffuse straight through the target cell's membrane?",
+    "a": "Aldosterone",
+    "d": [
+     "Insulin",
+     "Noradrenaline",
+     "Adrenaline"
+    ],
+    "why": "Aldosterone ends in -ONE, so it is a fat-soluble steroid that passes through the lipid bilayer. Adrenaline and noradrenaline are water-soluble and need membrane receptors.",
+    "step": 3
+   },
+   {
+    "q": "Which hormone does NOT end in '-one' but is still a fat-soluble steroid?",
+    "a": "Cortisol",
+    "d": [
+     "Adrenaline",
+     "Insulin",
+     "Oxytocin"
+    ],
+    "why": "Cortisol is on her lipid-soluble steroid list even though it ends in -OL. Adrenaline ends in -INE, which puts it in the water-soluble '-in' group.",
+    "step": 3
+   },
+   {
+    "q": "Testosterone has diffused into its target cell. Where does it find its receptor?",
+    "a": "In the cytoplasm",
+    "d": [
+     "On the cell membrane",
+     "On the capillary wall",
+     "In the bloodstream"
+    ],
+    "why": "Her slide 11: fat-soluble steroids bind receptors IN THE CYTOPLASM. Receptors on the cell membrane are for water-soluble hormones that can't get in.",
+    "step": 4
+   },
+   {
+    "q": "Aldosterone has bound its receptor. What is its final effect on the target cell?",
+    "a": "It changes gene expression in the nucleus",
+    "d": [
+     "It starts a cascade in the cytoplasm",
+     "It inserts GLUT4 channels in the membrane",
+     "It opens calcium channels in the membrane"
+    ],
+    "why": "Her answer board says aldosterone (fat-soluble, ends in -ONE) will 'INFLUENCE GENE EXPRESSION'. A cascade in the cytoplasm is the water-soluble route, used by insulin.",
+    "step": 5
+   },
+   {
+    "q": "Compared with insulin, how does a steroid hormone's effect usually differ?",
+    "a": "Slower to start but lasts longer",
+    "d": [
+     "Faster to start and lasts longer",
+     "Faster to start but wears off sooner",
+     "Slower to start and wears off sooner"
+    ],
+    "why": "Steroids have to switch on genes and make new proteins, which takes time but lasts. Membrane-receptor cascades (insulin, adrenaline) act fast but wear off sooner.",
+    "step": 5
+   }
+  ],
+  "traps": [
+   "Using the -IN/-ONE rule blindly: adrenaline (-INE) is water-soluble, but cortisol (-OL) is a fat-soluble steroid.",
+   "Swapping the routes: -IN hormones use a membrane receptor and a cascade in the cytoplasm. -ONE hormones use a cytoplasm receptor, then the nucleus and genes. Insulin never changes genes directly.",
+   "Thyroxine is awkward: it ends in -INE, but textbooks put it in the lipid-soluble group because it acts inside the cell. Don't use it as your example. Use insulin vs aldosterone."
+  ],
+  "src": "Her Practice SAQ Module 2 page (Endocrine: 'How does the action of water and lipid soluble hormones differ? (2 marks)'); POSSIBLE SAQ list (resources.txt line 120); 2026 Endocrine System 1 deck slides 9-11 ('Mechanism of Hormone Action': receptors ON THE CELL MEMBRANE, CASCADE OF REACTIONS, receptors IN THE CYTOPLASM, GENE ACTIVATION); Endocrine 1 lecture 10 Sept [16:13-25:54]; Endocrine 2 answers board 413312 (aldosterone 'FAT SOLUBLE - ENDS ON -ONE', 'INFLUENCE GENE EXPRESSION'); fast vs slow and cAMP are standard textbook (Patton)."
+ },
+ {
+  "id": "three-stimuli",
+  "sys": "endo",
+  "title": "Three stimuli for hormone release",
+  "marks": 6,
+  "ask": "Describe the control of hormone secretion according to the three mechanisms of hormonal regulation. Give an example of each. (6 marks)",
+  "hook": "Blood, Nerve, Hormone: HUMORAL = something in the blood, NEURAL = a nerve fires the gland, HORMONAL = one gland's hormone fires another. Never 'enzymatic'.",
+  "steps": [
+   "**HUMORAL** stimulus: a **chemical in the blood** (an ion or nutrient level) directly stimulates the gland to release its hormone.",
+   "Humoral example: **low blood Ca²⁺** stimulates **PTH** from the parathyroid glands; **high blood glucose** stimulates **insulin** from beta cells of the islets of Langerhans.",
+   "**NEURAL** stimulus: the **nervous system** (nerve fibres) directly stimulates the gland to release its hormone.",
+   "Neural example: the **sympathetic nervous system** stimulates the **adrenal medulla** to release **adrenaline** (fight or flight).",
+   "**HORMONAL** stimulus: a **hormone from one endocrine gland** stimulates **another endocrine gland** to release its hormone.",
+   "Hormonal example: **TSH** from the **anterior pituitary** stimulates the **thyroid gland** to release **thyroxine (T3/T4)**."
+  ],
+  "order": false,
+  "mcq": [
+   {
+    "q": "A gland releases its hormone because an ion or nutrient level in the blood has changed. What type of stimulus is this?",
+    "a": "Humoral",
+    "d": [
+     "Neural",
+     "Hormonal",
+     "Enzymatic"
+    ],
+    "why": "A chemical in the blood acting directly on the gland is HUMORAL. 'Enzymatic' is her fake fourth option; there are only three stimuli.",
+    "step": 0
+   },
+   {
+    "q": "Which is NOT one of the three stimuli that cause hormone release?",
+    "a": "Enzymatic",
+    "d": [
+     "Humoral",
+     "Neural",
+     "Hormonal"
+    ],
+    "why": "The three are humoral, neural and hormonal. 'Enzymatic' is the trap she puts in her distractor lists, and it does not exist.",
+    "step": 0
+   },
+   {
+    "q": "Which is an example of HUMORAL stimulation?",
+    "a": "High blood glucose triggering insulin release",
+    "d": [
+     "TSH triggering thyroxine release",
+     "Sympathetic nerves triggering adrenaline release",
+     "Baby suckling triggering oxytocin release"
+    ],
+    "why": "Blood glucose is a chemical in the blood acting directly on the beta cells, so it is humoral. TSH to thyroxine is hormonal; nerves to adrenaline and suckling to oxytocin are neural.",
+    "step": 1
+   },
+   {
+    "q": "Blood calcium falls. Which hormone is released as a direct humoral response?",
+    "a": "Parathyroid hormone",
+    "d": [
+     "Calcitonin",
+     "Growth hormone",
+     "Antidiuretic hormone"
+    ],
+    "why": "Low blood Ca²⁺ acts directly on the parathyroid glands, which release PTH (her slide 15 example). Calcitonin does the opposite job and is released when blood calcium is HIGH.",
+    "step": 1
+   },
+   {
+    "q": "Humoral = chemicals in the blood; hormonal = hormones. What acts on the gland in the third type of stimulus?",
+    "a": "Nerve fibres",
+    "d": [
+     "Enzymes",
+     "Plasma proteins",
+     "White blood cells"
+    ],
+    "why": "Her slide 14: humoral = chemicals in blood, neural = nerve fibres, hormonal = hormones. Enzymes are the fake fourth category.",
+    "step": 2
+   },
+   {
+    "q": "A dangerous situation makes the adrenal medulla release adrenaline within seconds. What type of stimulus is this?",
+    "a": "Neural",
+    "d": [
+     "Humoral",
+     "Hormonal",
+     "Enzymatic"
+    ],
+    "why": "The sympathetic nervous system fires the adrenal medulla directly, so this is NEURAL (her slide 16 'Dangerous situation'). It is not hormonal because no hormone from another gland is involved.",
+    "step": 3
+   },
+   {
+    "q": "Which gland is stimulated directly by sympathetic nerve fibres to release its hormone?",
+    "a": "Adrenal medulla",
+    "d": [
+     "Adrenal cortex",
+     "Anterior pituitary",
+     "Thyroid gland"
+    ],
+    "why": "The adrenal medulla releases adrenaline under neural (sympathetic) control. The adrenal cortex releases cortisol under HORMONAL control, triggered by ACTH from the anterior pituitary.",
+    "step": 3
+   },
+   {
+    "q": "TRH from the hypothalamus makes the anterior pituitary release TSH. What type of stimulus is this?",
+    "a": "Hormonal",
+    "d": [
+     "Humoral",
+     "Neural",
+     "Enzymatic"
+    ],
+    "why": "One gland's hormone (TRH) stimulates another gland to release its hormone, which is HORMONAL. Humoral would be a blood ion or nutrient like calcium or glucose.",
+    "step": 4
+   },
+   {
+    "q": "Which example uses the SAME type of stimulus as TSH making the thyroid release thyroxine?",
+    "a": "ACTH making the adrenal cortex release cortisol",
+    "d": [
+     "Low Ca²⁺ making the parathyroids release PTH",
+     "High glucose making beta cells release insulin",
+     "Suckling making the posterior pituitary release oxytocin"
+    ],
+    "why": "TSH to thyroxine and ACTH to cortisol are both HORMONAL: a pituitary hormone stimulating another gland. Low Ca²⁺ to PTH and glucose to insulin are humoral; suckling to oxytocin is neural.",
+    "step": 5
+   }
+  ],
+  "traps": [
+   "Inventing a fourth type: 'Enzymatic' stimulation does not exist. There are THREE (humoral, neural, hormonal).",
+   "Naming the type without an example. Each example earns its own mark, so give one for every type.",
+   "Swapping the adrenal parts: the MEDULLA (adrenaline) is neural; the CORTEX (cortisol) is hormonal, via ACTH."
+  ],
+  "src": "Her 2026 Endocrine System 1 deck slides 14-16 ('Control of Hormone Release', L.O. 5: humoral/neural/hormonal definitions + PTH, blood glucose, adrenaline, TSH examples); Endocrine 1 lecture 10 Sept [1:11:52 'mark this slide... possible short answer question', 1:30:47]; her Endocrine 1 'Learning together' board 413330 EXAMPLE answer; POSSIBLE SAQ list line 121; SAQ-WATCH entry 1 (Enzymatic trap)."
+ },
+ {
+  "id": "neg-feedback",
+  "sys": "endo",
+  "title": "Negative feedback: the thyroid axis",
+  "marks": 4,
+  "ask": "Explain the negative feedback loop of hormonal regulation, using the hypothalamus-pituitary-thyroid axis as your example. (4 marks)",
+  "hook": "Thermostat: TRH (Releasing, hypothalamus) → TSH (Stimulating, pituitary) → T3/T4 (thyroid) → 'that's enough!' back to the top. Too much switches it OFF.",
+  "steps": [
+   "The **hypothalamus** releases **TRH** (thyrotropin-releasing hormone).",
+   "TRH **stimulates** the **anterior pituitary** to release **TSH** (thyroid-stimulating hormone).",
+   "TSH **stimulates** the **thyroid** (follicular cells) to release **T3/T4** (thyroxine), which raises metabolic rate.",
+   "Rising T3/T4 **inhibits** the **hypothalamus** (and anterior pituitary), so **less TRH** (and less TSH) is released. This is **negative feedback**.",
+   "When T3/T4 falls, the brake comes off: **more TRH** → more TSH → more T3/T4.",
+   "Overall effect = **homeostasis / stabilisation**: hormone levels **stay stable** within the normal range."
+  ],
+  "order": true,
+  "mcq": [
+   {
+    "q": "What does the hypothalamus release to start the thyroid feedback loop?",
+    "a": "TRH",
+    "d": [
+     "TSH",
+     "CRH",
+     "ACTH"
+    ],
+    "why": "The hypothalamus releases TRH, the first hormone in the chain. TSH is the anterior pituitary's hormone, one step later. CRH starts the cortisol (HPA) axis.",
+    "step": 0
+   },
+   {
+    "q": "A hormone's name has 'RH' in it (TRH, CRH, GHRH). Where is it made?",
+    "a": "Hypothalamus",
+    "d": [
+     "Anterior pituitary",
+     "Adrenal cortex",
+     "Thyroid gland"
+    ],
+    "why": "The R stands for Releasing, and releasing hormones come from the hypothalamus. The 'stimulating' hormones (TSH, ACTH) come from the anterior pituitary.",
+    "step": 0
+   },
+   {
+    "q": "TRH reaches the anterior pituitary. Which hormone is released next?",
+    "a": "TSH",
+    "d": [
+     "ACTH",
+     "GHRH",
+     "T3/T4"
+    ],
+    "why": "TRH stimulates the anterior pituitary to release TSH (thyroid-stimulating hormone). T3/T4 comes one step later, from the thyroid itself.",
+    "step": 1
+   },
+   {
+    "q": "Which is the correct order of the thyroid (HPT) axis?",
+    "a": "TRH → TSH → T3/T4",
+    "d": [
+     "TSH → TRH → T3/T4",
+     "T3/T4 → TSH → TRH",
+     "TRH → T3/T4 → TSH"
+    ],
+    "why": "Hypothalamus (TRH), then anterior pituitary (TSH), then thyroid (T3/T4). The classic slip is swapping TRH and TSH: R = Releasing (hypothalamus), S = Stimulating (pituitary).",
+    "step": 1
+   },
+   {
+    "q": "In response to TSH, which hormone does the target gland release?",
+    "a": "Thyroxine",
+    "d": [
+     "Calcitonin",
+     "Cortisol",
+     "Melatonin"
+    ],
+    "why": "The thyroid's follicular cells release thyroxine (T3/T4). Calcitonin also comes from the thyroid, but from the PARAFOLLICULAR cells, and it is controlled by blood calcium, not TSH.",
+    "step": 2
+   },
+   {
+    "q": "Blood thyroxine is now HIGH. What does it do to the hypothalamus?",
+    "a": "Inhibits it, so less TRH is released",
+    "d": [
+     "Stimulates it, so more TRH is released",
+     "Stimulates it, so more TSH is released",
+     "Inhibits it, so more TRH is released"
+    ],
+    "why": "High T3/T4 feeds back and INHIBITS the hypothalamus, so less TRH is released; that is what makes it negative feedback. More TRH would push the level even higher.",
+    "step": 3
+   },
+   {
+    "q": "A patient's T3/T4 levels have DROPPED. What happens to TRH release?",
+    "a": "It increases",
+    "d": [
+     "It decreases",
+     "It stops completely",
+     "It stays the same"
+    ],
+    "why": "Low T3/T4 takes the brake off, so the hypothalamus releases MORE TRH, then more TSH, then more T3/T4 (her answer board). Decreasing TRH would push the level down further.",
+    "step": 4
+   },
+   {
+    "q": "What is the overall effect of a negative feedback loop on hormone levels?",
+    "a": "They stay stable",
+    "d": [
+     "They keep rising",
+     "They keep falling",
+     "They swing widely"
+    ],
+    "why": "Her slide 12: the overall effect is stabilisation, or homeostasis. 'Keeps rising until an event' is positive feedback (amplification), like oxytocin in labour.",
+    "step": 5
+   },
+   {
+    "q": "Which hormone is controlled by POSITIVE feedback instead?",
+    "a": "Oxytocin",
+    "d": [
+     "Thyroxine",
+     "Cortisol",
+     "Insulin"
+    ],
+    "why": "In labour, contractions cause more oxytocin, which causes stronger contractions until birth (amplification). Thyroxine and cortisol both run on negative feedback axes (HPT, HPA).",
+    "step": 5
+   }
+  ],
+  "traps": [
+   "Mixing up TRH and TSH: TRH (Releasing) comes from the hypothalamus; TSH (Stimulating) comes from the anterior pituitary.",
+   "Stopping at T3/T4. To get the last marks, say that T3/T4 INHIBITS the hypothalamus (less TRH) and that this keeps levels stable (homeostasis).",
+   "Calling it positive feedback. Positive feedback amplifies (oxytocin in labour); negative feedback stabilises."
+  ],
+  "src": "Her POSSIBLE SAQ list (resources.txt line 122, her TRH → TSH → T3/T4 → inhibits hypothalamus example, near verbatim); 2026 Endocrine System 1 deck slide 12 (rise inhibits / fall stimulates / overall effect = stabilization or homeostasis), slides 27-28 (HPT axis), slide 31 (oxytocin positive feedback); 2026 Endocrine 2 deck slides 8-9 ('High blood levels of thyroxine inhibit release of TSH and TRH'); Endocrine 2 answers board 413312 thyroid row; Endocrine 1 lecture [49:19-53:27].",
+  "same": [
+   [
+    4,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "blood-sugar",
+  "sys": "endo",
+  "title": "Blood sugar homeostasis: both arms",
+  "marks": 4,
+  "ask": "Fully explain how the pancreas regulates blood sugar levels in the body. (4 marks)",
+  "hook": "GlucaGON = 'glucose is GONE, make more' (alpha cells, sugar UP). Insulin puts sugar IN to cells (beta cells, sugar DOWN). Both live in the islets.",
+  "steps": [
+   "**High blood glucose** (e.g. after a meal) is a **humoral** stimulus to the **BETA cells of the islets of Langerhans in the pancreas**.",
+   "Beta cells release **INSULIN**, a **hypoglycaemic** hormone, into the bloodstream.",
+   "Insulin makes **muscle and fat cells absorb glucose** from the blood, and **liver cells** store it as glycogen (**glycogenesis**). Blood glucose **falls**.",
+   "**Low blood glucose** (e.g. fasting, exercise) stimulates the **ALPHA cells of the islets of Langerhans in the pancreas**.",
+   "Alpha cells release **GLUCAGON**, a **hyperglycaemic** hormone, into the bloodstream.",
+   "Glucagon makes **liver cells** break glycogen into glucose (**glycogenolysis**) and make new glucose (**gluconeogenesis**). Blood glucose **rises**.",
+   "The two hormones have **opposing effects** in a **negative feedback** loop, which keeps blood glucose **stable** (**homeostasis**)."
+  ],
+  "order": false,
+  "mcq": [
+   {
+    "q": "Where exactly is insulin made? (Just 'pancreas' earns no mark.)",
+    "a": "Beta cells of the islets of Langerhans",
+    "d": [
+     "Alpha cells of the islets of Langerhans",
+     "Chief cells of the parathyroid glands",
+     "Exocrine cells that make digestive enzymes"
+    ],
+    "why": "She said on tape: 'beta cells, in the islets of Langerhans, in the pancreas'. 'Pancreas' alone gets no mark. Alpha cells make glucagon, the opposite hormone.",
+    "step": 0
+   },
+   {
+    "q": "What kind of stimulus is high blood glucose for the beta cells?",
+    "a": "Humoral",
+    "d": [
+     "Neural",
+     "Hormonal",
+     "Enzymatic"
+    ],
+    "why": "Glucose is a chemical in the blood acting directly on the beta cells, so it is humoral (her slide 30: 'Insulin Release - Humeral'). Neural would need a nerve; hormonal would need another gland's hormone.",
+    "step": 0
+   },
+   {
+    "q": "Which hormone is called 'hypoglycaemic' because it lowers blood glucose?",
+    "a": "Insulin",
+    "d": [
+     "Glucagon",
+     "Cortisol",
+     "Adrenaline"
+    ],
+    "why": "Insulin lowers blood glucose (hypo = below). Glucagon, cortisol and adrenaline all RAISE blood glucose.",
+    "step": 1
+   },
+   {
+    "q": "After a meal, insulin makes which cells take glucose OUT of the blood?",
+    "a": "Muscle, fat and liver cells",
+    "d": [
+     "Brain cells and red blood cells",
+     "Alpha and beta cells of the islets",
+     "Osteoclasts and kidney tubule cells"
+    ],
+    "why": "Her Endocrine 2 slide 25: insulin makes muscle and fat cells absorb glucose and liver cells form glycogen. Brain cells and red blood cells take in glucose without needing insulin.",
+    "step": 2
+   },
+   {
+    "q": "Blood glucose drops between meals. Which pancreatic cells respond?",
+    "a": "Alpha cells of the islets of Langerhans",
+    "d": [
+     "Beta cells of the islets of Langerhans",
+     "Duct cells that secrete pancreatic juices",
+     "Exocrine cells that make digestive enzymes"
+    ],
+    "why": "Alpha cells in the islets release glucagon when glucose is low. Duct and exocrine cells are the EXOCRINE pancreas: they send digestive juice to the duodenum, not hormones into the blood.",
+    "step": 3
+   },
+   {
+    "q": "She skipped breakfast and her blood sugar is falling. Which hormone does her pancreas release?",
+    "a": "Glucagon",
+    "d": [
+     "Insulin",
+     "Glycogen",
+     "Calcitonin"
+    ],
+    "why": "Low blood sugar makes the alpha cells release glucagon. Glycogen is NOT a hormone. It is the stored form of glucose that glucagon breaks down.",
+    "step": 4
+   },
+   {
+    "q": "Glucagon reaches the liver. What does the liver do?",
+    "a": "Breaks glycogen into glucose",
+    "d": [
+     "Builds glucose into glycogen",
+     "Converts glucose into fat",
+     "Burns glucose to CO₂ and water"
+    ],
+    "why": "Glucagon makes liver cells split glycogen back into glucose (glycogenolysis) and release it, so blood glucose rises. Building glycogen (glycogenesis) is insulin's job.",
+    "step": 5
+   },
+   {
+    "q": "Why is blood sugar control called a NEGATIVE feedback loop?",
+    "a": "Each hormone's effect removes its own stimulus",
+    "d": [
+     "Each hormone's effect makes its stimulus stronger",
+     "Each hormone is released by a nerve impulse",
+     "Each hormone switches on genes in the nucleus"
+    ],
+    "why": "Insulin lowers the high glucose that triggered it, and glucagon raises the low glucose that triggered it, so levels stay stable. Making the stimulus stronger would be positive feedback.",
+    "step": 6
+   }
+  ],
+  "traps": [
+   "Writing 'pancreas' earns no mark. Always write: BETA cells of the islets of Langerhans in the pancreas (insulin), ALPHA cells of the islets of Langerhans in the pancreas (glucagon).",
+   "Mixing up GLUCAGON (the hormone) with GLYCOGEN (the stored sugar).",
+   "Doing only one arm. 'Fully explain' means BOTH insulin and glucagon, plus the negative feedback that keeps glucose stable."
+  ],
+  "src": "Her Practice SAQ Module 2 page (Endocrine: 'Fully explain how the pancreas regulates blood sugar levels in the body. (4 marks)'); POSSIBLE SAQ list line 123; 2026 Endocrine 2 deck slides 23 (alpha/beta cells, islets, exocrine part), 25 ('Control of Blood Glucose', opposing effects, HOMEOSTASIS = STABLE STATE), 30 (hyper/hypoglycemic, Humeral release); Endocrine 1 lecture [1:38:50-1:39:36] 'pancreas, won't even get a mark'; Endocrine 2 answers board 413312 pancreas rows; SAQ-WATCH entry 4."
+ },
+ {
+  "id": "insulin",
+  "sys": "endo",
+  "title": "How insulin lowers blood sugar",
+  "marks": 6,
+  "ask": "Explain how insulin reduces blood sugar levels. (6 marks)",
+  "hook": "Insulin unlocks the door (receptor → cascade → GLUT4), then files sugar away: PANTRY (muscle glycogen), FRIDGE (liver glycogen), DEEP FREEZE (fat).",
+  "steps": [
+   "**High blood glucose** is a **humoral** stimulus. It alerts the **BETA cells of the islets of Langerhans** in the pancreas, which **release INSULIN**.",
+   "Insulin (a **water-soluble** hormone) travels in the **bloodstream** and binds to **insulin RECEPTORS** on the cell membranes of **MUSCLE and FAT cells**.",
+   "This causes an **INTRACELLULAR CASCADE** of reactions, which leads to the **insertion of GLUT4 CHANNELS** in the cell membrane.",
+   "**Glucose** flows into the cells along its **concentration gradient** by **FACILITATED DIFFUSION**.",
+   "In **MUSCLE** cells glucose is burnt for fuel (ATP, CO₂ and H₂O) or stored as glycogen (**GLYCOGENESIS**) for short-term use.",
+   "In **ADIPOSE** tissue glucose is stored as fat (**LIPOGENESIS**) for long-term use. **LIVER** cells also store it as glycogen (**GLYCOGENESIS**).",
+   "Glycogen and fat are **osmotically inactive**, so storing sugar this way does **not dehydrate the cells** the way free glucose would.",
+   "By removing glucose from the bloodstream, insulin **lowers blood glucose**, so it is called a **HYPOGLYCAEMIC HORMONE**."
+  ],
+  "order": true,
+  "mcq": [
+   {
+    "q": "What stimulates the beta cells to release insulin?",
+    "a": "A rise in blood glucose",
+    "d": [
+     "A fall in blood glucose",
+     "A rise in blood calcium",
+     "Impulses from sympathetic nerves"
+    ],
+    "why": "High blood sugar alerts the beta cells directly, which is humoral stimulation (her helpline step 1). A FALL in glucose triggers glucagon from the alpha cells instead.",
+    "step": 0
+   },
+   {
+    "q": "The hormone from the beta cells reaches a muscle cell. What must it bind to first?",
+    "a": "Receptors on the cell membrane",
+    "d": [
+     "Receptors inside the cytoplasm",
+     "Receptors inside the nucleus",
+     "GLUT4 channels in the membrane"
+    ],
+    "why": "Insulin is water-soluble, so it binds insulin RECEPTORS on the cell membrane. GLUT4 channels only appear AFTER the receptor sets off the cascade.",
+    "step": 1
+   },
+   {
+    "q": "Which TWO cell types does insulin mainly act on to pull glucose out of the blood?",
+    "a": "Muscle and fat cells",
+    "d": [
+     "Brain and red blood cells",
+     "Alpha and beta cells",
+     "Osteoblasts and osteoclasts"
+    ],
+    "why": "Her helpline step 4: insulin binds receptors on MUSCLE and FAT cells (the liver also stores glucose). Brain cells and red blood cells take in glucose without insulin.",
+    "step": 1
+   },
+   {
+    "q": "Insulin has bound its receptor. What does the intracellular cascade lead to?",
+    "a": "GLUT4 channels are added to the membrane",
+    "d": [
+     "Genes in the nucleus are switched on",
+     "Stored glycogen is broken down into glucose",
+     "Glucagon is released from alpha cells"
+    ],
+    "why": "Her steps 5-6: the cascade leads to insertion of GLUT4 channels, the doors glucose goes through. Switching on genes is the steroid (fat-soluble) route, not insulin's.",
+    "step": 2
+   },
+   {
+    "q": "GLUT4 channels are now in the membrane. How does glucose move into the cell?",
+    "a": "Facilitated diffusion",
+    "d": [
+     "Primary active transport",
+     "Simple diffusion",
+     "Osmosis"
+    ],
+    "why": "Glucose flows DOWN its concentration gradient through the GLUT4 protein channel. That is facilitated diffusion, and it needs no ATP. Osmosis is the movement of water, not glucose.",
+    "step": 3
+   },
+   {
+    "q": "Insulin makes liver and muscle cells build glucose into their short-term storage polymer. What is this process?",
+    "a": "Glycogenesis",
+    "d": [
+     "Glycogenolysis",
+     "Gluconeogenesis",
+     "Lipogenesis"
+    ],
+    "why": "Glycogen + genesis (make) = making glycogen from glucose. Glycogenolysis is the reverse: glucagon breaking glycogen down.",
+    "step": 4
+   },
+   {
+    "q": "Insulin makes adipose tissue convert extra glucose into long-term storage. What is this called?",
+    "a": "Lipogenesis",
+    "d": [
+     "Lipolysis",
+     "Glycogenesis",
+     "Gluconeogenesis"
+    ],
+    "why": "Lipo (fat) + genesis (make) = making fat in adipose tissue, the 'deep freeze'. Lipolysis is the opposite: breaking fat down.",
+    "step": 5
+   },
+   {
+    "q": "Why does the body store extra glucose as glycogen and fat rather than keeping it as glucose?",
+    "a": "They are osmotically inactive",
+    "d": [
+     "They are osmotically active",
+     "They are small monomers",
+     "They are sweet and water-soluble"
+    ],
+    "why": "Glucose is osmotically active and dehydrates cells. Glycogen and fat are osmotically inactive, so they don't pull water (her lecture, 1:45). 'Small monomers' describes glucose itself.",
+    "step": 6
+   },
+   {
+    "q": "If insulin cannot lower blood glucose, what happens to the body's cells?",
+    "a": "They dehydrate by osmosis",
+    "d": [
+     "They swell by osmosis",
+     "They fill up with glycogen",
+     "They gain water by diffusion"
+    ],
+    "why": "High blood glucose makes the blood hypertonic, so water leaves the cells by osmosis and they dehydrate (causing polydipsia, polyuria and polyphagia). They don't swell, because water moves OUT toward the sugar.",
+    "step": 6
+   },
+   {
+    "q": "Because it removes glucose from the bloodstream, insulin is called what kind of hormone?",
+    "a": "Hypoglycaemic",
+    "d": [
+     "Hyperglycaemic",
+     "Hypocalcaemic",
+     "Hypercalcaemic"
+    ],
+    "why": "Hypo = below: insulin brings blood glucose down (her step 11). Hyperglycaemic describes glucagon, which raises it.",
+    "step": 7
+   }
+  ],
+  "traps": [
+   "Saying insulin 'breaks down' sugar. It moves glucose INTO cells and STORES it (glycogenesis, lipogenesis).",
+   "Skipping the GLUT4 + facilitated diffusion steps. Her helpline gives each of these its own mark.",
+   "Writing 'pancreas' instead of 'beta cells of the islets of Langerhans'."
+  ],
+  "src": "Her helpline 'SUGAR HOMEOSTASIS' 12 numbered steps (Let us reflect ANSWERS, discussion 413338 / content/helpline.js endo-pancreas: BETA CELLS, INSULIN RECEPTORS, MUSCLE and FAT cells, INTRACELLULAR CASCADE, GLUT4 CHANNELS, FASCILITATED DIFFUSION, GLYCOGENESIS, LIPOGENESIS, HYPOGLYCAEMIC HORMONE, dehydration by osmosis); POSSIBLE SAQ list line 124 (osmotically inactive); 2026 Endocrine 2 deck slide 30 ('Effects of Insulin'); Endocrine 2 answers board 413312 Q3; Anatomy Mondays 9 answers (pantry/fridge/deep freeze); Endocrine 1 lecture [1:45:14].",
+  "same": [
+   [
+    4,
+    5
+   ],
+   [
+    6,
+    7
+   ]
+  ]
+ },
+ {
+  "id": "glucagon",
+  "sys": "endo",
+  "title": "How glucagon raises blood sugar",
+  "marks": 4,
+  "ask": "Explain how glucagon makes blood sugar levels go up. (4 marks)",
+  "hook": "Glucose is GONE → raid the stores: -LYSIS breaks down (glycogen, fat), NEO-GENESIS makes brand-new glucose from amino acids.",
+  "steps": [
+   "**Low blood glucose** (e.g. fasting, between meals) is a **humoral** stimulus to the **ALPHA cells of the islets of Langerhans** in the pancreas.",
+   "Alpha cells secrete **GLUCAGON**, a peptide **hyperglycaemic** hormone, which travels in the blood mainly to the **liver**.",
+   "**GLYCOGENOLYSIS**: liver cells **break down stored glycogen** into glucose and release it into the blood.",
+   "**GLUCONEOGENESIS**: liver cells **make new glucose** from non-carbohydrate sources, e.g. **amino acids** (and lactic acid).",
+   "**LIPOLYSIS**: **fat is broken down** (into glycerol and fatty acids) and used for fuel, which saves glucose.",
+   "Blood glucose **rises** back to normal. **High** blood glucose then **inhibits** glucagon release: **negative feedback**."
+  ],
+  "order": false,
+  "mcq": [
+   {
+    "q": "What stimulates the alpha cells to secrete glucagon?",
+    "a": "A fall in blood glucose",
+    "d": [
+     "A rise in blood glucose",
+     "A fall in blood calcium",
+     "A rise in blood calcium"
+    ],
+    "why": "Low blood glucose is the humoral stimulus for glucagon (her slide 30). A RISE in glucose does the opposite: it inhibits glucagon and triggers insulin.",
+    "step": 0
+   },
+   {
+    "q": "Which organ does glucagon target so that glucose is released into the blood for the whole body?",
+    "a": "Liver",
+    "d": [
+     "Skeletal muscle",
+     "Adipose tissue",
+     "Pancreas"
+    ],
+    "why": "Her slide 30: glucagon 'targets liver to release glucose'. Muscle glycogen can only be used by the muscle itself; it is not released for the rest of the body.",
+    "step": 1
+   },
+   {
+    "q": "Glucagon is described as which kind of hormone?",
+    "a": "Hyperglycaemic",
+    "d": [
+     "Hypoglycaemic",
+     "Hypercalcaemic",
+     "Hypocalcaemic"
+    ],
+    "why": "Hyper = above: glucagon pushes blood glucose UP (her slide 30 'hyperglycemic agent'). Hypoglycaemic describes insulin.",
+    "step": 1
+   },
+   {
+    "q": "Glucagon makes the liver split its stored 'animal starch' back into single sugar units. What is this process?",
+    "a": "Glycogenolysis",
+    "d": [
+     "Glycolysis",
+     "Glycogenesis",
+     "Gluconeogenesis"
+    ],
+    "why": "Glycogen + lysis (break down) = glycogenolysis. Glycolysis is the START of burning glucose for energy; it uses glucose up, so it cannot raise blood sugar.",
+    "step": 2
+   },
+   {
+    "q": "Which process does NOT help raise blood glucose?",
+    "a": "Glycogenesis",
+    "d": [
+     "Glycogenolysis",
+     "Gluconeogenesis",
+     "Lipolysis"
+    ],
+    "why": "Glycogenesis locks glucose away as glycogen. That is insulin's job, and it lowers blood glucose. The other three are glucagon's tools for raising it.",
+    "step": 2
+   },
+   {
+    "q": "During a long fast the liver turns amino acids into blood sugar. What is this process?",
+    "a": "Gluconeogenesis",
+    "d": [
+     "Glycogenolysis",
+     "Glycogenesis",
+     "Lipogenesis"
+    ],
+    "why": "Gluco (glucose) + neo (new) + genesis (make) = making new glucose from something that was never glucose, such as amino acids. Glycogenolysis only releases glucose that was already stored.",
+    "step": 3
+   },
+   {
+    "q": "Which glucagon-driven process breaks down stored fat?",
+    "a": "Lipolysis",
+    "d": [
+     "Lipogenesis",
+     "Glycolysis",
+     "Glycogenesis"
+    ],
+    "why": "Lipo (fat) + lysis (break down) = lipolysis, which is on her list of glucagon's actions. Lipogenesis is the reverse: insulin MAKING fat.",
+    "step": 4
+   },
+   {
+    "q": "Glucagon has brought blood glucose back up to normal. What happens to glucagon release now?",
+    "a": "It is inhibited",
+    "d": [
+     "It is stimulated",
+     "It is doubled",
+     "It is unchanged"
+    ],
+    "why": "Her slide 30: high blood glucose INHIBITS glucagon release, which is negative feedback. More glucagon would push glucose too high.",
+    "step": 5
+   }
+  ],
+  "traps": [
+   "Writing GLYCOLYSIS (the start of burning glucose, which lowers glucose) instead of GLYCOGENOLYSIS (breaking down glycogen, which raises glucose). Her own helpline made this slip, so always write the full word.",
+   "Mixing up GLUCAGON (the hormone) with GLYCOGEN (the stored sugar). Spell both carefully.",
+   "Writing 'pancreas' earns no mark. Write: ALPHA cells of the islets of Langerhans in the pancreas."
+  ],
+  "src": "Her POSSIBLE SAQ list line 125 (GLUCAGON secreted when blood sugar is low; Glycogenolysis, Gluconeogenesis from e.g. amino acids, Lipolysis); 2026 Endocrine 2 deck slide 30 (Glucagon (alpha cells), hyperglycemic agent, targets liver, glycogenolysis, gluconeogenesis from lactic acid & non-carbohydrates, Humeral: low glucose stimulates / high inhibits) and slide 26 (Glycolysis = start of burning glucose); Endocrine 2 answers board 413312 (glucagon: gluconeogenesis, glycogenolysis); her helpline endo-pancreas section (wrote 'Glycolysis' for glycogenolysis); Anatomy Mondays 9 answers (liver releases glucose for the body, muscle glycogen used BY muscle); Endocrine 1 lecture [1:40:37-1:46:22]."
+ }
+]

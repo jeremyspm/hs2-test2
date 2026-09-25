@@ -139,12 +139,12 @@
     "step": 4
    },
    {
-    "q": "In the heart-racing reflex, what is the EFFECTOR?",
-    "a": "Cardiac muscle of the heart",
+    "q": "Seeing the threat speeds up her pulse. What is the EFFECTOR?",
+    "a": "Cardiac muscle fibres",
     "d": [
-     "Skeletal muscle of the legs",
-     "Smooth muscle of the iris",
-     "Cortex of the adrenal gland"
+     "Skeletal muscle fibres",
+     "Iris smooth muscle",
+     "Adrenal cortex cells"
     ],
     "why": "The effector is whatever responds, and here the heart speeds up, so it is cardiac muscle. Running away would be a separate, voluntary action by skeletal muscle.",
     "step": 5
