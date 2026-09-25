@@ -1,0 +1,659 @@
+[
+ {
+  "id": "reflex-threat",
+  "sys": "ns",
+  "star": true,
+  "title": "Seeing a threat — the heart-racing reflex",
+  "marks": 6,
+  "ask": "Mia is walking home when a large dog runs at her, and her heart starts pounding. Explain the reflex arc behind this response: name each part (the eyes, the optic nerve, the parts of the brain, the cardiac nerves, the cardiac muscle) and say what each one does. (6 marks)",
+  "hook": "EYE → NERVE II → BRAIN (see · fear · boss · heart centre) → SYMPATHETIC NERVE → HEART MUSCLE. The five parts in order: Real Sheep In My Engine (Receptor, Sensory, Integration, Motor, Effector).",
+  "steps": [
+   "**Receptor = the EYES**: **photoreceptors** (rods and cones) in the **retina** detect the light from the threat and turn it into nerve impulses.",
+   "**Sensory (afferent) neuron = the OPTIC NERVE (cranial nerve II)**: carries the impulses from the eye into the brain.",
+   "**Integration centre = the BRAIN, part 1**: the **thalamus** relays the signal to the **visual cortex** in the **occipital lobe** (she sees it); the **limbic system (amygdala)** reads it as a threat, which is fear.",
+   "**Integration centre = the BRAIN, part 2**: the **hypothalamus** (the boss of the ANS) switches on the **sympathetic** division through the **cardioacceleratory centre** in the **medulla oblongata**.",
+   "**Motor (efferent) neuron = the SYMPATHETIC CARDIAC NERVES**: an autonomic **two-neuron pathway** (preganglionic → ganglion → postganglionic) from the thoracic spinal cord, releasing **norepinephrine** onto the heart.",
+   "**Effector = CARDIAC MUSCLE of the heart**: heart rate and force of contraction **increase**. It is an **autonomic (visceral) fight-or-flight reflex** because the effector is cardiac muscle, not skeletal muscle."
+  ],
+  "order": true,
+  "mcq": [
+   {
+    "q": "In the heart-racing reflex, which structure is the RECEPTOR?",
+    "a": "Photoreceptors in the retina",
+    "d": [
+     "The optic nerve fibres",
+     "The visual cortex neurons",
+     "The SA node of the heart"
+    ],
+    "why": "The receptor is where the stimulus is detected: the rods and cones of the retina pick up the light. The optic nerve only carries the signal afterwards.",
+    "step": 0
+   },
+   {
+    "q": "Which TYPE of receptor starts this reflex?",
+    "a": "Photoreceptors",
+    "d": [
+     "Nociceptors",
+     "Proprioceptors",
+     "Baroreceptors"
+    ],
+    "why": "The stimulus is light, i.e. seeing the dog, so photoreceptors. Nociceptors detect pain (the withdrawal reflex); proprioceptors detect stretch (the knee-jerk).",
+    "step": 0
+   },
+   {
+    "q": "Which nerve is the SENSORY neuron in this arc?",
+    "a": "Optic nerve (II)",
+    "d": [
+     "Oculomotor nerve (III)",
+     "Vagus nerve (X)",
+     "Trigeminal nerve (V)"
+    ],
+    "why": "Cranial nerve II, the optic nerve, is purely sensory (vision). The oculomotor nerve (III) MOVES the eye and is a common trap.",
+    "step": 1
+   },
+   {
+    "q": "Which way does the optic nerve carry the impulse?",
+    "a": "Eye to brain (afferent)",
+    "d": [
+     "Brain to eye (efferent)",
+     "Brain to heart (efferent)",
+     "Heart to brain (afferent)"
+    ],
+    "why": "Sensory = afferent = towards the CNS. It brings the picture from the eye into the brain.",
+    "step": 1
+   },
+   {
+    "q": "Which lobe holds the visual cortex that actually 'sees' the dog?",
+    "a": "Occipital lobe",
+    "d": [
+     "Frontal lobe",
+     "Temporal lobe",
+     "Parietal lobe"
+    ],
+    "why": "The visual cortex sits in the occipital lobe at the back of the brain. The temporal lobe does hearing; the frontal lobe does movement and reasoning.",
+    "step": 2
+   },
+   {
+    "q": "Which part of the brain recognises the danger and produces fear?",
+    "a": "Amygdala (limbic system)",
+    "d": [
+     "Cerebellum (hindbrain)",
+     "Pineal gland (epithalamus)",
+     "Broca's area (frontal lobe)"
+    ],
+    "why": "The limbic system is the emotional brain, and its amygdala links to the hypothalamus for stress and fear. The cerebellum coordinates movement; the pineal gland makes melatonin.",
+    "step": 2
+   },
+   {
+    "q": "Her slides call one structure the 'boss' of the autonomic nervous system. Which?",
+    "a": "Hypothalamus",
+    "d": [
+     "Thalamus",
+     "Cerebellum",
+     "Pons"
+    ],
+    "why": "Her NS3 deck: the hypothalamus is the boss of the ANS and controls the medullary centres. The thalamus is only the sensory relay station.",
+    "step": 3
+   },
+   {
+    "q": "Where is the cardioacceleratory centre that speeds up the heart?",
+    "a": "Medulla oblongata",
+    "d": [
+     "Hypothalamus",
+     "Cerebellum",
+     "Midbrain"
+    ],
+    "why": "Her NS3 deck lists the cardioacceleratory and cardioinhibitory centres (heart rate) in the medulla oblongata of the brainstem. The hypothalamus controls them from above.",
+    "step": 3
+   },
+   {
+    "q": "Which division of the nervous system carries the 'speed up' signal to the heart?",
+    "a": "Sympathetic",
+    "d": [
+     "Parasympathetic",
+     "Somatic",
+     "Sensory"
+    ],
+    "why": "Sympathetic = fight-or-flight: it raises heart rate. Parasympathetic fibres (vagus) SLOW the heart. Somatic motor neurons only supply skeletal muscle.",
+    "step": 4
+   },
+   {
+    "q": "Which neurotransmitter do the sympathetic nerves release onto the heart?",
+    "a": "Norepinephrine",
+    "d": [
+     "Acetylcholine",
+     "Dopamine",
+     "Serotonin"
+    ],
+    "why": "Her NS3 slide 33: sympathetic fibres release norepinephrine (NE). Parasympathetic fibres release acetylcholine (ACh).",
+    "step": 4
+   },
+   {
+    "q": "How many motor neurons link the spinal cord to the heart in this autonomic pathway?",
+    "a": "Two: pre- and postganglionic",
+    "d": [
+     "One: a single motor neuron",
+     "Three: with an interneuron",
+     "Four: two per ganglion"
+    ],
+    "why": "The ANS is a two-neuron pathway: a preganglionic fibre to a ganglion, then a postganglionic fibre to the organ. A somatic motor pathway uses just one neuron.",
+    "step": 4
+   },
+   {
+    "q": "In the heart-racing reflex, what is the EFFECTOR?",
+    "a": "Cardiac muscle of the heart",
+    "d": [
+     "Skeletal muscle of the legs",
+     "Smooth muscle of the iris",
+     "Cortex of the adrenal gland"
+    ],
+    "why": "The effector is whatever responds, and here the heart speeds up, so it is cardiac muscle. Running away would be a separate, voluntary action by skeletal muscle.",
+    "step": 5
+   },
+   {
+    "q": "Why is this an AUTONOMIC reflex and not a somatic one?",
+    "a": "The effector is cardiac muscle, not skeletal",
+    "d": [
+     "The receptor is in the eye, not the skin",
+     "The brain is involved, not the spinal cord",
+     "The response is slow, not rapid"
+    ],
+    "why": "The effector decides the type. Somatic reflexes act on skeletal muscle; autonomic (visceral) reflexes act on smooth muscle, cardiac muscle or glands. Plenty of somatic reflexes run through the brain, e.g. blinking.",
+    "step": 5
+   },
+   {
+    "q": "Which other change belongs to this same sympathetic response?",
+    "a": "Pupils dilate",
+    "d": [
+     "Pupils constrict",
+     "Heart rate slows",
+     "Digestion speeds up"
+    ],
+    "why": "Her NS3 slide 34, a person who is threatened: heart rate rises, breathing is rapid and deep, skin is cold and sweaty, pupils dilate. The other three are parasympathetic effects.",
+    "step": 5
+   }
+  ],
+  "traps": [
+   "Optic nerve (II) = SENSORY. Do not confuse it with the oculomotor nerve (III), which moves the eye.",
+   "SYMPATHETIC speeds the heart. The parasympathetic (vagus) SLOWS it; naming the vagus here loses the mark.",
+   "Say CARDIAC MUSCLE for the effector, and say why that makes it an AUTONOMIC reflex: the effector decides the type."
+  ],
+  "src": "Her 2026 NS3 deck: slide 27 (the five components), slide 30 (visceral/autonomic reflexes regulate smooth and cardiac muscle), slides 32–34 (ANS two-neuron pathway, NE, 'a person who is threatened'), slide 38 (medulla cardioacceleratory centre; hypothalamus is the boss of the ANS); NS2 slide 23 notes (amygdala to hypothalamus: stress and fear)."
+ },
+ {
+  "id": "calcium-low",
+  "sys": "endo",
+  "star": true,
+  "title": "Low blood calcium — homeostasis (PTH)",
+  "marks": 5,
+  "ask": "Explain how the body restores homeostasis when the blood calcium level falls too low. Include the gland, the hormone and its target cells/organs, and how the response is switched off. (5 marks)",
+  "hook": "PTH = Put The calcium Here (in the blood): Bone (osteoCLasts CLear bone), Kidneys (keep it), Gut (grab it). CalciTONin TONes it down: osteoBlasts Build it back into bone.",
+  "steps": [
+   "**Stimulus**: blood **Ca²⁺ falls** below normal. This is a **humoral** stimulus (a chemical in the blood).",
+   "The **chief cells** of the **parathyroid glands** (4 tiny glands on the posterior thyroid) detect it and secrete **parathyroid hormone (PTH)** into the blood.",
+   "**Bone**: PTH stimulates **osteoclasts** to digest (resorb) bone matrix, releasing **Ca²⁺ into the blood**.",
+   "**Kidneys**: PTH makes the kidneys **reabsorb more Ca²⁺** (less is lost in urine) and activate vitamin D as **calcitriol**.",
+   "**Intestine**: more Ca²⁺ is **absorbed from food** by the intestinal mucosal cells.",
+   "**Negative feedback**: blood Ca²⁺ rises back to normal, and the rising Ca²⁺ **inhibits further PTH release**.",
+   "**The opposite arm**: HIGH blood Ca²⁺ makes the **parafollicular (C) cells of the thyroid** release **calcitonin**, which inhibits osteoclasts so **osteoblasts** deposit Ca²⁺ in bone. Calcitonin is PTH's **antagonist**."
+  ],
+  "order": true,
+  "mcq": [
+   {
+    "q": "What kind of stimulus is a fall in blood calcium?",
+    "a": "Humoral",
+    "d": [
+     "Neural",
+     "Hormonal",
+     "Enzymatic"
+    ],
+    "why": "Humoral = a chemical level in the blood acts directly on the gland. 'Enzymatic' is her standing trap: there is no fourth type of stimulus.",
+    "step": 0
+   },
+   {
+    "q": "Why does the body defend BLOOD calcium, even at the cost of bone?",
+    "a": "Nerve conduction, muscle contraction and heart rhythm need it",
+    "d": [
+     "It is the main buffer that keeps blood pH stable",
+     "It carries oxygen inside the red blood cells",
+     "It is the main fuel that cells turn into ATP"
+    ],
+    "why": "Her helpline: the body prioritises blood calcium because nervous conduction, muscle contraction and heart rhythm depend on it.",
+    "step": 0
+   },
+   {
+    "q": "Which cells detect the low Ca²⁺ and release the calcium-raising hormone?",
+    "a": "Chief cells of the parathyroid glands",
+    "d": [
+     "Parafollicular cells of the thyroid",
+     "Follicular cells of the thyroid",
+     "Alpha cells of the pancreatic islets"
+    ],
+    "why": "Her Endocrine 2 slide 12: PTH is secreted by the chief cells. Parafollicular cells make calcitonin, the opposite hormone.",
+    "step": 1
+   },
+   {
+    "q": "Where are the parathyroid glands?",
+    "a": "Posterior surface of the thyroid",
+    "d": [
+     "Anterior surface of the thyroid",
+     "On top of each kidney",
+     "Below the hypothalamus"
+    ],
+    "why": "Four tiny glands embedded in the back (posterior) of the thyroid. On top of the kidneys are the adrenals; below the hypothalamus is the pituitary.",
+    "step": 1
+   },
+   {
+    "q": "Which bone cells does PTH stimulate to raise blood Ca²⁺?",
+    "a": "Osteoclasts",
+    "d": [
+     "Osteoblasts",
+     "Osteocytes",
+     "Chondrocytes"
+    ],
+    "why": "OsteoCLasts CLear bone: they digest matrix and free its calcium. OsteoBlasts Build bone, which LOWERS blood calcium.",
+    "step": 2
+   },
+   {
+    "q": "What do osteoclasts do when PTH stimulates them?",
+    "a": "Digest bone matrix, freeing Ca²⁺",
+    "d": [
+     "Deposit Ca²⁺ into bone matrix",
+     "Secrete new osteoid on bone",
+     "Build a hyaline cartilage model"
+    ],
+    "why": "Resorption means breaking bone down so its stored Ca²⁺ goes into the blood. Depositing calcium and laying osteoid is osteoblast work.",
+    "step": 2
+   },
+   {
+    "q": "What does PTH do at the kidneys?",
+    "a": "Increases Ca²⁺ reabsorption",
+    "d": [
+     "Increases Ca²⁺ excretion",
+     "Increases glucose reabsorption",
+     "Decreases water reabsorption"
+    ],
+    "why": "PTH makes the kidneys keep calcium, so less leaves in the urine, and they activate vitamin D.",
+    "step": 3
+   },
+   {
+    "q": "PTH makes the kidneys activate vitamin D. What is active vitamin D called?",
+    "a": "Calcitriol",
+    "d": [
+     "Calcitonin",
+     "Cortisol",
+     "Thyroxine"
+    ],
+    "why": "Calcitriol (active vitamin D) helps RAISE blood calcium through the gut. Calcitonin sounds alike but LOWERS it.",
+    "step": 3
+   },
+   {
+    "q": "Which THREE targets does PTH act on, directly or through calcitriol?",
+    "a": "Bone, kidneys and intestine",
+    "d": [
+     "Bone, liver and muscle",
+     "Kidneys, heart and lungs",
+     "Thyroid, liver and bone"
+    ],
+    "why": "Her slide 13 lists the three: osteoclasts in bone, reabsorption in the kidneys, absorption by the intestinal mucosa.",
+    "step": 4
+   },
+   {
+    "q": "What switches PTH secretion off again?",
+    "a": "Rising blood Ca²⁺ (negative feedback)",
+    "d": [
+     "Falling blood Ca²⁺ (positive feedback)",
+     "Rising blood glucose (humoral)",
+     "TSH from the anterior pituitary"
+    ],
+    "why": "Her slide 12: rising blood Ca²⁺ inhibits PTH release and low Ca²⁺ stimulates it. The response removes its own stimulus, which is negative feedback.",
+    "step": 5
+   },
+   {
+    "q": "Which hormone LOWERS blood calcium?",
+    "a": "Calcitonin",
+    "d": [
+     "Parathyroid hormone",
+     "Calcitriol",
+     "Aldosterone"
+    ],
+    "why": "Calcitonin is the antagonist of PTH: it moves calcium from the blood into bone. PTH and calcitriol both raise blood calcium.",
+    "step": 6
+   },
+   {
+    "q": "Calcitonin is released by which cells?",
+    "a": "Parafollicular (C) cells of the thyroid",
+    "d": [
+     "Chief cells of the parathyroid glands",
+     "Follicular cells of the thyroid",
+     "Beta cells of the pancreatic islets"
+    ],
+    "why": "Her deck: parafollicular cells produce calcitonin, while the thyroid follicles make T3/T4. Chief cells make PTH.",
+    "step": 6
+   },
+   {
+    "q": "Calcitonin lowers blood Ca²⁺ mainly by…",
+    "a": "Inhibiting osteoclasts so Ca²⁺ stays in bone",
+    "d": [
+     "Stimulating osteoclasts to resorb bone",
+     "Raising Ca²⁺ absorption from the gut",
+     "Raising Ca²⁺ reabsorption in kidneys"
+    ],
+    "why": "Her deck: calcitonin targets the skeleton, inhibits osteoclast activity and stimulates calcium deposition into bone matrix.",
+    "step": 6
+   },
+   {
+    "q": "A 65-year-old has had low blood calcium for years. What is happening to her bones?",
+    "a": "Resorbed to keep blood Ca²⁺ up: osteoporosis",
+    "d": [
+     "Built up by osteoblasts: denser bone",
+     "Softened by growth hormone: gigantism",
+     "Kept flexible: greenstick fractures"
+    ],
+    "why": "Her car-accident case: PTH keeps pulling calcium out of bone, so density falls (osteopenia, then osteoporosis) and bones break easily and heal slowly.",
+    "step": 2
+   }
+  ],
+  "traps": [
+   "Name the CELLS: chief cells of the parathyroid (PTH) and parafollicular cells of the thyroid (calcitonin). 'The thyroid makes PTH' is wrong.",
+   "OsteoCLasts CLear bone (blood Ca²⁺ goes UP); osteoBlasts Build bone (blood Ca²⁺ goes DOWN). Swapping them loses the mark.",
+   "Calcitriol (active vitamin D, raises Ca²⁺) is not calcitonin (lowers Ca²⁺)."
+  ],
+  "src": "Her 2026 Endocrine 2 deck: slide 12 (PTH, chief cells, 4 glands on the posterior thyroid, negative feedback, humoral stimulus), slide 13 (the three PTH functions), the calcitonin slides (parafollicular cells, antagonist to PTH, inhibits osteoclasts); her helpline BLOOD CALCIUM and calcium-table answers; her Practice SAQ page.",
+  "same": [
+   [
+    2,
+    3,
+    4
+   ]
+  ]
+ },
+ {
+  "id": "neuroglia",
+  "sys": "ns",
+  "star": true,
+  "title": "Neuroglia — name 2 and how they protect the CNS",
+  "marks": 4,
+  "ask": "Name TWO neuroglial cells of the central nervous system and explain how each one protects the CNS. (4 marks)",
+  "hook": "CNS glia = A MOE: Astrocytes (BBB), Microglia (eat germs), Oligodendrocytes (myelin), Ependymal (CSF). PNS glia both start with S (Schwann, Satellite), and S stays Outside.",
+  "steps": [
+   "**Astrocytes** (star-shaped): wrap the brain's capillaries to maintain the **blood-brain barrier (BBB)**, blocking **toxins, pathogens and large molecules** in the blood from reaching the neurons (chemical protection).",
+   "**Microglia**: the CNS's **immune defence cells**. They **phagocytose** (engulf and digest) bacteria, viruses, dead cells and foreign material.",
+   "**Ependymal cells**: ciliated cells **lining the ventricles**. In the **choroid plexuses** they **produce CSF**, and their cilia keep it moving. CSF cushions the brain against physical shock.",
+   "**Oligodendrocytes**: wrap CNS axons in **myelin**, an insulating layer that **protects the axons** and allows fast **saltatory conduction** (node of Ranvier to node) without short-circuiting.",
+   "**Not CNS**: **Schwann cells** (myelin in the PNS) and **satellite cells** (around neuron cell bodies in PNS ganglia) earn nothing in a CNS question. The safest pair to write is **astrocytes + microglia**."
+  ],
+  "order": false,
+  "mcq": [
+   {
+    "q": "Which glial cell maintains the blood-brain barrier?",
+    "a": "Astrocytes",
+    "d": [
+     "Microglia",
+     "Ependymal cells",
+     "Schwann cells"
+    ],
+    "why": "Her helpline: star-shaped astrocytes maintain the BBB, wrapped around the capillaries to keep the seal tight.",
+    "step": 0
+   },
+   {
+    "q": "How do astrocytes protect the neurons?",
+    "a": "They seal capillaries against toxins and pathogens",
+    "d": [
+     "They engulf bacteria and dead cell debris",
+     "They wrap axons in an insulating myelin layer",
+     "They line the ventricles and move the CSF"
+    ],
+    "why": "Astrocytes give chemical protection by keeping the BBB tight. Each wrong option is another glial cell's job: microglia, oligodendrocytes, ependymal cells.",
+    "step": 0
+   },
+   {
+    "q": "Which CNS glial cell is the brain's immune defence?",
+    "a": "Microglia",
+    "d": [
+     "Astrocytes",
+     "Oligodendrocytes",
+     "Satellite cells"
+    ],
+    "why": "Microglia are the CNS's own phagocytes. The brain sits behind the BBB, so it needs its own immune cells.",
+    "step": 1
+   },
+   {
+    "q": "What do microglia do to protect the CNS?",
+    "a": "Phagocytose bacteria, viruses and debris",
+    "d": [
+     "Keep the blood-brain barrier sealed",
+     "Form myelin around CNS axons",
+     "Produce CSF in the choroid plexus"
+    ],
+    "why": "Microglia engulf (phagocytose) invaders and dead cells. Sealing the BBB is astrocyte work; myelin is oligodendrocyte work.",
+    "step": 1
+   },
+   {
+    "q": "Which glial cells line the ventricles and make CSF?",
+    "a": "Ependymal cells",
+    "d": [
+     "Astrocytes",
+     "Microglia",
+     "Satellite cells"
+    ],
+    "why": "Ependymal cells are ciliated and line the ventricles; specialised ones in the choroid plexuses produce CSF.",
+    "step": 2
+   },
+   {
+    "q": "How does the CSF made by ependymal cells protect the brain?",
+    "a": "Cushions it and flushes away waste",
+    "d": [
+     "Kills bacteria that cross the BBB",
+     "Insulates axons for faster signals",
+     "Seals capillaries against toxins"
+    ],
+    "why": "CSF is a shock absorber (the brain floats in it) and it rinses waste away. Killing bacteria is microglia; insulation is myelin; sealing is astrocytes.",
+    "step": 2
+   },
+   {
+    "q": "Which cell forms myelin in the CNS?",
+    "a": "Oligodendrocytes",
+    "d": [
+     "Schwann cells",
+     "Astrocytes",
+     "Microglia"
+    ],
+    "why": "CNS myelin comes from oligodendrocytes and PNS myelin from Schwann cells. Her Practice SAQ asks exactly this contrast.",
+    "step": 3
+   },
+   {
+    "q": "Myelin speeds conduction because the impulse jumps between the…",
+    "a": "Nodes of Ranvier",
+    "d": [
+     "Synaptic clefts",
+     "Dendritic spines",
+     "Axon terminals"
+    ],
+    "why": "Saltatory conduction: the impulse leaps from one node of Ranvier (a gap in the myelin) to the next.",
+    "step": 3
+   },
+   {
+    "q": "A question asks you to name CNS neuroglia. Which answer earns NO mark?",
+    "a": "Schwann cells",
+    "d": [
+     "Astrocytes",
+     "Microglia",
+     "Ependymal cells"
+    ],
+    "why": "Schwann cells are PNS glia. The CNS four are astrocytes, microglia, ependymal cells and oligodendrocytes.",
+    "step": 4
+   },
+   {
+    "q": "Where are satellite cells found?",
+    "a": "Around cell bodies in PNS ganglia",
+    "d": [
+     "Around capillaries in the brain",
+     "Lining the ventricles of the brain",
+     "Around axons in the spinal cord"
+    ],
+    "why": "Satellite cells surround neuron cell bodies in the PNS ganglia. They are PNS glia, so they are not an answer for the CNS.",
+    "step": 4
+   }
+  ],
+  "traps": [
+   "Schwann cells and satellite cells are PNS glia, so they earn no marks in a CNS question.",
+   "Microglia are ONE type of neuroglia; 'glia' covers all the support cells. Write two DIFFERENT cells.",
+   "A name alone is half the marks. Give each cell AND its protective job (e.g. astrocytes: keep the BBB tight)."
+  ],
+  "src": "Her helpline BRAIN & SPINAL CORD PROTECTION answers (astrocytes, microglia, ependymal cells, oligodendrocytes, Schwann cells, satellite cells, in her wording); her Practice SAQ page ('What cells form myelin in the CNS and what cells form myelin in the PNS?')."
+ },
+ {
+  "id": "reflex-arc",
+  "sys": "ns",
+  "star": false,
+  "title": "The reflex arc — 5 parts, somatic vs autonomic",
+  "marks": 5,
+  "ask": "Describe the five components of a reflex arc. Then explain the difference between a somatic and an autonomic reflex, giving an example of each with its receptor and effector. (5 marks)",
+  "hook": "Real Sheep In My Engine: Receptor, Sensory, Integration, Motor, Effector. Skeletal muscle = somatic; smooth muscle, cardiac muscle or gland = autonomic.",
+  "steps": [
+   "**Receptor**: the site of the stimulus, which detects the change (e.g. **nociceptors** for pain, **proprioceptors** for stretch).",
+   "**Sensory (afferent) neuron**: carries the impulse **to the CNS**.",
+   "**Integration centre**: inside the **CNS** (spinal cord or brainstem), monosynaptic or polysynaptic through an **interneuron**. It is hard-wired, so no conscious thought is needed.",
+   "**Motor (efferent) neuron**: carries the impulse **away from the CNS** to the effector.",
+   "**Effector**: the **muscle or gland** that responds with a rapid, predictable, **involuntary** response.",
+   "**Somatic reflex**: the effector is **skeletal muscle**, e.g. the **withdrawal reflex** (nociceptors) or the **stretch / knee-jerk reflex** (proprioceptors).",
+   "**Autonomic (visceral) reflex**: the effector is **smooth muscle, cardiac muscle or a gland**, e.g. the **pupillary light reflex** (smooth muscle of the iris) or the heart speeding up."
+  ],
+  "order": true,
+  "mcq": [
+   {
+    "q": "What is the FIRST component of every reflex arc?",
+    "a": "Receptor",
+    "d": [
+     "Effector",
+     "Interneuron",
+     "Motor neuron"
+    ],
+    "why": "The order is receptor, sensory neuron, integration centre, motor neuron, effector. Nothing happens until a receptor detects the stimulus.",
+    "step": 0
+   },
+   {
+    "q": "Which receptors start the withdrawal reflex?",
+    "a": "Nociceptors",
+    "d": [
+     "Proprioceptors",
+     "Photoreceptors",
+     "Baroreceptors"
+    ],
+    "why": "Her NS3 slide 28: withdrawal reflex, RECEPTORS = NOCICEPTORS (pain). Proprioceptors belong to the stretch reflex.",
+    "step": 5
+   },
+   {
+    "q": "Which receptors start the stretch (knee-jerk) reflex?",
+    "a": "Proprioceptors",
+    "d": [
+     "Nociceptors",
+     "Baroreceptors",
+     "Chemoreceptors"
+    ],
+    "why": "Her NS3 slide 29: stretch reflex, RECEPTORS = PROPRIOCEPTORS, which sense the muscle being stretched.",
+    "step": 5
+   },
+   {
+    "q": "Which neuron carries the impulse TOWARDS the CNS?",
+    "a": "Sensory (afferent) neuron",
+    "d": [
+     "Motor (efferent) neuron",
+     "Interneuron (association)",
+     "Postganglionic neuron"
+    ],
+    "why": "Afferent = arrives at the CNS. Efferent = exits the CNS towards the effector.",
+    "step": 1
+   },
+   {
+    "q": "In a spinal reflex, where does integration happen?",
+    "a": "Grey matter of the spinal cord",
+    "d": [
+     "White matter of the spinal cord",
+     "Primary motor cortex",
+     "The effector muscle itself"
+    ],
+    "why": "The interneurons and cell bodies are in the grey matter (the butterfly). White matter is the axon tracts carrying signals up and down.",
+    "step": 2
+   },
+   {
+    "q": "Why does a reflex not need conscious thought?",
+    "a": "It is hard-wired in the spinal cord by interneurons",
+    "d": [
+     "The cortex makes the decision very quickly",
+     "The effector reacts without any neurons",
+     "Hormones carry the message to the muscle"
+    ],
+    "why": "Her learning page: the response is the same every time, so it is hard-wired into the spinal cord with interneurons and the brain is not needed to decide.",
+    "step": 2
+   },
+   {
+    "q": "Which component carries efferent impulses to the effector organ?",
+    "a": "Motor neuron",
+    "d": [
+     "Sensory neuron",
+     "Receptor",
+     "Interneuron"
+    ],
+    "why": "Her slide 27: the motor neuron conducts efferent impulses from the integration centre to the effector organ.",
+    "step": 3
+   },
+   {
+    "q": "In the knee-jerk reflex, what is the effector?",
+    "a": "Quadriceps (skeletal muscle)",
+    "d": [
+     "Hamstrings (skeletal muscle)",
+     "Patellar tendon (receptor)",
+     "Femoral nerve (motor)"
+    ],
+    "why": "Tapping the patellar tendon stretches the quadriceps, which contracts and kicks the leg out. The effector is the muscle that responds.",
+    "step": 4
+   },
+   {
+    "q": "Which reflex is SOMATIC?",
+    "a": "Withdrawal reflex",
+    "d": [
+     "Pupillary reflex",
+     "Baroreceptor reflex",
+     "Micturition reflex"
+    ],
+    "why": "Somatic = skeletal muscle: pulling your hand off a hot pan. The other three act on smooth or cardiac muscle, so they are autonomic (her slide 30).",
+    "step": 5
+   },
+   {
+    "q": "Which reflex is AUTONOMIC (visceral)?",
+    "a": "Micturition reflex",
+    "d": [
+     "Patellar reflex",
+     "Withdrawal reflex",
+     "Plantar reflex"
+    ],
+    "why": "Her slide 30: visceral reflexes regulate smooth and cardiac muscle and glands, e.g. micturition, defaecation, pupillary light and baroreceptor reflexes.",
+    "step": 6
+   },
+   {
+    "q": "The pupillary light reflex is autonomic because its effector is the…",
+    "a": "Smooth muscle of the iris",
+    "d": [
+     "Skeletal muscle of the eyelid",
+     "Photoreceptors of the retina",
+     "Cardiac muscle of the heart"
+    ],
+    "why": "The iris muscles are smooth muscle, and smooth muscle means an autonomic reflex. Photoreceptors are the receptor, not the effector.",
+    "step": 6
+   }
+  ],
+  "traps": [
+   "The interneuron IS the integration centre in a spinal reflex. Write both: 'integration centre (interneuron) in the spinal cord'.",
+   "Receptor detects; effector responds. Keep them apart.",
+   "The EFFECTOR decides the type: skeletal muscle = somatic; smooth muscle, cardiac muscle or gland = autonomic."
+  ],
+  "src": "Her 2026 NS3 deck slides 26–30 (definition, five components, somatic withdrawal/stretch reflexes with their receptors, visceral reflexes); her 'Spinal Nerves and the Reflex Arc' learning page; her Practice SAQ page ('Describe the 5 steps of a reflex arc (2.5 marks)'; the receptors of the withdrawal and stretch reflexes).",
+  "same": [
+   [
+    5,
+    6
+   ]
+  ]
+ }
+]
