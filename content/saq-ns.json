@@ -1,0 +1,657 @@
+[
+ {
+  "id": "synapse",
+  "sys": "ns",
+  "title": "Synaptic transmission",
+  "marks": 5,
+  "ask": "Describe the structures and explain the steps involved in the process of synaptic transmission. (5 marks)",
+  "hook": "AP arrives → Ca²⁺ IN → vesicles FUSE → EXOCYTOSIS → DIFFUSE across → BIND receptors → CLEAR the cleft. Electrical → chemical → electrical.",
+  "steps": [
+   "An **action potential** (electrical impulse) arrives at the **axon terminal** (the presynaptic terminal).",
+   "**Voltage-gated Ca²⁺ channels** open and **Ca²⁺ flows in** along its concentration gradient by **facilitated diffusion**.",
+   "The Ca²⁺ triggers the **synaptic vesicles** (full of neurotransmitter) to move to and **fuse with the presynaptic membrane**.",
+   "**Neurotransmitter** is released into the **synaptic cleft** by **exocytosis**.",
+   "It crosses the cleft by **simple diffusion** and **binds to receptors on the postsynaptic membrane**.",
+   "Ion channels in the postsynaptic cell open and it is **excited or inhibited**: the chemical message is turned back into an **electrical** signal.",
+   "The signal ends: the neurotransmitter is **broken down by enzymes**, taken back by **reuptake**, or diffuses away (glial uptake)."
+  ],
+  "order": true,
+  "mcq": [
+   {
+    "q": "The action potential reaches the axon terminal. Which channels open next?",
+    "a": "Voltage-gated Ca²⁺ channels",
+    "d": [
+     "Ligand-gated Na⁺ channels",
+     "Ligand-gated Cl⁻ channels",
+     "Leak K⁺ channels"
+    ],
+    "why": "Her helpline step 2: voltage-gated Ca²⁺ channels open. The calcium, not sodium, is what sets off release at the terminal.",
+    "step": 1
+   },
+   {
+    "q": "How does Ca²⁺ get into the axon terminal?",
+    "a": "Facilitated diffusion",
+    "d": [
+     "Exocytosis",
+     "Simple diffusion",
+     "Active transport"
+    ],
+    "why": "Her helpline: Ca²⁺ flows in along its concentration gradient through channel proteins, which is facilitated diffusion.",
+    "step": 1
+   },
+   {
+    "q": "What does the Ca²⁺ entering the terminal trigger?",
+    "a": "Vesicles fusing with the presynaptic membrane",
+    "d": [
+     "Receptors opening on the postsynaptic cell",
+     "Enzymes breaking down the transmitter",
+     "Myelin forming around the axon"
+    ],
+    "why": "Ca²⁺ makes the neurotransmitter-filled vesicles move to the presynaptic membrane and fuse with it.",
+    "step": 2
+   },
+   {
+    "q": "How is the neurotransmitter released into the cleft?",
+    "a": "Exocytosis",
+    "d": [
+     "Endocytosis",
+     "Facilitated diffusion",
+     "Osmosis"
+    ],
+    "why": "Her helpline: the vesicles fuse with the membrane and release their contents by exocytosis.",
+    "step": 3
+   },
+   {
+    "q": "How does the neurotransmitter cross the synaptic cleft?",
+    "a": "Simple diffusion",
+    "d": [
+     "Exocytosis",
+     "Active transport",
+     "Facilitated diffusion"
+    ],
+    "why": "Her helpline step 5: it crosses the cleft by simple diffusion, from high to low concentration, with no carrier.",
+    "step": 4
+   },
+   {
+    "q": "Where does the neurotransmitter bind to pass the message on?",
+    "a": "Receptors on the postsynaptic membrane",
+    "d": [
+     "Vesicles inside the presynaptic terminal",
+     "Channels in the myelin sheath",
+     "Pumps on the presynaptic axon"
+    ],
+    "why": "The receptors sit on the next cell's (postsynaptic) membrane, and binding opens its ion channels.",
+    "step": 4
+   },
+   {
+    "q": "At a chemical synapse, the signal changes form. Which order is right?",
+    "a": "Electrical → chemical → electrical",
+    "d": [
+     "Chemical → electrical → chemical",
+     "Electrical → electrical → chemical",
+     "Chemical → chemical → electrical"
+    ],
+    "why": "Her helpline: an electrical signal is converted into a chemical message and then turned back into a postsynaptic electrical signal.",
+    "step": 5
+   },
+   {
+    "q": "Which is NOT one of the ways the signal at a synapse is ended?",
+    "a": "Ca²⁺ re-entering the terminal",
+    "d": [
+     "Enzymes breaking down the transmitter",
+     "Reuptake into the presynaptic cell",
+     "Transmitter diffusing away"
+    ],
+    "why": "Her helpline step 7: the signal ends by reuptake, enzymatic breakdown, or diffusing away (glial uptake). Ca²⁺ entry STARTS release.",
+    "step": 6
+   },
+   {
+    "q": "Where does the action potential arrive to start synaptic transmission?",
+    "a": "Axon terminal",
+    "d": [
+     "Dendrite",
+     "Cell body",
+     "Node of Ranvier"
+    ],
+    "why": "The impulse travels down the axon to the axon (presynaptic) terminal, which faces the synaptic cleft.",
+    "step": 0
+   }
+  ],
+  "traps": [
+   "It is CALCIUM that rushes in at the terminal. Sodium is the action potential itself.",
+   "Name the transport processes, which her helpline marks in red: facilitated diffusion (Ca²⁺ in), exocytosis (release), simple diffusion (across the cleft).",
+   "Finish the story: the signal must END (enzyme breakdown, reuptake or diffusing away)."
+  ],
+  "src": "Her helpline NERVOUS CONDUCTION answers (the 7 numbered steps plus the transport processes); her Practice SAQ page ('Describe the structures and explain the steps involved in the process of synaptic transmission', 5 marks); her POSSIBLE SAQ list."
+ },
+ {
+  "id": "cns-protection",
+  "sys": "ns",
+  "title": "Protection of the brain and spinal cord",
+  "marks": 5,
+  "ask": "Describe how the brain and spinal cord are protected from mechanical and chemical harm. (5 marks)",
+  "hook": "Outside in: SKULL → MENINGES (Pia, Arachnoid, Dura from the brain out) → CSF cushion → BBB filter → GLIA guards. Mechanical = bone, meninges, CSF. Chemical = BBB.",
+  "steps": [
+   "**Bones**: the **cranial bones** (frontal, parietal, temporal, occipital), joined by immovable **fibrous joints**, form a hard container for the brain; the **vertebrae** form a canal around the **spinal cord**. Mechanical protection.",
+   "**Meninges** (from the brain out: **pia, arachnoid, dura mater**): the tough, double **dura mater** anchors the brain to the skull and its folds stop it moving; the **pia mater** seals the brain surface and carries its blood vessels.",
+   "**CSF** in the **subarachnoid space** is a **cushion and shock absorber**: the brain floats (its weight drops from about 1,400 g to 25–50 g), and CSF rinses away waste and brings nutrients.",
+   "**Blood-brain barrier (BBB)**: capillaries with **continuous endothelial walls**, sealed by **astrocytes** and pericytes, act as a **selective filter** that blocks toxins, pathogens and large or water-soluble molecules. This is the **chemical** protection.",
+   "The BBB still lets in what the brain needs: carriers bring in **glucose and amino acids**, and **lipid-soluble** molecules (O₂, CO₂, alcohol) diffuse straight across.",
+   "**Neuroglia**: **microglia** phagocytose invaders, **astrocytes** keep the BBB tight, **ependymal cells** make and move CSF, and **oligodendrocytes** wrap axons in protective myelin."
+  ],
+  "order": false,
+  "mcq": [
+   {
+    "q": "What kind of joints lock the cranial bones into a strong container?",
+    "a": "Fibrous (immovable) joints",
+    "d": [
+     "Synovial (freely movable) joints",
+     "Cartilaginous (slightly movable) joints",
+     "Pivot (rotating) joints"
+    ],
+    "why": "Her helpline: the cranial bones are connected by fibrous immovable joints, forming a strong container for the delicate brain.",
+    "step": 0
+   },
+   {
+    "q": "Which order of the meninges starts closest to the BRAIN?",
+    "a": "Pia, arachnoid, dura",
+    "d": [
+     "Dura, arachnoid, pia",
+     "Pia, dura, arachnoid",
+     "Arachnoid, pia, dura"
+    ],
+    "why": "Her quiz key: pia (on the brain), then arachnoid, then dura (against the skull).",
+    "step": 1
+   },
+   {
+    "q": "Which of the meninges is double?",
+    "a": "Dura mater",
+    "d": [
+     "Arachnoid mater",
+     "Pia mater",
+     "Epi mater"
+    ],
+    "why": "Her key: the dura mater is the tough double layer that anchors the brain to the skull. There is no 'epi mater'.",
+    "step": 1
+   },
+   {
+    "q": "In which space does CSF cushion the brain?",
+    "a": "Subarachnoid space",
+    "d": [
+     "Subdural space",
+     "Epidural space",
+     "Subpial space"
+    ],
+    "why": "Her list and helpline: the CSF cushion is in the subarachnoid space, between the arachnoid and pia mater.",
+    "step": 2
+   },
+   {
+    "q": "How does CSF protect the brain mechanically?",
+    "a": "It makes the brain float and absorbs jolts",
+    "d": [
+     "It seals capillaries against toxins",
+     "It engulfs bacteria that get in",
+     "It anchors the brain to the skull"
+    ],
+    "why": "Her helpline: buoyancy (the brain floats) and a mechanical shock absorber. Sealing capillaries is the BBB; anchoring is the dura.",
+    "step": 2
+   },
+   {
+    "q": "Which protection is CHEMICAL rather than mechanical?",
+    "a": "Blood-brain barrier",
+    "d": [
+     "Cranial bones",
+     "Dura mater",
+     "Vertebral column"
+    ],
+    "why": "Her list: the BBB gives chemical protection; the skull and the CSF cushion give mechanical protection.",
+    "step": 3
+   },
+   {
+    "q": "Which cells are NOT part of the blood-brain barrier?",
+    "a": "Oligodendrocytes",
+    "d": [
+     "Astrocytes",
+     "Pericytes",
+     "Endothelial cells"
+    ],
+    "why": "Her quiz key: oligodendrocytes are not part of the BBB. They make myelin. Endothelium, astrocytes and pericytes form the barrier.",
+    "step": 3
+   },
+   {
+    "q": "Why is the blood-brain barrier ineffective against alcohol?",
+    "a": "Alcohol is lipid soluble",
+    "d": [
+     "Alcohol is water soluble",
+     "Alcohol is a large molecule",
+     "Alcohol travels in blood cells"
+    ],
+    "why": "Her quiz key: lipid-soluble molecules diffuse straight through the phospholipid membranes of the barrier.",
+    "step": 4
+   },
+   {
+    "q": "Which glial cell defends the CNS by phagocytosis?",
+    "a": "Microglia",
+    "d": [
+     "Astrocytes",
+     "Ependymal cells",
+     "Oligodendrocytes"
+    ],
+    "why": "Microglia are the CNS immune cells. Astrocytes keep the BBB tight; ependymal cells make and move CSF.",
+    "step": 5
+   }
+  ],
+  "traps": [
+   "Say which kind of protection each gives: bones, meninges and CSF are MECHANICAL; the BBB is CHEMICAL.",
+   "Meninges from the brain out: Pia, Arachnoid, Dura. CSF sits in the SUBARACHNOID space.",
+   "The BBB does NOT stop lipid-soluble things like alcohol (her quiz keys this)."
+  ],
+  "src": "Her helpline BRAIN & SPINAL CORD PROTECTION answers (bones, meninges, BBB, neuroglia, CSF); her POSSIBLE SAQ list ('the BBB for chemical protection, the Skull and the CSF cushion in the subarachnoidal space for mechanical protection'); her Protection of the Nervous System quiz keys (meninges order, double dura, alcohol and the BBB, cells not in the BBB)."
+ },
+ {
+  "id": "csf",
+  "sys": "ns",
+  "title": "CSF: production to reabsorption",
+  "marks": 4,
+  "ask": "Describe the production, circulation and reabsorption of cerebrospinal fluid (CSF). (4 marks)",
+  "hook": "Made in the PLEXUS → LATERAL ventricles → THIRD → AQUEDUCT → FOURTH → out to the SUBARACHNOID space → drained by the arachnoid VILLI into the SINUS (a vein).",
+  "steps": [
+   "**Production**: the **choroid plexuses** (capillaries covered by specialised **ependymal cells**) in the **ventricles** make CSF from the blood.",
+   "CSF flows from the **lateral ventricles** through the **interventricular foramen** into the **third ventricle**.",
+   "It runs down the **cerebral aqueduct** into the **fourth ventricle** (the one nearest the cerebellum).",
+   "It leaves the fourth ventricle through the **apertures** into the **subarachnoid space** around the brain and spinal cord (and down the **central canal**).",
+   "**Reabsorption**: the **arachnoid villi (granulations)** absorb CSF into the **dural venous sinus** (the **superior sagittal sinus**), so it returns to the **blood**."
+  ],
+  "order": true,
+  "mcq": [
+   {
+    "q": "Which structures in the ventricles make CSF?",
+    "a": "Choroid plexuses",
+    "d": [
+     "Arachnoid villi",
+     "Dural sinuses",
+     "Apertures"
+    ],
+    "why": "Her quiz key: choroid plexuses make CSF, and arachnoidal villi absorb it into the sagittal sinus. Swapping the two is her trap.",
+    "step": 0
+   },
+   {
+    "q": "The choroid plexuses are capillaries covered by which modified cells?",
+    "a": "Ependymal cells",
+    "d": [
+     "Astrocytes",
+     "Schwann cells",
+     "Microglia"
+    ],
+    "why": "Her quiz: CSF is produced in the choroid plexuses, which are modified ependymal cells.",
+    "step": 0
+   },
+   {
+    "q": "CSF leaves the lateral ventricles. Where does it go next?",
+    "a": "Third ventricle",
+    "d": [
+     "Fourth ventricle",
+     "Cerebral aqueduct",
+     "Subarachnoid space"
+    ],
+    "why": "Lateral ventricles → interventricular foramen → third ventricle. The aqueduct comes after the third ventricle.",
+    "step": 1
+   },
+   {
+    "q": "Which channel links the third ventricle to the fourth?",
+    "a": "Cerebral aqueduct",
+    "d": [
+     "Interventricular foramen",
+     "Central canal",
+     "Arachnoid villus"
+    ],
+    "why": "The cerebral aqueduct runs through the midbrain from the third to the fourth ventricle.",
+    "step": 2
+   },
+   {
+    "q": "Which ventricle lies nearest the cerebellum?",
+    "a": "Fourth ventricle",
+    "d": [
+     "Third ventricle",
+     "Lateral ventricle",
+     "Second ventricle"
+    ],
+    "why": "Her quiz key: the ventricle nearest the cerebellum is the fourth ventricle.",
+    "step": 2
+   },
+   {
+    "q": "After the fourth ventricle, where does CSF circulate?",
+    "a": "Subarachnoid space",
+    "d": [
+     "Subdural space",
+     "Epidural space",
+     "Third ventricle"
+    ],
+    "why": "It passes through the apertures into the subarachnoid space around the brain and spinal cord.",
+    "step": 3
+   },
+   {
+    "q": "Which structures absorb CSF back into the blood?",
+    "a": "Arachnoid villi",
+    "d": [
+     "Choroid plexuses",
+     "Ependymal cilia",
+     "Pia mater vessels"
+    ],
+    "why": "Her quiz key: the arachnoidal villi absorb CSF into the sagittal sinus. Choroid plexuses MAKE it.",
+    "step": 4
+   },
+   {
+    "q": "The arachnoid villi drain CSF into a…",
+    "a": "Dural venous sinus",
+    "d": [
+     "Cerebral artery",
+     "Lymphatic duct",
+     "Lateral ventricle"
+    ],
+    "why": "Her list: '...blood in dural sinus (a vein)'. The superior sagittal sinus is a dural venous sinus.",
+    "step": 4
+   }
+  ],
+  "traps": [
+   "MADE by the choroid plexuses, DRAINED by the arachnoid villi. Her MCQ swaps them.",
+   "It drains into a VEIN (the dural / superior sagittal sinus), not an artery or the lymph.",
+   "The cerebral aqueduct joins the THIRD ventricle to the FOURTH."
+  ],
+  "src": "Her POSSIBLE SAQ list ('Choroid plexuses → … → blood in dural sinus (a vein)'); her quiz keys (choroid plexuses make CSF, arachnoidal villi absorb it into the sagittal sinus; the choroid plexuses are modified ependymal cells; the fourth ventricle is nearest the cerebellum); her helpline answer on ependymal cells and CSF."
+ },
+ {
+  "id": "brain-areas",
+  "sys": "ns",
+  "title": "Functional areas of the brain",
+  "marks": 5,
+  "ask": "A patient has a stroke and shows the symptoms described. Name the part of the brain affected and describe its function. (Her format: name the part, then its function. About 2 marks per region.)",
+  "hook": "Frontal = MOVE, THINK, SPEAK (Broca). Parietal = FEEL. Temporal = HEAR and UNDERSTAND (Wernicke). Occipital = SEE. Thalamus relays, hypothalamus runs the ANS, medulla keeps you alive, cerebellum keeps you steady.",
+  "steps": [
+   "**Frontal lobe**: **primary motor cortex** (**precentral gyrus**) for voluntary movement of the **opposite** side; **prefrontal cortex** for judgement, reasoning and personality; **Broca's area** for **producing speech**.",
+   "**Parietal lobe**: **somatosensory cortex** (**postcentral gyrus**) for touch, pain and temperature from the opposite side. **Temporal lobe**: **auditory cortex** and **Wernicke's area** (**understanding** language). **Occipital lobe**: **visual cortex**.",
+   "**Diencephalon**: the **thalamus** relays all ascending sensory tracts to the cortex; the **hypothalamus** controls the **ANS**, temperature, hunger and thirst, and the pituitary; the **pineal gland** (epithalamus) makes **melatonin** (sleep–wake).",
+   "**Brainstem**: **midbrain** (visual and auditory reflex centres; substantia nigra makes dopamine), **pons** (respiratory centres), **medulla oblongata** (vital **cardiac, respiratory and vasomotor centres**; the tracts cross over).",
+   "**Cerebellum**: coordinates smooth, precise movement, **balance / equilibrium**, muscle tone and posture. Damage looks clumsy, shaky or drunk."
+  ],
+  "order": false,
+  "mcq": [
+   {
+    "q": "After a stroke he understands everything but can only force out one or two words. Which area is damaged?",
+    "a": "Broca's area",
+    "d": [
+     "Wernicke's area",
+     "Occipital lobe",
+     "Cerebellum"
+    ],
+    "why": "Broca's area (frontal lobe) produces speech. Wernicke's area (temporal) is for UNDERSTANDING language.",
+    "step": 0
+   },
+   {
+    "q": "Her speech is fluent but makes no sense, and she cannot follow instructions. Which area?",
+    "a": "Wernicke's area",
+    "d": [
+     "Broca's area",
+     "Prefrontal cortex",
+     "Medulla oblongata"
+    ],
+    "why": "Wernicke's area in the temporal lobe is for understanding language. Her stroke matching question puts aphasia in the temporal lobe.",
+    "step": 1
+   },
+   {
+    "q": "A stroke leaves his LEFT arm paralysed. Where is the damage?",
+    "a": "Right motor cortex (precentral gyrus)",
+    "d": [
+     "Left motor cortex (precentral gyrus)",
+     "Right sensory cortex (postcentral gyrus)",
+     "Left sensory cortex (postcentral gyrus)"
+    ],
+    "why": "Her stroke matching key: paralysis of the left arm = the motor cortex of the RIGHT hemisphere. Motor control crosses over.",
+    "step": 0
+   },
+   {
+    "q": "She can't feel touch or pain on the right side of her body. Which area?",
+    "a": "Left sensory cortex (postcentral gyrus)",
+    "d": [
+     "Right sensory cortex (postcentral gyrus)",
+     "Left motor cortex (precentral gyrus)",
+     "Right motor cortex (precentral gyrus)"
+    ],
+    "why": "Sensation from the right side ends in the LEFT parietal lobe's somatosensory cortex, the postcentral gyrus.",
+    "step": 1
+   },
+   {
+    "q": "Clumsy, shaky and unable to control his movements smoothly. Which part?",
+    "a": "Cerebellum",
+    "d": [
+     "Thalamus",
+     "Pons",
+     "Occipital lobe"
+    ],
+    "why": "Her stroke key: clumsiness, shakiness and difficulty controlling muscles = a CVA in the cerebellum.",
+    "step": 4
+   },
+   {
+    "q": "Blurred vision or blindness although the eyes themselves are healthy. Which lobe?",
+    "a": "Occipital lobe",
+    "d": [
+     "Temporal lobe",
+     "Frontal lobe",
+     "Parietal lobe"
+    ],
+    "why": "The visual cortex is in the occipital lobe (her key also names the retina and optic nerve).",
+    "step": 1
+   },
+   {
+    "q": "Which part holds the vital centres for heart rate and breathing?",
+    "a": "Medulla oblongata",
+    "d": [
+     "Hypothalamus",
+     "Cerebellum",
+     "Thalamus"
+    ],
+    "why": "Her NS2 deck: the medullary nuclei are the centres that control vital functions, e.g. the cardiac and respiratory centres.",
+    "step": 3
+   },
+   {
+    "q": "All ascending sensory tracts relay here on the way to the cortex. Which part?",
+    "a": "Thalamus",
+    "d": [
+     "Hypothalamus",
+     "Pons",
+     "Pineal gland"
+    ],
+    "why": "Her deck: the thalamus is the gateway to the cerebral cortex, and all ascending sensory tracts relay there.",
+    "step": 2
+   },
+   {
+    "q": "Which part controls body temperature, hunger, thirst and the ANS?",
+    "a": "Hypothalamus",
+    "d": [
+     "Thalamus",
+     "Cerebellum",
+     "Midbrain"
+    ],
+    "why": "The hypothalamus sits below the thalamus and controls the autonomic nervous system (her 'boss' of the ANS).",
+    "step": 2
+   },
+   {
+    "q": "Personality change and poor judgement after an injury to the front of the head. Which area?",
+    "a": "Prefrontal cortex",
+    "d": [
+     "Wernicke's area",
+     "Visual cortex",
+     "Brainstem"
+    ],
+    "why": "Her deck: the prefrontal cortex (front of the frontal lobe) handles intellect, judgement, reasoning and personality.",
+    "step": 0
+   },
+   {
+    "q": "Which part secretes melatonin for the sleep–wake cycle?",
+    "a": "Pineal gland (epithalamus)",
+    "d": [
+     "Pituitary gland (hypophysis)",
+     "Thalamus (diencephalon)",
+     "Pons (brainstem)"
+    ],
+    "why": "Her deck: the epithalamus / pineal gland secretes melatonin, involved in sleep regulation and mood.",
+    "step": 2
+   }
+  ],
+  "traps": [
+   "Broca's = PRODUCING speech (frontal). Wernicke's = UNDERSTANDING language (temporal).",
+   "Precentral gyrus = MOTOR. Postcentral gyrus = SENSORY.",
+   "One-sided symptoms point to the OPPOSITE hemisphere: left arm weak means right motor cortex.",
+   "Answer shape she uses: from the symptoms, NAME the part, then give ITS FUNCTION."
+  ],
+  "src": "Her 2026 NS2 deck: slide 1 (four regions and their parts), slide 18 (functional areas of the cortex), slide 21 (functional regions figure), slide 23 (prefrontal cortex), slides 31–34 (diencephalon, brainstem, cerebellum); her Brain and Stroke matching question (symptom to part); her Endocrine 1 lecture ('you must say what part it is… and then the functions of that part')."
+ },
+ {
+  "id": "cranial-nerves",
+  "sys": "ns",
+  "title": "Functions of the cranial nerves",
+  "marks": 6,
+  "ask": "Name the twelve cranial nerves in order and give the function of each. (Her list says these come as multiple choice.)",
+  "hook": "Order: Oh Oh Oh To Touch And Feel Very Good Velvet, Ah Heaven (I–XII). Type: Some Say Marry Money But My Brother Says Big Brain Matters More (S = sensory, M = motor, B = both).",
+  "steps": [
+   "**I Olfactory**: smell (sensory). **II Optic**: vision (sensory).",
+   "**III Oculomotor**: motor to the **eye movements** (skeletal muscle) and the **pupil** (smooth muscle, **parasympathetic**, constricts it).",
+   "**IV Trochlear**: motor, **eye rolling**. **VI Abducens**: motor to the muscle that **abducts** the eye (turns it outward).",
+   "**V Trigeminal**: **motor to the jaws** (chewing) and **sensory from the face, jaws and teeth**, including pain.",
+   "**VII Facial**: motor to the **facial expression** muscles, **parasympathetic to the salivary glands**, and **taste** from the **anterior two-thirds** of the tongue.",
+   "**VIII Vestibulocochlear**: sensory from the **inner ear**, i.e. **hearing and balance**.",
+   "**IX Glossopharyngeal**: **taste** from the **posterior one-third** of the tongue; motor to the **swallowing** muscles and the **parotid** salivary gland.",
+   "**X Vagus**: **parasympathetic** to the lungs, digestive system and **heart** (slows it). **XI Accessory**: head and shoulder movement. **XII Hypoglossal**: **tongue** movements."
+  ],
+  "order": true,
+  "mcq": [
+   {
+    "q": "Which cranial nerve carries smell?",
+    "a": "I Olfactory",
+    "d": [
+     "II Optic",
+     "VIII Vestibulocochlear",
+     "V Trigeminal"
+    ],
+    "why": "Her list: I Olfactory, smell, sensory.",
+    "step": 0
+   },
+   {
+    "q": "Which cranial nerve carries vision?",
+    "a": "II Optic",
+    "d": [
+     "III Oculomotor",
+     "IV Trochlear",
+     "VI Abducens"
+    ],
+    "why": "II Optic = vision (sensory). III, IV and VI MOVE the eye.",
+    "step": 0
+   },
+   {
+    "q": "Which nerve constricts the pupil through parasympathetic fibres?",
+    "a": "III Oculomotor",
+    "d": [
+     "II Optic",
+     "V Trigeminal",
+     "VI Abducens"
+    ],
+    "why": "Her list: III Oculomotor moves the eye (skeletal muscle) and the pupil (smooth muscle, parasympathetic).",
+    "step": 1
+   },
+   {
+    "q": "Which nerve turns the eye outward?",
+    "a": "VI Abducens",
+    "d": [
+     "IV Trochlear",
+     "III Oculomotor",
+     "II Optic"
+    ],
+    "why": "Her list: VI Abducens, motor to the abducting eye muscle. Abduct = move away from the midline.",
+    "step": 2
+   },
+   {
+    "q": "Dental pain and chewing both travel in which nerve?",
+    "a": "V Trigeminal",
+    "d": [
+     "VII Facial",
+     "IX Glossopharyngeal",
+     "XII Hypoglossal"
+    ],
+    "why": "Her list: V Trigeminal, motor to the jaws and sensory to the face, jaws and teeth (including pain).",
+    "step": 3
+   },
+   {
+    "q": "Which nerve moves the muscles you smile and frown with?",
+    "a": "VII Facial",
+    "d": [
+     "V Trigeminal",
+     "XI Accessory",
+     "X Vagus"
+    ],
+    "why": "Her list: VII Facial, motor to the facial-expression skeletal muscles. The trigeminal does chewing, not expression.",
+    "step": 4
+   },
+   {
+    "q": "Taste from the ANTERIOR two-thirds of the tongue travels in which nerve?",
+    "a": "VII Facial",
+    "d": [
+     "IX Glossopharyngeal",
+     "X Vagus",
+     "XII Hypoglossal"
+    ],
+    "why": "Anterior two-thirds = VII Facial. Posterior one-third = IX Glossopharyngeal.",
+    "step": 4
+   },
+   {
+    "q": "Hearing and balance travel in which nerve?",
+    "a": "VIII Vestibulocochlear",
+    "d": [
+     "VII Facial",
+     "IX Glossopharyngeal",
+     "V Trigeminal"
+    ],
+    "why": "Her list: VIII Vestibulocochlear, sensory from the inner ear (cochlea = hearing, vestibule = balance).",
+    "step": 5
+   },
+   {
+    "q": "Taste from the POSTERIOR third of the tongue and swallowing: which nerve?",
+    "a": "IX Glossopharyngeal",
+    "d": [
+     "VII Facial",
+     "XII Hypoglossal",
+     "V Trigeminal"
+    ],
+    "why": "Her list: IX Glossopharyngeal, sensory from the posterior 1/3 of the tongue, motor to the swallowing muscles and the parotid gland.",
+    "step": 6
+   },
+   {
+    "q": "Which nerve's parasympathetic fibres slow the heart?",
+    "a": "X Vagus",
+    "d": [
+     "IX Glossopharyngeal",
+     "XI Accessory",
+     "III Oculomotor"
+    ],
+    "why": "Her list: X Vagus, parasympathetic to the smooth muscle of the lungs and digestive system and to the heart.",
+    "step": 7
+   },
+   {
+    "q": "Which nerve moves the tongue?",
+    "a": "XII Hypoglossal",
+    "d": [
+     "IX Glossopharyngeal",
+     "VII Facial",
+     "XI Accessory"
+    ],
+    "why": "Hypo-glossal = under the tongue: XII moves the tongue. IX carries taste from it but does not move it.",
+    "step": 7
+   }
+  ],
+  "traps": [
+   "Optic (II) SEES; oculomotor (III) MOVES the eye and constricts the pupil.",
+   "Taste: the anterior 2/3 is the facial nerve (VII); the posterior 1/3 is the glossopharyngeal (IX).",
+   "The vagus (X) is PARASYMPATHETIC: it slows the heart."
+  ],
+  "src": "Her POSSIBLE SAQ list (her cranial nerve function list, I–X, verbatim in meaning); her PNS quiz (her 'Some Say Marry Money…' mnemonic and XI Accessory / XII Hypoglossal); her 2026 NS3 deck cranial nerve slides."
+ }
+]

@@ -1,6 +1,7 @@
 /* saq.mjs — the SAQ Trainer's content, loaded and gated for build.mjs and resplice.mjs.
    content/saq-core.json  = the starred scenario/calcium/neuroglia items + the reflex arc
-   content/saq-drill.json = the rest of her "POSSIBLE SAQ IN TEST 2" list (authored, then an adversarial check)
+   content/saq-drill.json = MS + endocrine items from her "POSSIBLE SAQ IN TEST 2" list (drafted, then read against her material)
+   content/saq-ns.json    = the nervous-system items from the same list
    The page shows them in ORDER below: her own signals first (the tape, the helpline, her
    Practice SAQ page marks), then the ordering-only and multiple-choice ones she lists.
    Every gate is a hard failure: a drill question with its answer missing, a duplicate option,
@@ -15,7 +16,7 @@ const ORDER = ['reflex-threat', 'calcium-low', 'neuroglia', 'reflex-arc',
 
 export function loadSaq(HERE) {
   const read = f => { const p = path.join(HERE, 'content', f); return fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, 'utf8')) : []; };
-  const all = [...read('saq-core.json'), ...read('saq-drill.json')];
+  const all = [...read('saq-core.json'), ...read('saq-drill.json'), ...read('saq-ns.json')];
   const rank = id => { const i = ORDER.indexOf(id); return i < 0 ? ORDER.length : i; };
   all.sort((a, b) => rank(a.id) - rank(b.id));
   const fails = [], seen = new Set();
